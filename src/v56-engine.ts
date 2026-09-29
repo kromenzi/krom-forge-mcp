@@ -38,8 +38,15 @@ export function updateProviderCircuitBreaker(i:V56RuntimeInput){
   return{providers:i.providers.map(p=>{const total=p.failures+p.successes;const rate=total?p.failures/total:0;const circuit=p.failures>=3&&rate>=0.5?'OPEN':p.circuit==='OPEN'&&p.successes>0?'HALF_OPEN':p.circuit;return{id:p.id,circuit,failureRate:Number(rate.toFixed(3))}})};
 }
 export function selectFailoverProvider(i:V56RuntimeInput){
-  const states=new Map(updateProviderCircuitBreaker(i).providers.map(p=>[p.id,p.circuit]));const ranked=i.providers.filter(p=>p.available&&states.get(p.id)!=='OPEN').map(p=>({id:p.id,score:p.quality-p.cost-(Math.min(p.latencyMs,10000)/1000)-(p.failures*5)+(p.successes*2)})).sort((a,b)=>b.score-a.score);
-  return{selected:ranked[0]?.id??null,candidates:ranked.map(x=>({id:x.id,score:Number(x.score.toFixed(2))))};
+  const states=new Map(updateProviderCircuitBreaker(i).providers.map(p=>[p.id,p.circuit]));
+  const ranked=i.providers
+    .filter(p=>p.available&&states.get(p.id)!=='OPEN')
+    .map(p=>({id:p.id,score:p.quality-p.cost-(Math.min(p.latencyMs,10000)/1000)-(p.failures*5)+(p.successes*2)}))
+    .sort((a,b)=>b.score-a.score);
+  return{
+    selected:ranked[0]?.id??null,
+    candidates:ranked.map(x=>({id:x.id,score:Number(x.score.toFixed(2))}))
+  };
 }
 export function buildToolShadowEvaluation(i:V56RuntimeInput){
   return{shadowPairs:i.tools.filter(t=>!t.deprecated).slice(0,10).map((t,idx)=>({primary:t.name,shadow:i.tools.filter(x=>!x.deprecated&&x.domain===t.domain&&x.name!==t.name)[0]?.name??null,executeShadow:false,index:idx}))};
