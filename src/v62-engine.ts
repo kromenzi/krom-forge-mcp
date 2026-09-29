@@ -49,9 +49,7 @@ export function analyzeCounterfactualReleasesV62(i:V62DecisionInput){
   return{scenarios:i.scenarios.map(s=>({id:s.id,score:round(s.benefit-s.risk+s.verification*.4+(s.reversible?10:0)),releaseId:s.releaseId??null,simulationOnly:true})).sort((a,b)=>b.score-a.score)};
 }
 export function compareDecisionScenariosV62(i:V62DecisionInput){
-  const ranked=analyzeCounterfactualReleasesV62(i).scenarios;return{best:r
-
-anked[0]?.id??null,ranked,executed:false};
+  const ranked=analyzeCounterfactualReleasesV62(i).scenarios;return{best:ranked[0]?.id??null,ranked,executed:false};
 }
 export function compressDependencyRiskV62(i:V62DecisionInput){
   const nodes=uniq(i.dependencies.flatMap(d=>[d.from,d.to]));return{nodes:nodes.map(id=>{const incoming=i.dependencies.filter(d=>d.to===id);const outgoing=i.dependencies.filter(d=>d.from===id);const risk=Math.min(100,incoming.reduce((s,d)=>s+d.risk*.6,0)+outgoing.reduce((s,d)=>s+d.risk*.4,0));return{id,risk:round(risk),degree:incoming.length+outgoing.length};}).sort((a,b)=>b.risk-a.risk)};
