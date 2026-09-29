@@ -1,17 +1,18 @@
 {
   "name": "krom-forge-mcp",
-  "version": "55.0.0",
+  "version": "56.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "verify:mcp": "node scripts/verify-mcp-consistency.mjs",
     "verify:automation": "node scripts/verify-automation.mjs",
     "verify:v55": "tsx scripts/verify-v55-runtime.ts",
+    "verify:v56": "tsx scripts/verify-v56-runtime.ts",
     "manifest:mcp": "node scripts/generate-mcp-manifest.mjs",
     "test": "node scripts/run-tests.mjs",
     "typecheck": "tsc --noEmit",
     "audit:production": "npm audit --omit=dev --audit-level=high",
-    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run typecheck && npm test && npm run audit:production && npm run build",
+    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run verify:v56 && npm run typecheck && npm test && npm run audit:production && npm run build",
     "build": "next build",
     "start": "next start"
   },
