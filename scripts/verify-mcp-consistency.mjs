@@ -1,11 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { buildMcpManifest, validateMcpManifest, writeMcpManifest } from './mcp-manifest-lib.mjs';
 
 const root = process.cwd();
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
-const fail = (message) => {
-  console.error(`FAIL: ${message}`);
-  process.exitCode = 1;
+const failures = [];
+const fail = (message) => failures.push(message);
+const argument = (name) => {
+  const index = process.argv.indexOf(name);
+  return index === -1 ? undefined : process.argv[index + 1];
 };
 
 const route = read('app/mcp/route.ts');
@@ -13,29 +16,10 @@ const pkg = JSON.parse(read('package.json'));
 const lock = JSON.parse(read('package-lock.json'));
 const health = read('app/health/route.ts');
 const home = read('app/page.tsx');
+const manifest = buildMcpManifest({ root });
+const manifestValidation = validateMcpManifest(manifest);
 
-const registeredTools = [...route.matchAll(/server\.registerTool\(\s*['"]([^'"]+)['"]/g)].map((match) => match[1]);
-const capabilitiesMatch = route.match(/tools:\s*\[([\s\S]*?)\]\s*,\s*boundary:/);
-if (!capabilitiesMatch) fail('Could not find krom_get_capabilities tools array.');
-
-const capabilityTools = capabilitiesMatch
-  ? [...capabilitiesMatch[1].matchAll(/'([^']+)'/g)].map((match) => match[1])
-  : [];
-
-const unique = (items) => [...new Set(items)];
-const duplicates = (items) => unique(items.filter((item, index) => items.indexOf(item) !== index));
-
-const duplicateRegistrations = duplicates(registeredTools);
-const duplicateCapabilities = duplicates(capabilityTools);
-const missingCapabilities = unique(registeredTools).filter((tool) => !capabilityTools.includes(tool));
-const extraCapabilities = unique(capabilityTools).filter((tool) => !registeredTools.includes(tool));
-const invalidNames = unique(registeredTools).filter((tool) => !tool.startsWith('krom_'));
-
-if (duplicateRegistrations.length) fail(`Duplicate registered tools: ${duplicateRegistrations.join(', ')}`);
-if (duplicateCapabilities.length) fail(`Duplicate capability tools: ${duplicateCapabilities.join(', ')}`);
-if (missingCapabilities.length) fail(`Registered tools missing from capabilities: ${missingCapabilities.join(', ')}`);
-if (extraCapabilities.length) fail(`Capabilities missing registered tools: ${extraCapabilities.join(', ')}`);
-if (invalidNames.length) fail(`Unexpected tool names: ${invalidNames.join(', ')}`);
+for (const failure of manifestValidation.failures) fail(failure);
 
 if (lock.version !== pkg.version) fail(`package-lock root version ${lock.version} does not match package ${pkg.version}`);
 if (lock.packages?.['']?.version !== pkg.version) {
@@ -49,47 +33,51 @@ if (!route.includes('version: pkg.version')) fail('MCP capabilities version must
 if (!health.includes('version: pkg.version')) fail('/health version must derive from package.json.');
 if (!home.includes('Version {pkg.version}')) fail('Homepage version must derive from package.json.');
 
-if (!route.includes("from '../../src/mega-v48'")) fail('v48 module is not imported by the MCP route.');
-if (!registeredTools.includes('krom_build_assurance_verification_contract')) fail('v48 assurance tools are not registered.');
-if (!route.includes("from '../../src/mega-v49'")) fail('v49 module is not imported by the MCP route.');
+const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine'];
+const missingModules = requiredModules.filter((module) => !manifest.sourceModules.includes(module));
+if (missingModules.length) fail(`Required source modules missing from route: ${missingModules.join(', ')}`);
 
-const v49Tools = [
+const requiredLayerTools = [
+  'krom_build_assurance_verification_contract',
   'krom_build_release_provenance',
-  'krom_classify_adaptive_change_risk',
-  'krom_build_tool_contract_catalog',
-  'krom_audit_ci_run_binding',
-  'krom_build_recovery_rehearsal_plan',
-  'krom_compile_merge_policy'
+  'krom_compile_policy_set',
+  'krom_build_evidence_lineage',
+  'krom_optimize_verification_portfolio',
+  'krom_calculate_release_confidence',
+  'krom_build_incident_command_plan',
+  'krom_detect_breaking_compatibility_changes',
+  'krom_evaluate_agent_reliability',
+  'krom_build_continuous_improvement_backlog'
 ];
-const missingV49Layers = v49Tools.filter((tool) => !registeredTools.includes(tool));
-if (missingV49Layers.length) fail(`v49 layers are not fully registered: ${missingV49Layers.join(', ')}`);
-
-if (process.exitCode) {
-  process.exit(process.exitCode);
-}
+const registeredNames = new Set(manifest.tools.map((tool) => tool.name));
+const missingLayers = requiredLayerTools.filter((tool) => !registeredNames.has(tool));
+if (missingLayers.length) fail(`Required control layers are not registered: ${missingLayers.join(', ')}`);
 
 const report = {
-  status: 'PASS',
+  status: failures.length ? 'FAIL' : 'PASS',
   version: pkg.version,
-  registeredTools: unique(registeredTools).length,
-  capabilityTools: unique(capabilityTools).length,
-  duplicates: 0,
-  missingCapabilities: 0,
-  extraCapabilities: 0,
-  v49Layers: v49Tools.length
+  registeredTools: manifest.counts.registered,
+  capabilityTools: manifest.counts.capabilities,
+  sourceModules: manifest.counts.sourceModules,
+  duplicates: manifest.integrity.duplicateRegistrations.length + manifest.integrity.duplicateCapabilities.length,
+  missingCapabilities: manifest.integrity.missingCapabilities.length,
+  extraCapabilities: manifest.integrity.extraCapabilities.length,
+  metadataGaps: manifest.integrity.metadataGaps.length,
+  v50Systems: 8,
+  manifestFingerprint: manifest.fingerprint,
+  failures
 };
 
-const outputFlag = process.argv.indexOf('--output');
-if (outputFlag !== -1) {
-  const outputPath = process.argv[outputFlag + 1];
-  if (!outputPath) fail('--output requires a file path.');
-  if (outputPath) {
-    const absoluteOutput = path.resolve(root, outputPath);
-    fs.mkdirSync(path.dirname(absoluteOutput), { recursive: true });
-    fs.writeFileSync(absoluteOutput, `${JSON.stringify(report, null, 2)}\n`);
-  }
+const manifestOutput = argument('--manifest-output');
+if (manifestOutput) writeMcpManifest(manifest, manifestOutput, root);
+
+const output = argument('--output');
+if (output) {
+  const absolute = path.resolve(root, output);
+  fs.mkdirSync(path.dirname(absolute), { recursive: true });
+  fs.writeFileSync(absolute, `${JSON.stringify(report, null, 2)}\n`);
 }
 
-if (process.exitCode) process.exit(process.exitCode);
 console.log(JSON.stringify(report, null, 2));
+if (failures.length) process.exit(1);
 

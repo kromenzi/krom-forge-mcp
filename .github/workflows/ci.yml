@@ -14,11 +14,40 @@ on:
   push:
     branches:
       - main
-      - v49
+      - v50
 
 jobs:
+  contract:
+    name: Node ${{ matrix.node }} contract gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['20', '22']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify AST manifest and registry contracts
+        run: npm run verify:mcp
+
+      - name: Unit tests
+        run: npm test
+
   quality:
-    name: MCP quality gate
+    name: Production quality gate
+    needs: contract
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -36,13 +65,10 @@ jobs:
         run: npm ci
 
       - name: Verify MCP registration, capabilities and version consistency
-        run: npm run verify:mcp -- --output .artifacts/mcp-verification.json
+        run: npm run verify:mcp -- --output .artifacts/mcp-verification.json --manifest-output .artifacts/mcp-manifest.json
 
       - name: Type check
         run: npm run typecheck
-
-      - name: Unit tests
-        run: npm test
 
       - name: Production dependency audit
         run: npm run audit:production
@@ -54,7 +80,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v49-verification-${{ github.sha }}
+          name: krom-v50-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn

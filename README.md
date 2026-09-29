@@ -1,5 +1,11 @@
 # KROM Forge v28 — Coding & Patch Engine
 
+## v50 Engineering Operating System
+
+KROM Forge v50 adds policy-as-code, evidence lineage, verification portfolio optimization, release-confidence calibration, incident command, compatibility lifecycle management, agent reliability and continuous improvement. These systems turn the existing control planes into a connected operating model from policy and evidence through release, incident response and learning.
+
+The MCP registry is now inspected through the TypeScript AST. CI generates a deterministic manifest for every tool and verifies registration, metadata, capability parity and version integrity on Node 20 and Node 22 before the production build. See `BATCH-v50.md` for the architecture and evidence boundaries.
+
 ## v49 Release Integrity Mesh
 
 KROM Forge v49 adds commit-bound release provenance, risk-adaptive verification, MCP tool-contract assurance, CI run evidence validation, recovery rehearsal and merge-policy enforcement. These layers connect source identity to verified checks and approvals; a successful label without matching evidence cannot authorize release or merge.
