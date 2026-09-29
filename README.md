@@ -142,3 +142,8 @@ v44 adds planning intelligence, requirements traceability, architecture decision
 KROM Forge v45 introduces a mission-level orchestration surface above the existing intelligence engines. It can create resumable engineering missions, compile dependency-aware execution manifests, record host-authorized results, arbitrate blockers, aggregate cross-engine gates, verify delivery closure, and define post-deploy observation requirements.
 
 A mission is not complete because code was generated. Closure requires evidence proportional to the requested scope and deployment/runtime evidence when release is part of the mission.
+
+
+## v46 — Enterprise Command Intelligence
+
+KROM Forge v46 adds portfolio/program intelligence, CI/CD pipeline gates, engineering pre-mortem and failure prevention, engineering decision/risk command intelligence, and an Enterprise Command Gate above the v45 mission control plane. All consequential claims remain evidence-backed and all external mutation still requires host-authorized tools.
