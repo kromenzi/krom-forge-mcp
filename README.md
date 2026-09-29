@@ -154,3 +154,9 @@ KROM Forge v46 adds portfolio/program intelligence, CI/CD pipeline gates, engine
 KROM Forge v47 adds 48 integrated MCP capabilities across semantic intent routing, evidence freshness and invalidation, unified change-impact reverification, reusable workflow templates, enterprise audit packaging, release-train orchestration, project-health control, and an authorized autonomy layer.
 
 The v47 control philosophy is: intent -> route -> evidence contract -> impact graph -> reverification -> workflow gates -> release train -> audit package -> authorized next action. No external action is claimed executed without host evidence, and critical actions remain approval/evidence bounded.
+
+## v48 — Assurance Control Plane
+
+KROM Forge v48 adds an assurance layer above v47: release verification contracts, MCP registry/capabilities/version integrity checks, GitHub CI independence from Vercel preview capacity, and delivery handoff/no-merge guards.
+
+The v48 control philosophy is: control-plane decision -> required gates -> verified evidence -> registry/version parity -> GitHub CI quality gate -> explicit handoff. Build, CI, deployment, PR and merge success remain evidence-backed claims only.
