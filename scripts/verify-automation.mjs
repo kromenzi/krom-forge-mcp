@@ -22,6 +22,7 @@ requireText('npm run verify:v56','v56 self-healing runtime benchmark');
 requireText('npm run verify:v57','v57 autonomous brain benchmark');
 requireText('npm run verify:v58','v58 engineering OS benchmark');
 requireText('npm run verify:v59','v59 control fabric benchmark');
+requireText('npm run verify:v60','v60 runtime mesh benchmark');
 requireText('npm test','unit tests');
 requireText('npm run typecheck','TypeScript');
 requireText('npm run audit:production','production dependency audit');
@@ -32,8 +33,8 @@ requireText('retention-days: 14','evidence retention');
 
 if(validateMcpManifest(manifestA).status!=='PASS') failures.push('MCP manifest integrity failed.');
 if(manifestA.fingerprint!==manifestB.fingerprint) failures.push('Manifest fingerprint is not deterministic.');
-if(manifestA.counts.registered!==5116) failures.push(`Registered tools must equal 5116; found ${manifestA.counts.registered}`);
-if(manifestA.counts.capabilities!==5116) failures.push(`Capability tools must equal 5116; found ${manifestA.counts.capabilities}`);
+if(manifestA.counts.registered!==5138) failures.push(`Registered tools must equal 5138; found ${manifestA.counts.registered}`);
+if(manifestA.counts.capabilities!==5138) failures.push(`Capability tools must equal 5138; found ${manifestA.counts.capabilities}`);
 if(manifestA.integrity.duplicateRegistrations.length) failures.push('Duplicate registrations detected.');
 if(manifestA.integrity.duplicateCapabilities.length) failures.push('Duplicate capabilities detected.');
 if(manifestA.integrity.missingCapabilities.length) failures.push('Missing capability entries detected.');
@@ -44,7 +45,7 @@ if(v54.domains.length!==35||v54.operations.length!==71||v54.domains.length*v54.o
 if(!route.includes('executeV53Tool(spec, input)')||!route.includes('executeV54Tool(spec, input)')) failures.push('Generated runtime execution contracts missing.');
 
 const names=manifestA.tools.map((tool)=>tool.name);
-if(new Set(names).size!==5116) failures.push('Global tool-name uniqueness violated.');
+if(new Set(names).size!==5138) failures.push('Global tool-name uniqueness violated.');
 
 const report={
  status:failures.length?'FAIL':'PASS',
@@ -54,6 +55,7 @@ const report={
  v57BrainTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v57_')).length,
  v58OsTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v58_')).length,
  v59FabricTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v59_')).length,
+ v60MeshTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v60_')).length,
  capabilities:manifestA.counts.capabilities,
  v53Generated:2000,
  v54Generated:2485,

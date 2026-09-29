@@ -239,3 +239,10 @@ The registry now contains 5,093 tools/capabilities. v58 explicitly separates por
 v59 adds 23 control-fabric MCP tools for runtime event buses, idempotent event processing, durable-state adapter contracts, distributed mission coordination, mission ownership handoffs, agent handoff protocols, tool health/reputation, semantic cache planning, workflow compilation, saga compensation, rollback orchestration, backpressure governance, checkpoint journals, provider resilience/failover, control-center command/event contracts, runtime SLO evaluation and consolidated fabric consistency.
 
 The registry now contains 5,116 tools/capabilities. v59 keeps event delivery, persistence, mission mutation and rollback execution behind host-authorized adapters and never reports them as completed from planning state alone.
+
+
+## v60 — Autonomous Engineering Runtime Mesh
+
+v60 adds 22 runtime-mesh MCP tools for event sourcing, replay protection, policy-aware command envelopes, distributed workload scheduling, agent consensus/recovery quorum, advisory tool-reputation feedback, semantic cache invalidation, saga state/recovery, checkpoint lineage, runtime telemetry, error-budget governance, dead-letter queues, workload admission and unified runtime-mesh health/control snapshots.
+
+The registry now contains 5,138 tools/capabilities. v60 keeps persistence, command delivery, recovery and external execution behind host-authorized adapters and treats supplied telemetry as evidence only for the provided observation window.
