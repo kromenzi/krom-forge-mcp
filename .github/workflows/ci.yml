@@ -1,0 +1,88 @@
+name: CI
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - v51
+
+jobs:
+  contract:
+    name: Node ${{ matrix.node }} contract gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['20', '22']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify AST manifest and registry contracts
+        run: npm run verify:mcp
+
+      - name: Unit tests
+        run: npm test
+
+  quality:
+    name: Production quality gate
+    needs: contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify MCP registration, capabilities and version consistency
+        run: npm run verify:mcp -- --output .artifacts/mcp-verification.json --manifest-output .artifacts/mcp-manifest.json
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Production dependency audit
+        run: npm run audit:production
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: krom-v51-verification-${{ github.sha }}
+          path: .artifacts/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+

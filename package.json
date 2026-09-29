@@ -1,9 +1,15 @@
 {
   "name": "krom-forge-mcp",
-  "version": "46.0.0",
+  "version": "51.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "verify:mcp": "node scripts/verify-mcp-consistency.mjs",
+    "manifest:mcp": "node scripts/generate-mcp-manifest.mjs",
+    "test": "node scripts/run-tests.mjs",
+    "typecheck": "tsc --noEmit",
+    "audit:production": "npm audit --omit=dev --audit-level=high",
+    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run typecheck && npm test && npm run audit:production && npm run build",
     "build": "next build",
     "start": "next start"
   },
@@ -22,6 +28,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.0"
   }
 }

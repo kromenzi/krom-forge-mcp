@@ -1,5 +1,23 @@
 # KROM Forge v28 — Coding & Patch Engine
 
+## v51 Frontier Operations
+
+KROM Forge v51 adds 72 integrated MCP tools across mission runtime and checkpointing, causal decision intelligence, counterfactual delivery simulation, risk-capital allocation, capability markets and delegation contracts, knowledge freshness and consolidation, engineering safety cases, release digital twins, tool-ecosystem composition, drift forecasting, human oversight, and outcome learning.
+
+The v51 systems share one evidence discipline: unsupported facts, approvals, outcomes, forecasts and pass claims are discounted or blocked. Static AST verification now requires all 12 v51 control layers and keeps registration, metadata, capabilities and version surfaces aligned. See `BATCH-v51.md` for the architecture and boundaries.
+
+## v50 Engineering Operating System
+
+KROM Forge v50 adds policy-as-code, evidence lineage, verification portfolio optimization, release-confidence calibration, incident command, compatibility lifecycle management, agent reliability and continuous improvement. These systems turn the existing control planes into a connected operating model from policy and evidence through release, incident response and learning.
+
+The MCP registry is now inspected through the TypeScript AST. CI generates a deterministic manifest for every tool and verifies registration, metadata, capability parity and version integrity on Node 20 and Node 22 before the production build. See `BATCH-v50.md` for the architecture and evidence boundaries.
+
+## v49 Release Integrity Mesh
+
+KROM Forge v49 adds commit-bound release provenance, risk-adaptive verification, MCP tool-contract assurance, CI run evidence validation, recovery rehearsal and merge-policy enforcement. These layers connect source identity to verified checks and approvals; a successful label without matching evidence cannot authorize release or merge.
+
+The repository now includes deterministic unit tests and GitHub Actions evidence artifacts in addition to static registration, capability parity, version consistency, type checking, dependency audit and production build gates. See `BATCH-v49.md` for the full architecture and evidence boundary.
+
 KROM Forge v28 extends v27 Research Engine with evidence-driven code-change planning and patch review.
 
 ## New v28 tools
@@ -147,3 +165,16 @@ A mission is not complete because code was generated. Closure requires evidence 
 ## v46 — Enterprise Command Intelligence
 
 KROM Forge v46 adds portfolio/program intelligence, CI/CD pipeline gates, engineering pre-mortem and failure prevention, engineering decision/risk command intelligence, and an Enterprise Command Gate above the v45 mission control plane. All consequential claims remain evidence-backed and all external mutation still requires host-authorized tools.
+
+
+## v47 — Mega Control Plane
+
+KROM Forge v47 adds 48 integrated MCP capabilities across semantic intent routing, evidence freshness and invalidation, unified change-impact reverification, reusable workflow templates, enterprise audit packaging, release-train orchestration, project-health control, and an authorized autonomy layer.
+
+The v47 control philosophy is: intent -> route -> evidence contract -> impact graph -> reverification -> workflow gates -> release train -> audit package -> authorized next action. No external action is claimed executed without host evidence, and critical actions remain approval/evidence bounded.
+
+## v48 — Assurance Control Plane
+
+KROM Forge v48 adds an assurance layer above v47: release verification contracts, MCP registry/capabilities/version integrity checks, GitHub CI independence from Vercel preview capacity, and delivery handoff/no-merge guards.
+
+The v48 control philosophy is: control-plane decision -> required gates -> verified evidence -> registry/version parity -> GitHub CI quality gate -> explicit handoff. Build, CI, deployment, PR and merge success remain evidence-backed claims only.
