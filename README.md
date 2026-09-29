@@ -1,5 +1,11 @@
 # KROM Forge v28 — Coding & Patch Engine
 
+## v51 Frontier Operations
+
+KROM Forge v51 adds 72 integrated MCP tools across mission runtime and checkpointing, causal decision intelligence, counterfactual delivery simulation, risk-capital allocation, capability markets and delegation contracts, knowledge freshness and consolidation, engineering safety cases, release digital twins, tool-ecosystem composition, drift forecasting, human oversight, and outcome learning.
+
+The v51 systems share one evidence discipline: unsupported facts, approvals, outcomes, forecasts and pass claims are discounted or blocked. Static AST verification now requires all 12 v51 control layers and keeps registration, metadata, capabilities and version surfaces aligned. See `BATCH-v51.md` for the architecture and boundaries.
+
 ## v50 Engineering Operating System
 
 KROM Forge v50 adds policy-as-code, evidence lineage, verification portfolio optimization, release-confidence calibration, incident command, compatibility lifecycle management, agent reliability and continuous improvement. These systems turn the existing control planes into a connected operating model from policy and evidence through release, incident response and learning.

@@ -33,7 +33,7 @@ if (!route.includes('version: pkg.version')) fail('MCP capabilities version must
 if (!health.includes('version: pkg.version')) fail('/health version must derive from package.json.');
 if (!home.includes('Version {pkg.version}')) fail('Homepage version must derive from package.json.');
 
-const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine'];
+const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine', 'v51-schema', 'v51-engine'];
 const missingModules = requiredModules.filter((module) => !manifest.sourceModules.includes(module));
 if (missingModules.length) fail(`Required source modules missing from route: ${missingModules.join(', ')}`);
 
@@ -47,7 +47,19 @@ const requiredLayerTools = [
   'krom_build_incident_command_plan',
   'krom_detect_breaking_compatibility_changes',
   'krom_evaluate_agent_reliability',
-  'krom_build_continuous_improvement_backlog'
+  'krom_build_continuous_improvement_backlog',
+  'krom_create_mission_runtime',
+  'krom_build_causal_decision_graph',
+  'krom_simulate_delivery_scenarios',
+  'krom_allocate_change_risk_capital',
+  'krom_match_capability_demand',
+  'krom_consolidate_project_knowledge',
+  'krom_build_engineering_safety_case',
+  'krom_build_release_digital_twin',
+  'krom_build_tool_ecosystem_graph',
+  'krom_forecast_engineering_drift',
+  'krom_audit_human_approval_chain',
+  'krom_build_learning_feedback_loop'
 ];
 const registeredNames = new Set(manifest.tools.map((tool) => tool.name));
 const missingLayers = requiredLayerTools.filter((tool) => !registeredNames.has(tool));
@@ -64,6 +76,7 @@ const report = {
   extraCapabilities: manifest.integrity.extraCapabilities.length,
   metadataGaps: manifest.integrity.metadataGaps.length,
   v50Systems: 8,
+  v51Systems: 12,
   manifestFingerprint: manifest.fingerprint,
   failures
 };
