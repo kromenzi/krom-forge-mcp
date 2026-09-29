@@ -56,6 +56,7 @@ jobs:
         with:
           name: krom-v49-verification-${{ github.sha }}
           path: .artifacts/
+          include-hidden-files: true
           if-no-files-found: warn
           retention-days: 14
 
