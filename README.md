@@ -246,3 +246,10 @@ The registry now contains 5,116 tools/capabilities. v59 keeps event delivery, pe
 v60 adds 22 runtime-mesh MCP tools for event sourcing, replay protection, policy-aware command envelopes, distributed workload scheduling, agent consensus/recovery quorum, advisory tool-reputation feedback, semantic cache invalidation, saga state/recovery, checkpoint lineage, runtime telemetry, error-budget governance, dead-letter queues, workload admission and unified runtime-mesh health/control snapshots.
 
 The registry now contains 5,138 tools/capabilities. v60 keeps persistence, command delivery, recovery and external execution behind host-authorized adapters and treats supplied telemetry as evidence only for the provided observation window.
+
+
+## v61 — Autonomous Engineering Intelligence Grid
+
+v61 adds 20 intelligence-grid MCP tools for cross-project dependency centrality, critical-path reasoning, mission prioritization, evidence provenance scoring, policy simulation, release arbitration, anomaly correlation, agent specialization, tool portfolio optimization, change clustering, project-risk propagation, impact-weighted verification planning, capacity balancing, decision ledgers and executive/operator snapshots.
+
+The registry now contains 5,158 tools/capabilities. v61 derives intelligence only from supplied state and preserves explicit execution/persistence boundaries.
