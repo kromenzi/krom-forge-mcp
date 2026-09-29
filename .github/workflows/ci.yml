@@ -19,6 +19,7 @@ on:
       - v54-5000-tools
       - v55-adaptive-runtime
       - v56-self-healing-runtime
+      - v57-autonomous-brain
 
 jobs:
   contract:
@@ -55,6 +56,9 @@ jobs:
       - name: Verify v56 self-healing runtime
         run: npm run verify:v56
 
+      - name: Verify v57 autonomous brain
+        run: npm run verify:v57
+
       - name: Unit tests
         run: npm test
 
@@ -89,6 +93,9 @@ jobs:
       - name: Verify v56 self-healing runtime
         run: npm run verify:v56
 
+      - name: Verify v57 autonomous brain
+        run: npm run verify:v57
+
       - name: Type check
         run: npm run typecheck
 
@@ -102,7 +109,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v56-verification-${{ github.sha }}
+          name: krom-v57-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
