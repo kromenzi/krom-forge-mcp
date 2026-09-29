@@ -17,6 +17,7 @@ on:
       - v52
       - v53-2000-tools
       - v54-5000-tools
+      - v55-adaptive-runtime
 
 jobs:
   contract:
@@ -47,6 +48,9 @@ jobs:
       - name: Verify automation integrity
         run: npm run verify:automation
 
+      - name: Verify v55 adaptive runtime
+        run: npm run verify:v55
+
       - name: Unit tests
         run: npm test
 
@@ -75,6 +79,9 @@ jobs:
       - name: Verify automation integrity
         run: npm run verify:automation
 
+      - name: Verify v55 adaptive runtime
+        run: npm run verify:v55
+
       - name: Type check
         run: npm run typecheck
 
@@ -88,7 +95,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v54-verification-${{ github.sha }}
+          name: krom-v55-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
