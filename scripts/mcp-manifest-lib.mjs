@@ -21,6 +21,23 @@ const objectProperty = (object, name) => object?.properties.find((property) =>
 
 const duplicates = (items) => [...new Set(items.filter((item, index) => items.indexOf(item) !== index))];
 
+const loadV53GeneratedTools = (root, route) => {
+  const catalogPath = path.resolve(root, 'src/v53-catalog.json');
+  if (!fs.existsSync(catalogPath) || !route.includes('V53_TOOL_SPECS')) return [];
+  const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+  const domains = Array.isArray(catalog.domains) ? catalog.domains : [];
+  const operations = Array.isArray(catalog.operations) ? catalog.operations : [];
+  const slug = (value) => String(value).toLowerCase().replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '');
+  return domains.flatMap((domain) => operations.map((operation) => ({
+    name: `krom_v53_${slug(domain.id)}_${slug(operation.id)}`,
+    title: `${operation.title} — ${domain.title}`,
+    description: `${operation.intent} Domain focus: ${(domain.focus ?? []).join(', ')}. Outputs remain evidence-bound and never imply host execution.`,
+    inputSchemaExpression: 'v53UniversalSchema',
+    line: 0,
+    generated: true
+  })));
+};
+
 export function buildMcpManifest(options = {}) {
   const root = options.root ?? process.cwd();
   const routePath = options.routePath ?? 'app/mcp/route.ts';
@@ -33,6 +50,10 @@ export function buildMcpManifest(options = {}) {
   const capabilityCandidates = [];
   const modules = [];
   const stringArrays = new Map();
+  const v53GeneratedTools = loadV53GeneratedTools(root, route);
+  if (v53GeneratedTools.length && route.includes('...V53_TOOL_NAMES')) {
+    stringArrays.set('V53_TOOL_NAMES', v53GeneratedTools.map((tool) => tool.name));
+  }
 
   for (const statement of source.statements) {
     if (ts.isImportDeclaration(statement) && ts.isStringLiteral(statement.moduleSpecifier)) {
@@ -82,6 +103,13 @@ export function buildMcpManifest(options = {}) {
     ts.forEachChild(node, visit);
   };
   visit(source);
+  if (v53GeneratedTools.length) {
+    const runtimeContractPresent = route.includes('for (const spec of V53_TOOL_SPECS)') &&
+      route.includes('server.registerTool(') &&
+      route.includes('spec.name') &&
+      route.includes('executeV53Tool(spec, input)');
+    if (runtimeContractPresent) tools.push(...v53GeneratedTools);
+  }
 
   const capabilityTools = capabilityCandidates.sort((a, b) => b.length - a.length)[0] ?? [];
   const registeredNames = tools.map((tool) => tool.name);
