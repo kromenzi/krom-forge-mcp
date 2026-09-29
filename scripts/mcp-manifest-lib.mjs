@@ -41,6 +41,26 @@ const loadV53GeneratedTools = (root, route) => {
   })));
 };
 
+const loadV54GeneratedTools = (root, route) => {
+  const catalogPath = path.resolve(root, 'src/v54-catalog.json');
+  if (!fs.existsSync(catalogPath) || !route.includes('V54_TOOL_SPECS')) return [];
+  const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+  const domains = Array.isArray(catalog.domains) ? catalog.domains : [];
+  const operations = Array.isArray(catalog.operations) ? catalog.operations : [];
+  const slug = (value) => String(value).toLowerCase().replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '');
+  const registrationMarker = 'for (const spec of V54_TOOL_SPECS)';
+  const registrationIndex = route.indexOf(registrationMarker);
+  const registrationLine = registrationIndex >= 0 ? route.slice(0, registrationIndex).split('\n').length : 1;
+  return domains.flatMap((domain) => operations.map((operation) => ({
+    name: `krom_v54_${slug(domain.id)}_${slug(operation.id)}`,
+    title: `${operation.title} — ${domain.title}`,
+    description: `${operation.intent} Domain focus: ${(domain.focus ?? []).join(', ')}. Automation remains evidence-bound, deterministic and host-authorized.`,
+    inputSchemaExpression: 'v54AutomationSchema',
+    line: registrationLine,
+    generated: true
+  })));
+};
+
 export function buildMcpManifest(options = {}) {
   const root = options.root ?? process.cwd();
   const routePath = options.routePath ?? 'app/mcp/route.ts';
@@ -54,8 +74,12 @@ export function buildMcpManifest(options = {}) {
   const modules = [];
   const stringArrays = new Map();
   const v53GeneratedTools = loadV53GeneratedTools(root, route);
+  const v54GeneratedTools = loadV54GeneratedTools(root, route);
   if (v53GeneratedTools.length && route.includes('...V53_TOOL_NAMES')) {
     stringArrays.set('V53_TOOL_NAMES', v53GeneratedTools.map((tool) => tool.name));
+  }
+  if (v54GeneratedTools.length && route.includes('...V54_TOOL_NAMES')) {
+    stringArrays.set('V54_TOOL_NAMES', v54GeneratedTools.map((tool) => tool.name));
   }
 
   for (const statement of source.statements) {
@@ -112,6 +136,13 @@ export function buildMcpManifest(options = {}) {
       route.includes('spec.name') &&
       route.includes('executeV53Tool(spec, input)');
     if (runtimeContractPresent) tools.push(...v53GeneratedTools);
+  }
+  if (v54GeneratedTools.length) {
+    const runtimeContractPresent = route.includes('for (const spec of V54_TOOL_SPECS)') &&
+      route.includes('server.registerTool(') &&
+      route.includes('spec.name') &&
+      route.includes('executeV54Tool(spec, input)');
+    if (runtimeContractPresent) tools.push(...v54GeneratedTools);
   }
 
   const capabilityTools = capabilityCandidates.sort((a, b) => b.length - a.length)[0] ?? [];

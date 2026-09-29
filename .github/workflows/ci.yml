@@ -16,6 +16,7 @@ on:
       - main
       - v52
       - v53-2000-tools
+      - v54-5000-tools
 
 jobs:
   contract:
@@ -43,6 +44,9 @@ jobs:
       - name: Verify AST manifest and registry contracts
         run: npm run verify:mcp
 
+      - name: Verify automation integrity
+        run: npm run verify:automation
+
       - name: Unit tests
         run: npm test
 
@@ -68,6 +72,9 @@ jobs:
       - name: Verify MCP registration, capabilities and version consistency
         run: npm run verify:mcp -- --output .artifacts/mcp-verification.json --manifest-output .artifacts/mcp-manifest.json
 
+      - name: Verify automation integrity
+        run: npm run verify:automation
+
       - name: Type check
         run: npm run typecheck
 
@@ -81,7 +88,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v53-verification-${{ github.sha }}
+          name: krom-v54-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn

@@ -33,7 +33,7 @@ if (!route.includes('version: pkg.version')) fail('MCP capabilities version must
 if (!health.includes('version: pkg.version')) fail('/health version must derive from package.json.');
 if (!home.includes('Version {pkg.version}')) fail('Homepage version must derive from package.json.');
 
-const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine', 'v51-schema', 'v51-engine', 'v52-schema', 'v52-engine', 'v53-registry'];
+const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine', 'v51-schema', 'v51-engine', 'v52-schema', 'v52-engine', 'v53-registry', 'v54-registry'];
 const missingModules = requiredModules.filter((module) => !manifest.sourceModules.includes(module));
 if (missingModules.length) fail(`Required source modules missing from route: ${missingModules.join(', ')}`);
 
@@ -80,6 +80,16 @@ if (manifest.counts.registered < 2515) fail(`Expected at least 2515 total regist
 if (!route.includes('for (const spec of V53_TOOL_SPECS)')) fail('v53 runtime generated registration loop is missing.');
 if (!route.includes('...V53_TOOL_NAMES')) fail('v53 capability expansion is missing.');
 
+const v54GeneratedTools = manifest.tools.filter((tool) => tool.name.startsWith('krom_v54_'));
+if (v54GeneratedTools.length !== 2485) fail(`v54 must register exactly 2485 generated tools; found ${v54GeneratedTools.length}`);
+if (new Set(v54GeneratedTools.map((tool) => tool.name)).size !== 2485) fail('v54 generated tool names must be unique.');
+const generatedOverlap = v54GeneratedTools.filter((tool) => v53GeneratedTools.some((prior) => prior.name === tool.name));
+if (generatedOverlap.length) fail(`v53/v54 generated tool overlap detected: ${generatedOverlap.slice(0,5).map((tool)=>tool.name).join(', ')}`);
+if (manifest.counts.registered !== 5000) fail(`Expected exactly 5000 total registered tools after v54; found ${manifest.counts.registered}`);
+if (manifest.counts.capabilities !== 5000) fail(`Expected exactly 5000 capability tools after v54; found ${manifest.counts.capabilities}`);
+if (!route.includes('for (const spec of V54_TOOL_SPECS)')) fail('v54 runtime generated registration loop is missing.');
+if (!route.includes('...V54_TOOL_NAMES')) fail('v54 capability expansion is missing.');
+
 const report = {
   status: failures.length ? 'FAIL' : 'PASS',
   version: pkg.version,
@@ -96,6 +106,10 @@ const report = {
   v53Domains: 40,
   v53OperationsPerDomain: 50,
   v53GeneratedTools: v53GeneratedTools.length,
+  v54Domains: 35,
+  v54OperationsPerDomain: 71,
+  v54GeneratedTools: v54GeneratedTools.length,
+  targetTotalTools: 5000,
   manifestFingerprint: manifest.fingerprint,
   failures
 };
