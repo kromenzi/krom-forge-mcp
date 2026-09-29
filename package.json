@@ -6,7 +6,7 @@
     "dev": "next dev",
     "verify:mcp": "node scripts/verify-mcp-consistency.mjs",
     "manifest:mcp": "node scripts/generate-mcp-manifest.mjs",
-    "test": "tsx --test tests/**/*.test.ts tests/**/*.test.mjs",
+    "test": "node scripts/run-tests.mjs",
     "typecheck": "tsc --noEmit",
     "audit:production": "npm audit --omit=dev --audit-level=high",
     "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run typecheck && npm test && npm run audit:production && npm run build",

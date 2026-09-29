@@ -8,6 +8,7 @@
 - Contract tests for manifest parity, metadata, fingerprint determinism and source locations.
 - Behavioral tests for policy, lineage, verification, confidence, incident, compatibility, agent and improvement controls.
 - Node 20 and Node 22 contract compatibility jobs in GitHub Actions.
+- Cross-platform test discovery that passes explicit files to the runner on Node versions without test-glob expansion.
 - Machine-readable MCP manifest and verification artifacts.
 
 ## Changed
