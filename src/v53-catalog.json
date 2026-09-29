@@ -1,0 +1,909 @@
+{
+  "schemaVersion": "1",
+  "release": "v53",
+  "generatedToolCount": 2000,
+  "domains": [
+    {
+      "id": "architecture",
+      "title": "Architecture Engineering",
+      "focus": [
+        "system boundaries",
+        "dependency direction",
+        "architecture decisions",
+        "evolution safety"
+      ],
+      "evidenceKinds": [
+        "ADR",
+        "SYSTEM_MAP",
+        "DEPENDENCY_GRAPH"
+      ]
+    },
+    {
+      "id": "requirements",
+      "title": "Requirements Engineering",
+      "focus": [
+        "stakeholder intent",
+        "acceptance criteria",
+        "traceability",
+        "scope integrity"
+      ],
+      "evidenceKinds": [
+        "REQUIREMENT",
+        "ACCEPTANCE_TEST",
+        "TRACE_MATRIX"
+      ]
+    },
+    {
+      "id": "api",
+      "title": "API Engineering",
+      "focus": [
+        "contracts",
+        "compatibility",
+        "idempotency",
+        "authorization"
+      ],
+      "evidenceKinds": [
+        "OPENAPI",
+        "CONTRACT_TEST",
+        "API_LOG"
+      ]
+    },
+    {
+      "id": "database",
+      "title": "Database Engineering",
+      "focus": [
+        "schema design",
+        "migrations",
+        "query behavior",
+        "data integrity"
+      ],
+      "evidenceKinds": [
+        "SCHEMA",
+        "MIGRATION",
+        "QUERY_PLAN"
+      ]
+    },
+    {
+      "id": "data_quality",
+      "title": "Data Quality Engineering",
+      "focus": [
+        "completeness",
+        "accuracy",
+        "lineage",
+        "drift"
+      ],
+      "evidenceKinds": [
+        "PROFILE",
+        "LINEAGE",
+        "QUALITY_CHECK"
+      ]
+    },
+    {
+      "id": "security",
+      "title": "Application Security",
+      "focus": [
+        "threats",
+        "vulnerabilities",
+        "secrets",
+        "security controls"
+      ],
+      "evidenceKinds": [
+        "SCAN",
+        "THREAT_MODEL",
+        "SECURITY_TEST"
+      ]
+    },
+    {
+      "id": "identity_access",
+      "title": "Identity and Access Engineering",
+      "focus": [
+        "authentication",
+        "authorization",
+        "roles",
+        "privilege boundaries"
+      ],
+      "evidenceKinds": [
+        "POLICY",
+        "ACCESS_TEST",
+        "AUDIT_LOG"
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy Engineering",
+      "focus": [
+        "data minimization",
+        "purpose limitation",
+        "retention",
+        "sensitive data flow"
+      ],
+      "evidenceKinds": [
+        "DATA_MAP",
+        "PRIVACY_REVIEW",
+        "RETENTION_POLICY"
+      ]
+    },
+    {
+      "id": "compliance",
+      "title": "Compliance Engineering",
+      "focus": [
+        "controls",
+        "evidence mapping",
+        "exceptions",
+        "audit readiness"
+      ],
+      "evidenceKinds": [
+        "CONTROL",
+        "AUDIT_EVIDENCE",
+        "EXCEPTION"
+      ]
+    },
+    {
+      "id": "supply_chain",
+      "title": "Software Supply Chain",
+      "focus": [
+        "provenance",
+        "artifact integrity",
+        "dependency trust",
+        "build chain"
+      ],
+      "evidenceKinds": [
+        "SBOM",
+        "ATTESTATION",
+        "PROVENANCE"
+      ]
+    },
+    {
+      "id": "dependencies",
+      "title": "Dependency Engineering",
+      "focus": [
+        "version health",
+        "compatibility",
+        "maintenance risk",
+        "upgrade paths"
+      ],
+      "evidenceKinds": [
+        "LOCKFILE",
+        "CHANGELOG",
+        "DEPENDENCY_SCAN"
+      ]
+    },
+    {
+      "id": "code_quality",
+      "title": "Code Quality Engineering",
+      "focus": [
+        "complexity",
+        "maintainability",
+        "correctness signals",
+        "code smells"
+      ],
+      "evidenceKinds": [
+        "STATIC_ANALYSIS",
+        "CODE_REVIEW",
+        "TEST_RESULT"
+      ]
+    },
+    {
+      "id": "refactoring",
+      "title": "Refactoring Engineering",
+      "focus": [
+        "behavior preservation",
+        "coupling reduction",
+        "incremental change",
+        "regression control"
+      ],
+      "evidenceKinds": [
+        "DIFF",
+        "TEST_RESULT",
+        "DEPENDENCY_GRAPH"
+      ]
+    },
+    {
+      "id": "testing",
+      "title": "Test Engineering",
+      "focus": [
+        "coverage",
+        "risk-based selection",
+        "negative paths",
+        "regression"
+      ],
+      "evidenceKinds": [
+        "TEST_RESULT",
+        "COVERAGE",
+        "FAILURE_LOG"
+      ]
+    },
+    {
+      "id": "qa",
+      "title": "Quality Assurance",
+      "focus": [
+        "quality gates",
+        "defect prevention",
+        "release evidence",
+        "acceptance"
+      ],
+      "evidenceKinds": [
+        "QA_REPORT",
+        "ACCEPTANCE_TEST",
+        "DEFECT_LOG"
+      ]
+    },
+    {
+      "id": "debugging",
+      "title": "Debugging Intelligence",
+      "focus": [
+        "reproduction",
+        "causal hypotheses",
+        "root cause",
+        "fix verification"
+      ],
+      "evidenceKinds": [
+        "ERROR_LOG",
+        "TRACE",
+        "REPRODUCTION"
+      ]
+    },
+    {
+      "id": "observability",
+      "title": "Observability Engineering",
+      "focus": [
+        "logs",
+        "metrics",
+        "traces",
+        "signal quality"
+      ],
+      "evidenceKinds": [
+        "LOG",
+        "METRIC",
+        "TRACE"
+      ]
+    },
+    {
+      "id": "sre",
+      "title": "Site Reliability Engineering",
+      "focus": [
+        "SLOs",
+        "error budgets",
+        "resilience",
+        "operational readiness"
+      ],
+      "evidenceKinds": [
+        "SLO",
+        "INCIDENT",
+        "RUNTIME_METRIC"
+      ]
+    },
+    {
+      "id": "incident_response",
+      "title": "Incident Response",
+      "focus": [
+        "triage",
+        "containment",
+        "coordination",
+        "incident evidence"
+      ],
+      "evidenceKinds": [
+        "INCIDENT_LOG",
+        "TIMELINE",
+        "RUNTIME_SIGNAL"
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "Recovery Engineering",
+      "focus": [
+        "restore points",
+        "RTO/RPO",
+        "rollback",
+        "recovery validation"
+      ],
+      "evidenceKinds": [
+        "BACKUP",
+        "RESTORE_TEST",
+        "RECOVERY_LOG"
+      ]
+    },
+    {
+      "id": "performance",
+      "title": "Performance Engineering",
+      "focus": [
+        "latency",
+        "throughput",
+        "resource use",
+        "regressions"
+      ],
+      "evidenceKinds": [
+        "BENCHMARK",
+        "PROFILE",
+        "RUNTIME_METRIC"
+      ]
+    },
+    {
+      "id": "cost_finops",
+      "title": "FinOps and Cost Engineering",
+      "focus": [
+        "unit cost",
+        "waste",
+        "capacity economics",
+        "cost guardrails"
+      ],
+      "evidenceKinds": [
+        "BILLING_EXPORT",
+        "USAGE_METRIC",
+        "BUDGET"
+      ]
+    },
+    {
+      "id": "cicd",
+      "title": "CI/CD Engineering",
+      "focus": [
+        "pipeline gates",
+        "build evidence",
+        "deployment safety",
+        "automation integrity"
+      ],
+      "evidenceKinds": [
+        "CI_RUN",
+        "BUILD_ARTIFACT",
+        "PIPELINE_CONFIG"
+      ]
+    },
+    {
+      "id": "devops",
+      "title": "DevOps Engineering",
+      "focus": [
+        "automation",
+        "environment parity",
+        "operability",
+        "delivery flow"
+      ],
+      "evidenceKinds": [
+        "RUNBOOK",
+        "PIPELINE_LOG",
+        "ENV_CONFIG"
+      ]
+    },
+    {
+      "id": "release",
+      "title": "Release Engineering",
+      "focus": [
+        "readiness",
+        "rollout",
+        "rollback",
+        "post-release verification"
+      ],
+      "evidenceKinds": [
+        "RELEASE_MANIFEST",
+        "DEPLOYMENT",
+        "HEALTH_CHECK"
+      ]
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud Engineering",
+      "focus": [
+        "service architecture",
+        "resilience",
+        "security boundaries",
+        "cost efficiency"
+      ],
+      "evidenceKinds": [
+        "CLOUD_CONFIG",
+        "TOPOLOGY",
+        "RUNTIME_METRIC"
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "title": "Kubernetes Engineering",
+      "focus": [
+        "workloads",
+        "scheduling",
+        "network policy",
+        "cluster reliability"
+      ],
+      "evidenceKinds": [
+        "MANIFEST",
+        "CLUSTER_EVENT",
+        "RESOURCE_METRIC"
+      ]
+    },
+    {
+      "id": "containers",
+      "title": "Container Engineering",
+      "focus": [
+        "image integrity",
+        "runtime isolation",
+        "resource limits",
+        "build efficiency"
+      ],
+      "evidenceKinds": [
+        "IMAGE_SCAN",
+        "DOCKERFILE",
+        "RUNTIME_EVENT"
+      ]
+    },
+    {
+      "id": "serverless",
+      "title": "Serverless Engineering",
+      "focus": [
+        "event contracts",
+        "cold starts",
+        "concurrency",
+        "failure handling"
+      ],
+      "evidenceKinds": [
+        "FUNCTION_LOG",
+        "EVENT_SCHEMA",
+        "RUNTIME_METRIC"
+      ]
+    },
+    {
+      "id": "frontend",
+      "title": "Frontend Engineering",
+      "focus": [
+        "rendering",
+        "state management",
+        "performance",
+        "browser behavior"
+      ],
+      "evidenceKinds": [
+        "BROWSER_TRACE",
+        "BUNDLE_REPORT",
+        "E2E_RESULT"
+      ]
+    },
+    {
+      "id": "uiux",
+      "title": "UI/UX Engineering",
+      "focus": [
+        "task hierarchy",
+        "interaction states",
+        "responsive behavior",
+        "design consistency"
+      ],
+      "evidenceKinds": [
+        "SCREENSHOT",
+        "DESIGN_SPEC",
+        "USABILITY_RESULT"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "title": "Accessibility Engineering",
+      "focus": [
+        "semantics",
+        "keyboard access",
+        "contrast",
+        "assistive technology"
+      ],
+      "evidenceKinds": [
+        "A11Y_AUDIT",
+        "SCREEN_READER",
+        "KEYBOARD_TEST"
+      ]
+    },
+    {
+      "id": "mobile",
+      "title": "Mobile Engineering",
+      "focus": [
+        "device behavior",
+        "offline state",
+        "platform integration",
+        "mobile performance"
+      ],
+      "evidenceKinds": [
+        "DEVICE_LOG",
+        "MOBILE_TEST",
+        "PERFORMANCE_TRACE"
+      ]
+    },
+    {
+      "id": "analytics",
+      "title": "Analytics Engineering",
+      "focus": [
+        "metric definitions",
+        "event quality",
+        "data contracts",
+        "decision usefulness"
+      ],
+      "evidenceKinds": [
+        "EVENT_SCHEMA",
+        "METRIC_SPEC",
+        "DATA_CHECK"
+      ]
+    },
+    {
+      "id": "mlops",
+      "title": "MLOps Engineering",
+      "focus": [
+        "model lifecycle",
+        "data/model drift",
+        "deployment",
+        "evaluation"
+      ],
+      "evidenceKinds": [
+        "MODEL_EVAL",
+        "DATASET",
+        "MODEL_REGISTRY"
+      ]
+    },
+    {
+      "id": "ai_agents",
+      "title": "AI Agent Engineering",
+      "focus": [
+        "tool use",
+        "handoffs",
+        "agent reliability",
+        "authorization"
+      ],
+      "evidenceKinds": [
+        "AGENT_TRACE",
+        "TOOL_RESULT",
+        "EVALUATION"
+      ]
+    },
+    {
+      "id": "llm_engineering",
+      "title": "LLM Engineering",
+      "focus": [
+        "model behavior",
+        "context quality",
+        "evaluation",
+        "guardrails"
+      ],
+      "evidenceKinds": [
+        "EVAL_RESULT",
+        "TRACE",
+        "MODEL_CONFIG"
+      ]
+    },
+    {
+      "id": "prompt_engineering",
+      "title": "Prompt Engineering",
+      "focus": [
+        "instruction hierarchy",
+        "task coverage",
+        "failure modes",
+        "evaluation"
+      ],
+      "evidenceKinds": [
+        "PROMPT",
+        "EVAL_RESULT",
+        "FAILURE_CASE"
+      ]
+    },
+    {
+      "id": "documentation",
+      "title": "Documentation Engineering",
+      "focus": [
+        "accuracy",
+        "discoverability",
+        "operational usefulness",
+        "version alignment"
+      ],
+      "evidenceKinds": [
+        "DOC",
+        "SOURCE_CODE",
+        "RUNBOOK"
+      ]
+    },
+    {
+      "id": "program_management",
+      "title": "Engineering Program Management",
+      "focus": [
+        "dependencies",
+        "capacity",
+        "milestones",
+        "delivery risk"
+      ],
+      "evidenceKinds": [
+        "PLAN",
+        "STATUS_EVIDENCE",
+        "DEPENDENCY_MAP"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "id": "inspect",
+      "title": "Inspect",
+      "family": "OBSERVE",
+      "intent": "Inspect concrete state and surface evidence-backed observations."
+    },
+    {
+      "id": "audit",
+      "title": "Audit",
+      "family": "OBSERVE",
+      "intent": "Audit controls, gaps and conformance against explicit criteria."
+    },
+    {
+      "id": "inventory",
+      "title": "Inventory",
+      "family": "OBSERVE",
+      "intent": "Build a structured inventory of relevant assets, interfaces and obligations."
+    },
+    {
+      "id": "map",
+      "title": "Map",
+      "family": "OBSERVE",
+      "intent": "Map entities, dependencies, flows and ownership boundaries."
+    },
+    {
+      "id": "analyze",
+      "title": "Analyze",
+      "family": "OBSERVE",
+      "intent": "Analyze supplied evidence for patterns, causes, gaps and implications."
+    },
+    {
+      "id": "detect",
+      "title": "Detect",
+      "family": "OBSERVE",
+      "intent": "Detect explicit risks, anomalies, contradictions and missing controls."
+    },
+    {
+      "id": "classify",
+      "title": "Classify",
+      "family": "OBSERVE",
+      "intent": "Classify evidence and findings into actionable categories."
+    },
+    {
+      "id": "diagnose",
+      "title": "Diagnose",
+      "family": "OBSERVE",
+      "intent": "Diagnose likely causal mechanisms from supplied evidence without guessing execution."
+    },
+    {
+      "id": "trace",
+      "title": "Trace",
+      "family": "OBSERVE",
+      "intent": "Trace relationships from source evidence to dependent outcomes and obligations."
+    },
+    {
+      "id": "correlate",
+      "title": "Correlate",
+      "family": "OBSERVE",
+      "intent": "Correlate independent signals to identify supported relationships."
+    },
+    {
+      "id": "profile",
+      "title": "Profile",
+      "family": "OBSERVE",
+      "intent": "Profile characteristics, hotspots and distribution of supplied engineering evidence."
+    },
+    {
+      "id": "monitor",
+      "title": "Monitor",
+      "family": "OBSERVE",
+      "intent": "Define monitorable signals, thresholds and evidence requirements."
+    },
+    {
+      "id": "review",
+      "title": "Review",
+      "family": "OBSERVE",
+      "intent": "Review artifacts against domain-specific quality and risk criteria."
+    },
+    {
+      "id": "report",
+      "title": "Report",
+      "family": "OBSERVE",
+      "intent": "Produce an evidence-bounded structured engineering report."
+    },
+    {
+      "id": "score",
+      "title": "Score",
+      "family": "EVALUATE",
+      "intent": "Score supplied options using explicit criteria and evidence coverage."
+    },
+    {
+      "id": "assess",
+      "title": "Assess",
+      "family": "EVALUATE",
+      "intent": "Assess readiness, risk and control sufficiency from supplied evidence."
+    },
+    {
+      "id": "evaluate",
+      "title": "Evaluate",
+      "family": "EVALUATE",
+      "intent": "Evaluate state against declared objectives, constraints and evidence."
+    },
+    {
+      "id": "validate",
+      "title": "Validate",
+      "family": "EVALUATE",
+      "intent": "Validate invariants, contracts and acceptance conditions without inventing passes."
+    },
+    {
+      "id": "verify",
+      "title": "Verify",
+      "family": "EVALUATE",
+      "intent": "Verify claims only where linked evidence supports them."
+    },
+    {
+      "id": "compare",
+      "title": "Compare",
+      "family": "EVALUATE",
+      "intent": "Compare alternatives or snapshots using consistent domain criteria."
+    },
+    {
+      "id": "benchmark",
+      "title": "Benchmark",
+      "family": "EVALUATE",
+      "intent": "Benchmark supplied measurements against explicit targets or baselines."
+    },
+    {
+      "id": "estimate",
+      "title": "Estimate",
+      "family": "EVALUATE",
+      "intent": "Estimate effort, exposure or impact while exposing assumptions and uncertainty."
+    },
+    {
+      "id": "simulate",
+      "title": "Simulate",
+      "family": "MODEL",
+      "intent": "Simulate bounded scenarios from explicit inputs; outputs are hypotheses, not observed facts."
+    },
+    {
+      "id": "forecast",
+      "title": "Forecast",
+      "family": "MODEL",
+      "intent": "Forecast directional outcomes from supplied trends with uncertainty clearly separated."
+    },
+    {
+      "id": "model",
+      "title": "Model",
+      "family": "MODEL",
+      "intent": "Build a structured domain model of actors, states, dependencies and constraints."
+    },
+    {
+      "id": "prioritize",
+      "title": "Prioritize",
+      "family": "DECIDE",
+      "intent": "Prioritize actions by severity, value, dependencies and evidence."
+    },
+    {
+      "id": "triage",
+      "title": "Triage",
+      "family": "DECIDE",
+      "intent": "Triage issues into immediate, near-term and deferred response classes."
+    },
+    {
+      "id": "advise",
+      "title": "Advise",
+      "family": "DECIDE",
+      "intent": "Generate decision support with alternatives, tradeoffs and evidence gaps."
+    },
+    {
+      "id": "plan",
+      "title": "Plan",
+      "family": "PLAN",
+      "intent": "Build an ordered implementation or verification plan with dependencies and gates."
+    },
+    {
+      "id": "design",
+      "title": "Design",
+      "family": "PLAN",
+      "intent": "Design a coherent solution blueprint with boundaries and acceptance conditions."
+    },
+    {
+      "id": "architect",
+      "title": "Architect",
+      "family": "PLAN",
+      "intent": "Create architecture-level structure, interfaces, invariants and tradeoffs."
+    },
+    {
+      "id": "generate",
+      "title": "Generate",
+      "family": "PLAN",
+      "intent": "Generate implementation-grade artifacts or specifications from supplied constraints."
+    },
+    {
+      "id": "build",
+      "title": "Build",
+      "family": "PLAN",
+      "intent": "Build a host-executable blueprint while explicitly separating planning from execution."
+    },
+    {
+      "id": "optimize",
+      "title": "Optimize",
+      "family": "PLAN",
+      "intent": "Optimize for stated objectives without weakening mandatory controls."
+    },
+    {
+      "id": "harden",
+      "title": "Harden",
+      "family": "PLAN",
+      "intent": "Create a hardening plan that reduces attack, failure or operational exposure."
+    },
+    {
+      "id": "remediate",
+      "title": "Remediate",
+      "family": "PLAN",
+      "intent": "Create prioritized remediation actions tied to concrete findings."
+    },
+    {
+      "id": "refactor",
+      "title": "Refactor",
+      "family": "PLAN",
+      "intent": "Create behavior-preserving refactoring steps and regression obligations."
+    },
+    {
+      "id": "migrate",
+      "title": "Migrate",
+      "family": "PLAN",
+      "intent": "Create a staged migration plan with compatibility, data and rollback gates."
+    },
+    {
+      "id": "upgrade",
+      "title": "Upgrade",
+      "family": "PLAN",
+      "intent": "Create an evidence-aware upgrade plan including compatibility and rollback checks."
+    },
+    {
+      "id": "rollback",
+      "title": "Rollback",
+      "family": "PLAN",
+      "intent": "Create a safe rollback plan with prerequisites, blast radius and verification."
+    },
+    {
+      "id": "recover",
+      "title": "Recover",
+      "family": "PLAN",
+      "intent": "Create a recovery route using verified restore points and recovery objectives."
+    },
+    {
+      "id": "instrument",
+      "title": "Instrument",
+      "family": "PLAN",
+      "intent": "Design instrumentation needed to make critical behavior observable."
+    },
+    {
+      "id": "orchestrate",
+      "title": "Orchestrate",
+      "family": "PLAN",
+      "intent": "Orchestrate dependent engineering steps without claiming host-side execution."
+    },
+    {
+      "id": "coordinate",
+      "title": "Coordinate",
+      "family": "PLAN",
+      "intent": "Coordinate actors, dependencies, handoffs and evidence obligations."
+    },
+    {
+      "id": "reconcile",
+      "title": "Reconcile",
+      "family": "PLAN",
+      "intent": "Reconcile conflicting states, evidence or requirements into an explicit resolution plan."
+    },
+    {
+      "id": "diff",
+      "title": "Diff",
+      "family": "PLAN",
+      "intent": "Build a semantic difference analysis and required follow-up verification."
+    },
+    {
+      "id": "test",
+      "title": "Test",
+      "family": "VERIFY",
+      "intent": "Build or evaluate domain-specific tests; never claim a test ran without host evidence."
+    },
+    {
+      "id": "fuzz",
+      "title": "Fuzz",
+      "family": "VERIFY",
+      "intent": "Design adversarial and boundary test cases without claiming runtime fuzzing occurred."
+    },
+    {
+      "id": "enforce",
+      "title": "Enforce",
+      "family": "CONTROL",
+      "intent": "Evaluate enforcement requirements and block unsupported or unauthorized transitions."
+    },
+    {
+      "id": "gate",
+      "title": "Gate",
+      "family": "CONTROL",
+      "intent": "Apply an evidence-first gate that returns pass, blocked or not-available states."
+    }
+  ]
+}

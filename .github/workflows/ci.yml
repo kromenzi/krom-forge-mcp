@@ -15,6 +15,7 @@ on:
     branches:
       - main
       - v52
+      - v53-2000-tools
 
 jobs:
   contract:
@@ -80,7 +81,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v52-verification-${{ github.sha }}
+          name: krom-v53-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn

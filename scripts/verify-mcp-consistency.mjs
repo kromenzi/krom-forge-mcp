@@ -33,7 +33,7 @@ if (!route.includes('version: pkg.version')) fail('MCP capabilities version must
 if (!health.includes('version: pkg.version')) fail('/health version must derive from package.json.');
 if (!home.includes('Version {pkg.version}')) fail('Homepage version must derive from package.json.');
 
-const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine', 'v51-schema', 'v51-engine', 'v52-schema', 'v52-engine'];
+const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine', 'v51-schema', 'v51-engine', 'v52-schema', 'v52-engine', 'v53-registry'];
 const missingModules = requiredModules.filter((module) => !manifest.sourceModules.includes(module));
 if (missingModules.length) fail(`Required source modules missing from route: ${missingModules.join(', ')}`);
 
@@ -73,6 +73,13 @@ const registeredNames = new Set(manifest.tools.map((tool) => tool.name));
 const missingLayers = requiredLayerTools.filter((tool) => !registeredNames.has(tool));
 if (missingLayers.length) fail(`Required control layers are not registered: ${missingLayers.join(', ')}`);
 
+const v53GeneratedTools = manifest.tools.filter((tool) => tool.name.startsWith('krom_v53_'));
+if (v53GeneratedTools.length !== 2000) fail(`v53 must register exactly 2000 generated tools; found ${v53GeneratedTools.length}`);
+if (new Set(v53GeneratedTools.map((tool) => tool.name)).size !== 2000) fail('v53 generated tool names must be unique.');
+if (manifest.counts.registered < 2515) fail(`Expected at least 2515 total registered tools after v53; found ${manifest.counts.registered}`);
+if (!route.includes('for (const spec of V53_TOOL_SPECS)')) fail('v53 runtime generated registration loop is missing.');
+if (!route.includes('...V53_TOOL_NAMES')) fail('v53 capability expansion is missing.');
+
 const report = {
   status: failures.length ? 'FAIL' : 'PASS',
   version: pkg.version,
@@ -86,6 +93,9 @@ const report = {
   v50Systems: 8,
   v51Systems: 12,
   v52Systems: 8,
+  v53Domains: 40,
+  v53OperationsPerDomain: 50,
+  v53GeneratedTools: v53GeneratedTools.length,
   manifestFingerprint: manifest.fingerprint,
   failures
 };
