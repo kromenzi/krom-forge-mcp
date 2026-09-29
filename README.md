@@ -232,3 +232,10 @@ The registry now contains 5,072 tools/capabilities. v57 explicitly keeps synthes
 v58 adds 21 OS-level MCP tools for mission leasing and idempotent scheduling, unified knowledge graphs, contradiction detection, dynamic agent-team formation, internal tool marketplace matching, pre-mortem failure prevention, execution economy, portfolio budgeting/scheduling, deadlock detection, lease renewal planning, mission continuation validation and a consolidated control-center backend snapshot.
 
 The registry now contains 5,093 tools/capabilities. v58 explicitly separates portable OS state from durable persistence, treats pre-mortem outputs as scenarios rather than predictions, and never claims a mission lease, schedule, agent assignment or marketplace match was externally executed.
+
+
+## v59 — Autonomous Engineering Control Fabric
+
+v59 adds 23 control-fabric MCP tools for runtime event buses, idempotent event processing, durable-state adapter contracts, distributed mission coordination, mission ownership handoffs, agent handoff protocols, tool health/reputation, semantic cache planning, workflow compilation, saga compensation, rollback orchestration, backpressure governance, checkpoint journals, provider resilience/failover, control-center command/event contracts, runtime SLO evaluation and consolidated fabric consistency.
+
+The registry now contains 5,116 tools/capabilities. v59 keeps event delivery, persistence, mission mutation and rollback execution behind host-authorized adapters and never reports them as completed from planning state alone.
