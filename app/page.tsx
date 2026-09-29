@@ -1,3 +1,5 @@
+import pkg from '../package.json';
+
 export default function Home() {
   return (
     <main style={{ maxWidth: 760, margin: '64px auto', padding: 24 }}>
@@ -6,7 +8,7 @@ export default function Home() {
       <code>/mcp</code>
       <p>Health endpoint:</p>
       <code>/health</code>
-      <p>Version 35.0.0</p>
+      <p>Version {pkg.version}</p>
     </main>
   );
 }
