@@ -253,3 +253,10 @@ The registry now contains 5,138 tools/capabilities. v60 keeps persistence, comma
 v61 adds 20 intelligence-grid MCP tools for cross-project dependency centrality, critical-path reasoning, mission prioritization, evidence provenance scoring, policy simulation, release arbitration, anomaly correlation, agent specialization, tool portfolio optimization, change clustering, project-risk propagation, impact-weighted verification planning, capacity balancing, decision ledgers and executive/operator snapshots.
 
 The registry now contains 5,158 tools/capabilities. v61 derives intelligence only from supplied state and preserves explicit execution/persistence boundaries.
+
+
+## v62 — Autonomous Engineering Decision Core
+
+v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty accounting, confidence scoring, conflicting-evidence resolution, tool confidence calibration, evidence confidence decay, evidence sufficiency, verification routing/escalation, agent adjudication, counterfactual release analysis, dependency-risk compression, rollback decision analysis, release decision packets, decision thresholds and consolidated decision-core health/snapshots.
+
+The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
