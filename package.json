@@ -1,12 +1,14 @@
 {
   "name": "krom-forge-mcp",
-  "version": "48.0.0",
+  "version": "49.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "verify:mcp": "node scripts/verify-mcp-consistency.mjs",
+    "test": "tsx --test tests/**/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "ci": "npm run verify:mcp && npm run typecheck && npm run build",
+    "audit:production": "npm audit --omit=dev --audit-level=high",
+    "ci": "npm run verify:mcp && npm run typecheck && npm test && npm run audit:production && npm run build",
     "build": "next build",
     "start": "next start"
   },
@@ -25,6 +27,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.0"
   }
 }

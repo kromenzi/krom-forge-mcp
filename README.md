@@ -1,5 +1,11 @@
 # KROM Forge v28 — Coding & Patch Engine
 
+## v49 Release Integrity Mesh
+
+KROM Forge v49 adds commit-bound release provenance, risk-adaptive verification, MCP tool-contract assurance, CI run evidence validation, recovery rehearsal and merge-policy enforcement. These layers connect source identity to verified checks and approvals; a successful label without matching evidence cannot authorize release or merge.
+
+The repository now includes deterministic unit tests and GitHub Actions evidence artifacts in addition to static registration, capability parity, version consistency, type checking, dependency audit and production build gates. See `BATCH-v49.md` for the full architecture and evidence boundary.
+
 KROM Forge v28 extends v27 Research Engine with evidence-driven code-change planning and patch review.
 
 ## New v28 tools

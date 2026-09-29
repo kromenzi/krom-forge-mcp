@@ -1,5 +1,12 @@
 name: CI
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   pull_request:
     branches:
@@ -7,7 +14,7 @@ on:
   push:
     branches:
       - main
-      - v48
+      - v49
 
 jobs:
   quality:
@@ -29,11 +36,26 @@ jobs:
         run: npm ci
 
       - name: Verify MCP registration, capabilities and version consistency
-        run: npm run verify:mcp
+        run: npm run verify:mcp -- --output .artifacts/mcp-verification.json
 
       - name: Type check
         run: npm run typecheck
 
+      - name: Unit tests
+        run: npm test
+
+      - name: Production dependency audit
+        run: npm run audit:production
+
       - name: Build
         run: npm run build
+
+      - name: Upload verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: krom-v49-verification-${{ github.sha }}
+          path: .artifacts/
+          if-no-files-found: warn
+          retention-days: 14
 
