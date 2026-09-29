@@ -21,6 +21,7 @@ on:
       - v56-self-healing-runtime
       - v57-autonomous-brain
       - v58-engineering-os
+      - v59-control-fabric
 
 jobs:
   contract:
@@ -63,6 +64,9 @@ jobs:
       - name: Verify v58 engineering OS
         run: npm run verify:v58
 
+      - name: Verify v59 control fabric
+        run: npm run verify:v59
+
       - name: Unit tests
         run: npm test
 
@@ -103,6 +107,9 @@ jobs:
       - name: Verify v58 engineering OS
         run: npm run verify:v58
 
+      - name: Verify v59 control fabric
+        run: npm run verify:v59
+
       - name: Type check
         run: npm run typecheck
 
@@ -116,7 +123,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v58-verification-${{ github.sha }}
+          name: krom-v59-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
