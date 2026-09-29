@@ -204,3 +204,10 @@ The v54 layer uses a deterministic 35-domain × 71-operation registry focused on
 
 ### Automation integrity
 CI independently validates registry/capability parity, exact 5,000 total count, global name uniqueness, metadata completeness, deterministic manifest fingerprint, Node 20/22 contract gates, unit tests, TypeScript, production dependency audit, Next.js build, concurrency cancellation and evidence artifact retention.
+
+
+## v55 — Adaptive Autonomous Engineering Runtime
+
+v55 changes the optimization target from tool-count growth to intelligent use of the existing tool estate. It adds 28 control-runtime tools for semantic routing, domain skill-pack loading, tool-quality ranking, capability compression, dynamic task graphs, parallel execution waves, multi-agent command, evidence trust, automatic reverification, execution dry-runs, mutation-risk gates, resumable checkpoints, change-impact v2, release digital twins, incident command, execution-cost governance, adaptive analysis depth, contradiction reconciliation, provider/plugin abstraction, realtime mission-console state, outcome learning and on-demand tool loading.
+
+The total registry is 5,028 tools. CI now includes an independent v55 routing/runtime benchmark in addition to registry parity, duplicate checks, automation integrity, Node 20/22 tests, TypeScript, production dependency audit and Next.js build.

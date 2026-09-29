@@ -17,6 +17,7 @@ requireText('cancel-in-progress: true','concurrency cancellation');
 requireText("node: ['20', '22']",'Node 20/22 matrix');
 requireText('npm run verify:mcp','MCP verifier');
 requireText('npm run verify:automation','automation verifier');
+requireText('npm run verify:v55','v55 adaptive runtime benchmark');
 requireText('npm test','unit tests');
 requireText('npm run typecheck','TypeScript');
 requireText('npm run audit:production','production dependency audit');
@@ -27,8 +28,8 @@ requireText('retention-days: 14','evidence retention');
 
 if(validateMcpManifest(manifestA).status!=='PASS') failures.push('MCP manifest integrity failed.');
 if(manifestA.fingerprint!==manifestB.fingerprint) failures.push('Manifest fingerprint is not deterministic.');
-if(manifestA.counts.registered!==5000) failures.push(`Registered tools must equal 5000; found ${manifestA.counts.registered}`);
-if(manifestA.counts.capabilities!==5000) failures.push(`Capability tools must equal 5000; found ${manifestA.counts.capabilities}`);
+if(manifestA.counts.registered!==5028) failures.push(`Registered tools must equal 5028; found ${manifestA.counts.registered}`);
+if(manifestA.counts.capabilities!==5028) failures.push(`Capability tools must equal 5028; found ${manifestA.counts.capabilities}`);
 if(manifestA.integrity.duplicateRegistrations.length) failures.push('Duplicate registrations detected.');
 if(manifestA.integrity.duplicateCapabilities.length) failures.push('Duplicate capabilities detected.');
 if(manifestA.integrity.missingCapabilities.length) failures.push('Missing capability entries detected.');
@@ -39,11 +40,12 @@ if(v54.domains.length!==35||v54.operations.length!==71||v54.domains.length*v54.o
 if(!route.includes('executeV53Tool(spec, input)')||!route.includes('executeV54Tool(spec, input)')) failures.push('Generated runtime execution contracts missing.');
 
 const names=manifestA.tools.map((tool)=>tool.name);
-if(new Set(names).size!==5000) failures.push('Global tool-name uniqueness violated.');
+if(new Set(names).size!==5028) failures.push('Global tool-name uniqueness violated.');
 
 const report={
  status:failures.length?'FAIL':'PASS',
  totalTools:manifestA.counts.registered,
+ v55RuntimeTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v55_')).length,
  capabilities:manifestA.counts.capabilities,
  v53Generated:2000,
  v54Generated:2485,
