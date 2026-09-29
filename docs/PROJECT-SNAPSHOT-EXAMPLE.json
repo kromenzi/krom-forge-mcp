@@ -1,0 +1,40 @@
+{
+  "projectName": "example-app",
+  "root": "C:/projects/example-app",
+  "files": [
+    { "path": "app/page.tsx", "sha": "host-supplied-hash-1" },
+    { "path": "app/api/health/route.ts", "sha": "host-supplied-hash-2" },
+    { "path": "package.json", "sha": "host-supplied-hash-3" }
+  ],
+  "packageManifest": {
+    "name": "example-app",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "next build",
+      "test": "vitest run"
+    },
+    "dependencies": {
+      "next": "^16.0.0",
+      "react": "^19.0.0"
+    },
+    "devDependencies": {
+      "typescript": "^5.9.0",
+      "vitest": "^3.0.0"
+    }
+  },
+  "routes": [
+    { "path": "/", "file": "app/page.tsx", "status": "known-good" },
+    { "path": "/api/health", "file": "app/api/health/route.ts", "methods": ["GET"] }
+  ],
+  "git": {
+    "branch": "main",
+    "head": "host-supplied-commit",
+    "dirty": false
+  },
+  "diagnostics": [],
+  "buildEvidence": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "summary": "Host-reported successful build"
+  }
+}

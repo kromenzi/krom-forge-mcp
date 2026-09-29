@@ -1,0 +1,27 @@
+{
+  "domain": "Industrial HSE management platform",
+  "objective": "Define evidence-backed requirements before implementation",
+  "jurisdiction": "Saudi Arabia",
+  "industry": "Manufacturing",
+  "constraints": ["Arabic/English", "Mobile field use", "Audit trail"],
+  "sources": [
+    {
+      "id": "src-1",
+      "title": "Official regulator guidance",
+      "sourceType": "official",
+      "publisher": "Government authority",
+      "claims": [
+        "Safety instructions must be communicated in a form workers can understand"
+      ]
+    },
+    {
+      "id": "src-2",
+      "title": "Product benchmark documentation",
+      "sourceType": "vendor",
+      "claims": [
+        "Mobile inspection workflows commonly support photo evidence and corrective actions"
+      ]
+    }
+  ],
+  "hostNotes": ["Exact legal applicability must be reviewed for the target facility"]
+}

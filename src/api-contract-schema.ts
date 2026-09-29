@@ -1,0 +1,4 @@
+import { z } from 'zod';
+export const apiEndpointSchema=z.object({id:z.string(),method:z.enum(['GET','POST','PUT','PATCH','DELETE','OPTIONS','HEAD']),path:z.string(),auth:z.enum(['PUBLIC','AUTHENTICATED','ROLE','SERVICE']).default('AUTHENTICATED'),roles:z.array(z.string()).default([]),requestFields:z.array(z.object({name:z.string(),required:z.boolean().default(false),type:z.string()})).default([]),responseFields:z.array(z.object({name:z.string(),required:z.boolean().default(false),type:z.string()})).default([]),errorCodes:z.array(z.number().int()).default([]),idempotent:z.boolean().default(false),pagination:z.boolean().default(false),evidenceRefs:z.array(z.string()).default([])});
+export const apiContractSchema=z.object({service:z.string(),version:z.string(),endpoints:z.array(apiEndpointSchema).default([])});
+export const compareApiContractsSchema=z.object({before:apiContractSchema,after:apiContractSchema});

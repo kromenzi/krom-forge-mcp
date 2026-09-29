@@ -1,0 +1,5 @@
+import { z } from 'zod';
+export const planningItemSchema=z.object({id:z.string(),title:z.string(),description:z.string().default(''),priority:z.enum(['CRITICAL','HIGH','MEDIUM','LOW']).default('MEDIUM'),dependencies:z.array(z.string()).default([]),acceptanceCriteria:z.array(z.string()).default([]),evidenceRequired:z.array(z.string()).default([]),estimatedComplexity:z.enum(['XS','S','M','L','XL']).default('M'),status:z.enum(['PENDING','READY','BLOCKED','DONE']).default('PENDING')});
+export const planningModelSchema=z.object({project:z.string(),objective:z.string(),constraints:z.array(z.string()).default([]),assumptions:z.array(z.string()).default([]),items:z.array(planningItemSchema).min(1),riskNotes:z.array(z.string()).default([])});
+export const executionSelectionSchema=z.object({plan:planningModelSchema,completedIds:z.array(z.string()).default([]),failedIds:z.array(z.string()).default([])});
+export const comparePlansSchema=z.object({before:planningModelSchema,after:planningModelSchema});

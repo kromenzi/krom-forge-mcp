@@ -1,0 +1,7 @@
+node_modules
+.next
+.vercel
+.localappdata
+.volta
+.env*
+!.env.example

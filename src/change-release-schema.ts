@@ -1,0 +1,5 @@
+import { z } from 'zod';
+export const changeSetSchema=z.object({project:z.string(),changeId:z.string(),summary:z.string(),files:z.array(z.string()).default([]),services:z.array(z.string()).default([]),databaseChange:z.boolean().default(false),authChange:z.boolean().default(false),apiContractChange:z.boolean().default(false),userFacing:z.boolean().default(false),reversible:z.boolean().default(true),evidenceRefs:z.array(z.string()).default([])});
+export const rolloutPlanSchema=z.object({change:changeSetSchema,strategy:z.enum(['AUTO','DIRECT','CANARY','BLUE_GREEN','FEATURE_FLAG']).default('AUTO'),trafficSteps:z.array(z.number().min(0).max(100)).default([5,25,50,100]),healthEvidenceRequired:z.boolean().default(true)});
+export const releaseTrainSchema=z.object({name:z.string(),changes:z.array(changeSetSchema).min(1),dependencies:z.array(z.object({before:z.string(),after:z.string()})).default([])});
+export const compareChangeSetsSchema=z.object({before:changeSetSchema,after:changeSetSchema});
