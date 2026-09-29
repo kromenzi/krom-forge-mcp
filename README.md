@@ -225,3 +225,10 @@ The registry now contains 5,052 tools/capabilities. CI adds an independent v56 b
 v57 adds 20 control-brain MCP tools for long-horizon project memory indexing/retrieval/compaction, knowledge freshness, cross-project dependency reasoning, mission scheduling and continuation, eval-driven tool learning, adaptive tool portfolios, guarded skill synthesis, policy-aware orchestration, bounded project context packs, knowledge refresh planning, control-center state and autonomous-brain consistency checks.
 
 The registry now contains 5,072 tools/capabilities. v57 explicitly keeps synthesized skills advisory until human review and evaluation, keeps memory portable unless an authorized persistence layer exists, and never treats learned weights or mission schedules as evidence of execution.
+
+
+## v58 — Autonomous Engineering Operating System
+
+v58 adds 21 OS-level MCP tools for mission leasing and idempotent scheduling, unified knowledge graphs, contradiction detection, dynamic agent-team formation, internal tool marketplace matching, pre-mortem failure prevention, execution economy, portfolio budgeting/scheduling, deadlock detection, lease renewal planning, mission continuation validation and a consolidated control-center backend snapshot.
+
+The registry now contains 5,093 tools/capabilities. v58 explicitly separates portable OS state from durable persistence, treats pre-mortem outputs as scenarios rather than predictions, and never claims a mission lease, schedule, agent assignment or marketplace match was externally executed.
