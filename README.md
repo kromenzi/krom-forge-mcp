@@ -178,3 +178,10 @@ The v47 control philosophy is: intent -> route -> evidence contract -> impact gr
 KROM Forge v48 adds an assurance layer above v47: release verification contracts, MCP registry/capabilities/version integrity checks, GitHub CI independence from Vercel preview capacity, and delivery handoff/no-merge guards.
 
 The v48 control philosophy is: control-plane decision -> required gates -> verified evidence -> registry/version parity -> GitHub CI quality gate -> explicit handoff. Build, CI, deployment, PR and merge success remain evidence-backed claims only.
+
+
+## v52 — Strategic Engineering Intelligence
+
+KROM Forge v52 adds eight strategic control systems: Engineering Constitution, Constraint Solver, Trust Graph, Change Simulation, Recovery Strategy Intelligence, Verification Economics, Multi-Project Coordination, and Operator Decision Cockpit.
+
+These systems convert policies, dependencies, risk, evidence, recovery choices, verification budgets and program capacity into explicit decision support while preserving KROM Forge's evidence boundary: advisory decisions do not imply host execution.
