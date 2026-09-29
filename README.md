@@ -218,3 +218,10 @@ The total registry is 5,028 tools. CI now includes an independent v55 routing/ru
 v56 adds 24 control-runtime tools above v55. The new layer provides bounded semantic mission memory, deterministic mission replay, failure-aware replanning, retry-budget and loop protection, provider circuit breakers and failover, shadow/canary tool evaluation, semantic overlap detection, advisory deprecation recommendations, evidence-weighted agent quorum, deterministic runtime policy compilation/diff, evidence invalidation propagation, causal execution traces, evidence-only recovery confidence, runtime observability and a consolidated self-healing command snapshot.
 
 The registry now contains 5,052 tools/capabilities. CI adds an independent v56 benchmark covering replay determinism, retry-loop protection, provider failover, semantic-overlap detection, agent quorum, transitive evidence invalidation and evidence-backed recovery.
+
+
+## v57 — Autonomous Engineering Brain
+
+v57 adds 20 control-brain MCP tools for long-horizon project memory indexing/retrieval/compaction, knowledge freshness, cross-project dependency reasoning, mission scheduling and continuation, eval-driven tool learning, adaptive tool portfolios, guarded skill synthesis, policy-aware orchestration, bounded project context packs, knowledge refresh planning, control-center state and autonomous-brain consistency checks.
+
+The registry now contains 5,072 tools/capabilities. v57 explicitly keeps synthesized skills advisory until human review and evaluation, keeps memory portable unless an authorized persistence layer exists, and never treats learned weights or mission schedules as evidence of execution.
