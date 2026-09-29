@@ -147,3 +147,10 @@ A mission is not complete because code was generated. Closure requires evidence 
 ## v46 — Enterprise Command Intelligence
 
 KROM Forge v46 adds portfolio/program intelligence, CI/CD pipeline gates, engineering pre-mortem and failure prevention, engineering decision/risk command intelligence, and an Enterprise Command Gate above the v45 mission control plane. All consequential claims remain evidence-backed and all external mutation still requires host-authorized tools.
+
+
+## v47 — Mega Control Plane
+
+KROM Forge v47 adds 48 integrated MCP capabilities across semantic intent routing, evidence freshness and invalidation, unified change-impact reverification, reusable workflow templates, enterprise audit packaging, release-train orchestration, project-health control, and an authorized autonomy layer.
+
+The v47 control philosophy is: intent -> route -> evidence contract -> impact graph -> reverification -> workflow gates -> release train -> audit package -> authorized next action. No external action is claimed executed without host evidence, and critical actions remain approval/evidence bounded.
