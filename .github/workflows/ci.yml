@@ -22,6 +22,7 @@ on:
       - v57-autonomous-brain
       - v58-engineering-os
       - v59-control-fabric
+      - v60-runtime-mesh
 
 jobs:
   contract:
@@ -67,6 +68,9 @@ jobs:
       - name: Verify v59 control fabric
         run: npm run verify:v59
 
+      - name: Verify v60 runtime mesh
+        run: npm run verify:v60
+
       - name: Unit tests
         run: npm test
 
@@ -110,6 +114,9 @@ jobs:
       - name: Verify v59 control fabric
         run: npm run verify:v59
 
+      - name: Verify v60 runtime mesh
+        run: npm run verify:v60
+
       - name: Type check
         run: npm run typecheck
 
@@ -123,7 +130,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v59-verification-${{ github.sha }}
+          name: krom-v60-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn

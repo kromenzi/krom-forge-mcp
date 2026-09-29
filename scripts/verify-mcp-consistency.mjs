@@ -33,7 +33,7 @@ if (!route.includes('version: pkg.version')) fail('MCP capabilities version must
 if (!health.includes('version: pkg.version')) fail('/health version must derive from package.json.');
 if (!home.includes('Version {pkg.version}')) fail('Homepage version must derive from package.json.');
 
-const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine', 'v51-schema', 'v51-engine', 'v52-schema', 'v52-engine', 'v53-registry', 'v54-registry', 'v55-schema', 'v55-engine', 'v56-schema', 'v56-engine', 'v57-schema', 'v57-engine', 'v58-schema', 'v58-engine', 'v59-schema', 'v59-engine'];
+const requiredModules = ['mega-v48', 'mega-v49', 'v50-schema', 'v50-engine', 'v51-schema', 'v51-engine', 'v52-schema', 'v52-engine', 'v53-registry', 'v54-registry', 'v55-schema', 'v55-engine', 'v56-schema', 'v56-engine', 'v57-schema', 'v57-engine', 'v58-schema', 'v58-engine', 'v59-schema', 'v59-engine', 'v60-schema', 'v60-engine'];
 const missingModules = requiredModules.filter((module) => !manifest.sourceModules.includes(module));
 if (missingModules.length) fail(`Required source modules missing from route: ${missingModules.join(', ')}`);
 
@@ -87,7 +87,11 @@ const requiredLayerTools = [
   'krom_v59_build_idempotent_event_plan',
   'krom_v59_coordinate_distributed_missions',
   'krom_v59_select_resilient_provider',
-  'krom_v59_build_control_fabric_snapshot'
+  'krom_v59_build_control_fabric_snapshot',
+  'krom_v60_build_replay_protection',
+  'krom_v60_build_distributed_scheduler_mesh',
+  'krom_v60_govern_error_budget',
+  'krom_v60_build_runtime_mesh_snapshot'
 ];
 const registeredNames = new Set(manifest.tools.map((tool) => tool.name));
 const missingLayers = requiredLayerTools.filter((tool) => !registeredNames.has(tool));
@@ -105,8 +109,8 @@ if (v54GeneratedTools.length !== 2485) fail(`v54 must register exactly 2485 gene
 if (new Set(v54GeneratedTools.map((tool) => tool.name)).size !== 2485) fail('v54 generated tool names must be unique.');
 const generatedOverlap = v54GeneratedTools.filter((tool) => v53GeneratedTools.some((prior) => prior.name === tool.name));
 if (generatedOverlap.length) fail(`v53/v54 generated tool overlap detected: ${generatedOverlap.slice(0,5).map((tool)=>tool.name).join(', ')}`);
-if (manifest.counts.registered !== 5116) fail(`Expected exactly 5116 total registered tools after v59; found ${manifest.counts.registered}`);
-if (manifest.counts.capabilities !== 5116) fail(`Expected exactly 5116 capability tools after v59; found ${manifest.counts.capabilities}`);
+if (manifest.counts.registered !== 5138) fail(`Expected exactly 5138 total registered tools after v60; found ${manifest.counts.registered}`);
+if (manifest.counts.capabilities !== 5138) fail(`Expected exactly 5138 capability tools after v60; found ${manifest.counts.capabilities}`);
 if (!route.includes('for (const spec of V54_TOOL_SPECS)')) fail('v54 runtime generated registration loop is missing.');
 if (!route.includes('...V54_TOOL_NAMES')) fail('v54 capability expansion is missing.');
 
@@ -129,12 +133,13 @@ const report = {
   v54Domains: 35,
   v54OperationsPerDomain: 71,
   v54GeneratedTools: v54GeneratedTools.length,
-  targetTotalTools: 5116,
+  targetTotalTools: 5138,
   v55RuntimeTools: 28,
   v56RuntimeTools: 24,
   v57BrainTools: 20,
   v58OsTools: 21,
   v59FabricTools: 23,
+  v60MeshTools: 22,
   manifestFingerprint: manifest.fingerprint,
   failures
 };
