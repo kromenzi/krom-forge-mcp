@@ -211,3 +211,10 @@ CI independently validates registry/capability parity, exact 5,000 total count, 
 v55 changes the optimization target from tool-count growth to intelligent use of the existing tool estate. It adds 28 control-runtime tools for semantic routing, domain skill-pack loading, tool-quality ranking, capability compression, dynamic task graphs, parallel execution waves, multi-agent command, evidence trust, automatic reverification, execution dry-runs, mutation-risk gates, resumable checkpoints, change-impact v2, release digital twins, incident command, execution-cost governance, adaptive analysis depth, contradiction reconciliation, provider/plugin abstraction, realtime mission-console state, outcome learning and on-demand tool loading.
 
 The total registry is 5,028 tools. CI now includes an independent v55 routing/runtime benchmark in addition to registry parity, duplicate checks, automation integrity, Node 20/22 tests, TypeScript, production dependency audit and Next.js build.
+
+
+## v56 — Cognitive Self-Healing Runtime
+
+v56 adds 24 control-runtime tools above v55. The new layer provides bounded semantic mission memory, deterministic mission replay, failure-aware replanning, retry-budget and loop protection, provider circuit breakers and failover, shadow/canary tool evaluation, semantic overlap detection, advisory deprecation recommendations, evidence-weighted agent quorum, deterministic runtime policy compilation/diff, evidence invalidation propagation, causal execution traces, evidence-only recovery confidence, runtime observability and a consolidated self-healing command snapshot.
+
+The registry now contains 5,052 tools/capabilities. CI adds an independent v56 benchmark covering replay determinism, retry-loop protection, provider failover, semantic-overlap detection, agent quorum, transitive evidence invalidation and evidence-backed recovery.
