@@ -1,0 +1,4 @@
+import { z } from 'zod';
+export const architectureDecisionSchema=z.object({id:z.string(),title:z.string(),context:z.string(),decision:z.string(),alternatives:z.array(z.string()).default([]),consequences:z.array(z.string()).default([]),status:z.enum(['PROPOSED','ACCEPTED','DEPRECATED','SUPERSEDED']).default('PROPOSED'),supersedes:z.string().optional(),evidenceRefs:z.array(z.string()).default([])});
+export const architectureModelSchema=z.object({project:z.string(),components:z.array(z.object({id:z.string(),name:z.string(),layer:z.string(),dependsOn:z.array(z.string()).default([]),trustBoundary:z.string().optional(),dataClasses:z.array(z.string()).default([])})).default([]),decisions:z.array(architectureDecisionSchema).default([]),constraints:z.array(z.string()).default([])});
+export const architectureChangeSchema=z.object({before:architectureModelSchema,after:architectureModelSchema});

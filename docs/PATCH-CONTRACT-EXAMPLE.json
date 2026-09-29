@@ -1,0 +1,13 @@
+{
+  "objective": "Fix mobile navigation without changing database or auth",
+  "existingProject": true,
+  "allowedPaths": ["app/**", "components/**"],
+  "forbiddenPaths": ["supabase/**", ".env*"],
+  "proposedChanges": [
+    {"path":"components/mobile-nav.tsx","action":"MODIFY","reason":"Fix menu state and responsive navigation"}
+  ],
+  "constraints": ["Preserve desktop navigation", "Preserve current routes"],
+  "databaseImpact": "NONE",
+  "authImpact": "NONE",
+  "deploymentImpact": "LOW"
+}

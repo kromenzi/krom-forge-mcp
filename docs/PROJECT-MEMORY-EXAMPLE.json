@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1",
+  "projectId": "example-project",
+  "projectName": "Example Project",
+  "scopeKey": "org/example-project",
+  "storageMode": "PORTABLE",
+  "architectureSummary": "Next.js + PostgreSQL",
+  "decisions": [],
+  "failures": [],
+  "evidence": [],
+  "tests": [],
+  "deployments": [],
+  "tasks": [],
+  "risks": [],
+  "snapshots": [],
+  "notes": []
+}
