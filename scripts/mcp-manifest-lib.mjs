@@ -28,12 +28,15 @@ const loadV53GeneratedTools = (root, route) => {
   const domains = Array.isArray(catalog.domains) ? catalog.domains : [];
   const operations = Array.isArray(catalog.operations) ? catalog.operations : [];
   const slug = (value) => String(value).toLowerCase().replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '');
+  const registrationMarker = 'for (const spec of V53_TOOL_SPECS)';
+  const registrationIndex = route.indexOf(registrationMarker);
+  const registrationLine = registrationIndex >= 0 ? route.slice(0, registrationIndex).split('\n').length : 1;
   return domains.flatMap((domain) => operations.map((operation) => ({
     name: `krom_v53_${slug(domain.id)}_${slug(operation.id)}`,
     title: `${operation.title} — ${domain.title}`,
     description: `${operation.intent} Domain focus: ${(domain.focus ?? []).join(', ')}. Outputs remain evidence-bound and never imply host execution.`,
     inputSchemaExpression: 'v53UniversalSchema',
-    line: 0,
+    line: registrationLine,
     generated: true
   })));
 };
