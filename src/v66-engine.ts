@@ -110,7 +110,9 @@ export function buildVerificationRecommendationsV66(i:V66AutonomousVerificationI
     if(anomalies.some(a=>a.tool===t.name)) reasons.push('TELEMETRY_ANOMALY');
     if(t.evidenceRefs.length&&!evidenceReady(i,t.evidenceRefs)) reasons.push('EVIDENCE_NOT_READY');
     return {tool:t.name,priority:reasons.length>=2?'HIGH':reasons.length===1?'MEDIUM':'LOW',reasons};
-  }).sort((a,b)=>({HIGH:3,MEDIUM:2,LOW:1}[b.priority]-{HIGH:3,MEDIUM:2,LOW:1}[a.priority]))};
+  });
+  const priorityRank:Record<'HIGH'|'MEDIUM'|'LOW',number>={HIGH:3,MEDIUM:2,LOW:1};
+  return {recommendations:recommendations.sort((a,b)=>priorityRank[b.priority]-priorityRank[a.priority])};
 }
 
 export function auditRegistryDeepV66(i:V66AutonomousVerificationInput){
