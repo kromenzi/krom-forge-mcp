@@ -161,6 +161,31 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Runtime HTTP smoke gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3000 > /tmp/krom-forge-next.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+
+          READY=0
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error http://127.0.0.1:3000/health > /dev/null; then
+              READY=1
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$READY" -ne 1 ]; then
+            cat /tmp/krom-forge-next.log
+            echo "KROM Forge failed to become ready"
+            exit 1
+          fi
+
+          node scripts/smoke-http.mjs http://127.0.0.1:3000
+
       - name: Upload verification evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -170,4 +195,3 @@ jobs:
           include-hidden-files: true
           if-no-files-found: warn
           retention-days: 14
-
