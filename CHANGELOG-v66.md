@@ -19,3 +19,14 @@
 - Expanded the MCP registry target from 5251 to 5257 tools.
 - Version bumped to 66.1.0.
 
+## v66.2 — Routing Confidence & Fallback Intelligence
+
+- Added routing-confidence scoring using tool health, capability fit and ranking margin.
+- Added advisory fallback-chain planning.
+- Added evidence-bound tool canary evaluation.
+- Added candidate-tool comparison without invocation.
+- Added routing decision packets with verification context and explicit execution boundaries.
+- Added selection-safety auditing to block dead or weak candidates.
+- Expanded the MCP registry target from 5,257 to 5,263 tools.
+- Version bumped to 66.2.0.
+
