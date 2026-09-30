@@ -260,3 +260,10 @@ The registry now contains 5,158 tools/capabilities. v61 derives intelligence onl
 v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty accounting, confidence scoring, conflicting-evidence resolution, tool confidence calibration, evidence confidence decay, evidence sufficiency, verification routing/escalation, agent adjudication, counterfactual release analysis, dependency-risk compression, rollback decision analysis, release decision packets, decision thresholds and consolidated decision-core health/snapshots.
 
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
+
+
+## v63 — Autonomous Engineering Governance Brain
+
+v63 adds 20 governance-brain MCP tools for policy reasoning, approval-chain modeling, segregation-of-duties checks, waiver expiry, evidence attestation metadata, tool authorization envelopes, change/release governance, governance drift, exception registers, emergency override contracts, audit trails, cross-project risk governance, approval matrices, governance evidence matrices and executive/operator governance snapshots.
+
+The registry now contains 5,198 tools/capabilities. v63 never fabricates approval, cryptographic signature verification, compliance, execution or persistence; all governance conclusions remain bounded to supplied metadata and evidence.
