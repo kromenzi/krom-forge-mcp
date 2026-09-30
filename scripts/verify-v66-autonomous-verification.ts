@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { v66AutonomousVerificationSchema } from '../src/v66-schema';
-import { buildCapabilityDiscoveryV66, scoreToolHealthV66, detectDeadToolsV66, detectRegistryDriftV66, evaluateVerificationCoverageV66, evaluateOperationalReadinessV66, buildAutonomousVerificationSnapshotV66 } from '../src/v66-engine';
+import { buildCapabilityDiscoveryV66, scoreToolHealthV66, detectDeadToolsV66, detectRegistryDriftV66, evaluateVerificationCoverageV66, evaluateOperationalReadinessV66, buildAutonomousVerificationSnapshotV66, rankToolSelectionV66, detectTelemetryAnomaliesV66, auditRegistryDeepV66 } from '../src/v66-engine';
 
 const i=v66AutonomousVerificationSchema.parse({
   objective:'v66 benchmark', nowEpoch:1000, expectedTools:['a','b'],
@@ -20,6 +20,9 @@ assert.equal(detectDeadToolsV66(i).dead.length,0);
 assert.equal(detectRegistryDriftV66(i).missing.length,0);
 assert.equal(evaluateVerificationCoverageV66(i).coveragePercent,100);
 assert.equal(evaluateOperationalReadinessV66(i).status,'READY');
+assert.equal(rankToolSelectionV66(i,['inspect']).ranking[0].name,'a');
+assert.equal(detectTelemetryAnomaliesV66(i).anomalies.length,0);
+assert.equal(auditRegistryDeepV66(i).duplicates.length,0);
 const s=buildAutonomousVerificationSnapshotV66(i);
 assert.equal(s.selfExecutionClaim,false);
-console.log(JSON.stringify({status:'PASS',capabilityDiscovery:true,toolHealth:true,deadToolGuard:true,registryDrift:true,verificationCoverage:true,readiness:true,snapshot:true},null,2));
+console.log(JSON.stringify({status:'PASS',capabilityDiscovery:true,toolHealth:true,deadToolGuard:true,registryDrift:true,verificationCoverage:true,readiness:true,toolSelection:true,telemetryAnomalies:true,deepRegistryAudit:true,snapshot:true},null,2));
