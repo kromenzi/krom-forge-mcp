@@ -262,6 +262,12 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
+## v67 — Reliability & Recovery Plane
+
+v67 adds 8 evidence-bound MCP tools for circuit-breaker planning, retry budgets, transitive blast-radius assessment, degraded-mode planning, failure correlation, recovery prioritization, recovery-readiness evaluation and consolidated reliability snapshots.
+
+The registry target is 5,271 tools/capabilities. v67 remains advisory: it does not execute retries, trip production breakers, mutate infrastructure, persist state or claim external recovery without host-authorized evidence and tools.
+
 ## v66.1 — Autonomous Verification & Tool Intelligence
 
 v66/v66.1 adds 16 evidence-bound MCP tools for capability discovery, tool-health scoring, dead-tool detection, registry-drift analysis, verification coverage, non-executing execution trace planning, operational readiness, self-diagnostics, capability-aware tool ranking, telemetry anomaly detection, adaptive verification recommendations, deep registry auditing, non-executing verification queues and consolidated selection diagnostics.
@@ -279,4 +285,4 @@ The registry target is 5,241 tools/capabilities. v65 never claims cryptographic 
 v64 adds 21 evidence-bound runtime trust tools above the v63 governance plane. It continuously scores agents, tools, providers and operators; evaluates session/action authorization; resolves capability grants and revocations; detects privilege escalation and behavior anomalies; manages trust budgets; plans quarantine and rehabilitation; and produces trust decision packets, runtime health and a consolidated adaptive-trust snapshot.
 
 The registry now contains 5,219 tools/capabilities with zero duplicate registrations, zero missing/extra capability entries and zero metadata gaps in the verified v64 branch CI. v64 never invents execution, identity proof, signatures, persistence, certification or deployment success.
-<!-- production-deploy-refresh: v66.1-2026-10-01 -->
+<!-- production-deploy-refresh: v67-2026-10-01 -->
