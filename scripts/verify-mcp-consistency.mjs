@@ -121,8 +121,8 @@ if (v54GeneratedTools.length !== 2485) fail(`v54 must register exactly 2485 gene
 if (new Set(v54GeneratedTools.map((tool) => tool.name)).size !== 2485) fail('v54 generated tool names must be unique.');
 const generatedOverlap = v54GeneratedTools.filter((tool) => v53GeneratedTools.some((prior) => prior.name === tool.name));
 if (generatedOverlap.length) fail(`v53/v54 generated tool overlap detected: ${generatedOverlap.slice(0,5).map((tool)=>tool.name).join(', ')}`);
-if (manifest.counts.registered !== 5219) fail(`Expected exactly 5219 total registered tools after v64; found ${manifest.counts.registered}`);
-if (manifest.counts.capabilities !== 5219) fail(`Expected exactly 5219 capability tools after v64; found ${manifest.counts.capabilities}`);
+if (manifest.counts.registered !== 5241) fail(`Expected exactly 5241 total registered tools after v65; found ${manifest.counts.registered}`);
+if (manifest.counts.capabilities !== 5241) fail(`Expected exactly 5241 capability tools after v65; found ${manifest.counts.capabilities}`);
 if (!route.includes('for (const spec of V54_TOOL_SPECS)')) fail('v54 runtime generated registration loop is missing.');
 if (!route.includes('...V54_TOOL_NAMES')) fail('v54 capability expansion is missing.');
 
@@ -145,7 +145,7 @@ const report = {
   v54Domains: 35,
   v54OperationsPerDomain: 71,
   v54GeneratedTools: v54GeneratedTools.length,
-  targetTotalTools: 5219,
+  targetTotalTools: 5241,
   v55RuntimeTools: 28,
   v56RuntimeTools: 24,
   v57BrainTools: 20,
@@ -156,6 +156,7 @@ const report = {
   v62DecisionTools: 20,
   v63TrustTools: 20,
   v64TrustRuntimeTools: 21,
+    v65IdentityDelegationTools: 22,
   manifestFingerprint: manifest.fingerprint,
   failures
 };
