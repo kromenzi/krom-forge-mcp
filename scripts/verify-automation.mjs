@@ -36,8 +36,8 @@ requireText('retention-days: 14','evidence retention');
 
 if(validateMcpManifest(manifestA).status!=='PASS') failures.push('MCP manifest integrity failed.');
 if(manifestA.fingerprint!==manifestB.fingerprint) failures.push('Manifest fingerprint is not deterministic.');
-if(manifestA.counts.registered!==5198) failures.push(`Registered tools must equal 5198; found ${manifestA.counts.registered}`);
-if(manifestA.counts.capabilities!==5198) failures.push(`Capability tools must equal 5198; found ${manifestA.counts.capabilities}`);
+if(manifestA.counts.registered!==5219) failures.push(`Registered tools must equal 5219; found ${manifestA.counts.registered}`);
+if(manifestA.counts.capabilities!==5219) failures.push(`Capability tools must equal 5219; found ${manifestA.counts.capabilities}`);
 if(manifestA.integrity.duplicateRegistrations.length) failures.push('Duplicate registrations detected.');
 if(manifestA.integrity.duplicateCapabilities.length) failures.push('Duplicate capabilities detected.');
 if(manifestA.integrity.missingCapabilities.length) failures.push('Missing capability entries detected.');
@@ -48,7 +48,7 @@ if(v54.domains.length!==35||v54.operations.length!==71||v54.domains.length*v54.o
 if(!route.includes('executeV53Tool(spec, input)')||!route.includes('executeV54Tool(spec, input)')) failures.push('Generated runtime execution contracts missing.');
 
 const names=manifestA.tools.map((tool)=>tool.name);
-if(new Set(names).size!==5198) failures.push('Global tool-name uniqueness violated.');
+if(new Set(names).size!==5219) failures.push('Global tool-name uniqueness violated.');
 
 const report={
  status:failures.length?'FAIL':'PASS',
@@ -62,6 +62,7 @@ const report={
  v61GridTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v61_')).length,
  v62DecisionTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v62_')).length,
  v63TrustTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v63_')).length,
+ v64TrustRuntimeTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v64_')).length,
  capabilities:manifestA.counts.capabilities,
  v53Generated:2000,
  v54Generated:2485,
