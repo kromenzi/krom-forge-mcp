@@ -103,13 +103,14 @@ export function buildVerificationRecommendationsV66(i:V66AutonomousVerificationI
   const anomalies=detectTelemetryAnomaliesV66(i).anomalies;
   const failed=new Set(i.checks.filter(c=>!c.passed).flatMap(c=>c.toolName?[c.toolName]:[]));
   const dead=new Set(detectDeadToolsV66(i).dead);
-  return {recommendations:i.tools.map(t=>{
+  const recommendations=i.tools.map(t=>{
     const reasons:string[]=[];
     if(dead.has(t.name)) reasons.push('DEAD_TOOL');
     if(failed.has(t.name)) reasons.push('FAILED_CHECK');
     if(anomalies.some(a=>a.tool===t.name)) reasons.push('TELEMETRY_ANOMALY');
     if(t.evidenceRefs.length&&!evidenceReady(i,t.evidenceRefs)) reasons.push('EVIDENCE_NOT_READY');
-    return {tool:t.name,priority:reasons.length>=2?'HIGH':reasons.length===1?'MEDIUM':'LOW',reasons};
+    const priority:'HIGH'|'MEDIUM'|'LOW'=reasons.length>=2?'HIGH':reasons.length===1?'MEDIUM':'LOW';
+    return {tool:t.name,priority,reasons};
   });
   const priorityRank:Record<'HIGH'|'MEDIUM'|'LOW',number>={HIGH:3,MEDIUM:2,LOW:1};
   return {recommendations:recommendations.sort((a,b)=>priorityRank[b.priority]-priorityRank[a.priority])};
