@@ -29,6 +29,7 @@ requireText('npm run verify:v63','v63 trust governance benchmark');
 requireText('npm run verify:v64','v64 adaptive trust runtime benchmark');
 requireText('npm run verify:v65','v65 identity delegation benchmark');
 requireText('npm run verify:v66','v66 autonomous verification benchmark');
+requireText('npm run verify:v67','v67 reliability recovery benchmark');
 requireText('npm test','unit tests');
 requireText('npm run typecheck','TypeScript');
 requireText('npm run audit:production','production dependency audit');
@@ -39,8 +40,8 @@ requireText('retention-days: 14','evidence retention');
 
 if(validateMcpManifest(manifestA).status!=='PASS') failures.push('MCP manifest integrity failed.');
 if(manifestA.fingerprint!==manifestB.fingerprint) failures.push('Manifest fingerprint is not deterministic.');
-if(manifestA.counts.registered!==5263) failures.push(`Registered tools must equal 5263; found ${manifestA.counts.registered}`);
-if(manifestA.counts.capabilities!==5263) failures.push(`Capability tools must equal 5263; found ${manifestA.counts.capabilities}`);
+if(manifestA.counts.registered!==5271) failures.push(`Registered tools must equal 5271; found ${manifestA.counts.registered}`);
+if(manifestA.counts.capabilities!==5271) failures.push(`Capability tools must equal 5271; found ${manifestA.counts.capabilities}`);
 if(manifestA.integrity.duplicateRegistrations.length) failures.push('Duplicate registrations detected.');
 if(manifestA.integrity.duplicateCapabilities.length) failures.push('Duplicate capabilities detected.');
 if(manifestA.integrity.missingCapabilities.length) failures.push('Missing capability entries detected.');
@@ -51,7 +52,7 @@ if(v54.domains.length!==35||v54.operations.length!==71||v54.domains.length*v54.o
 if(!route.includes('executeV53Tool(spec, input)')||!route.includes('executeV54Tool(spec, input)')) failures.push('Generated runtime execution contracts missing.');
 
 const names=manifestA.tools.map((tool)=>tool.name);
-if(new Set(names).size!==5263) failures.push('Global tool-name uniqueness violated.');
+if(new Set(names).size!==5271) failures.push('Global tool-name uniqueness violated.');
 
 const report={
  status:failures.length?'FAIL':'PASS',
