@@ -77,3 +77,57 @@ export function buildVerificationOperatorBriefV66(i:V66AutonomousVerificationInp
     deadTools:s.diagnostics.deadTools.dead,coveragePercent:s.diagnostics.verification.coveragePercent,
     evidenceBoundary:'Diagnostics are derived only from supplied evidence and telemetry. No host action, deployment, external probe, persistence, or production success is inferred.'};
 }
+
+
+export function rankToolSelectionV66(i:V66AutonomousVerificationInput, requiredCapabilities:string[]=[]){
+  const health=new Map(scoreToolHealthV66(i).tools.map(x=>[x.name,x.score]));
+  return {ranking:i.tools.map(t=>{
+    const matched=requiredCapabilities.filter(c=>t.capabilities.includes(c));
+    const coverage=requiredCapabilities.length?matched.length/requiredCapabilities.length:1;
+    const score=Number(((health.get(t.name)??0)*0.65 + coverage*35).toFixed(2));
+    return {name:t.name,score,matchedCapabilities:matched,eligible:t.enabled&&coverage>0};
+  }).filter(x=>x.eligible).sort((a,b)=>b.score-a.score)};
+}
+
+export function detectTelemetryAnomaliesV66(i:V66AutonomousVerificationInput){
+  return {anomalies:i.tools.flatMap(t=>{
+    const out:{tool:string,type:'LATENCY'|'ERROR_RATE'|'STALE_SUCCESS',value:number,threshold:number}[]=[];
+    if(t.latencyMs!==undefined&&t.latencyMs>i.maxLatencyMs) out.push({tool:t.name,type:'LATENCY',value:t.latencyMs,threshold:i.maxLatencyMs});
+    if(t.errorRate!==undefined&&t.errorRate>i.maxErrorRate) out.push({tool:t.name,type:'ERROR_RATE',value:t.errorRate,threshold:i.maxErrorRate});
+    if(t.lastSuccessEpoch!==undefined&&i.nowEpoch>0&&i.nowEpoch-t.lastSuccessEpoch>i.staleAfterSeconds) out.push({tool:t.name,type:'STALE_SUCCESS',value:i.nowEpoch-t.lastSuccessEpoch,threshold:i.staleAfterSeconds});
+    return out;
+  })};
+}
+
+export function buildVerificationRecommendationsV66(i:V66AutonomousVerificationInput){
+  const anomalies=detectTelemetryAnomaliesV66(i).anomalies;
+  const failed=new Set(i.checks.filter(c=>!c.passed).flatMap(c=>c.toolName?[c.toolName]:[]));
+  const dead=new Set(detectDeadToolsV66(i).dead);
+  return {recommendations:i.tools.map(t=>{
+    const reasons:string[]=[];
+    if(dead.has(t.name)) reasons.push('DEAD_TOOL');
+    if(failed.has(t.name)) reasons.push('FAILED_CHECK');
+    if(anomalies.some(a=>a.tool===t.name)) reasons.push('TELEMETRY_ANOMALY');
+    if(t.evidenceRefs.length&&!evidenceReady(i,t.evidenceRefs)) reasons.push('EVIDENCE_NOT_READY');
+    return {tool:t.name,priority:reasons.length>=2?'HIGH':reasons.length===1?'MEDIUM':'LOW',reasons};
+  }).sort((a,b)=>({HIGH:3,MEDIUM:2,LOW:1}[b.priority]-{HIGH:3,MEDIUM:2,LOW:1}[a.priority]))};
+}
+
+export function auditRegistryDeepV66(i:V66AutonomousVerificationInput){
+  const drift=detectRegistryDriftV66(i);
+  const names=i.tools.map(t=>t.name);
+  return {registryCount:names.length,uniqueCount:new Set(names).size,expectedCount:i.expectedTools.length,
+    missing:drift.missing,unexpected:drift.unexpected,duplicates:drift.duplicates,
+    toolsWithoutCapabilities:i.tools.filter(t=>t.capabilities.length===0).map(t=>t.name),
+    toolsWithoutEvidence:i.tools.filter(t=>t.evidenceRefs.length===0).map(t=>t.name)};
+}
+
+export function buildAdaptiveVerificationQueueV66(i:V66AutonomousVerificationInput){
+  const rec=buildVerificationRecommendationsV66(i).recommendations;
+  return {queue:rec.filter(r=>r.priority!=='LOW').map((r,index)=>({order:index+1,tool:r.tool,priority:r.priority,reasons:r.reasons,execute:false})),executionClaim:false};
+}
+
+export function buildSelectionDiagnosticsV66(i:V66AutonomousVerificationInput){
+  return {telemetry:detectTelemetryAnomaliesV66(i),recommendations:buildVerificationRecommendationsV66(i),
+    registry:auditRegistryDeepV66(i),queue:buildAdaptiveVerificationQueueV66(i)};
+}
