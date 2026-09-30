@@ -262,8 +262,8 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
-## v63 — Autonomous Engineering Trust & Governance Plane
+## v64 — Adaptive Trust Runtime
 
-v63 adds 20 trust/governance MCP tools for evidence attestation chains, provenance trust, policy simulation, change authorization envelopes, segregation of duties, approval quorum, compliance-control evidence mapping, waiver governance, evidence freshness invalidation, artifact integrity, governance audit trails, runtime trust, deployment authorization analysis, release-governance packets and consolidated trust/governance health.
+v64 adds 21 evidence-bound runtime trust tools above the v63 governance plane. It continuously scores agents, tools, providers and operators; evaluates session/action authorization; resolves capability grants and revocations; detects privilege escalation and behavior anomalies; manages trust budgets; plans quarantine and rehabilitation; and produces trust decision packets, runtime health and a consolidated adaptive-trust snapshot.
 
-The registry now contains 5,198 tools/capabilities. v63 never invents signatures, approvals, compliance certification, persistence or deployment execution.
+The registry now contains 5,219 tools/capabilities with zero duplicate registrations, zero missing/extra capability entries and zero metadata gaps in the verified v64 branch CI. v64 never invents execution, identity proof, signatures, persistence, certification or deployment success.
