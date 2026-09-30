@@ -262,6 +262,12 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
+## v65 — Autonomous Engineering Identity & Delegation Plane
+
+v65 adds 22 evidence-bound MCP tools for principal identity graphs, identity assurance, impersonation-signal detection, delegation graphs and cycles, delegation expiry/depth, subdelegation controls, authority envelopes, escalation detection, capability delegation, transitive revocation, delegated-action authorization, authority-conflict analysis, risk budgets, break-glass review, identity-evidence coverage, authority lineage, consistency, health and consolidated operator snapshots.
+
+The registry target is 5,241 tools/capabilities. v65 never claims cryptographic identity proof, legal authority, automatic approval, persistence or execution without host-supplied evidence.
+
 ## v64 — Adaptive Trust Runtime
 
 v64 adds 21 evidence-bound runtime trust tools above the v63 governance plane. It continuously scores agents, tools, providers and operators; evaluates session/action authorization; resolves capability grants and revocations; detects privilege escalation and behavior anomalies; manages trust budgets; plans quarantine and rehabilitation; and produces trust decision packets, runtime health and a consolidated adaptive-trust snapshot.
