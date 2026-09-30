@@ -28,6 +28,7 @@ on:
       - v63-trust-governance
       - v64-adaptive-trust-runtime
       - v65-identity-delegation-plane
+      - v66-autonomous-verification-plane
 
 jobs:
   contract:
@@ -91,6 +92,9 @@ jobs:
       - name: Verify v65 identity delegation plane
         run: npm run verify:v65
 
+      - name: Verify v66 autonomous verification
+        run: npm run verify:v66
+
       - name: Unit tests
         run: npm test
 
@@ -152,6 +156,9 @@ jobs:
       - name: Verify v65 identity delegation plane
         run: npm run verify:v65
 
+      - name: Verify v66 autonomous verification
+        run: npm run verify:v66
+
       - name: Type check
         run: npm run typecheck
 
@@ -190,7 +197,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v65-verification-${{ github.sha }}
+          name: krom-v66-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
