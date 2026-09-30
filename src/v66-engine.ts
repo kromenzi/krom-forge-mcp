@@ -27,19 +27,20 @@ export function detectDeadToolsV66(i:V66AutonomousVerificationInput){
   return {dead:i.tools.filter(t=>{
     const stale=t.lastSuccessEpoch!==undefined&&i.nowEpoch>0&&i.nowEpoch-t.lastSuccessEpoch>i.staleAfterSeconds;
     const highError=t.errorRate!==undefined&&t.errorRate>Math.max(i.maxErrorRate*2,20);
-    return !t.enabled||((health.get(t.name)?.score??0)<40)||(stale&&highError);
+    return !t.enabled||stale||((health.get(t.name)?.score??0)<40)||highError;
   }).map(t=>t.name)};
 }
 
 export function detectRegistryDriftV66(i:V66AutonomousVerificationInput){
   const actual=new Set(i.tools.map(t=>t.name)), expected=new Set(i.expectedTools);
-  return {missing:i.expectedTools.filter(x=>!actual.has(x)),unexpected:i.tools.map(t=>t.name).filter(x=>!expected.has(x)),duplicates:i.tools.map(t=>t.name).filter((x,idx,a)=>a.indexOf(x)!==idx)};
+  const enforceExpected=i.expectedTools.length>0;
+  return {missing:i.expectedTools.filter(x=>!actual.has(x)),unexpected:enforceExpected?i.tools.map(t=>t.name).filter(x=>!expected.has(x)):[],duplicates:i.tools.map(t=>t.name).filter((x,idx,a)=>a.indexOf(x)!==idx)};
 }
 
 export function evaluateVerificationCoverageV66(i:V66AutonomousVerificationInput){
   const toolNames=new Set(i.tools.map(t=>t.name));
   const verified=i.checks.filter(c=>c.passed&&evidenceReady(i,c.evidenceRefs));
-  const covered=new Set(verified.flatMap(c=>c.toolName?[c.toolName]:[]));
+  const covered=new Set(verified.flatMap(c=>c.toolName&&toolNames.has(c.toolName)?[c.toolName]:[]));
   return {totalTools:toolNames.size,coveredTools:covered.size,coveragePercent:toolNames.size?Number((covered.size/toolNames.size*100).toFixed(2)):100,
     failedChecks:i.checks.filter(c=>!c.passed).map(c=>c.id),unsupportedChecks:i.checks.filter(c=>c.evidenceRefs.length&&!evidenceReady(i,c.evidenceRefs)).map(c=>c.id)};
 }
@@ -53,10 +54,10 @@ export function buildExecutionTracePlanV66(i:V66AutonomousVerificationInput){
 export function evaluateOperationalReadinessV66(i:V66AutonomousVerificationInput){
   const drift=detectRegistryDriftV66(i), dead=detectDeadToolsV66(i), coverage=evaluateVerificationCoverageV66(i);
   const unhealthy=scoreToolHealthV66(i).tools.filter(x=>!x.healthy).length;
-  const criticalFailed=i.checks.filter(c=>!c.passed&&c.severity>=80).length;
-  const ready=drift.missing.length===0&&drift.duplicates.length===0&&dead.dead.length===0&&criticalFailed===0&&coverage.coveragePercent>=80;
+  const criticalFailed=i.checks.filter(c=>c.severity>=80&&(!c.passed||!evidenceReady(i,c.evidenceRefs))).length;
+  const ready=drift.missing.length===0&&drift.unexpected.length===0&&drift.duplicates.length===0&&dead.dead.length===0&&criticalFailed===0&&coverage.coveragePercent>=80;
   return {status:ready?'READY':'BLOCKED',unhealthyTools:unhealthy,deadTools:dead.dead.length,criticalFailedChecks:criticalFailed,
-    coveragePercent:coverage.coveragePercent,missingExpectedTools:drift.missing.length};
+    coveragePercent:coverage.coveragePercent,missingExpectedTools:drift.missing.length,unexpectedTools:drift.unexpected.length};
 }
 
 export function buildSelfDiagnosticsV66(i:V66AutonomousVerificationInput){
