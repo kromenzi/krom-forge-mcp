@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { evaluateProductionReadiness, decideRelease } from '../src/release-control-engine';
+import { productionReadinessInputSchema } from '../src/release-control-schema';
 
-const readiness = {
+const readiness = productionReadinessInputSchema.parse({
   projectId: 'kromenzi/krom-forge-mcp',
   releaseId: 'v65-contract-regression',
   environment: 'production',
@@ -28,7 +29,7 @@ const readiness = {
   runtimeVerificationPlanned: true,
   changeWindow: 'approved-window',
   owner: 'kromenzi'
-};
+});
 
 test('production readiness preserves release policy fields for lossless composition', () => {
   const evaluated = evaluateProductionReadiness(readiness);
