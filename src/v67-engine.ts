@@ -76,9 +76,12 @@ export function evaluateRecoveryReadinessV67(i:V67ReliabilityRecoveryInput){
   const degradedServices=i.services.filter(s=>degraded(i,s));
   const unsupportedCritical=i.services.filter(s=>s.criticality>=80&&!evidenceReady(i,s.evidenceRefs));
   const criticalIncidents=i.incidents.filter(x=>x.active&&x.severity>=80&&evidenceReady(i,x.evidenceRefs));
+  const unsupportedCriticalIncidents=i.incidents.filter(x=>x.active&&x.severity>=80&&!evidenceReady(i,x.evidenceRefs));
   const retry=calculateRetryBudgetV67(i);
-  const ready=unsupportedCritical.length===0&&criticalIncidents.length===0&&retry.remaining>0;
-  return {status:ready?'READY':'BLOCKED',degradedServices:degradedServices.map(s=>s.name),unsupportedCritical:unsupportedCritical.map(s=>s.name),criticalIncidents:criticalIncidents.map(x=>x.id),retryRemaining:retry.remaining};
+  const recoveryNeeded=degradedServices.length>0||i.incidents.some(x=>x.active);
+  const retryBlocked=recoveryNeeded&&retry.remaining===0;
+  const ready=unsupportedCritical.length===0&&criticalIncidents.length===0&&unsupportedCriticalIncidents.length===0&&!retryBlocked;
+  return {status:ready?'READY':'BLOCKED',degradedServices:degradedServices.map(s=>s.name),unsupportedCritical:unsupportedCritical.map(s=>s.name),criticalIncidents:criticalIncidents.map(x=>x.id),unsupportedCriticalIncidents:unsupportedCriticalIncidents.map(x=>x.id),retryRemaining:retry.remaining,recoveryNeeded,retryBlocked};
 }
 
 export function buildReliabilitySnapshotV67(i:V67ReliabilityRecoveryInput){
