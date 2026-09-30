@@ -41,7 +41,18 @@ export function evaluateProductionReadiness(input: Readiness) {
   ];
   return {
     projectId:x.projectId, releaseId:x.releaseId, environment:x.environment,
-    score:Number(weighted.toFixed(1)), dimensions, hardStops, warnings,
+    dimensions,
+    unsupportedClaims:x.unsupportedClaims,
+    openCriticalRisks:x.openCriticalRisks,
+    openBlockers:x.openBlockers,
+    approvalRequired:x.approvalRequired,
+    approvalGranted:x.approvalGranted,
+    rollbackPlanAvailable:x.rollbackPlanAvailable,
+    rollbackPlanVerified:x.rollbackPlanVerified,
+    runtimeVerificationPlanned:x.runtimeVerificationPlanned,
+    changeWindow:x.changeWindow,
+    owner:x.owner,
+    score:Number(weighted.toFixed(1)), hardStops, warnings,
     prelimStatus: hardStops.length ? 'BLOCKED' : warnings.length ? 'CONDITIONAL' : 'READY',
     limitation:'Decision uses host-supplied evidence and gate states only; KROM does not independently execute build, deploy, security, runtime, or rollback operations.'
   };
