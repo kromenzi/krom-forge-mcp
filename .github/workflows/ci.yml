@@ -25,6 +25,7 @@ on:
       - v60-runtime-mesh
       - v61-intelligence-grid
       - v62-decision-core
+      - v63-trust-governance
 
 jobs:
   contract:
@@ -79,6 +80,9 @@ jobs:
       - name: Verify v62 decision core
         run: npm run verify:v62
 
+      - name: Verify v63 trust governance
+        run: npm run verify:v63
+
       - name: Unit tests
         run: npm test
 
@@ -131,6 +135,9 @@ jobs:
       - name: Verify v62 decision core
         run: npm run verify:v62
 
+      - name: Verify v63 trust governance
+        run: npm run verify:v63
+
       - name: Type check
         run: npm run typecheck
 
@@ -144,7 +151,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v62-verification-${{ github.sha }}
+          name: krom-v63-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
