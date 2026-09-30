@@ -1,0 +1,53 @@
+import { z } from 'zod';
+
+export const v63GovernanceSchema = z.object({
+  objective:z.string().min(1),
+  nowEpoch:z.number().int().nonnegative().default(0),
+  policies:z.array(z.object({
+    id:z.string().min(1),action:z.string().default('*'),
+    effect:z.enum(['ALLOW','DENY','REQUIRE_APPROVAL']),priority:z.number().int().default(0),
+    approverRoles:z.array(z.string()).default([]),maxRisk:z.number().min(0).max(100).default(100)
+  })).default([]),
+  approvals:z.array(z.object({
+    id:z.string().min(1),actionId:z.string().min(1),actor:z.string().min(1),role:z.string().default('reviewer'),
+    status:z.enum(['APPROVED','REJECTED','PENDING']).default('PENDING'),epoch:z.number().int().nonnegative().default(0)
+  })).default([]),
+  actions:z.array(z.object({
+    id:z.string().min(1),kind:z.string().default('GENERIC'),projectId:z.string().optional(),
+    requestedBy:z.string().default('unknown'),risk:z.number().min(0).max(100).default(0),
+    tool:z.string().optional(),releaseId:z.string().optional(),evidenceRefs:z.array(z.string()).default([])
+  })).default([]),
+  evidence:z.array(z.object({
+    id:z.string().min(1),verified:z.boolean().default(false),fresh:z.boolean().default(true),
+    confidence:z.number().min(0).max(100).default(50),attestationId:z.string().optional(),
+    source:z.string().default('host')
+  })).default([]),
+  attestations:z.array(z.object({
+    id:z.string().min(1),evidenceId:z.string().min(1),issuer:z.string().default('unknown'),
+    issuedEpoch:z.number().int().nonnegative().default(0),expiresEpoch:z.number().int().nonnegative().optional(),
+    signatureObserved:z.boolean().default(false)
+  })).default([]),
+  waivers:z.array(z.object({
+    id:z.string().min(1),scope:z.string().min(1),approvedBy:z.string().default(''),
+    expiresEpoch:z.number().int().nonnegative().optional(),reason:z.string().default(''),
+    active:z.boolean().default(true)
+  })).default([]),
+  roles:z.array(z.object({
+    actor:z.string().min(1),roles:z.array(z.string()).default([])
+  })).default([]),
+  tools:z.array(z.object({
+    name:z.string().min(1),allowedRoles:z.array(z.string()).default([]),
+    maxRisk:z.number().min(0).max(100).default(100),enabled:z.boolean().default(true)
+  })).default([]),
+  releases:z.array(z.object({
+    id:z.string().min(1),projectId:z.string().min(1),risk:z.number().min(0).max(100).default(0),
+    evidenceRefs:z.array(z.string()).default([]),requiredApprovals:z.array(z.string()).default([])
+  })).default([]),
+  auditEvents:z.array(z.object({
+    id:z.string().min(1),kind:z.string().default('EVENT'),actor:z.string().default('system'),
+    actionId:z.string().optional(),epoch:z.number().int().nonnegative().default(0),evidenceRefs:z.array(z.string()).default([])
+  })).default([]),
+  baselinePolicyHash:z.string().default(''),
+  currentPolicyHash:z.string().default('')
+});
+export type V63GovernanceInput = z.infer<typeof v63GovernanceSchema>;

@@ -1,6 +1,6 @@
 {
   "name": "krom-forge-mcp",
-  "version": "62.0.0",
+  "version": "63.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,11 +14,12 @@
     "verify:v60": "tsx scripts/verify-v60-mesh.ts",
     "verify:v61": "tsx scripts/verify-v61-grid.ts",
     "verify:v62": "tsx scripts/verify-v62-decision.ts",
+    "verify:v63": "tsx scripts/verify-v63-governance.ts",
     "manifest:mcp": "node scripts/generate-mcp-manifest.mjs",
     "test": "node scripts/run-tests.mjs",
     "typecheck": "tsc --noEmit",
     "audit:production": "npm audit --omit=dev --audit-level=high",
-    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run verify:v56 && npm run verify:v57 && npm run verify:v58 && npm run verify:v59 && npm run verify:v60 && npm run verify:v61 && npm run verify:v62 && npm run typecheck && npm test && npm run audit:production && npm run build",
+    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run verify:v56 && npm run verify:v57 && npm run verify:v58 && npm run verify:v59 && npm run verify:v60 && npm run verify:v61 && npm run verify:v62 && npm run verify:v63 && npm run typecheck && npm test && npm run audit:production && npm run build",
     "build": "next build",
     "start": "next start"
   },
