@@ -131,3 +131,48 @@ export function buildSelectionDiagnosticsV66(i:V66AutonomousVerificationInput){
   return {telemetry:detectTelemetryAnomaliesV66(i),recommendations:buildVerificationRecommendationsV66(i),
     registry:auditRegistryDeepV66(i),queue:buildAdaptiveVerificationQueueV66(i)};
 }
+
+
+export function scoreRoutingConfidenceV66(i:V66AutonomousVerificationInput, requiredCapabilities:string[]=[]){
+  const ranking=rankToolSelectionV66(i,requiredCapabilities).ranking;
+  const top=ranking[0], second=ranking[1];
+  if(!top) return {confidence:0,selected:null,margin:0,reasons:['NO_ELIGIBLE_TOOL']};
+  const margin=Number((top.score-(second?.score??0)).toFixed(2));
+  const confidence=Math.max(0,Math.min(100,Number((top.score*0.8+Math.min(margin,25)*0.8).toFixed(2))));
+  return {confidence,selected:top.name,margin,reasons:confidence<60?['LOW_CONFIDENCE']:[]};
+}
+
+export function buildFallbackPlanV66(i:V66AutonomousVerificationInput, requiredCapabilities:string[]=[]){
+  const ranking=rankToolSelectionV66(i,requiredCapabilities).ranking;
+  return {primary:ranking[0]?.name??null,fallbacks:ranking.slice(1,4).map(x=>({tool:x.name,score:x.score})),
+    condition:'Use fallback only when host-authorized execution reports failure, denial, or health degradation.',execute:false};
+}
+
+export function evaluateToolCanaryV66(i:V66AutonomousVerificationInput, candidateTool:string){
+  const t=i.tools.find(x=>x.name===candidateTool);
+  if(!t) return {candidateTool,status:'BLOCKED',reasons:['UNKNOWN_TOOL'],promote:false};
+  const health=scoreToolHealthV66(i).tools.find(x=>x.name===candidateTool);
+  const failed=i.checks.filter(c=>c.toolName===candidateTool&&!c.passed);
+  const anomalies=detectTelemetryAnomaliesV66(i).anomalies.filter(a=>a.tool===candidateTool);
+  const promote=!!health?.healthy&&failed.length===0&&anomalies.length===0&&evidenceReady(i,t.evidenceRefs);
+  return {candidateTool,status:promote?'PASS':'BLOCKED',healthScore:health?.score??0,failedChecks:failed.map(x=>x.id),anomalies,promote};
+}
+
+export function compareToolCandidatesV66(i:V66AutonomousVerificationInput, candidates:string[], requiredCapabilities:string[]=[]){
+  const ranking=rankToolSelectionV66(i,requiredCapabilities).ranking.filter(x=>candidates.includes(x.name));
+  return {candidates:ranking,selected:ranking[0]?.name??null,selectionClaim:'Recommendation only; no tool invocation occurs.'};
+}
+
+export function buildRoutingDecisionPacketV66(i:V66AutonomousVerificationInput, requiredCapabilities:string[]=[]){
+  const confidence=scoreRoutingConfidenceV66(i,requiredCapabilities);
+  const fallback=buildFallbackPlanV66(i,requiredCapabilities);
+  return {objective:i.objective,requiredCapabilities,confidence,fallback,verification:buildVerificationRecommendationsV66(i),
+    execute:false,decisionBoundary:'Routing is advisory and evidence-bound; host authorization is required for execution.'};
+}
+
+export function auditSelectionSafetyV66(i:V66AutonomousVerificationInput, requiredCapabilities:string[]=[]){
+  const ranking=rankToolSelectionV66(i,requiredCapabilities).ranking;
+  const dead=new Set(detectDeadToolsV66(i).dead);
+  const unsafe=ranking.filter(x=>dead.has(x.name)||x.score<50).map(x=>x.name);
+  return {eligible:ranking.map(x=>x.name),unsafe,pass:unsafe.length===0};
+}
