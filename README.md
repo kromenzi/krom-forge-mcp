@@ -262,6 +262,12 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
+## v66.1 — Autonomous Verification & Tool Intelligence
+
+v66/v66.1 adds 16 evidence-bound MCP tools for capability discovery, tool-health scoring, dead-tool detection, registry-drift analysis, verification coverage, non-executing execution trace planning, operational readiness, self-diagnostics, capability-aware tool ranking, telemetry anomaly detection, adaptive verification recommendations, deep registry auditing, non-executing verification queues and consolidated selection diagnostics.
+
+The registry target is 5,257 tools/capabilities. v66.1 does not claim host execution, persistence, external verification, deployment success or production mutation without host-authorized evidence and tools.
+
 ## v65 — Autonomous Engineering Identity & Delegation Plane
 
 v65 adds 22 evidence-bound MCP tools for principal identity graphs, identity assurance, impersonation-signal detection, delegation graphs and cycles, delegation expiry/depth, subdelegation controls, authority envelopes, escalation detection, capability delegation, transitive revocation, delegated-action authorization, authority-conflict analysis, risk budgets, break-glass review, identity-evidence coverage, authority lineage, consistency, health and consolidated operator snapshots.
@@ -273,4 +279,4 @@ The registry target is 5,241 tools/capabilities. v65 never claims cryptographic 
 v64 adds 21 evidence-bound runtime trust tools above the v63 governance plane. It continuously scores agents, tools, providers and operators; evaluates session/action authorization; resolves capability grants and revocations; detects privilege escalation and behavior anomalies; manages trust budgets; plans quarantine and rehabilitation; and produces trust decision packets, runtime health and a consolidated adaptive-trust snapshot.
 
 The registry now contains 5,219 tools/capabilities with zero duplicate registrations, zero missing/extra capability entries and zero metadata gaps in the verified v64 branch CI. v64 never invents execution, identity proof, signatures, persistence, certification or deployment success.
-<!-- production-deploy-refresh: v65-2026-09-30 -->
+<!-- production-deploy-refresh: v66.1-2026-10-01 -->
