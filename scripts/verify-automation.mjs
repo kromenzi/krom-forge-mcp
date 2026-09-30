@@ -69,6 +69,7 @@ const report={
  v64TrustRuntimeTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v64_')).length,
  v65IdentityDelegationTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v65_')).length,
  v66AutonomousVerificationTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v66_')).length,
+ v67ReliabilityRecoveryTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v67_')).length,
  capabilities:manifestA.counts.capabilities,
  v53Generated:2000,
  v54Generated:2485,
