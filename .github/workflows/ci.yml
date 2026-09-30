@@ -26,6 +26,7 @@ on:
       - v61-intelligence-grid
       - v62-decision-core
       - v63-trust-governance
+      - v64-adaptive-trust-runtime
 
 jobs:
   contract:
@@ -83,6 +84,9 @@ jobs:
       - name: Verify v63 trust governance
         run: npm run verify:v63
 
+      - name: Verify v64 adaptive trust runtime
+        run: npm run verify:v64
+
       - name: Unit tests
         run: npm test
 
@@ -138,6 +142,9 @@ jobs:
       - name: Verify v63 trust governance
         run: npm run verify:v63
 
+      - name: Verify v64 adaptive trust runtime
+        run: npm run verify:v64
+
       - name: Type check
         run: npm run typecheck
 
@@ -151,7 +158,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v63-verification-${{ github.sha }}
+          name: krom-v64-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
