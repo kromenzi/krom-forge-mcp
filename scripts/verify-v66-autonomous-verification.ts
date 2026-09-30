@@ -27,6 +27,18 @@ assert.equal(scoreRoutingConfidenceV66(i,['inspect']).selected,'a');
 assert.equal(buildFallbackPlanV66(i,['inspect']).primary,'a');
 assert.equal(evaluateToolCanaryV66(i,'a').promote,true);
 assert.equal(auditSelectionSafetyV66(i,['inspect']).pass,true);
+const unknownCheck=v66AutonomousVerificationSchema.parse({...i,checks:[...i.checks,{id:'cx',type:'SMOKE',passed:true,severity:10,toolName:'x',evidenceRefs:['e']}]});
+assert.equal(evaluateVerificationCoverageV66(unknownCheck).coveragePercent,100);
+
+const unsupportedCritical=v66AutonomousVerificationSchema.parse({...i,checks:[...i.checks,{id:'cc',type:'SMOKE',passed:true,severity:90,toolName:'a',evidenceRefs:['missing']}]});
+assert.equal(evaluateOperationalReadinessV66(unsupportedCritical).status,'BLOCKED');
+
+const unexpectedTool=v66AutonomousVerificationSchema.parse({...i,tools:[...i.tools,{name:'x',enabled:true,capabilities:['inspect'],lastSuccessEpoch:999,evidenceRefs:['e']}],checks:[...i.checks,{id:'cx2',type:'SMOKE',passed:true,severity:10,toolName:'x',evidenceRefs:['e']}]});
+assert.equal(evaluateOperationalReadinessV66(unexpectedTool).status,'BLOCKED');
+
+const staleTool=v66AutonomousVerificationSchema.parse({...i,staleAfterSeconds:100,tools:[{...i.tools[0],lastSuccessEpoch:800},i.tools[1]]});
+assert.equal(detectDeadToolsV66(staleTool).dead.includes('a'),true);
+
 const s=buildAutonomousVerificationSnapshotV66(i);
 assert.equal(s.selfExecutionClaim,false);
-console.log(JSON.stringify({status:'PASS',capabilityDiscovery:true,toolHealth:true,deadToolGuard:true,registryDrift:true,verificationCoverage:true,readiness:true,toolSelection:true,telemetryAnomalies:true,deepRegistryAudit:true,routingConfidence:true,fallbackPlan:true,toolCanary:true,selectionSafety:true,snapshot:true},null,2));
+console.log(JSON.stringify({status:'PASS',capabilityDiscovery:true,toolHealth:true,deadToolGuard:true,registryDrift:true,verificationCoverage:true,readiness:true,toolSelection:true,telemetryAnomalies:true,deepRegistryAudit:true,routingConfidence:true,fallbackPlan:true,toolCanary:true,selectionSafety:true,coverageRegistryBound:true,criticalEvidenceGate:true,unexpectedRegistryGate:true,staleToolGate:true,snapshot:true},null,2));
