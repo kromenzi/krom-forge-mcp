@@ -103,9 +103,11 @@ export function verifyRecoveryEvidenceV68(i:V68IncidentCommandInput){
 }
 
 export function buildPostRecoveryVerificationPlanV68(i:V68IncidentCommandInput){
-  const recovered=new Set(i.events.filter(x=>x.type==='RECOVERED').map(x=>x.incidentId));
-  const verified=new Set(i.events.filter(x=>x.type==='VERIFIED'&&evidenceReady(i,x.evidenceRefs)).map(x=>x.incidentId));
-  const pending=[...recovered].filter(id=>!verified.has(id));
+  const incidentIds=[...new Set(i.events.filter(x=>x.type==='RECOVERED').map(x=>x.incidentId))];
+  const pending=incidentIds.filter(id=>{
+    const latestRecovered=Math.max(...i.events.filter(x=>x.incidentId===id&&x.type==='RECOVERED').map(x=>x.epoch));
+    return !i.events.some(x=>x.incidentId===id&&x.type==='VERIFIED'&&x.epoch>=latestRecovered&&evidenceReady(i,x.evidenceRefs));
+  });
   return {
     pending,
     checks:pending.map(id=>({incident:id,checks:['SERVICE_HEALTH','DEPENDENCY_HEALTH','EVIDENCE_FRESHNESS','REGRESSION_SMOKE'],execute:false})),
