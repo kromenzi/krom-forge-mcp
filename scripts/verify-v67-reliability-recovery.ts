@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { v67ReliabilityRecoverySchema } from '../src/v67-schema';
-import { buildCircuitBreakerPlanV67, calculateRetryBudgetV67, assessBlastRadiusV67, buildDegradedModePlanV67, correlateFailuresV67, buildRecoveryPriorityQueueV67, evaluateRecoveryReadinessV67, buildReliabilitySnapshotV67 } from '../src/v67-engine';
+import { buildCircuitBreakerPlanV67, calculateRetryBudgetV67, assessBlastRadiusV67, buildDegradedModePlanV67, correlateFailuresV67, buildRecoveryPriorityQueueV67, evaluateRecoveryReadinessV67, buildReliabilitySnapshotV67, buildCriticalDependencyPathV67, scoreRecoveryEvidenceV67, scoreRecoveryConfidenceV67, buildFailoverSequenceV67, buildIncidentContainmentPlanV67 } from '../src/v67-engine';
 
 const i=v67ReliabilityRecoverySchema.parse({
   objective:'v67 reliability benchmark',
@@ -22,6 +22,11 @@ assert.equal(correlateFailuresV67(i).correlations.length,0);
 assert.equal(buildRecoveryPriorityQueueV67(i).queue.length,0);
 assert.equal(evaluateRecoveryReadinessV67(i).status,'READY');
 assert.equal(buildReliabilitySnapshotV67(i).selfExecutionClaim,false);
+assert.deepEqual(buildCriticalDependencyPathV67(i).criticalPath,['web','api','db']);
+assert.equal(scoreRecoveryEvidenceV67(i).services.every(x=>x.ready),true);
+assert.equal(scoreRecoveryConfidenceV67(i).band,'HIGH');
+assert.equal(buildFailoverSequenceV67(i,'db').execute,false);
+assert.equal(buildIncidentContainmentPlanV67(i).executionClaim,false);
 
 const missingEvidence=v67ReliabilityRecoverySchema.parse({...i,evidence:[],services:i.services.map(s=>({...s,evidenceRefs:[]}))});
 assert.equal(buildCircuitBreakerPlanV67(missingEvidence).services.every(x=>x.state==='OPEN'),true);
@@ -45,4 +50,4 @@ const failure=v67ReliabilityRecoverySchema.parse({...i,services:i.services.map(s
 assert.equal(buildCircuitBreakerPlanV67(failure).services.find(x=>x.service==='db')?.state,'OPEN');
 assert.equal(buildDegradedModePlanV67(failure).mode,'BLOCKED');
 
-console.log(JSON.stringify({status:'PASS',circuitBreaker:true,retryBudget:true,blastRadius:true,degradedMode:true,failureCorrelation:true,recoveryQueue:true,recoveryReadiness:true,retryOnlyWhenNeeded:true,criticalIncidentEvidenceGate:true,missingEvidenceGate:true,priorityTieBreak:true,reliabilitySnapshot:true},null,2));
+console.log(JSON.stringify({status:'PASS',circuitBreaker:true,retryBudget:true,blastRadius:true,degradedMode:true,failureCorrelation:true,recoveryQueue:true,recoveryReadiness:true,retryOnlyWhenNeeded:true,criticalIncidentEvidenceGate:true,missingEvidenceGate:true,priorityTieBreak:true,criticalDependencyPath:true,recoveryEvidence:true,recoveryConfidence:true,failoverSequence:true,incidentContainment:true,reliabilitySnapshot:true},null,2));
