@@ -23,6 +23,18 @@ assert.equal(buildRecoveryPriorityQueueV67(i).queue.length,0);
 assert.equal(evaluateRecoveryReadinessV67(i).status,'READY');
 assert.equal(buildReliabilitySnapshotV67(i).selfExecutionClaim,false);
 
+const missingEvidence=v67ReliabilityRecoverySchema.parse({...i,evidence:[],services:i.services.map(s=>({...s,evidenceRefs:[]}))});
+assert.equal(buildCircuitBreakerPlanV67(missingEvidence).services.every(x=>x.state==='OPEN'),true);
+assert.equal(evaluateRecoveryReadinessV67(missingEvidence).status,'BLOCKED');
+
+const saturatedPriority=v67ReliabilityRecoverySchema.parse({...i,services:[
+  {...i.services[0],name:'lower',criticality:80,healthy:false},
+  {...i.services[1],name:'higher',criticality:95,healthy:false}
+],incidents:[
+  {id:'inc-a',services:['lower','higher'],severity:50,active:true,evidenceRefs:['e']}
+]});
+assert.equal(buildRecoveryPriorityQueueV67(saturatedPriority).queue[0]?.service,'higher');
+
 const noRetryNeeded=v67ReliabilityRecoverySchema.parse({...i,retryState:{attempted:3,budget:3}});
 assert.equal(evaluateRecoveryReadinessV67(noRetryNeeded).status,'READY');
 
@@ -33,4 +45,4 @@ const failure=v67ReliabilityRecoverySchema.parse({...i,services:i.services.map(s
 assert.equal(buildCircuitBreakerPlanV67(failure).services.find(x=>x.service==='db')?.state,'OPEN');
 assert.equal(buildDegradedModePlanV67(failure).mode,'BLOCKED');
 
-console.log(JSON.stringify({status:'PASS',circuitBreaker:true,retryBudget:true,blastRadius:true,degradedMode:true,failureCorrelation:true,recoveryQueue:true,recoveryReadiness:true,retryOnlyWhenNeeded:true,criticalIncidentEvidenceGate:true,reliabilitySnapshot:true},null,2));
+console.log(JSON.stringify({status:'PASS',circuitBreaker:true,retryBudget:true,blastRadius:true,degradedMode:true,failureCorrelation:true,recoveryQueue:true,recoveryReadiness:true,retryOnlyWhenNeeded:true,criticalIncidentEvidenceGate:true,missingEvidenceGate:true,priorityTieBreak:true,reliabilitySnapshot:true},null,2));
