@@ -31,6 +31,8 @@ assert.equal(recoveryPlan.cycleDetected,false);
 assert.equal(evaluateEscalationPolicyV68(i).requiresEscalation,true);
 assert.equal(buildIncidentTimelineV68(i,'inc-1').events.length,2);
 assert.equal(verifyRecoveryEvidenceV68(i).pass,true);
+const emptyEvidenceInput=v68IncidentCommandSchema.parse({objective:'empty evidence benchmark'});
+assert.equal(verifyRecoveryEvidenceV68(emptyEvidenceInput).pass,false);
 assert.equal(buildPostRecoveryVerificationPlanV68(i).complete,true);
 assert.equal(buildIncidentCommandSnapshotV68(i).selfExecutionClaim,false);
 
@@ -53,4 +55,4 @@ const freshVerification=v68IncidentCommandSchema.parse({...i,events:[
 ]});
 assert.equal(buildPostRecoveryVerificationPlanV68(freshVerification).complete,true);
 
-console.log(JSON.stringify({status:'PASS',commandState:true,containmentWaves:true,recoveryWaves:true,dependencyOrder:true,escalation:true,timeline:true,recoveryEvidence:true,postRecoveryVerification:true,verificationChronology:true,snapshot:true},null,2));
+console.log(JSON.stringify({status:'PASS',commandState:true,containmentWaves:true,recoveryWaves:true,dependencyOrder:true,escalation:true,timeline:true,recoveryEvidence:true,emptyEvidenceGuard:true,postRecoveryVerification:true,verificationChronology:true,snapshot:true},null,2));
