@@ -99,3 +99,66 @@ export function buildReliabilitySnapshotV67(i:V67ReliabilityRecoveryInput){
     externalRecoveryClaim:false
   };
 }
+
+
+export function buildCriticalDependencyPathV67(i:V67ReliabilityRecoveryInput){
+  const byName=new Map(i.services.map(s=>[s.name,s]));
+  const memo=new Map<string,{path:string[];score:number}>();
+  const visit=(name:string,seen:Set<string>):{path:string[];score:number}=>{
+    if(seen.has(name)) return {path:[name],score:0};
+    const cached=memo.get(name); if(cached) return cached;
+    const s=byName.get(name); if(!s) return {path:[],score:0};
+    let best:{path:string[];score:number}={path:[name],score:s.criticality};
+    for(const dep of s.dependencies){
+      const child=visit(dep,new Set([...seen,name]));
+      const candidate={path:[name,...child.path],score:s.criticality+child.score};
+      if(candidate.score>best.score) best=candidate;
+    }
+    memo.set(name,best); return best;
+  };
+  const paths=i.services.map(s=>({service:s.name,...visit(s.name,new Set())})).sort((a,b)=>b.score-a.score);
+  return {criticalPath:paths[0]?.path??[],criticalityScore:paths[0]?.score??0,paths};
+}
+
+export function scoreRecoveryEvidenceV67(i:V67ReliabilityRecoveryInput){
+  const evidenceById=new Map(i.evidence.map(e=>[e.id,e]));
+  return {services:i.services.map(s=>{
+    if(!s.evidenceRefs.length) return {service:s.name,score:0,ready:false,missingRefs:[]};
+    const refs=s.evidenceRefs.map(r=>evidenceById.get(r));
+    const missingRefs=s.evidenceRefs.filter((_,idx)=>!refs[idx]);
+    const valid=refs.filter((e):e is NonNullable<typeof e>=>!!e&&e.verified&&e.fresh);
+    const score=s.evidenceRefs.length?Number((valid.reduce((sum,e)=>sum+e.confidence,0)/s.evidenceRefs.length).toFixed(2)):0;
+    return {service:s.name,score,ready:missingRefs.length===0&&valid.length===s.evidenceRefs.length&&score>=60,missingRefs};
+  })};
+}
+
+export function scoreRecoveryConfidenceV67(i:V67ReliabilityRecoveryInput){
+  const readiness=evaluateRecoveryReadinessV67(i);
+  const evidence=scoreRecoveryEvidenceV67(i).services;
+  const averageEvidence=evidence.length?evidence.reduce((s,x)=>s+x.score,0)/evidence.length:0;
+  const degradedPenalty=readiness.degradedServices.length*10;
+  const incidentPenalty=(readiness.criticalIncidents.length+readiness.unsupportedCriticalIncidents.length)*20;
+  const score=Math.max(0,Math.min(100,Number((averageEvidence-degradedPenalty-incidentPenalty).toFixed(2))));
+  return {score,band:score>=80?'HIGH':score>=60?'MEDIUM':'LOW',readiness:readiness.status,averageEvidence:Number(averageEvidence.toFixed(2))};
+}
+
+export function buildFailoverSequenceV67(i:V67ReliabilityRecoveryInput,serviceName:string){
+  const source=i.services.find(s=>s.name===serviceName);
+  if(!source) return {service:serviceName,known:false,sequence:[],execute:false};
+  const candidates=i.services.filter(s=>s.name!==serviceName&&s.healthy&&!degraded(i,s))
+    .map(s=>({service:s.name,criticality:s.criticality,evidenceReady:evidenceReady(i,s.evidenceRefs),dependencyDistance:s.dependencies.includes(serviceName)?1:2}))
+    .filter(x=>x.evidenceReady)
+    .sort((a,b)=>a.dependencyDistance-b.dependencyDistance||b.criticality-a.criticality);
+  return {service:serviceName,known:true,sequence:candidates.slice(0,5),execute:false};
+}
+
+export function buildIncidentContainmentPlanV67(i:V67ReliabilityRecoveryInput){
+  const byService=new Map(i.services.map(s=>[s.name,s]));
+  const active=i.incidents.filter(x=>x.active);
+  const actions=active.flatMap(incident=>incident.services.map(name=>{
+    const s=byService.get(name);
+    const criticality=s?.criticality??0;
+    return {incident:incident.id,service:name,action:criticality>=80?'ISOLATE_AND_PRESERVE_EVIDENCE':'RATE_LIMIT_AND_VERIFY',priority:Math.min(100,incident.severity*0.6+criticality*0.4),execute:false};
+  })).sort((a,b)=>b.priority-a.priority);
+  return {actions,executionClaim:false};
+}
