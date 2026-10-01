@@ -1,7 +1,7 @@
 import type { V67ReliabilityRecoveryInput } from './v67-schema';
 
 const evidenceReady=(i:V67ReliabilityRecoveryInput,refs:string[])=>{
-  if(!refs.length) return true;
+  if(!refs.length) return false;
   const ok=new Set(i.evidence.filter(e=>e.verified&&e.fresh&&e.confidence>=60).map(e=>e.id));
   return refs.every(r=>ok.has(r));
 };
@@ -66,9 +66,10 @@ export function buildRecoveryPriorityQueueV67(i:V67ReliabilityRecoveryInput){
   const queue=i.services.map(s=>{
     const isDegraded=degraded(i,s);
     const incidentBoost=activeAffected.has(s.name)?30:0;
-    const score=Math.min(100,s.criticality*0.6+(isDegraded?30:0)+incidentBoost);
-    return {service:s.name,priorityScore:Number(score.toFixed(2)),requiresRecovery:isDegraded||activeAffected.has(s.name),execute:false};
-  }).filter(x=>x.requiresRecovery).sort((a,b)=>b.priorityScore-a.priorityScore);
+    const rawScore=s.criticality*0.6+(isDegraded?30:0)+incidentBoost;
+    const score=Math.min(100,rawScore);
+    return {service:s.name,priorityScore:Number(score.toFixed(2)),rawPriorityScore:Number(rawScore.toFixed(2)),criticality:s.criticality,requiresRecovery:isDegraded||activeAffected.has(s.name),execute:false};
+  }).filter(x=>x.requiresRecovery).sort((a,b)=>b.rawPriorityScore-a.rawPriorityScore||b.criticality-a.criticality);
   return {queue};
 }
 
