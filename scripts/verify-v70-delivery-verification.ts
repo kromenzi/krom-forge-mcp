@@ -33,6 +33,12 @@ assert.equal(detectRollbackTriggersV70(i,'rel-1').rollbackRecommended,false);
 assert.deepEqual(buildImpactReverificationPlanV70(i,'rel-1').services.sort(),['api','web']);
 assert.equal(coordinateReleaseTrainV70(i).pass,true);
 assert.equal(detectDeliveryDriftV70(i,'rel-1').pass,true);
+
+const thresholdBreach=v70DeliveryVerificationSchema.parse({...i,observations:[
+  {id:'pre-threshold',releaseId:'rel-1',service:'api',phase:'PRE_DEPLOY',healthy:true,errorRate:4.9,latencyMs:100,epoch:1500,evidenceRefs:['e-run']},
+  {id:'post-threshold',releaseId:'rel-1',service:'api',phase:'POST_DEPLOY',healthy:true,errorRate:5.1,latencyMs:110,epoch:1000,evidenceRefs:['e-run']}
+]});
+assert.equal(detectDeliveryDriftV70(thresholdBreach,'rel-1').pass,false);
 assert.equal(evaluatePostDeployVerificationV70(i,'rel-1').pass,true);
 assert.equal(evaluateDeliveryClosureV70(i,'rel-1').status,'CLOSED');
 assert.equal(buildDeliveryDecisionPacketV70(i,'rel-1').execute,false);
@@ -48,4 +54,4 @@ assert.equal(evaluateDeliveryClosureV70(rollback,'rel-1').status,'BLOCKED');
 const conflict=v70DeliveryVerificationSchema.parse({...i,releases:[...i.releases,{id:'rel-2',services:['api'],environment:'production',changeRisk:10,approved:true,reversible:true,evidenceRefs:['e-release']}]});
 assert.equal(coordinateReleaseTrainV70(conflict).pass,false);
 
-console.log(JSON.stringify({status:'PASS',freshness:true,deploymentWaves:true,observationWindow:true,rollbackTriggers:true,impactReverification:true,releaseTrain:true,deliveryDrift:true,postDeploy:true,closure:true,decisionPacket:true},null,2));
+console.log(JSON.stringify({status:'PASS',freshness:true,deploymentWaves:true,observationWindow:true,rollbackTriggers:true,impactReverification:true,releaseTrain:true,deliveryDrift:true,absoluteThresholdGuard:true,postDeploy:true,closure:true,decisionPacket:true},null,2));
