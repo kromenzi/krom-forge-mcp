@@ -1,6 +1,6 @@
 {
   "name": "krom-forge-mcp",
-  "version": "67.0.0",
+  "version": "67.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
