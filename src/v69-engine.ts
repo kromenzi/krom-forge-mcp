@@ -120,18 +120,29 @@ export function evaluateCanaryPromotionV69(i:V69OperationsGovernanceInput){
 }
 
 export function scoreReleaseConfidenceV69(i:V69OperationsGovernanceInput){
+  const risk=assessChangeRiskV69(i);
+  const highRisk=risk.maxRisk>=60;
+  const canary=evaluateCanaryPromotionV69(i);
+  const rollback=buildRollbackPlanV69(i);
+  const criticalActiveIncidents=i.incidents.filter(x=>x.active&&x.severity>=80);
+  const blockers:string[]=[];
+  if(highRisk&&i.canaries.length===0) blockers.push('HIGH_RISK_CANARY_REQUIRED');
+  if(highRisk&&!rollback.fullyReversible) blockers.push('HIGH_RISK_ROLLBACK_UNAVAILABLE');
+  if(criticalActiveIncidents.length) blockers.push('CRITICAL_ACTIVE_INCIDENT');
   const components=[
     evaluateApprovalGateV69(i).status==='PASS'?100:0,
     evaluatePolicyEnforcementV69(i).pass?100:0,
     evaluateSloHealthV69(i).pass?100:0,
     calculateErrorBudgetV69(i).pass?100:0,
     assessDependencyHealthV69(i).pass?100:0,
-    i.canaries.length? (evaluateCanaryPromotionV69(i).pass?100:0):50
+    i.canaries.length?(canary.pass?100:0):(highRisk?0:50),
+    rollback.fullyReversible?100:0
   ];
-  const riskPenalty=Math.min(30,assessChangeRiskV69(i).maxRisk*0.3);
+  const riskPenalty=Math.min(30,risk.maxRisk*0.3);
   const base=components.reduce((a,b)=>a+b,0)/components.length;
   const score=Math.max(0,Math.min(100,Number((base-riskPenalty).toFixed(2))));
-  return {score,threshold:i.releaseConfidenceThreshold,status:score>=i.releaseConfidenceThreshold?'READY':'BLOCKED',components,riskPenalty:Number(riskPenalty.toFixed(2))};
+  const ready=score>=i.releaseConfidenceThreshold&&blockers.length===0;
+  return {score,threshold:i.releaseConfidenceThreshold,status:ready?'READY':'BLOCKED',components,riskPenalty:Number(riskPenalty.toFixed(2)),blockers,criticalActiveIncidents:criticalActiveIncidents.map(x=>x.id)};
 }
 
 export function buildIncidentLearningV69(i:V69OperationsGovernanceInput){
