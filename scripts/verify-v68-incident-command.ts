@@ -41,4 +41,16 @@ assert.equal(verifyRecoveryEvidenceV68(evidenceGap).pass,false);
 const recovered=v68IncidentCommandSchema.parse({...i,events:[...i.events,{id:'ev-3',incidentId:'inc-1',type:'RECOVERED',epoch:1980,evidenceRefs:['e']}]});
 assert.deepEqual(buildPostRecoveryVerificationPlanV68(recovered).pending,['inc-1']);
 
-console.log(JSON.stringify({status:'PASS',commandState:true,containmentWaves:true,recoveryWaves:true,dependencyOrder:true,escalation:true,timeline:true,recoveryEvidence:true,postRecoveryVerification:true,snapshot:true},null,2));
+const staleVerification=v68IncidentCommandSchema.parse({...i,events:[
+  {id:'ev-v',incidentId:'inc-1',type:'VERIFIED',epoch:1970,evidenceRefs:['e']},
+  {id:'ev-r',incidentId:'inc-1',type:'RECOVERED',epoch:1980,evidenceRefs:['e']}
+]});
+assert.deepEqual(buildPostRecoveryVerificationPlanV68(staleVerification).pending,['inc-1']);
+
+const freshVerification=v68IncidentCommandSchema.parse({...i,events:[
+  {id:'ev-r2',incidentId:'inc-1',type:'RECOVERED',epoch:1980,evidenceRefs:['e']},
+  {id:'ev-v2',incidentId:'inc-1',type:'VERIFIED',epoch:1990,evidenceRefs:['e']}
+]});
+assert.equal(buildPostRecoveryVerificationPlanV68(freshVerification).complete,true);
+
+console.log(JSON.stringify({status:'PASS',commandState:true,containmentWaves:true,recoveryWaves:true,dependencyOrder:true,escalation:true,timeline:true,recoveryEvidence:true,postRecoveryVerification:true,verificationChronology:true,snapshot:true},null,2));
