@@ -89,7 +89,7 @@ export function detectDeliveryDriftV70(i:V70DeliveryVerificationInput,releaseId:
     if(!before||!after) return {service:s.name,comparable:false,healthRegression:false,errorDelta:null,latencyDelta:null};
     const errorDelta=(after.errorRate??0)-(before.errorRate??0);
     const latencyDelta=(after.latencyMs??0)-(before.latencyMs??0);
-    const healthRegression=before.healthy&&!after.healthy||errorDelta>i.maxErrorRate||latencyDelta>i.maxLatencyMs;
+    const healthRegression=before.healthy&&!after.healthy||(after.errorRate!==undefined&&after.errorRate>i.maxErrorRate)||(after.latencyMs!==undefined&&after.latencyMs>i.maxLatencyMs)||errorDelta>i.maxErrorRate||latencyDelta>i.maxLatencyMs;
     return {service:s.name,comparable:true,healthRegression,errorDelta:Number(errorDelta.toFixed(2)),latencyDelta:Number(latencyDelta.toFixed(2))};
   });
   return {releaseId,drift,pass:drift.some(x=>x.comparable)&&drift.every(x=>!x.healthRegression)};
