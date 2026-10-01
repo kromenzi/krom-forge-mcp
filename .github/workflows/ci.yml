@@ -30,6 +30,7 @@ on:
       - v65-identity-delegation-plane
       - v66-autonomous-verification-plane
       - v67-reliability-recovery-plane
+      - v68-incident-command-recovery-orchestration
 
 jobs:
   contract:
@@ -98,6 +99,9 @@ jobs:
 
       - name: Verify v67 reliability recovery
         run: npm run verify:v67
+
+      - name: Verify v68 incident command
+        run: npm run verify:v68
 
       - name: Unit tests
         run: npm test
@@ -201,7 +205,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v67-verification-${{ github.sha }}
+          name: krom-v68-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
