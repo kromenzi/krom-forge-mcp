@@ -1,0 +1,65 @@
+import { z } from 'zod';
+
+export const v69OperationsGovernanceSchema=z.object({
+  objective:z.string().min(1),
+  evidence:z.array(z.object({
+    id:z.string().min(1),
+    verified:z.boolean(),
+    fresh:z.boolean(),
+    confidence:z.number().min(0).max(100)
+  })).default([]),
+  changes:z.array(z.object({
+    id:z.string().min(1),
+    services:z.array(z.string()).default([]),
+    risk:z.number().min(0).max(100).default(0),
+    reversible:z.boolean().default(true),
+    evidenceRefs:z.array(z.string()).default([])
+  })).default([]),
+  services:z.array(z.object({
+    name:z.string().min(1),
+    criticality:z.number().min(0).max(100).default(50),
+    healthy:z.boolean().default(true),
+    dependencies:z.array(z.string()).default([]),
+    latencyMs:z.number().min(0).optional(),
+    errorRate:z.number().min(0).max(100).optional(),
+    sloTarget:z.number().min(0).max(100).default(99.9),
+    availability:z.number().min(0).max(100).optional(),
+    evidenceRefs:z.array(z.string()).default([])
+  })).default([]),
+  approvals:z.array(z.object({
+    id:z.string().min(1),
+    scope:z.string().min(1),
+    approved:z.boolean(),
+    approver:z.string().min(1),
+    evidenceRefs:z.array(z.string()).default([])
+  })).default([]),
+  policies:z.array(z.object({
+    id:z.string().min(1),
+    scope:z.string().min(1),
+    effect:z.enum(['ALLOW','REQUIRE_APPROVAL','DENY']),
+    minEvidenceConfidence:z.number().min(0).max(100).default(60)
+  })).default([]),
+  canaries:z.array(z.object({
+    service:z.string().min(1),
+    successRate:z.number().min(0).max(100),
+    errorRate:z.number().min(0).max(100),
+    latencyMs:z.number().min(0),
+    sampleSize:z.number().int().min(0),
+    evidenceRefs:z.array(z.string()).default([])
+  })).default([]),
+  incidents:z.array(z.object({
+    id:z.string().min(1),
+    active:z.boolean().default(true),
+    severity:z.number().min(0).max(100).default(0),
+    services:z.array(z.string()).default([]),
+    rootCause:z.string().optional(),
+    correctiveActions:z.array(z.string()).default([]),
+    evidenceRefs:z.array(z.string()).default([])
+  })).default([]),
+  maxErrorRate:z.number().min(0).max(100).default(5),
+  maxLatencyMs:z.number().positive().default(2500),
+  minCanarySamples:z.number().int().min(1).default(100),
+  releaseConfidenceThreshold:z.number().min(0).max(100).default(80)
+});
+
+export type V69OperationsGovernanceInput=z.infer<typeof v69OperationsGovernanceSchema>;
