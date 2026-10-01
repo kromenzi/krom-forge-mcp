@@ -32,6 +32,7 @@ on:
       - v67-reliability-recovery-plane
       - v68-incident-command-recovery-orchestration
       - v69-autonomous-operations-governance-superplane
+      - v70-autonomous-delivery-verification-mesh
 
 jobs:
   contract:
@@ -107,6 +108,9 @@ jobs:
       - name: Verify v69 operations governance
         run: npm run verify:v69
 
+      - name: Verify v70 delivery verification
+        run: npm run verify:v70
+
       - name: Unit tests
         run: npm test
 
@@ -180,6 +184,9 @@ jobs:
       - name: Verify v69 operations governance
         run: npm run verify:v69
 
+      - name: Verify v70 delivery verification
+        run: npm run verify:v70
+
       - name: Type check
         run: npm run typecheck
 
@@ -218,7 +225,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v69-verification-${{ github.sha }}
+          name: krom-v70-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
