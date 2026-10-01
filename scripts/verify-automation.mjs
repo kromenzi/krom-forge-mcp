@@ -32,6 +32,8 @@ requireText('npm run verify:v66','v66 autonomous verification benchmark');
 requireText('npm run verify:v67','v67 reliability recovery benchmark');
 requireText('npm run verify:v68','v68 incident command benchmark');
 requireText('npm run verify:v69','v69 operations governance benchmark');
+requireText('npm run verify:v70','v70 delivery verification benchmark');
+requireText('npm run verify:v71','v71 continuous assurance benchmark');
 requireText('npm test','unit tests');
 requireText('npm run typecheck','TypeScript');
 requireText('npm run audit:production','production dependency audit');
@@ -42,8 +44,8 @@ requireText('retention-days: 14','evidence retention');
 
 if(validateMcpManifest(manifestA).status!=='PASS') failures.push('MCP manifest integrity failed.');
 if(manifestA.fingerprint!==manifestB.fingerprint) failures.push('Manifest fingerprint is not deterministic.');
-if(manifestA.counts.registered!==5296) failures.push(`Registered tools must equal 5296; found ${manifestA.counts.registered}`);
-if(manifestA.counts.capabilities!==5296) failures.push(`Capability tools must equal 5296; found ${manifestA.counts.capabilities}`);
+if(manifestA.counts.registered!==5314) failures.push(`Registered tools must equal 5314; found ${manifestA.counts.registered}`);
+if(manifestA.counts.capabilities!==5314) failures.push(`Capability tools must equal 5314; found ${manifestA.counts.capabilities}`);
 if(manifestA.integrity.duplicateRegistrations.length) failures.push('Duplicate registrations detected.');
 if(manifestA.integrity.duplicateCapabilities.length) failures.push('Duplicate capabilities detected.');
 if(manifestA.integrity.missingCapabilities.length) failures.push('Missing capability entries detected.');
@@ -54,7 +56,7 @@ if(v54.domains.length!==35||v54.operations.length!==71||v54.domains.length*v54.o
 if(!route.includes('executeV53Tool(spec, input)')||!route.includes('executeV54Tool(spec, input)')) failures.push('Generated runtime execution contracts missing.');
 
 const names=manifestA.tools.map((tool)=>tool.name);
-if(new Set(names).size!==5296) failures.push('Global tool-name uniqueness violated.');
+if(new Set(names).size!==5314) failures.push('Global tool-name uniqueness violated.');
 
 const report={
  status:failures.length?'FAIL':'PASS',
@@ -74,6 +76,8 @@ const report={
  v67ReliabilityRecoveryTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v67_')).length,
  v68IncidentCommandTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v68_')).length,
  v69OperationsGovernanceTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v69_')).length,
+ v70DeliveryVerificationTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v70_')).length,
+ v71ContinuousAssuranceTools:manifestA.tools.filter((tool)=>tool.name.startsWith('krom_v71_')).length,
  capabilities:manifestA.counts.capabilities,
  v53Generated:2000,
  v54Generated:2485,

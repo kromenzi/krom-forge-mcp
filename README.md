@@ -262,6 +262,18 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
+## v71 — Continuous Assurance & Learning Plane
+
+v71 adds 8 evidence-bound MCP tools for verification-debt accounting, evidence entropy, telemetry baseline comparison, anomaly-budget allocation, regression-risk mapping, assurance-confidence deltas, outcome learning feedback, and consolidated continuous-assurance snapshots.
+
+The registry target is 5,314 tools/capabilities. v71 does not persist learned state or claim external verification, deployment or mutation; learning outputs remain advisory until host-authorized persistence and evidence exist.
+
+## v70 — Autonomous Delivery & Verification Mesh
+
+v70 adds 10 evidence-bound MCP tools for evidence freshness, deployment-wave planning, post-deploy observation windows, rollback-trigger detection, transitive impact reverification, release-train coordination, delivery drift detection, post-deploy verification, delivery closure, and consolidated delivery decision packets.
+
+The registry target is 5,306 tools/capabilities. v70 never treats planning as deployment and never claims closure, rollback, production mutation, persistence or external verification without host-authorized evidence and tools.
+
 ## v69 — Autonomous Operations & Governance Superplane
 
 v69 adds 12 evidence-bound MCP tools spanning change-risk analysis, approval gates, policy enforcement, risk-adaptive rollout planning, rollback planning, SLO health, error-budget intelligence, dependency health, canary promotion, release-confidence scoring, incident learning, and a consolidated operational decision packet.
@@ -297,4 +309,4 @@ The registry target is 5,241 tools/capabilities. v65 never claims cryptographic 
 v64 adds 21 evidence-bound runtime trust tools above the v63 governance plane. It continuously scores agents, tools, providers and operators; evaluates session/action authorization; resolves capability grants and revocations; detects privilege escalation and behavior anomalies; manages trust budgets; plans quarantine and rehabilitation; and produces trust decision packets, runtime health and a consolidated adaptive-trust snapshot.
 
 The registry now contains 5,219 tools/capabilities with zero duplicate registrations, zero missing/extra capability entries and zero metadata gaps in the verified v64 branch CI. v64 never invents execution, identity proof, signatures, persistence, certification or deployment success.
-<!-- production-deploy-refresh: v69-2026-10-01 -->
+<!-- production-deploy-refresh: v71-2026-10-01 -->
