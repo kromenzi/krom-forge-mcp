@@ -262,11 +262,11 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
-## v67 — Reliability & Recovery Plane
+## v67.1 — Reliability, Recovery & Resilience Intelligence
 
-v67 adds 8 evidence-bound MCP tools for circuit-breaker planning, retry budgets, transitive blast-radius assessment, degraded-mode planning, failure correlation, recovery prioritization, recovery-readiness evaluation and consolidated reliability snapshots.
+v67/v67.1 adds 13 evidence-bound MCP tools for circuit-breaker planning, retry budgets, transitive blast-radius assessment, degraded-mode planning, failure correlation, recovery prioritization, recovery-readiness evaluation and consolidated reliability snapshots.
 
-The registry target is 5,271 tools/capabilities. v67 remains advisory: it does not execute retries, trip production breakers, mutate infrastructure, persist state or claim external recovery without host-authorized evidence and tools.
+The registry target is 5,276 tools/capabilities. v67 remains advisory: it does not execute retries, trip production breakers, mutate infrastructure, persist state or claim external recovery without host-authorized evidence and tools.
 
 ## v66.1 — Autonomous Verification & Tool Intelligence
 
