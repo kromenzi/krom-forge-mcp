@@ -262,6 +262,12 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
+## v69 — Autonomous Operations & Governance Superplane
+
+v69 adds 12 evidence-bound MCP tools spanning change-risk analysis, approval gates, policy enforcement, risk-adaptive rollout planning, rollback planning, SLO health, error-budget intelligence, dependency health, canary promotion, release-confidence scoring, incident learning, and a consolidated operational decision packet.
+
+The registry target is 5,296 tools/capabilities. v69 remains advisory and governance-focused: rollout, rollback, canary promotion, approvals, deployment and infrastructure mutations require host-authorized tools and evidence.
+
 ## v68 — Autonomous Incident Command & Recovery Orchestration
 
 v68 adds 8 evidence-bound MCP tools for incident command state, containment waves, dependency-aware recovery waves, escalation policy evaluation, incident timelines, recovery evidence verification, post-recovery verification planning, and consolidated command snapshots.
@@ -291,4 +297,4 @@ The registry target is 5,241 tools/capabilities. v65 never claims cryptographic 
 v64 adds 21 evidence-bound runtime trust tools above the v63 governance plane. It continuously scores agents, tools, providers and operators; evaluates session/action authorization; resolves capability grants and revocations; detects privilege escalation and behavior anomalies; manages trust budgets; plans quarantine and rehabilitation; and produces trust decision packets, runtime health and a consolidated adaptive-trust snapshot.
 
 The registry now contains 5,219 tools/capabilities with zero duplicate registrations, zero missing/extra capability entries and zero metadata gaps in the verified v64 branch CI. v64 never invents execution, identity proof, signatures, persistence, certification or deployment success.
-<!-- production-deploy-refresh: v68-2026-10-01 -->
+<!-- production-deploy-refresh: v69-2026-10-01 -->
