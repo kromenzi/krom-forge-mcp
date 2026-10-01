@@ -95,10 +95,13 @@ export function verifyRecoveryEvidenceV68(i:V68IncidentCommandInput){
     evidenceReady:evidenceReady(i,x.evidenceRefs),
     evidenceRefs:x.evidenceRefs
   }));
+  const activeIncidents=incidents.filter((_,idx)=>i.incidents[idx]?.active);
+  const relevantCount=services.length+activeIncidents.length;
   return {
     services,
     incidents,
-    pass:services.every(x=>x.evidenceReady)&&incidents.filter(x=>x.active).every(x=>x.evidenceReady)
+    relevantCount,
+    pass:relevantCount>0&&services.every(x=>x.evidenceReady)&&activeIncidents.every(x=>x.evidenceReady)
   };
 }
 
