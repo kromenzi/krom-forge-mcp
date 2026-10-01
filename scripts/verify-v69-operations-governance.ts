@@ -40,6 +40,16 @@ assert.equal(evaluateSloHealthV69(noEvidence).pass,false);
 assert.equal(calculateErrorBudgetV69(noEvidence).pass,false);
 assert.equal(scoreReleaseConfidenceV69(noEvidence).status,'BLOCKED');
 
+const highRiskNoCanary=v69OperationsGovernanceSchema.parse({...i,changes:[{id:'chg-risk',services:['api'],risk:95,reversible:true,evidenceRefs:['e-change']}],approvals:[{id:'a-risk',scope:'chg-risk',approved:true,approver:'ops',evidenceRefs:['e-approval']}],canaries:[]});
+assert.equal(scoreReleaseConfidenceV69(highRiskNoCanary).blockers.includes('HIGH_RISK_CANARY_REQUIRED'),true);
+assert.equal(scoreReleaseConfidenceV69(highRiskNoCanary).status,'BLOCKED');
+
+const criticalIncident=v69OperationsGovernanceSchema.parse({...i,incidents:[{id:'inc-live',active:true,severity:95,services:['api'],evidenceRefs:['e-incident']}]});
+assert.equal(scoreReleaseConfidenceV69(criticalIncident).blockers.includes('CRITICAL_ACTIVE_INCIDENT'),true);
+
+const noRollback=v69OperationsGovernanceSchema.parse({...i,changes:[{id:'chg-nr',services:['api'],risk:95,reversible:false,evidenceRefs:['e-change']}],approvals:[{id:'a-nr',scope:'chg-nr',approved:true,approver:'ops',evidenceRefs:['e-approval']}]});
+assert.equal(scoreReleaseConfidenceV69(noRollback).blockers.includes('HIGH_RISK_ROLLBACK_UNAVAILABLE'),true);
+
 const badCanary=v69OperationsGovernanceSchema.parse({...i,canaries:[{service:'api',successRate:80,errorRate:20,latencyMs:5000,sampleSize:10,evidenceRefs:['e-canary']}]});
 assert.equal(evaluateCanaryPromotionV69(badCanary).pass,false);
 
@@ -47,4 +57,4 @@ const denied=v69OperationsGovernanceSchema.parse({...i,policies:[{id:'deny',scop
 assert.equal(evaluatePolicyEnforcementV69(denied).pass,false);
 assert.equal(buildRolloutPlanV69(denied).status,'BLOCKED');
 
-console.log(JSON.stringify({status:'PASS',changeRisk:true,approvalGate:true,policyEnforcement:true,rollout:true,rollback:true,sloHealth:true,errorBudget:true,dependencyHealth:true,canaryPromotion:true,releaseConfidence:true,incidentLearning:true,decisionPacket:true},null,2));
+console.log(JSON.stringify({status:'PASS',changeRisk:true,approvalGate:true,policyEnforcement:true,rollout:true,rollback:true,sloHealth:true,errorBudget:true,dependencyHealth:true,canaryPromotion:true,releaseConfidence:true,highRiskCanaryGuard:true,criticalIncidentGuard:true,rollbackGuard:true,incidentLearning:true,decisionPacket:true},null,2));
