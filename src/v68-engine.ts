@@ -45,19 +45,26 @@ export function buildContainmentWavePlanV68(i:V68IncidentCommandInput){
 
 export function buildRecoveryWavePlanV68(i:V68IncidentCommandInput){
   const activeAffected=new Set(i.incidents.filter(x=>x.active).flatMap(x=>x.services));
-  const candidates=i.services.filter(s=>activeAffected.has(s.name)||!s.healthy).map(s=>{
-    const dependencyRisk=s.dependencies.filter(d=>activeAffected.has(d)).length;
-    const score=s.criticality+dependencyRisk*10+(s.healthy?0:20);
-    return {service:s.name,score,criticality:s.criticality,evidenceReady:evidenceReady(i,s.evidenceRefs),execute:false};
-  }).sort((a,b)=>b.score-a.score||b.criticality-a.criticality);
-  return {
-    waves:[
-      {wave:1,services:candidates.filter(x=>x.score>=100)},
-      {wave:2,services:candidates.filter(x=>x.score>=70&&x.score<100)},
-      {wave:3,services:candidates.filter(x=>x.score<70)}
-    ].filter(x=>x.services.length),
-    executionClaim:false
-  };
+  const candidateServices=i.services.filter(s=>activeAffected.has(s.name)||!s.healthy);
+  const candidateNames=new Set(candidateServices.map(s=>s.name));
+  const byName=new Map(candidateServices.map(s=>[s.name,s]));
+  const remaining=new Set(candidateNames);
+  const waves:{wave:number;services:{service:string;criticality:number;evidenceReady:boolean;execute:false}[]}[]=[];
+  let wave=1;
+  while(remaining.size){
+    const ready=[...remaining].filter(name=>{
+      const s=byName.get(name);
+      return !!s&&s.dependencies.filter(d=>candidateNames.has(d)).every(d=>!remaining.has(d));
+    });
+    const selected=(ready.length?ready:[...remaining]).map(name=>byName.get(name)).filter((s):s is NonNullable<typeof s>=>!!s)
+      .sort((a,b)=>b.criticality-a.criticality)
+      .map(s=>({service:s.name,criticality:s.criticality,evidenceReady:evidenceReady(i,s.evidenceRefs),execute:false as const}));
+    waves.push({wave,services:selected});
+    for(const s of selected) remaining.delete(s.service);
+    wave++;
+    if(!ready.length) break;
+  }
+  return {waves,cycleDetected:remaining.size>0,unresolved:[...remaining],executionClaim:false};
 }
 
 export function evaluateEscalationPolicyV68(i:V68IncidentCommandInput){
