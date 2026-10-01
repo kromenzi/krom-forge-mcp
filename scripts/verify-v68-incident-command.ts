@@ -23,7 +23,11 @@ const i=v68IncidentCommandSchema.parse({
 
 assert.equal(buildIncidentCommandStateV68(i).commandMode,'CRITICAL');
 assert.equal(buildContainmentWavePlanV68(i).waves.length>0,true);
-assert.equal(buildRecoveryWavePlanV68(i).waves.length>0,true);
+const recoveryPlan=buildRecoveryWavePlanV68(i);
+assert.equal(recoveryPlan.waves.length>0,true);
+assert.equal(recoveryPlan.waves[0]?.services[0]?.service,'db');
+assert.equal(recoveryPlan.waves[1]?.services[0]?.service,'api');
+assert.equal(recoveryPlan.cycleDetected,false);
 assert.equal(evaluateEscalationPolicyV68(i).requiresEscalation,true);
 assert.equal(buildIncidentTimelineV68(i,'inc-1').events.length,2);
 assert.equal(verifyRecoveryEvidenceV68(i).pass,true);
@@ -37,4 +41,4 @@ assert.equal(verifyRecoveryEvidenceV68(evidenceGap).pass,false);
 const recovered=v68IncidentCommandSchema.parse({...i,events:[...i.events,{id:'ev-3',incidentId:'inc-1',type:'RECOVERED',epoch:1980,evidenceRefs:['e']}]});
 assert.deepEqual(buildPostRecoveryVerificationPlanV68(recovered).pending,['inc-1']);
 
-console.log(JSON.stringify({status:'PASS',commandState:true,containmentWaves:true,recoveryWaves:true,escalation:true,timeline:true,recoveryEvidence:true,postRecoveryVerification:true,snapshot:true},null,2));
+console.log(JSON.stringify({status:'PASS',commandState:true,containmentWaves:true,recoveryWaves:true,dependencyOrder:true,escalation:true,timeline:true,recoveryEvidence:true,postRecoveryVerification:true,snapshot:true},null,2));
