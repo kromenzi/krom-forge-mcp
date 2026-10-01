@@ -262,6 +262,12 @@ v62 adds 20 decision-core MCP tools for weighted evidence fusion, uncertainty ac
 The registry now contains 5,178 tools/capabilities. v62 keeps scenario analysis, adjudication, rollback and release decisions advisory until authorized host execution and never manufactures missing evidence.
 
 
+## v68 — Autonomous Incident Command & Recovery Orchestration
+
+v68 adds 8 evidence-bound MCP tools for incident command state, containment waves, dependency-aware recovery waves, escalation policy evaluation, incident timelines, recovery evidence verification, post-recovery verification planning, and consolidated command snapshots.
+
+The registry target is 5,284 tools/capabilities. v68 is orchestration-only: it does not execute containment, recovery, failover, infrastructure mutation, persistence, or external verification without host-authorized evidence and tools.
+
 ## v67.1 — Reliability, Recovery & Resilience Intelligence
 
 v67/v67.1 adds 13 evidence-bound MCP tools for circuit-breaker planning, retry budgets, transitive blast-radius assessment, degraded-mode planning, failure correlation, recovery prioritization, recovery-readiness evaluation and consolidated reliability snapshots.
@@ -285,4 +291,4 @@ The registry target is 5,241 tools/capabilities. v65 never claims cryptographic 
 v64 adds 21 evidence-bound runtime trust tools above the v63 governance plane. It continuously scores agents, tools, providers and operators; evaluates session/action authorization; resolves capability grants and revocations; detects privilege escalation and behavior anomalies; manages trust budgets; plans quarantine and rehabilitation; and produces trust decision packets, runtime health and a consolidated adaptive-trust snapshot.
 
 The registry now contains 5,219 tools/capabilities with zero duplicate registrations, zero missing/extra capability entries and zero metadata gaps in the verified v64 branch CI. v64 never invents execution, identity proof, signatures, persistence, certification or deployment success.
-<!-- production-deploy-refresh: v67-2026-10-01 -->
+<!-- production-deploy-refresh: v68-2026-10-01 -->
