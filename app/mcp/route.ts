@@ -368,7 +368,7 @@ const handler = createMcpHandler((server) => {
 ]);
   const KROM_TOOL_DIRECTORY = new Map<string, { config: any; handler: (input: any) => any }>();
 
-  const registerKromTool = (...args: any[]) => {
+  const registerKromTool: typeof server.registerTool = ((...args: any[]) => {
     const name = String(args[0] ?? '');
     const config = args[1] ?? {};
     const handlerFn = args[args.length - 1] as (input: any) => any;
@@ -376,7 +376,7 @@ const handler = createMcpHandler((server) => {
     if (KROM_PUBLIC_TOOL_NAMES.has(name)) {
       (server.registerTool as any)(...args);
     }
-  };
+  }) as typeof server.registerTool;
 
   registerKromTool(
     'krom_route_workflow',
