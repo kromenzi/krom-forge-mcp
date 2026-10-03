@@ -2156,7 +2156,7 @@ const handler = createMcpHandler((server) => {
   registerKromTool('krom_v74_build_dependency_sbom',{title:'Build dependency SBOM',description:'Build an SBOM from supplied dependency metadata without external lookup.',inputSchema:v74SkillRegistrySchema},async(input)=>result(buildDependencySbomV74(input)));
   registerKromTool('krom_v74_scan_redacted_secrets',{title:'Scan redacted secrets',description:'Detect secret-like patterns in supplied redacted samples without returning raw values.',inputSchema:v74SkillRegistrySchema},async(input)=>result(scanRedactedSecretsV74(input)));
 
-  registerKromTool(
+  server.registerTool(
     'krom_v75_get_agent_capability_profile',
     {
       title: 'Get v75 agent capability profile',
@@ -2166,7 +2166,7 @@ const handler = createMcpHandler((server) => {
     async (input) => result(getAgentCapabilityProfileV75({ ...input, availableInternalCapabilities: KROM_TOOL_DIRECTORY.size }))
   );
 
-  registerKromTool(
+  server.registerTool(
     'krom_v75_list_agent_skill_fabric',
     {
       title: 'List v75 agent skill fabric',
@@ -2176,7 +2176,7 @@ const handler = createMcpHandler((server) => {
     async () => result(listAgentSkillFabricV75())
   );
 
-  registerKromTool(
+  server.registerTool(
     'krom_v75_search_agent_skills',
     {
       title: 'Search v75 agent skills',
@@ -2186,7 +2186,7 @@ const handler = createMcpHandler((server) => {
     async (input) => result(searchAgentSkillsV75(input))
   );
 
-  registerKromTool(
+  server.registerTool(
     'krom_v75_audit_agent_capability_fabric',
     {
       title: 'Audit v75 agent capability fabric',
