@@ -1,6 +1,6 @@
 {
   "name": "krom-forge-mcp",
-  "version": "71.0.0",
+  "version": "74.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,7 +19,7 @@
     "test": "node scripts/run-tests.mjs",
     "typecheck": "tsc --noEmit",
     "audit:production": "npm audit --omit=dev --audit-level=high",
-    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run verify:v56 && npm run verify:v57 && npm run verify:v58 && npm run verify:v59 && npm run verify:v60 && npm run verify:v61 && npm run verify:v62 && npm run verify:v63 && npm run verify:v64 && npm run verify:v65 && npm run verify:v66 && npm run verify:v67 && npm run verify:v68 && npm run verify:v69 && npm run verify:v70 && npm run verify:v71 && npm run typecheck && npm test && npm run audit:production && npm run build",
+    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run verify:v56 && npm run verify:v57 && npm run verify:v58 && npm run verify:v59 && npm run verify:v60 && npm run verify:v61 && npm run verify:v62 && npm run verify:v63 && npm run verify:v64 && npm run verify:v65 && npm run verify:v66 && npm run verify:v67 && npm run verify:v68 && npm run verify:v69 && npm run verify:v70 && npm run verify:v71 && npm run verify:v72 && npm run verify:v73 && npm run verify:v74 && npm run typecheck && npm test && npm run audit:production && npm run build",
     "build": "next build",
     "start": "next start",
     "verify:v64": "tsx scripts/verify-v64-trust-runtime.ts",
@@ -29,7 +29,10 @@
     "verify:v68": "tsx scripts/verify-v68-incident-command.ts",
     "verify:v69": "tsx scripts/verify-v69-operations-governance.ts",
     "verify:v70": "tsx scripts/verify-v70-delivery-verification.ts",
-    "verify:v71": "tsx scripts/verify-v71-continuous-assurance.ts"
+    "verify:v71": "tsx scripts/verify-v71-continuous-assurance.ts",
+    "verify:v72": "tsx scripts/verify-v72-skills.ts",
+    "verify:v73": "tsx scripts/verify-v73-patch-bundle.ts",
+    "verify:v74": "tsx scripts/verify-v74-skill-registry.ts"
   },
   "engines": {
     "node": ">=20"
