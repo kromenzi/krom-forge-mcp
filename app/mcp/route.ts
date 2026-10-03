@@ -368,10 +368,13 @@ const handler = createMcpHandler((server) => {
 ]);
   const KROM_TOOL_DIRECTORY = new Map<string, { config: any; handler: (input: any) => any }>();
 
-  const registerKromTool = (name: string, config: any, handlerFn: (input: any) => any) => {
+  const registerKromTool = (...args: any[]) => {
+    const name = String(args[0] ?? '');
+    const config = args[1] ?? {};
+    const handlerFn = args[args.length - 1] as (input: any) => any;
     KROM_TOOL_DIRECTORY.set(name, { config, handler: handlerFn });
     if (KROM_PUBLIC_TOOL_NAMES.has(name)) {
-      (server.registerTool as any)(name, config, handlerFn);
+      (server.registerTool as any)(...args);
     }
   };
 
