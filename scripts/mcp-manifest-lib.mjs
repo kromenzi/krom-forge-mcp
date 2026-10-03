@@ -70,6 +70,8 @@ export function buildMcpManifest(options = {}) {
   const pkg = JSON.parse(fs.readFileSync(path.resolve(root, packagePath), 'utf8'));
   const source = ts.createSourceFile(absoluteRoute, route, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
   const tools = [];
+  const publicTools = [];
+  const publicToolNames = new Set();
   const capabilityCandidates = [];
   const modules = [];
   const stringArrays = new Map();
@@ -99,8 +101,20 @@ export function buildMcpManifest(options = {}) {
   }
 
   const visit = (node) => {
-    if (ts.isCallExpression(node) && ts.isPropertyAccessExpression(node.expression) &&
-        node.expression.expression.getText(source) === 'server' && node.expression.name.text === 'registerTool') {
+    if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) &&
+        node.name.text === 'KROM_PUBLIC_TOOL_NAMES' && node.initializer &&
+        ts.isNewExpression(node.initializer) && node.initializer.arguments?.length) {
+      const [arg] = node.initializer.arguments;
+      if (ts.isArrayLiteralExpression(arg)) {
+        for (const element of arg.elements) {
+          const value = literalText(element);
+          if (value) publicToolNames.add(value);
+        }
+      }
+    }
+
+    if (ts.isCallExpression(node) && ts.isIdentifier(node.expression) &&
+        node.expression.text === 'registerKromTool') {
       const [nameNode, configNode] = node.arguments;
       const name = literalText(nameNode);
       if (name && ts.isObjectLiteralExpression(configNode)) {
@@ -118,6 +132,27 @@ export function buildMcpManifest(options = {}) {
       }
     }
 
+    if (ts.isCallExpression(node) && ts.isPropertyAccessExpression(node.expression) &&
+        node.expression.expression.getText(source) === 'server' && node.expression.name.text === 'registerTool') {
+      const [nameNode, configNode] = node.arguments;
+      const name = literalText(nameNode);
+      if (name && ts.isObjectLiteralExpression(configNode)) {
+        const titleProperty = objectProperty(configNode, 'title');
+        const descriptionProperty = objectProperty(configNode, 'description');
+        const inputSchemaProperty = objectProperty(configNode, 'inputSchema');
+        const location = source.getLineAndCharacterOfPosition(node.getStart(source));
+        publicTools.push({
+          name,
+          title: literalText(titleProperty?.initializer) ?? '',
+          description: literalText(descriptionProperty?.initializer) ?? '',
+          inputSchemaExpression: inputSchemaProperty?.initializer.getText(source) ?? '',
+          line: location.line + 1,
+          gateway: true
+        });
+        publicToolNames.add(name);
+      }
+    }
+
     if (ts.isPropertyAssignment(node) && propertyName(node.name) === 'tools' && ts.isArrayLiteralExpression(node.initializer)) {
       const names = node.initializer.elements.flatMap((element) => {
         const literal = literalText(element);
@@ -132,14 +167,14 @@ export function buildMcpManifest(options = {}) {
   visit(source);
   if (v53GeneratedTools.length) {
     const runtimeContractPresent = route.includes('for (const spec of V53_TOOL_SPECS)') &&
-      route.includes('server.registerTool(') &&
+      route.includes('registerKromTool(') &&
       route.includes('spec.name') &&
       route.includes('executeV53Tool(spec, input)');
     if (runtimeContractPresent) tools.push(...v53GeneratedTools);
   }
   if (v54GeneratedTools.length) {
     const runtimeContractPresent = route.includes('for (const spec of V54_TOOL_SPECS)') &&
-      route.includes('server.registerTool(') &&
+      route.includes('registerKromTool(') &&
       route.includes('spec.name') &&
       route.includes('executeV54Tool(spec, input)');
     if (runtimeContractPresent) tools.push(...v54GeneratedTools);
@@ -152,6 +187,20 @@ export function buildMcpManifest(options = {}) {
   const metadataGaps = tools.filter((tool) => !tool.title || !tool.description || !tool.inputSchemaExpression)
     .map((tool) => ({ name: tool.name, missing: [!tool.title && 'title', !tool.description && 'description', !tool.inputSchemaExpression && 'inputSchema'].filter(Boolean) }));
 
+  const internalByName = new Map(tools.map((tool) => [tool.name, tool]));
+  const gatewayByName = new Map(publicTools.map((tool) => [tool.name, tool]));
+  const resolvedPublicTools = [...publicToolNames].map((name) =>
+    internalByName.get(name) ?? gatewayByName.get(name) ?? {
+      name,
+      title: '',
+      description: '',
+      inputSchemaExpression: '',
+      line: 0,
+      unresolved: true
+    }
+  );
+  const unresolvedPublicTools = resolvedPublicTools.filter((tool) => tool.unresolved).map((tool) => tool.name);
+
   const body = {
     schemaVersion: '1',
     package: pkg.name,
@@ -161,6 +210,7 @@ export function buildMcpManifest(options = {}) {
     counts: {
       registered: new Set(registeredNames).size,
       capabilities: new Set(capabilityTools).size,
+      publicDirect: new Set(resolvedPublicTools.map((tool) => tool.name)).size,
       sourceModules: new Set(modules).size
     },
     integrity: {
@@ -168,10 +218,12 @@ export function buildMcpManifest(options = {}) {
       duplicateCapabilities: duplicates(capabilityTools),
       missingCapabilities,
       extraCapabilities,
-      metadataGaps
+      metadataGaps,
+      unresolvedPublicTools
     },
     sourceModules: [...new Set(modules)].sort(),
-    tools
+    tools,
+    publicTools: resolvedPublicTools
   };
   const fingerprint = `sha256:${crypto.createHash('sha256').update(JSON.stringify(body)).digest('hex')}`;
   return { ...body, fingerprint };
@@ -184,6 +236,7 @@ export function validateMcpManifest(manifest) {
   if (manifest.integrity.missingCapabilities.length) failures.push('Registered tools missing from capabilities');
   if (manifest.integrity.extraCapabilities.length) failures.push('Capabilities missing registrations');
   if (manifest.integrity.metadataGaps.length) failures.push('Tool metadata is incomplete');
+  if (manifest.integrity.unresolvedPublicTools?.length) failures.push('Public tool surface contains unresolved tools');
   if (!manifest.tools.every((tool) => tool.name.startsWith('krom_'))) failures.push('Unexpected tool name prefix');
   return { status: failures.length ? 'FAIL' : 'PASS', failures };
 }
