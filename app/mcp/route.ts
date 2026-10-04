@@ -109,6 +109,7 @@ import { v77ExecutionReceiptSchema, buildExecutionReceiptV77, verifyExecutionRec
 import { v77MissionClosureSchema, closeMissionV77, verifyMissionClaimV77, auditMissionClosureV77 } from '../../src/v77-mission-closure';
 import { v77MissionCheckpointSchema, v77MissionResumeSchema, buildMissionCheckpointV77, resumeMissionFromCheckpointV77, buildMissionRecoveryPlanV77, auditMissionRecoveryV77 } from '../../src/v77-mission-recovery';
 import { v77AdaptiveRetrySchema, buildAdaptiveRetryDecisionV77, buildSafeReplanV77, auditAdaptiveRetryV77 } from '../../src/v77-adaptive-retry';
+import { v77FailureEventSchema, v77FailureHistorySchema, fingerprintFailureV77, buildFailureHistoryV77, appendFailureEventV77, evaluateFailureLoopV77, auditFailureHistoryV77 } from '../../src/v77-failure-history';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2627,7 +2628,7 @@ const handler = createMcpHandler((server) => {
     'krom_v77_mission_control',
     {
       title:'KROM Forge v77 mission control',
-      description:'Unified evidence-safe gateway for execution receipts, mission closure, checkpoints, recovery, adaptive retry, circuit breaking and safe replanning without expanding the 5333 internal capability registry.',
+      description:'Unified evidence-safe gateway for execution receipts, mission closure, checkpoints, recovery, adaptive retry, failure fingerprinting, anti-loop circuit breaking and safe replanning without expanding the 5333 internal capability registry.',
       inputSchema:z.object({
         operation:z.enum([
           'BUILD_EXECUTION_RECEIPT',
@@ -2642,7 +2643,12 @@ const handler = createMcpHandler((server) => {
           'AUDIT_MISSION_RECOVERY',
           'BUILD_RETRY_DECISION',
           'BUILD_SAFE_REPLAN',
-          'AUDIT_ADAPTIVE_RETRY'
+          'AUDIT_ADAPTIVE_RETRY',
+          'FINGERPRINT_FAILURE',
+          'BUILD_FAILURE_HISTORY',
+          'APPEND_FAILURE_EVENT',
+          'EVALUATE_FAILURE_LOOP',
+          'AUDIT_FAILURE_HISTORY'
         ]),
         payload:z.unknown().optional()
       })
@@ -2675,6 +2681,18 @@ const handler = createMcpHandler((server) => {
           return result(buildSafeReplanV77(v77AdaptiveRetrySchema.parse(payload)));
         case 'AUDIT_ADAPTIVE_RETRY':
           return result(auditAdaptiveRetryV77());
+        case 'FINGERPRINT_FAILURE':
+          return result(fingerprintFailureV77(v77FailureEventSchema.parse(payload)));
+        case 'BUILD_FAILURE_HISTORY':
+          return result(buildFailureHistoryV77(v77FailureHistorySchema.parse(payload)));
+        case 'APPEND_FAILURE_EVENT': {
+          const parsed=z.object({history:v77FailureHistorySchema,event:v77FailureEventSchema}).parse(payload);
+          return result(appendFailureEventV77(parsed.history,parsed.event));
+        }
+        case 'EVALUATE_FAILURE_LOOP':
+          return result(evaluateFailureLoopV77(v77FailureHistorySchema.parse(payload)));
+        case 'AUDIT_FAILURE_HISTORY':
+          return result(auditFailureHistoryV77());
       }
     }
   );
