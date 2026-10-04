@@ -27,7 +27,7 @@ Base/head refs, PR number, expected files, commit SHA, CI checks, deployment map
 4. Detect generated artifacts, secrets, unrelated changes, and branch drift.
 
 ## Remediation / implementation
-Use an isolated branch and small commits. Update branch from base safely; preserve attributes; request review; merge only with required gates.
+Use an isolated branch and small commits. Update branch from base safely; preserve attribution; request review; merge only with required gates.
 
 ## Verification
 After merge verify main SHA, CI, deployment SHA, PR state, and local refs. Confirm temporary branches/workflows are removed only when requested.
