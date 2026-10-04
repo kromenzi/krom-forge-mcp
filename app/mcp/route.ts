@@ -113,6 +113,7 @@ import { v77FailureEventSchema, v77FailureHistorySchema, fingerprintFailureV77, 
 import { v77ExecutionSupervisorSchema, superviseExecutionV77, auditExecutionSupervisorV77 } from '../../src/v77-execution-supervisor';
 import { v78GovernanceSchema, evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../../src/v78-autonomous-execution-governance';
 import { v78DelegationSchema, v78ConsensusSchema, buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../../src/v78-agent-delegation-consensus';
+import { v78ExecutionLineageSchema, buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78 } from '../../src/v78-execution-lineage';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2711,9 +2712,9 @@ const handler = createMcpHandler((server) => {
     'krom_v78_autonomous_governance',
     {
       title:'KROM Forge v78 autonomous execution governance',
-      description:'Unified v78 governance gateway for bounded autonomous execution, dynamic agent delegation, multi-agent consensus, veto handling and deadlock recovery. It evaluates and plans only; it does not execute mutations.',
+      description:'Unified v78 governance gateway for bounded autonomous execution, dynamic delegation, multi-agent consensus, evidence lineage, consensus receipts, lease-safe ownership transfer, veto handling and deadlock recovery. It evaluates and plans only; it does not execute mutations.',
       inputSchema:z.object({
-        operation:z.enum(['EVALUATE','AUDIT','BUILD_DELEGATION','EVALUATE_CONSENSUS','BUILD_CONSENSUS_RECOVERY','AUDIT_DELEGATION_CONSENSUS']),
+        operation:z.enum(['EVALUATE','AUDIT','BUILD_DELEGATION','EVALUATE_CONSENSUS','BUILD_CONSENSUS_RECOVERY','AUDIT_DELEGATION_CONSENSUS','BUILD_EXECUTION_LINEAGE','VERIFY_EXECUTION_LINEAGE','BUILD_OWNERSHIP_TRANSFER','AUDIT_EXECUTION_LINEAGE']),
         payload:z.unknown().optional()
       })
     },
@@ -2723,6 +2724,22 @@ const handler = createMcpHandler((server) => {
       if(operation==='EVALUATE_CONSENSUS') return result(evaluateMultiAgentConsensusV78(v78ConsensusSchema.parse(payload)));
       if(operation==='BUILD_CONSENSUS_RECOVERY') return result(buildConsensusRecoveryV78(v78ConsensusSchema.parse(payload)));
       if(operation==='AUDIT_DELEGATION_CONSENSUS') return result(auditAgentDelegationConsensusV78());
+      if(operation==='BUILD_EXECUTION_LINEAGE') return result(buildExecutionLineageV78(v78ExecutionLineageSchema.parse(payload)));
+      if(operation==='VERIFY_EXECUTION_LINEAGE'){
+        const parsed=v78ExecutionLineageSchema.extend({claimedLineageDigest:z.string().regex(/^[a-f0-9]{64}$/)}).parse(payload);
+        return result(verifyExecutionLineageV78(parsed));
+      }
+      if(operation==='BUILD_OWNERSHIP_TRANSFER'){
+        const parsed=z.object({
+          current:v78ExecutionLineageSchema,
+          nextOwner:v78AgentIdSchema,
+          nextLeaseId:z.string().min(1),
+          nextLeaseEpoch:z.number().int().min(1),
+          hostAuthorized:z.boolean()
+        }).parse(payload);
+        return result(buildOwnershipTransferV78(parsed));
+      }
+      if(operation==='AUDIT_EXECUTION_LINEAGE') return result(auditExecutionLineageV78());
       return result(evaluateAutonomousExecutionV78(v78GovernanceSchema.parse(payload)));
     }
   );
