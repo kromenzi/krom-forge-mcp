@@ -1,6 +1,7 @@
 import { getSkillMetadataV76 } from '../src/v76-skill-index';
 import { evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../src/v78-autonomous-execution-governance';
 import { buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../src/v78-agent-delegation-consensus';
+import { buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78 } from '../src/v78-execution-lineage';
 
 const functionRepairSkill=getSkillMetadataV76('krom-function-audit-repair');
 if(!functionRepairSkill) throw new Error('v78 missing krom-function-audit-repair');
@@ -9,6 +10,45 @@ if(!functionRepairSkill.domains.includes('debugging')) throw new Error('v78 func
 const design3dSkill=getSkillMetadataV76('krom-3d-design-studio');
 if(!design3dSkill) throw new Error('v78 missing krom-3d-design-studio');
 if(!design3dSkill.domains.includes('3d')) throw new Error('v78 3D design skill routing profile missing 3d domain');
+
+const lineageAudit=auditExecutionLineageV78();
+if(lineageAudit.status!=='PASS') throw new Error(`v78 execution lineage audit failed: ${JSON.stringify(lineageAudit)}`);
+
+const lineageBase={
+  missionId:'mission-v78-verify',
+  objective:'Verify execution lineage',
+  stepId:'lineage-step-1',
+  owner:'backend' as const,
+  leaseId:'lease-v78-1',
+  leaseEpoch:1,
+  leaseActive:true,
+  hostAuthorized:true,
+  mutationRequested:true,
+  evidence:[
+    {id:'test:v78',digest:'a'.repeat(64),verified:true,source:'TEST' as const}
+  ],
+  consensusReceipt:{
+    consensusDigest:'b'.repeat(64),
+    decision:'CONSENSUS' as const,
+    participants:['backend','qa','security'] as const,
+    evidenceRefs:['test:v78'],
+    issuedBy:'security' as const,
+    independentValidator:'qa' as const
+  },
+  priorOwners:[]
+};
+const lineage=buildExecutionLineageV78(lineageBase);
+if(lineage.status!=='READY'||!lineage.continuationAllowed) throw new Error('v78 lineage readiness failed');
+const lineageVerify=verifyExecutionLineageV78({...lineageBase,claimedLineageDigest:lineage.lineageDigest});
+if(lineageVerify.status!=='PASS'||!lineageVerify.digestMatches) throw new Error('v78 lineage digest verification failed');
+const transfer=buildOwnershipTransferV78({
+  current:lineageBase,
+  nextOwner:'qa',
+  nextLeaseId:'lease-v78-2',
+  nextLeaseEpoch:2,
+  hostAuthorized:true
+});
+if(transfer.status!=='READY') throw new Error('v78 lease-safe ownership transfer failed');
 
 const delegationAudit=auditAgentDelegationConsensusV78();
 if(delegationAudit.status!=='PASS') throw new Error(`v78 delegation/consensus audit failed: ${JSON.stringify(delegationAudit)}`);
@@ -110,5 +150,9 @@ console.log(JSON.stringify({
   dynamicAgentDelegation:true,
   multiAgentConsensus:true,
   vetoAndDeadlockHandling:true,
+  executionLineage:true,
+  consensusReceipts:true,
+  leaseSafeOwnershipTransfer:true,
+  lineageTamperDetection:true,
   executionClaim:false
 },null,2));
