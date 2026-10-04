@@ -16,6 +16,7 @@ import { getNativeSkillDirectivesV77, auditNativeSkillDirectiveBundleV77 } from 
 import { buildSkillTeamV77, auditSkillTeamOrchestratorV77 } from '../src/v77-skill-team-orchestrator';
 import { buildExecutionReceiptV77, verifyExecutionReceiptV77, auditExecutionReceiptV77 } from '../src/v77-execution-receipt';
 import { closeMissionV77, verifyMissionClaimV77, auditMissionClosureV77 } from '../src/v77-mission-closure';
+import { buildMissionCheckpointV77, resumeMissionFromCheckpointV77, buildMissionRecoveryPlanV77, auditMissionRecoveryV77 } from '../src/v77-mission-recovery';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -27,6 +28,60 @@ const candidates=[
 ];
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
+
+const recoveryAudit=auditMissionRecoveryV77();
+if(recoveryAudit.status!=='PASS') throw new Error(`Mission recovery audit failed: ${JSON.stringify(recoveryAudit)}`);
+
+const checkpoint=buildMissionCheckpointV77({
+  missionDigest:'1'.repeat(64),
+  checkpointVersion:1,
+  expectedCapabilities:['krom_audit_ui','krom_generate_test_plan'],
+  completedCapabilities:['krom_audit_ui'],
+  failedCapabilities:[],
+  evidenceRefs:['ui:audit:verified'],
+  lastVerifiedStep:'UI audit complete',
+  executionAuthorized:true,
+  sourceStateDigest:'2'.repeat(64)
+});
+if(checkpoint.status!=='RESUMABLE') throw new Error('Expected resumable checkpoint');
+if(!/^[a-f0-9]{64}$/.test(checkpoint.checkpointDigest)) throw new Error('Checkpoint digest invalid');
+
+const resumed=resumeMissionFromCheckpointV77({
+  checkpoint:{
+    missionDigest:checkpoint.missionDigest,
+    checkpointVersion:checkpoint.checkpointVersion,
+    expectedCapabilities:checkpoint.expectedCapabilities,
+    completedCapabilities:checkpoint.completedCapabilities,
+    failedCapabilities:checkpoint.failedCapabilities,
+    evidenceRefs:checkpoint.evidenceRefs,
+    lastVerifiedStep:checkpoint.lastVerifiedStep ?? undefined,
+    executionAuthorized:checkpoint.executionAuthorized,
+    sourceStateDigest:checkpoint.sourceStateDigest ?? undefined,
+    checkpointDigest:checkpoint.checkpointDigest
+  },
+  currentExpectedCapabilities:['krom_audit_ui','krom_generate_test_plan'],
+  invalidatedEvidenceRefs:[],
+  currentSourceStateDigest:'2'.repeat(64)
+});
+if(resumed.status!=='RESUME_WITH_REVERIFICATION') throw new Error('Expected pending mission to resume');
+if(!resumed.remainingCapabilities.includes('krom_generate_test_plan')) throw new Error('Pending capability not preserved on resume');
+
+const recoveryPlan=buildMissionRecoveryPlanV77({
+  checkpoint:{
+    missionDigest:checkpoint.missionDigest,
+    checkpointVersion:checkpoint.checkpointVersion,
+    expectedCapabilities:checkpoint.expectedCapabilities,
+    completedCapabilities:checkpoint.completedCapabilities,
+    failedCapabilities:checkpoint.failedCapabilities,
+    evidenceRefs:checkpoint.evidenceRefs,
+    lastVerifiedStep:checkpoint.lastVerifiedStep ?? undefined,
+    executionAuthorized:checkpoint.executionAuthorized,
+    sourceStateDigest:checkpoint.sourceStateDigest ?? undefined,
+    checkpointDigest:checkpoint.checkpointDigest
+  },
+  invalidatedEvidenceRefs:[]
+});
+if(!/^[a-f0-9]{64}$/.test(recoveryPlan.recoveryPlanDigest)) throw new Error('Recovery plan digest invalid');
 
 const missionClosureAudit=auditMissionClosureV77();
 if(missionClosureAudit.status!=='PASS') throw new Error(`Mission closure audit failed: ${JSON.stringify(missionClosureAudit)}`);
@@ -419,6 +474,9 @@ console.log(JSON.stringify({
   evidenceClosureGate:true,
   missionClosure:true,
   missionClaimVerification:true,
+  missionCheckpoint:true,
+  missionResume:true,
+  recoveryPlanning:true,
   directivePolicyResolution:true,
   executionPolicyEnforcement:true,
   directiveApplicability:true,
