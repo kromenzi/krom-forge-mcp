@@ -1,0 +1,65 @@
+name: KSA Security Quality Remediation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'skills/**'
+      - 'src/v75-agent-capability-fabric.ts'
+      - 'src/v76-skill-index/**'
+      - 'scripts/verify-v75-agent-capability-fabric.ts'
+      - 'scripts/verify-v76-semantic-skill-runtime.ts'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-quality-remediation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  remediation-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify imported remediation skill integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f skills/ksa-2026-security-quality-remediation/SKILL.md
+          echo "aa1e905dd1019b858be083fd43e7d1e3a95d2bccd647438d60bd38a8b17d67a4  skills/ksa-2026-security-quality-remediation/SKILL.md" | sha256sum -c -
+          grep -q "'ksa-2026-security-quality-remediation'" src/v75-agent-capability-fabric.ts
+          grep -q '"name":"ksa-2026-security-quality-remediation"' src/v76-skill-index/part-4.ts
+
+      - name: Dependency security audit
+        run: npm audit --audit-level=high
+
+      - name: Verify agent skill fabric
+        run: npm run verify:v75
+
+      - name: Verify semantic skill runtime
+        run: npm run verify:v76
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Tests
+        run: npm test
+
+      - name: Production build
+        run: npm run build
