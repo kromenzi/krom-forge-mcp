@@ -7,6 +7,7 @@ Validated from the two user-provided skill archives on 2026-10-04.
 - Internal capability fabric baseline: 5333
 - Gateway: `krom_search_capabilities` + `krom_dispatch_capability`
 - macOS AppleDouble/resource-fork artifacts (`._*`, `.DS_Store`) are intentionally excluded.
+- v78 extension: `krom-function-audit-repair` and `krom-3d-design-studio` are imported as skills 51–52 with preserved uploaded-source SHA-256 identities.
 
 ## Skills
 
