@@ -112,6 +112,7 @@ import { v77AdaptiveRetrySchema, buildAdaptiveRetryDecisionV77, buildSafeReplanV
 import { v77FailureEventSchema, v77FailureHistorySchema, fingerprintFailureV77, buildFailureHistoryV77, appendFailureEventV77, evaluateFailureLoopV77, auditFailureHistoryV77 } from '../../src/v77-failure-history';
 import { v77ExecutionSupervisorSchema, superviseExecutionV77, auditExecutionSupervisorV77 } from '../../src/v77-execution-supervisor';
 import { v78GovernanceSchema, evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../../src/v78-autonomous-execution-governance';
+import { v78DelegationSchema, v78ConsensusSchema, buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../../src/v78-agent-delegation-consensus';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2710,14 +2711,18 @@ const handler = createMcpHandler((server) => {
     'krom_v78_autonomous_governance',
     {
       title:'KROM Forge v78 autonomous execution governance',
-      description:'Evaluate bounded autonomous execution policy including authorization, approval, budget, confidence, execution lease, ownership conflicts and rollback readiness. This tool does not execute the action.',
+      description:'Unified v78 governance gateway for bounded autonomous execution, dynamic agent delegation, multi-agent consensus, veto handling and deadlock recovery. It evaluates and plans only; it does not execute mutations.',
       inputSchema:z.object({
-        operation:z.enum(['EVALUATE','AUDIT']),
+        operation:z.enum(['EVALUATE','AUDIT','BUILD_DELEGATION','EVALUATE_CONSENSUS','BUILD_CONSENSUS_RECOVERY','AUDIT_DELEGATION_CONSENSUS']),
         payload:z.unknown().optional()
       })
     },
     async ({operation,payload})=>{
       if(operation==='AUDIT') return result(auditAutonomousExecutionV78());
+      if(operation==='BUILD_DELEGATION') return result(buildDynamicDelegationV78(v78DelegationSchema.parse(payload)));
+      if(operation==='EVALUATE_CONSENSUS') return result(evaluateMultiAgentConsensusV78(v78ConsensusSchema.parse(payload)));
+      if(operation==='BUILD_CONSENSUS_RECOVERY') return result(buildConsensusRecoveryV78(v78ConsensusSchema.parse(payload)));
+      if(operation==='AUDIT_DELEGATION_CONSENSUS') return result(auditAgentDelegationConsensusV78());
       return result(evaluateAutonomousExecutionV78(v78GovernanceSchema.parse(payload)));
     }
   );
