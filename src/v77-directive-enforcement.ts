@@ -95,7 +95,7 @@ export function enforceExecutionPolicyV77(input:V77EnforcementInput){
     });
   }
 
-  const effectiveApprovalRequired=Boolean(input.approvalRequired || productionSensitive || secretSensitive);
+  const effectiveApprovalRequired=Boolean(input.approvalRequired || (mutating && (productionSensitive || secretSensitive)));
   if(effectiveApprovalRequired && !input.approved){
     findings.push({
       code:'APPROVAL_REQUIRED',
