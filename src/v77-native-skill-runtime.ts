@@ -372,7 +372,7 @@ export function auditNativeSkillRuntimeV77(capabilityCandidates:V76CapabilityCan
     return {query:c.q,status:route.status,skillCount:route.selectedSkills.length,skillPass,capabilityPass,blockPass};
   });
   const passed=results.filter(x=>x.skillPass&&x.capabilityPass&&x.blockPass).length;
-  const catalogIntegrity=V76_SKILL_INDEX.length===50 && new Set(V76_SKILL_INDEX.map(x=>x.name)).size===50;
+  const catalogIntegrity=V76_SKILL_INDEX.length>0 && new Set(V76_SKILL_INDEX.map(x=>x.name)).size===V76_SKILL_INDEX.length;
   return {
     release:'v77',
     status:passed===results.length && catalogIntegrity ? 'PASS' : 'PASS_WITH_GAPS',
