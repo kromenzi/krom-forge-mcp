@@ -108,6 +108,7 @@ import { v77SkillTeamSchema, buildSkillTeamV77, auditSkillTeamOrchestratorV77 } 
 import { v77ExecutionReceiptSchema, buildExecutionReceiptV77, verifyExecutionReceiptV77, auditExecutionReceiptV77 } from '../../src/v77-execution-receipt';
 import { v77MissionClosureSchema, closeMissionV77, verifyMissionClaimV77, auditMissionClosureV77 } from '../../src/v77-mission-closure';
 import { v77MissionCheckpointSchema, v77MissionResumeSchema, buildMissionCheckpointV77, resumeMissionFromCheckpointV77, buildMissionRecoveryPlanV77, auditMissionRecoveryV77 } from '../../src/v77-mission-recovery';
+import { v77AdaptiveRetrySchema, buildAdaptiveRetryDecisionV77, buildSafeReplanV77, auditAdaptiveRetryV77 } from '../../src/v77-adaptive-retry';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2626,7 +2627,7 @@ const handler = createMcpHandler((server) => {
     'krom_v77_mission_control',
     {
       title:'KROM Forge v77 mission control',
-      description:'Unified evidence-safe gateway for execution receipts, mission closure, claim verification, checkpoints, resume, recovery planning and deterministic audits without expanding the 5333 internal capability registry.',
+      description:'Unified evidence-safe gateway for execution receipts, mission closure, checkpoints, recovery, adaptive retry, circuit breaking and safe replanning without expanding the 5333 internal capability registry.',
       inputSchema:z.object({
         operation:z.enum([
           'BUILD_EXECUTION_RECEIPT',
@@ -2638,7 +2639,10 @@ const handler = createMcpHandler((server) => {
           'BUILD_CHECKPOINT',
           'RESUME_CHECKPOINT',
           'BUILD_RECOVERY_PLAN',
-          'AUDIT_MISSION_RECOVERY'
+          'AUDIT_MISSION_RECOVERY',
+          'BUILD_RETRY_DECISION',
+          'BUILD_SAFE_REPLAN',
+          'AUDIT_ADAPTIVE_RETRY'
         ]),
         payload:z.unknown().optional()
       })
@@ -2665,6 +2669,12 @@ const handler = createMcpHandler((server) => {
           return result(buildMissionRecoveryPlanV77(v77MissionResumeSchema.parse(payload)));
         case 'AUDIT_MISSION_RECOVERY':
           return result(auditMissionRecoveryV77());
+        case 'BUILD_RETRY_DECISION':
+          return result(buildAdaptiveRetryDecisionV77(v77AdaptiveRetrySchema.parse(payload)));
+        case 'BUILD_SAFE_REPLAN':
+          return result(buildSafeReplanV77(v77AdaptiveRetrySchema.parse(payload)));
+        case 'AUDIT_ADAPTIVE_RETRY':
+          return result(auditAdaptiveRetryV77());
       }
     }
   );
