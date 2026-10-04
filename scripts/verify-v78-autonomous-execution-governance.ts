@@ -30,7 +30,7 @@ const lineageBase={
   consensusReceipt:{
     consensusDigest:'b'.repeat(64),
     decision:'CONSENSUS' as const,
-    participants:['backend','qa','security'] as const,
+    participants:['backend','qa','security'],
     evidenceRefs:['test:v78'],
     issuedBy:'security' as const,
     independentValidator:'qa' as const
