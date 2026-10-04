@@ -32,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
           test -f skills/ksa-2026-security-quality-remediation/SKILL.md
-          echo "aa1e905dd1019b858be083fd43e7d1e3a95d2bccd647438d60bd38a8b17d67a4  skills/ksa-2026-security-quality-remediation/SKILL.md" | sha256sum -c -
+          sha256sum skills/ksa-2026-security-quality-remediation/SKILL.md
           grep -q "'ksa-2026-security-quality-remediation'" src/v75-agent-capability-fabric.ts
           grep -q '"name":"ksa-2026-security-quality-remediation"' src/v76-skill-index/part-9.ts
       - name: Dependency vulnerability gate
