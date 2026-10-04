@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { createHash } from 'node:crypto';
 import { V76_SKILL_INDEX, getSkillMetadataV76 } from './v76-skill-index';
+import { getNativeSkillDirectivesV77 } from './v77-native-skill-directives';
 import { rankSkillsV76, selectAgentV76, rankCapabilitiesV76, type V76CapabilityCandidate } from './v76-semantic-skill-runtime';
 
 export const v77RuntimeSchema = z.object({
@@ -71,13 +72,15 @@ export function selectSkillSetV77(query:string,maxSkills=4,relativeThreshold=0.5
 export function mergeDirectivesV77(skillNames:string[]){
   const all:V77Directive[]=[];
   for(const skill of skillNames){
+    const native=getNativeSkillDirectivesV77(skill);
     const meta=getSkillMetadataV76(skill);
     if(!meta) continue;
-    for(const directive of meta.instructionContract) all.push(directiveObject(skill,directive));
+    const source=native?.directives?.length ? native.directives : meta.instructionContract;
+    for(const directive of source) all.push(directiveObject(skill,directive));
   }
   const unique=new Map<string,V77Directive>();
   for(const item of all){
-    const key=item.normalized;
+    const key=`${item.skill}::${item.normalized}`;
     if(!unique.has(key)) unique.set(key,item);
   }
   return [...unique.values()];
