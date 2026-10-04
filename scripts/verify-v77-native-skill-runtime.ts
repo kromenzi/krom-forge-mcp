@@ -18,6 +18,7 @@ import { buildExecutionReceiptV77, verifyExecutionReceiptV77, auditExecutionRece
 import { closeMissionV77, verifyMissionClaimV77, auditMissionClosureV77 } from '../src/v77-mission-closure';
 import { buildMissionCheckpointV77, resumeMissionFromCheckpointV77, buildMissionRecoveryPlanV77, auditMissionRecoveryV77 } from '../src/v77-mission-recovery';
 import { buildAdaptiveRetryDecisionV77, buildSafeReplanV77, auditAdaptiveRetryV77 } from '../src/v77-adaptive-retry';
+import { fingerprintFailureV77, buildFailureHistoryV77, evaluateFailureLoopV77, auditFailureHistoryV77 } from '../src/v77-failure-history';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -29,6 +30,47 @@ const candidates=[
 ];
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
+
+const failureHistoryAudit=auditFailureHistoryV77();
+if(failureHistoryAudit.status!=='PASS') throw new Error(`Failure history audit failed: ${JSON.stringify(failureHistoryAudit)}`);
+
+const fpA=fingerprintFailureV77({
+  operation:'fetch dependency',
+  failureClass:'TRANSIENT_NETWORK',
+  errorMessage:'503 service unavailable at https://a.test/api after 1000ms',
+  httpStatus:503,
+  attempt:1
+});
+const fpB=fingerprintFailureV77({
+  operation:'fetch dependency',
+  failureClass:'TRANSIENT_NETWORK',
+  errorMessage:'503 service unavailable at https://b.test/api after 2000ms',
+  httpStatus:503,
+  attempt:2
+});
+if(fpA.fingerprint!==fpB.fingerprint) throw new Error('Failure fingerprint normalization is unstable');
+
+const loop=evaluateFailureLoopV77({
+  maxHistory:3,
+  loopThreshold:3,
+  events:[
+    {operation:'fetch dependency',failureClass:'TRANSIENT_NETWORK',errorMessage:'503 service unavailable at https://a.test/api after 1000ms',httpStatus:503,attempt:1},
+    {operation:'fetch dependency',failureClass:'TRANSIENT_NETWORK',errorMessage:'503 service unavailable at https://b.test/api after 2000ms',httpStatus:503,attempt:2},
+    {operation:'fetch dependency',failureClass:'TRANSIENT_NETWORK',errorMessage:'503 service unavailable at https://c.test/api after 3000ms',httpStatus:503,attempt:3}
+  ]
+});
+if(loop.status!=='BLOCKED'||!loop.circuitOpen) throw new Error('Repeated equivalent failures did not open the circuit');
+
+const boundedHistory=buildFailureHistoryV77({
+  maxHistory:2,
+  loopThreshold:3,
+  events:[
+    {operation:'a',failureClass:'UNKNOWN',errorMessage:'one',attempt:1},
+    {operation:'b',failureClass:'UNKNOWN',errorMessage:'two',attempt:1},
+    {operation:'c',failureClass:'UNKNOWN',errorMessage:'three',attempt:1}
+  ]
+});
+if(boundedHistory.size!==2) throw new Error('Failure history is not bounded');
 
 const retryAudit=auditAdaptiveRetryV77();
 if(retryAudit.status!=='PASS') throw new Error(`Adaptive retry audit failed: ${JSON.stringify(retryAudit)}`);
@@ -522,6 +564,8 @@ console.log(JSON.stringify({
   adaptiveRetry:true,
   circuitBreaking:true,
   safeReplan:true,
+  failureFingerprinting:true,
+  antiLoopHistory:true,
   directivePolicyResolution:true,
   executionPolicyEnforcement:true,
   directiveApplicability:true,
