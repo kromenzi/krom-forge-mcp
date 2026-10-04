@@ -1,6 +1,6 @@
 # KROM Forge v78 Imported Skill Catalog
 
-Imported skill catalog total: **152 skills**.
+Imported skill catalog total: **153 skills**.
 
 ## Existing catalog
 - Prior validated catalog: 52 skills
@@ -20,7 +20,13 @@ The numeric prefixes declared by v2/v3 skills (for example `11-krom-environment-
 
 ## Runtime integration
 - v75 agent fabric: all 11 agents retain `ALL_IMPORTED_SKILLS`.
-- v76 semantic skill index: 152 entries with routing metadata.
-- v77 native runtime/directives: catalog size is derived from the shared v76 index; verifier requires 152.
+- v76 semantic skill index: 153 entries with routing metadata.
+- v77 native runtime/directives: catalog size is derived from the shared v76 index; verifier requires 153.
 - v78 governance/runtime: representative skills from all four packs are verified.
 - Internal capability baseline remains **5333**. These are imported skills, not 100 additional public MCP tools.
+
+
+## KSA-2026 remediation extension
+
+- `ksa-2026-security-quality-remediation` — imported from the Manus remediation package; source SKILL.md SHA-256 `aa1e905dd1019b858be083fd43e7d1e3a95d2bccd647438d60bd38a8b17d67a4`.
+- Routed across security, frontend/asset/print, QA and CI/release verification so logo/print regressions and vulnerability remediation share one evidence-bound workflow.
