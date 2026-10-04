@@ -27,6 +27,133 @@ const PROD_TERMS=/\b(prod|production|deploy|release|publish)\b|(?:إنتاج|ا�
 
 function uniq<T>(xs:T[]){ return [...new Set(xs)]; }
 
+function normalizeText(value:string){
+  return value.toLowerCase().normalize('NFKD')
+    .replace(/[\u064B-\u065F\u0670]/g,'')
+    .replace(/[_/.-]+/g,' ')
+    .replace(/[^\p{L}\p{N}\s]+/gu,' ')
+    .replace(/\s+/g,' ').trim();
+}
+
+function tokens(value:string){
+  return normalizeText(value).split(' ').filter(x=>x.length>2);
+}
+
+function contentWords(value:string){
+  const stop=new Set([
+    'the','and','for','with','from','that','this','into','only','before','after','must','never','always','required','require','without','when',
+    'على','الى','إلى','في','من','عن','مع','قبل','بعد','يجب','دائما','دائمًا','بدون','عدم','هذا','هذه','التي','الذي'
+  ]);
+  return tokens(value).filter(x=>!stop.has(x));
+}
+
+function overlapScore(a:string,b:string){
+  const aa=new Set(contentWords(a));
+  const bb=new Set(contentWords(b));
+  if(!aa.size || !bb.size) return 0;
+  let hit=0;
+  for(const x of aa) if(bb.has(x)) hit++;
+  return hit/Math.max(1,Math.min(aa.size,bb.size));
+}
+
+
+export function evaluateDirectiveApplicabilityV77(query:string,skillNames:string[]){
+  const policy=resolveSkillDirectivePolicyV77(skillNames);
+  const directives=mergeDirectivesV77(policy.skills);
+  const action=classifyActionV77(query);
+  const queryNorm=normalizeText(query);
+  const queryWords=new Set(contentWords(query));
+  const matched=directives.map(directive=>{
+    const core=directive.normalized
+      .replace(/\b(do not|never|must not|must|required|always|before|require|forbid|blocked|cannot)\b/g,'')
+      .replace(/(?:لا|ممنوع|يحظر|حظر|يجب|دائما|قبل|يتطلب)/g,'')
+      .trim();
+    const coreWords=contentWords(core);
+    const exact=core && queryNorm.includes(core);
+    const tokenHits=coreWords.filter(w=>queryWords.has(w));
+    const score=exact?1:overlapScore(query,core);
+    const applicable=exact || tokenHits.length>=2 || score>=0.34;
+    return {...directive,core,score:Number(score.toFixed(3)),tokenHits,applicable};
+  }).filter(x=>x.applicable);
+
+  const forbidden=matched.filter(x=>x.polarity==='FORBID');
+  const required=matched.filter(x=>x.polarity==='REQUIRE');
+  const guides=matched.filter(x=>x.polarity==='GUIDE');
+
+  const violations:V77PolicyFinding[]=[];
+  for(const item of forbidden){
+    violations.push({
+      code:'SKILL_FORBID_DIRECTIVE_MATCH',
+      severity:action.highRisk?'CRITICAL':'HIGH',
+      blocking:true,
+      message:`Request matches a FORBID directive from ${item.skill}: ${item.directive}`,
+      skills:[item.skill]
+    });
+  }
+
+  return {
+    release:'v77',
+    query,
+    skills:policy.skills,
+    action,
+    matchedDirectives:matched,
+    requiredPreconditions:required.map((x,index)=>({
+      id:`REQ_${index+1}`,
+      skill:x.skill,
+      directive:x.directive,
+      satisfied:false,
+      evidenceRequired:true
+    })),
+    guideDirectives:guides,
+    violations,
+    status:violations.length?'BLOCKED':'PASS',
+    executionClaim:false
+  } as const;
+}
+
+export function buildSkillExecutionPacketV77(input:V77EnforcementInput){
+  const policy=enforceExecutionPolicyV77(input);
+  const applicability=evaluateDirectiveApplicabilityV77(input.query,input.skillNames);
+  const skills=uniq(input.skillNames).map(name=>getSkillMetadataV76(name)).filter(Boolean).map(skill=>({
+    name:skill!.name,
+    sha256:skill!.sha256,
+    preferredAgents:skill!.preferredAgents,
+    domains:skill!.domains
+  }));
+
+  const allFindings=[...policy.findings,...applicability.violations];
+  const blocking=allFindings.filter(x=>x.blocking);
+  const canonical={
+    release:'v77',
+    query:input.query,
+    skills:skills.map(x=>({name:x.name,sha256:x.sha256})),
+    action:policy.action,
+    policyDigest:policy.policyDigest,
+    matchedDirectives:applicability.matchedDirectives.map(x=>({
+      skill:x.skill,normalized:x.normalized,polarity:x.polarity,score:x.score
+    })),
+    blockingCodes:blocking.map(x=>x.code).sort(),
+    schemaValidated:Boolean(input.schemaValidated),
+    evidenceReady:Boolean(input.evidenceReady),
+    hostAuthorized:Boolean(input.hostAuthorized),
+    approved:Boolean(input.approved)
+  };
+  const packetDigest=createHash('sha256').update(JSON.stringify(canonical)).digest('hex');
+
+  return {
+    ...canonical,
+    skills,
+    policy,
+    applicability,
+    findings:allFindings,
+    requiredPreconditions:applicability.requiredPreconditions,
+    status:blocking.length?'BLOCKED':'READY',
+    packetDigest,
+    dispatchAllowed:blocking.length===0 && policy.dispatchAllowed,
+    executionClaim:false
+  } as const;
+}
+
 export function resolveSkillDirectivePolicyV77(skillNames:string[]){
   const known=uniq(skillNames).map(name=>getSkillMetadataV76(name)).filter(Boolean);
   const directives=mergeDirectivesV77(known.map(x=>x!.name));
@@ -80,7 +207,8 @@ export function resolveSkillDirectivePolicyV77(skillNames:string[]){
 export function enforceExecutionPolicyV77(input:V77EnforcementInput){
   const policy=resolveSkillDirectivePolicyV77(input.skillNames);
   const action=classifyActionV77(input.query);
-  const findings:V77PolicyFinding[]=[...policy.findings];
+  const applicability=evaluateDirectiveApplicabilityV77(input.query,input.skillNames);
+  const findings:V77PolicyFinding[]=[...policy.findings,...applicability.violations];
   const mutating=MUTATION_TERMS.test(input.query) || action.mutation;
   const readOnly=READ_ONLY_TERMS.test(input.query) && !mutating;
   const secretSensitive=SECRET_TERMS.test(input.query);
@@ -148,12 +276,15 @@ export function enforceExecutionPolicyV77(input:V77EnforcementInput){
     approved:Boolean(input.approved),
     schemaValidated:Boolean(input.schemaValidated),
     evidenceReady:Boolean(input.evidenceReady),
-    blockingCodes:blocking.map(x=>x.code).sort()
+    blockingCodes:blocking.map(x=>x.code).sort(),
+    matchedDirectiveCount:applicability.matchedDirectives.length,
+    requiredDirectiveCount:applicability.requiredPreconditions.length
   };
   return {
     ...canonical,
     status,
     findings,
+    applicability,
     policyDigest:createHash('sha256').update(JSON.stringify(canonical)).digest('hex'),
     dispatchAllowed:status==='READY',
     executionClaim:false
