@@ -24,6 +24,28 @@ const remediationSkill=getSkillMetadataV76('ksa-2026-security-quality-remediatio
 if(!remediationSkill) throw new Error('v78 missing ksa-2026-security-quality-remediation');
 if(!remediationSkill.domains.includes('security')||!remediationSkill.domains.includes('print')||!remediationSkill.domains.includes('asset')) throw new Error('v78 remediation skill missing security/print/asset routing');
 
+const manusAdapterExpectations:[string,string[]][]=[
+  ['production-security-hardening',['application-security','security']],
+  ['auth-abuse-and-rate-limiting',['identity-access','rate-limit']],
+  ['supabase-security-boundaries',['database-security','rls','idor']],
+  ['migration-and-schema-safety',['schema-migrations','fingerprint']],
+  ['production-runtime-verification',['runtime-release','verification']],
+  ['release-gate-and-readiness',['release-gates','readiness']],
+  ['safe-rollback-and-recovery',['recovery','rollback']],
+  ['ci-dependency-quality-remediation',['supply-chain-quality','ci']],
+  ['frontend-regression-repair',['frontend-quality','print','rtl']],
+  ['git-pr-integrity-safety',['git-provenance','git']],
+  ['evidence-provenance-and-scoring',['evidence','provenance']],
+  ['security-regression-prevention',['security-regression','negative-test']]
+];
+for(const [skillName,requiredDomains] of manusAdapterExpectations){
+  const meta=getSkillMetadataV76(skillName);
+  if(!meta) throw new Error(`v78 missing Manus production adapter: ${skillName}`);
+  if(!requiredDomains.every(domain=>meta.domains.includes(domain))) throw new Error(`v78 Manus adapter routing mismatch: ${skillName}`);
+  if(!/^[a-f0-9]{64}$/.test(meta.sha256)) throw new Error(`v78 Manus adapter digest invalid: ${skillName}`);
+}
+
+
 const functionRepairSkill=getSkillMetadataV76('krom-function-audit-repair');
 if(!functionRepairSkill) throw new Error('v78 missing krom-function-audit-repair');
 if(!functionRepairSkill.domains.includes('debugging')) throw new Error('v78 function repair skill routing profile missing debugging domain');
@@ -225,7 +247,7 @@ console.log(JSON.stringify({
   executionLease:true,
   ownershipConflictDetection:true,
   rollbackGate:true,
-  importedSkillCatalog:153,
+  importedSkillCatalog:165,
   functionAuditRepairSkill:true,
   design3dStudioSkill:true,
   dynamicAgentDelegation:true,

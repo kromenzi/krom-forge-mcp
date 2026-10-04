@@ -35,6 +35,27 @@ jobs:
           sha256sum skills/ksa-2026-security-quality-remediation/SKILL.md
           grep -q "'ksa-2026-security-quality-remediation'" src/v75-agent-capability-fabric.ts
           grep -q '"name":"ksa-2026-security-quality-remediation"' src/v76-skill-index/part-9.ts
+      - name: Verify Manus reusable skill pack provenance
+        run: |
+          set -euo pipefail
+          cat <<'EOF' | sha256sum -c -
+22f505d3b9c29d6a13e0f773b014159c34729259f6da5f3b09b8f7774d9489f0  skills/production-security-hardening/SKILL.md
+c3f386418ea18adb4f934326f58cd8553a5102dd9eb276c9e8a81ce345900b77  skills/auth-abuse-and-rate-limiting/SKILL.md
+2266e7f622c5ed5f9399d5a521821eac76c18cf94cf8eda58563ffbe7a24803a  skills/supabase-security-boundaries/SKILL.md
+ceb64f16ae7fdcc1494d12c96bb0e5978f3125fd7cb0fa51ff7d6c3d2f08a8d9  skills/migration-and-schema-safety/SKILL.md
+0277b92559f26e3d4a56999a927ca75654c5c6664d1f4156f0834ff51f335d9d  skills/production-runtime-verification/SKILL.md
+bf448d0d82314b177cf5ddee9845ecc8db0cbbf552df0095b1a33c041e123daa  skills/release-gate-and-readiness/SKILL.md
+9cb23f2bc142036a97c7bdedd4761be9580161ecab44a9c5ef89568da50c589b  skills/safe-rollback-and-recovery/SKILL.md
+26aca0ac6d0dc08d3ff4a6db2ef44c47c806996ff9eafe9a80a7f5847485ee72  skills/ci-dependency-quality-remediation/SKILL.md
+1fd273a1cc1b80be13d006b5e6a32c7c2d99e73c0b265cd8cd0228b63759f943  skills/frontend-regression-repair/SKILL.md
+d2d54f204867eea4c19a826343a686cdbbd32a44d300c124ca64cdb7bc6fb364  skills/git-pr-integrity-safety/SKILL.md
+707baabc016b3f4312fbfd8ef48319fddc49e6fcf68326747146927ba4a31351  skills/evidence-provenance-and-scoring/SKILL.md
+b2ecae4542e30763a9455359b639373fe242fe437378a52fcb683d5808fbeb59  skills/security-regression-prevention/SKILL.md
+          EOF
+          for skill in production-security-hardening auth-abuse-and-rate-limiting supabase-security-boundaries migration-and-schema-safety production-runtime-verification release-gate-and-readiness safe-rollback-and-recovery ci-dependency-quality-remediation frontend-regression-repair git-pr-integrity-safety evidence-provenance-and-scoring security-regression-prevention; do
+            grep -q "'$skill'" src/v75-agent-capability-fabric.ts
+            grep -q "\"name\":\"$skill\"" src/v76-skill-index/part-10.ts
+          done
       - name: Dependency vulnerability gate
         run: npm audit --audit-level=high
       - name: Verify v75 skill fabric

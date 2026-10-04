@@ -8,6 +8,7 @@ import { V76_SKILL_INDEX_6 } from './part-6';
 import { V76_SKILL_INDEX_7 } from './part-7';
 import { V76_SKILL_INDEX_8 } from './part-8';
 import { V76_SKILL_INDEX_9 } from './part-9';
+import { V76_SKILL_INDEX_10 } from './part-10';
 import { V75_SKILL_NAMES } from '../v75-agent-capability-fabric';
 
 export type V76SkillMetadata = {
@@ -38,6 +39,21 @@ const BASE_EVIDENCE = [
 
 function profile(name: string) {
   const n = name.toLowerCase();
+  const manusProfiles: Record<string,{domains:string[];preferredAgents:string[]}> = {
+    'production-security-hardening': { domains:['application-security','security','headers','csp','secrets','verification'], preferredAgents:['security','qa','release-auditor'] },
+    'auth-abuse-and-rate-limiting': { domains:['identity-access','auth','rate-limit','lockout','retry-after','security'], preferredAgents:['security','backend','database','qa'] },
+    'supabase-security-boundaries': { domains:['database-security','supabase','rls','rpc','rbac','idor','security-definer','service-role'], preferredAgents:['database','security','backend','qa'] },
+    'migration-and-schema-safety': { domains:['schema-migrations','database','supabase','migration','fingerprint','release'], preferredAgents:['database','backend','devops','release-auditor'] },
+    'production-runtime-verification': { domains:['runtime-release','production','vercel','deployment','smoke','logs','verification'], preferredAgents:['devops','qa','release-auditor'] },
+    'release-gate-and-readiness': { domains:['release-gates','readiness','security','evidence','approval','certification'], preferredAgents:['release-auditor','security','qa','orchestrator'] },
+    'safe-rollback-and-recovery': { domains:['recovery','rollback','vercel','rto','rpo','restore','production'], preferredAgents:['devops','release-auditor','database','qa'] },
+    'ci-dependency-quality-remediation': { domains:['supply-chain-quality','dependency','ci','qa','typescript','eslint','build','sbom'], preferredAgents:['qa','devops','security','frontend'] },
+    'frontend-regression-repair': { domains:['frontend-quality','react','typescript','eslint','tailwind','print','rtl','dark-mode','asset'], preferredAgents:['frontend','uiux','qa'] },
+    'git-pr-integrity-safety': { domains:['git-provenance','git','pull-request','diff','commit','release'], preferredAgents:['release-auditor','devops','qa','orchestrator'] },
+    'evidence-provenance-and-scoring': { domains:['evidence','provenance','scoring','readiness','release','verification'], preferredAgents:['release-auditor','orchestrator','qa','security'] },
+    'security-regression-prevention': { domains:['security-regression','security','ci','negative-test','control','verification'], preferredAgents:['security','qa','devops','release-auditor'] }
+  };
+  if (manusProfiles[n]) return manusProfiles[n];
   if (n.includes('ksa-2026-security-quality-remediation')) {
     return { domains:['security','frontend','ui','print','asset','qa','dependency','build','ci','repair','verification'], preferredAgents:['security','frontend','qa','devops','release-auditor'] };
   }
@@ -117,7 +133,8 @@ const RAW_SKILLS = [
   ...V76_SKILL_INDEX_6,
   ...V76_SKILL_INDEX_7,
   ...V76_SKILL_INDEX_8,
-  ...V76_SKILL_INDEX_9
+  ...V76_SKILL_INDEX_9,
+  ...V76_SKILL_INDEX_10
 ];
 
 export const V76_SKILL_INDEX: readonly V76SkillMetadata[] = RAW_SKILLS.map(skill => {
