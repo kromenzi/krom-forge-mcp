@@ -31,6 +31,15 @@ if (!arabic.some(x=>x.name==='ksa-safety-board-uiux-design') && !arabic.some(x=>
 const dbAgent = selectAgentV76('audit database schema migration rls');
 if (dbAgent.agentId !== 'database') throw new Error(`Expected database agent, got ${dbAgent.agentId}`);
 
+const uiSkills = rankSkillsV76('responsive rtl dashboard interface',5);
+const uiAgent = selectAgentV76('responsive rtl dashboard interface', undefined, uiSkills.map(x=>x.name));
+if (!['uiux','frontend'].includes(uiAgent.agentId)) {
+  throw new Error(`Expected UI-aligned agent, got ${uiAgent.agentId}`);
+}
+if (!uiAgent.candidates?.some(x=>x.skillAffinity>0)) {
+  throw new Error('Expected skill affinity to influence agent routing');
+}
+
 const rankedCaps = rankCapabilitiesV76('database schema rls', capabilityCandidates,5);
 if (rankedCaps[0]?.name !== 'krom_audit_database_architecture') throw new Error('Capability ranking failed');
 
@@ -58,5 +67,8 @@ console.log(JSON.stringify({
   validatedSkillMetadata:true,
   skillDigestCoverage:skillIndexAudit.digestCoverage,
   skillDescriptionCoverage:skillIndexAudit.descriptionCoverage,
+  skillInstructionCoverage:skillIndexAudit.instructionCoverage,
+  skillEvidenceCoverage:skillIndexAudit.evidenceCoverage,
+  skillAwareAgentRouting:true,
   hostAuthorizationBoundaryPreserved:true
 }));
