@@ -11,6 +11,7 @@ import {
   auditNativeSkillRuntimeV77
 } from '../src/v77-native-skill-runtime';
 import { resolveSkillDirectivePolicyV77, evaluateDirectiveApplicabilityV77, enforceExecutionPolicyV77, buildSkillExecutionPacketV77, resolveSkillConflictsV77, auditDirectiveEnforcementV77 } from '../src/v77-directive-enforcement';
+import { buildNativeMissionPlanV77, auditNativeMissionPlannerV77 } from '../src/v77-native-mission-planner';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -238,6 +239,41 @@ if(conflictsResolved.automaticOverride!==false) throw new Error('Conflict resolv
 const directiveAudit=auditDirectiveEnforcementV77();
 if(directiveAudit.status!=='PASS') throw new Error(`Directive enforcement audit failed: ${JSON.stringify(directiveAudit)}`);
 
+const missionPlan=buildNativeMissionPlanV77({
+  query:'audit database schema and rls',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.55,
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true,
+  evidenceReady:true,
+  minimumConfidence:0
+},candidates);
+if(missionPlan.status!=='READY') throw new Error(`Expected native mission plan READY, got ${missionPlan.status}`);
+if(!missionPlan.dispatchAllowed) throw new Error('READY native mission plan must be dispatchable');
+if(!/^[a-f0-9]{64}$/.test(missionPlan.missionDigest)) throw new Error('Native mission digest missing');
+if(!missionPlan.policyPacket.skills.every(x=>/^[a-f0-9]{64}$/.test(x.sha256))) throw new Error('Mission plan missing skill provenance digests');
+
+const missionBlocked=buildNativeMissionPlanV77({
+  query:'deploy production release',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.55,
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true,
+  evidenceReady:true,
+  minimumConfidence:0
+},candidates);
+if(missionBlocked.status!=='BLOCKED') throw new Error('Unauthorized production mission must be BLOCKED');
+if(missionBlocked.dispatchAllowed) throw new Error('Blocked mission must not be dispatchable');
+
+const missionAudit=auditNativeMissionPlannerV77(candidates);
+if(missionAudit.status!=='PASS') throw new Error(`Native mission planner audit failed: ${JSON.stringify(missionAudit)}`);
+
 const audit=auditNativeSkillRuntimeV77(candidates);
 if(audit.status!=='PASS') throw new Error(`v77 runtime audit failed: ${JSON.stringify(audit)}`);
 if(!audit.catalogIntegrity) throw new Error('v77 did not preserve 50-skill catalog integrity');
@@ -264,6 +300,9 @@ console.log(JSON.stringify({
   directiveApplicability:true,
   skillProvenancePacket:true,
   forbidDirectiveBlocking:true,
+  nativeMissionPlanner:true,
+  missionDigest:true,
+  missionGateComposition:true,
   skillConflictResolver:true,
   secretHandlingRestriction:true,
   unknownSkillBlocking:true,
