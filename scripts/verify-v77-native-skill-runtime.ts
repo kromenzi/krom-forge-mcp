@@ -12,6 +12,7 @@ import {
 } from '../src/v77-native-skill-runtime';
 import { resolveSkillDirectivePolicyV77, evaluateDirectiveApplicabilityV77, enforceExecutionPolicyV77, buildSkillExecutionPacketV77, resolveSkillConflictsV77, auditDirectiveEnforcementV77 } from '../src/v77-directive-enforcement';
 import { buildNativeMissionPlanV77, auditNativeMissionPlannerV77 } from '../src/v77-native-mission-planner';
+import { getNativeSkillDirectivesV77, auditNativeSkillDirectiveBundleV77 } from '../src/v77-native-skill-directives';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -23,6 +24,19 @@ const candidates=[
 ];
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
+
+const nativeDirectiveAudit=auditNativeSkillDirectiveBundleV77();
+if(nativeDirectiveAudit.status!=='PASS') throw new Error(`Native directive bundle audit failed: ${JSON.stringify(nativeDirectiveAudit)}`);
+if(nativeDirectiveAudit.skillCount!==50) throw new Error(`Expected 50 native skill directive records, got ${nativeDirectiveAudit.skillCount}`);
+if(nativeDirectiveAudit.directiveCount<300) throw new Error(`Expected >=300 source-derived directives, got ${nativeDirectiveAudit.directiveCount}`);
+
+const nativeSecret=getNativeSkillDirectivesV77('krom-secrets-credential-guardian');
+if(!nativeSecret || nativeSecret.sha256!==V76_SKILL_INDEX.find(x=>x.name==='krom-secrets-credential-guardian')?.sha256) {
+  throw new Error('Native secret skill SHA-256 does not match validated metadata');
+}
+if(!nativeSecret.directives.some(x=>/secret|credential|سر|مفتاح/i.test(x))) {
+  throw new Error('Native secret guardian directives were not loaded from SKILL.md');
+}
 
 const compound=selectSkillSetV77('fix responsive rtl dashboard accessibility and test it',4,0.20);
 if(compound.length<2 || compound.length>4) throw new Error('Expected bounded multi-skill selection for compound UI/accessibility request');
@@ -301,6 +315,9 @@ console.log(JSON.stringify({
   skillProvenancePacket:true,
   forbidDirectiveBlocking:true,
   nativeMissionPlanner:true,
+  nativeSkillDirectiveBundle:true,
+  sourceDerivedDirectiveCount:nativeDirectiveAudit.directiveCount,
+  nativeSkillShaAudit:true,
   missionDigest:true,
   missionGateComposition:true,
   skillConflictResolver:true,
