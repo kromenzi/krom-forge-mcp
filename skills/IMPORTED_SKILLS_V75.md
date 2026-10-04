@@ -2,7 +2,7 @@
 
 Validated from the two user-provided skill archives on 2026-10-04.
 
-- Valid skills: 50
+- Valid skills: 52
 - Agents: 11
 - Internal capability fabric baseline: 5333
 - Gateway: `krom_search_capabilities` + `krom_dispatch_capability`
@@ -60,6 +60,8 @@ Validated from the two user-provided skill archives on 2026-10-04.
 48. `typst-pdf-maker`
 49. `whatsapp-playbooks`
 50. `word-playbooks`
+51. `krom-function-audit-repair`
+52. `krom-3d-design-studio`
 
 ## Integration rule
 
