@@ -126,33 +126,61 @@ function scoreText(query:string,text:string){
   return {score,coverage};
 }
 
-export function selectAgentV76(query:string, agentHint?: (typeof V75_AGENT_IDS)[number]){
+export function selectAgentV76(
+  query:string,
+  agentHint?: (typeof V75_AGENT_IDS)[number],
+  skillNames:string[]=[]
+){
   if(agentHint){
-    return {agentId:agentHint,confidence:1,reason:'Explicit agent hint supplied'};
+    return {agentId:agentHint,confidence:1,reason:'Explicit agent hint supplied',candidates:[{agentId:agentHint,score:1,coverage:1,skillAffinity:1}]};
   }
+  const skillProfiles=skillNames
+    .map(name=>getSkillMetadataV76(name))
+    .filter((x): x is NonNullable<typeof x>=>Boolean(x))
+    .slice(0,3);
+
   const ranked=V75_AGENT_IDS.map(agentId=>{
     const keywords=AGENT_KEYWORDS[agentId].join(' ');
     const {score,coverage}=scoreText(query,keywords);
-    return {agentId,score,coverage};
-  }).sort((a,b)=>b.score-a.score);
+    const skillAffinity=skillProfiles.reduce((total,skill,index)=>{
+      if(!skill.preferredAgents.includes(agentId)) return total;
+      return total + Math.max(0.5, 2-(index*0.5));
+    },0);
+    return {agentId,score:Number((score+(skillAffinity*4)).toFixed(3)),coverage,skillAffinity};
+  }).sort((a,b)=>b.score-a.score || b.skillAffinity-a.skillAffinity);
   const top=ranked[0], second=ranked[1];
   const denom=Math.max(1,top.score);
   const margin=(top.score-second.score)/denom;
-  const confidence=Math.max(0,Math.min(1,(top.coverage*0.6)+(Math.max(0,margin)*0.4)));
-  return {agentId: top.score>0 ? top.agentId : 'orchestrator', confidence:Number(confidence.toFixed(3)), candidates:ranked.slice(0,3)};
+  const confidence=Math.max(0,Math.min(1,(top.coverage*0.5)+(Math.min(1,top.skillAffinity/2)*0.25)+(Math.max(0,margin)*0.25)));
+  return {
+    agentId: top.score>0 ? top.agentId : 'orchestrator',
+    confidence:Number(confidence.toFixed(3)),
+    reason:top.skillAffinity>0?'Semantic intent + selected-skill affinity':'Semantic intent ranking',
+    candidates:ranked.slice(0,3)
+  };
 }
 
 export function rankSkillsV76(query:string, maxResults=10){
   const ranked=V76_SKILL_INDEX.map(skill=>{
-    const direct=scoreText(query,[skill.name,skill.description].join(' '));
+    const semanticText=[
+      skill.name,
+      skill.description,
+      skill.domains.join(' '),
+      skill.instructionContract.join(' '),
+      skill.evidenceExpectations.join(' ')
+    ].join(' ');
+    const direct=scoreText(query,semanticText);
     const nameOnly=scoreText(query,skill.name);
+    const domainOnly=scoreText(query,skill.domains.join(' '));
     const bonus=skill.name.includes('orchestrator')?0.25:0;
     return {
       name:skill.name,
       description:skill.description,
       sha256:skill.sha256,
-      score:Number((direct.score+(nameOnly.score*0.35)+bonus).toFixed(3)),
-      coverage:Number(Math.max(direct.coverage,nameOnly.coverage).toFixed(3))
+      domains:skill.domains,
+      preferredAgents:skill.preferredAgents,
+      score:Number((direct.score+(nameOnly.score*0.35)+(domainOnly.score*0.25)+bonus).toFixed(3)),
+      coverage:Number(Math.max(direct.coverage,nameOnly.coverage,domainOnly.coverage).toFixed(3))
     };
   }).filter(x=>x.score>0)
     .sort((a,b)=>b.score-a.score || b.coverage-a.coverage || a.name.localeCompare(b.name))
@@ -173,8 +201,8 @@ export function rankCapabilitiesV76(query:string,candidates:V76CapabilityCandida
 }
 
 export function routeIntentV76(input:z.infer<typeof v76SemanticRuntimeSchema>, capabilityCandidates:V76CapabilityCandidate[]){
-  const agent=selectAgentV76(input.query,input.agentHint);
   const skills=rankSkillsV76(input.query,input.maxResults);
+  const agent=selectAgentV76(input.query,input.agentHint,skills.map(x=>x.name));
   const capabilities=rankCapabilitiesV76(input.query,capabilityCandidates,input.maxResults);
   const skillGap=(skills[0]?.score??0)-(skills[1]?.score??0);
   const capabilityGap=(capabilities[0]?.score??0)-(capabilities[1]?.score??0);
