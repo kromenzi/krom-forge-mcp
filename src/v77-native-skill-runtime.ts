@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { createHash } from 'node:crypto';
 import { V76_SKILL_INDEX, getSkillMetadataV76 } from './v76-skill-index';
 import { rankSkillsV76, selectAgentV76, rankCapabilitiesV76, type V76CapabilityCandidate } from './v76-semantic-skill-runtime';
 
@@ -130,10 +131,13 @@ export function routeCompoundIntentV77(
   const conflicts=detectDirectiveConflictsV77(skillNames);
   const action=classifyActionV77(input.query);
   const authorizationSatisfied=!action.mutation || input.hostAuthorized;
-  const approvalSatisfied=!input.approvalRequired || input.approved;
+  const effectiveApprovalRequired=input.approvalRequired || action.highRisk;
+  const approvalSatisfied=!effectiveApprovalRequired || input.approved;
   const status = conflicts.length
     ? 'BLOCKED_CONFLICT'
-    : !authorizationSatisfied
+    : skills.length===0
+      ? 'REVIEW_REQUIRED'
+      : !authorizationSatisfied
       ? 'BLOCKED_AUTHORIZATION'
       : !approvalSatisfied
         ? 'BLOCKED_APPROVAL'
@@ -154,6 +158,7 @@ export function routeCompoundIntentV77(
     authorization:{
       hostAuthorized:input.hostAuthorized,
       approvalRequired:input.approvalRequired,
+      effectiveApprovalRequired,
       approved:input.approved,
       authorizationSatisfied,
       approvalSatisfied
@@ -174,9 +179,23 @@ export function buildExecutionContractV77(
     : !schemaSatisfied
       ? 'BLOCKED_SCHEMA_VALIDATION'
       : 'READY';
+  const canonicalForDigest={
+    release:'v77',
+    status:contractStatus,
+    query:input.query,
+    agent:route.selectedAgent.agentId,
+    skills:route.selectedSkills.map(x=>x.name),
+    capability,
+    directives:route.directives.map(x=>({skill:x.skill,normalized:x.normalized,polarity:x.polarity})),
+    action:route.action,
+    authorization:route.authorization,
+    schemaValidated:input.schemaValidated
+  };
+  const contractDigest=createHash('sha256').update(JSON.stringify(canonicalForDigest)).digest('hex');
   return {
     release:'v77',
     status:contractStatus,
+    contractDigest,
     query:input.query,
     agent:route.selectedAgent.agentId,
     skills:route.selectedSkills.map(x=>x.name),
@@ -206,6 +225,126 @@ export function buildExecutionContractV77(
     ],
     dispatchAllowed:contractStatus==='READY' && Boolean(capability) && schemaSatisfied,
     hostAuthorizationRequired:route.action.mutation,
+    approvalRequired:route.authorization.effectiveApprovalRequired,
+    executionClaim:false
+  };
+}
+
+export function scoreRouteConfidenceV77(
+  input:z.infer<typeof v77RuntimeSchema>,
+  capabilityCandidates:V76CapabilityCandidate[]
+){
+  const route=routeCompoundIntentV77(input,capabilityCandidates);
+  const skills=route.selectedSkills;
+  const caps=route.selectedCapabilities;
+  const skillTop=skills[0]?.score ?? 0;
+  const skillSecond=skills[1]?.score ?? 0;
+  const capTop=caps[0]?.score ?? 0;
+  const capSecond=caps[1]?.score ?? 0;
+  const skillMargin=skillTop>0 ? Math.max(0,(skillTop-skillSecond)/skillTop) : 0;
+  const capabilityMargin=capTop>0 ? Math.max(0,(capTop-capSecond)/capTop) : 0;
+  const agentConfidence=Number(route.selectedAgent.confidence ?? 0);
+  const skillCoverage=skills.length ? Math.min(1,skills.reduce((sum,x)=>sum+(x.coverage??0),0)/skills.length) : 0;
+  const penalties=(route.conflicts.length?0.35:0)+(!skills.length?0.25:0)+(!caps.length?0.25:0);
+  const score=Math.max(0,Math.min(1,
+    (agentConfidence*0.30)+(skillMargin*0.20)+(capabilityMargin*0.20)+(skillCoverage*0.30)-penalties
+  ));
+  const level=score>=0.75?'HIGH':score>=0.45?'MEDIUM':'LOW';
+  return {
+    release:'v77',
+    score:Number(score.toFixed(3)),
+    level,
+    components:{
+      agentConfidence:Number(agentConfidence.toFixed(3)),
+      skillMargin:Number(skillMargin.toFixed(3)),
+      capabilityMargin:Number(capabilityMargin.toFixed(3)),
+      skillCoverage:Number(skillCoverage.toFixed(3)),
+      penalties:Number(penalties.toFixed(3))
+    },
+    routeStatus:route.status,
+    clarificationRecommended:level==='LOW'||route.status==='REVIEW_REQUIRED',
+    executionClaim:false
+  };
+}
+
+export function buildMultiSkillExecutionGraphV77(
+  input:z.infer<typeof v77RuntimeSchema>,
+  capabilityCandidates:V76CapabilityCandidate[]
+){
+  const route=routeCompoundIntentV77(input,capabilityCandidates);
+  const confidence=scoreRouteConfidenceV77(input,capabilityCandidates);
+  const skillNodes=route.selectedSkills.map((skill,index)=>({
+    id:`SKILL_${index+1}`,
+    kind:'SKILL' as const,
+    target:skill.name,
+    dependsOn:index===0?['PRECHECK']:['PRECHECK',`SKILL_${index}`]
+  }));
+  const capabilityNodes=route.selectedCapabilities.slice(0,Math.max(1,route.selectedSkills.length)).map((cap,index)=>({
+    id:`CAP_${index+1}`,
+    kind:'CAPABILITY' as const,
+    target:cap.name,
+    dependsOn:[skillNodes[Math.min(index,Math.max(0,skillNodes.length-1))]?.id ?? 'PRECHECK']
+  }));
+  const nodes=[
+    {id:'PRECHECK',kind:'GATE' as const,target:'directives + conflicts + authorization + approval + schema',dependsOn:[] as string[]},
+    ...skillNodes,
+    ...capabilityNodes,
+    {id:'VERIFY',kind:'GATE' as const,target:'claim-to-evidence verification',dependsOn:capabilityNodes.length?capabilityNodes.map(x=>x.id):['PRECHECK']}
+  ];
+  const canonical={
+    release:'v77',
+    query:input.query,
+    status:route.status,
+    agent:route.selectedAgent.agentId,
+    skills:route.selectedSkills.map(x=>x.name),
+    capabilities:route.selectedCapabilities.map(x=>x.name),
+    action:route.action,
+    authorization:route.authorization,
+    schemaValidated:input.schemaValidated,
+    nodes
+  };
+  return {
+    ...canonical,
+    confidence,
+    graphDigest:createHash('sha256').update(JSON.stringify(canonical)).digest('hex'),
+    dispatchAllowed:route.status==='READY'&&input.schemaValidated&&confidence.level!=='LOW',
+    executionClaim:false
+  };
+}
+
+export function explainRoutingDecisionV77(
+  input:z.infer<typeof v77RuntimeSchema>,
+  capabilityCandidates:V76CapabilityCandidate[]
+){
+  const route=routeCompoundIntentV77(input,capabilityCandidates);
+  const confidence=scoreRouteConfidenceV77(input,capabilityCandidates);
+  return {
+    release:'v77',
+    query:input.query,
+    agent:{
+      selected:route.selectedAgent.agentId,
+      confidence:route.selectedAgent.confidence,
+      reason:route.selectedAgent.reason ?? 'semantic + skill affinity routing',
+      alternatives:route.selectedAgent.candidates ?? []
+    },
+    skills:route.selectedSkills.map(x=>({
+      name:x.name,score:x.score,relativeScore:x.relativeScore,coverage:x.coverage,
+      preferredAgents:x.preferredAgents ?? x.metadata?.preferredAgents ?? []
+    })),
+    capabilities:route.selectedCapabilities.slice(0,5).map(x=>({
+      name:x.name,score:x.score,coverage:x.coverage,publicDirect:x.publicDirect
+    })),
+    directiveSummary:{
+      total:route.directives.length,
+      require:route.directives.filter(x=>x.polarity==='REQUIRE').length,
+      forbid:route.directives.filter(x=>x.polarity==='FORBID').length,
+      guide:route.directives.filter(x=>x.polarity==='GUIDE').length,
+      conflicts:route.conflicts.length
+    },
+    authorization:route.authorization,
+    schemaValidated:input.schemaValidated,
+    status:route.status,
+    confidence,
     executionClaim:false
   };
 }
