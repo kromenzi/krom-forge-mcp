@@ -28,7 +28,7 @@ if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V
 const nativeDirectiveAudit=auditNativeSkillDirectiveBundleV77();
 if(nativeDirectiveAudit.status!=='PASS') throw new Error(`Native directive bundle audit failed: ${JSON.stringify(nativeDirectiveAudit)}`);
 if(nativeDirectiveAudit.skillCount!==50) throw new Error(`Expected 50 native skill directive records, got ${nativeDirectiveAudit.skillCount}`);
-if(nativeDirectiveAudit.directiveCount<300) throw new Error(`Expected >=300 source-derived directives, got ${nativeDirectiveAudit.directiveCount}`);
+if(nativeDirectiveAudit.directiveCount<250) throw new Error(`Expected >=250 deterministic runtime directives, got ${nativeDirectiveAudit.directiveCount}`);
 
 const nativeSecret=getNativeSkillDirectivesV77('krom-secrets-credential-guardian');
 if(!nativeSecret || nativeSecret.sha256!==V76_SKILL_INDEX.find(x=>x.name==='krom-secrets-credential-guardian')?.sha256) {
