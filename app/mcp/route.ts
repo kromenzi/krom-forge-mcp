@@ -112,7 +112,7 @@ import { v77AdaptiveRetrySchema, buildAdaptiveRetryDecisionV77, buildSafeReplanV
 import { v77FailureEventSchema, v77FailureHistorySchema, fingerprintFailureV77, buildFailureHistoryV77, appendFailureEventV77, evaluateFailureLoopV77, auditFailureHistoryV77 } from '../../src/v77-failure-history';
 import { v77ExecutionSupervisorSchema, superviseExecutionV77, auditExecutionSupervisorV77 } from '../../src/v77-execution-supervisor';
 import { v78GovernanceSchema, evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../../src/v78-autonomous-execution-governance';
-import { v78DelegationSchema, v78ConsensusSchema, buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../../src/v78-agent-delegation-consensus';
+import { v78AgentIdSchema, v78DelegationSchema, v78ConsensusSchema, buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../../src/v78-agent-delegation-consensus';
 import { v78ExecutionLineageSchema, buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78 } from '../../src/v78-execution-lineage';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
