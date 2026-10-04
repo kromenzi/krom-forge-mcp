@@ -5,6 +5,9 @@ import {
   detectDirectiveConflictsV77,
   classifyActionV77,
   buildExecutionContractV77,
+  scoreRouteConfidenceV77,
+  buildMultiSkillExecutionGraphV77,
+  explainRoutingDecisionV77,
   auditNativeSkillRuntimeV77
 } from '../src/v77-native-skill-runtime';
 
@@ -87,6 +90,82 @@ const approvalBlocked=buildExecutionContractV77({
 },candidates);
 if(approvalBlocked.status!=='BLOCKED_APPROVAL') throw new Error(`Expected BLOCKED_APPROVAL, got ${approvalBlocked.status}`);
 
+const highRiskAutoApproval=buildExecutionContractV77({
+  query:'deploy production release after tests',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.55,
+  hostAuthorized:true,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true
+},candidates);
+if(highRiskAutoApproval.status!=='BLOCKED_APPROVAL') throw new Error(`High-risk mutation must auto-require approval, got ${highRiskAutoApproval.status}`);
+if(!highRiskAutoApproval.approvalRequired) throw new Error('High-risk mutation did not expose effective approval requirement');
+
+const fullyApproved=buildExecutionContractV77({
+  query:'deploy production release after tests',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.55,
+  hostAuthorized:true,
+  approvalRequired:false,
+  approved:true,
+  schemaValidated:true
+},candidates);
+if(fullyApproved.status!=='READY') throw new Error(`Expected fully approved high-risk contract READY, got ${fullyApproved.status}`);
+if(!/^[a-f0-9]{64}$/.test(fullyApproved.contractDigest)) throw new Error('Missing deterministic execution contract digest');
+
+const fullyApprovedAgain=buildExecutionContractV77({
+  query:'deploy production release after tests',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.55,
+  hostAuthorized:true,
+  approvalRequired:false,
+  approved:true,
+  schemaValidated:true
+},candidates);
+if(fullyApprovedAgain.contractDigest!==fullyApproved.contractDigest) throw new Error('Execution contract digest is not deterministic');
+
+const confidence=scoreRouteConfidenceV77({
+  query:'audit database schema and rls',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.55,
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true
+},candidates);
+if(!['LOW','MEDIUM','HIGH'].includes(confidence.level)) throw new Error('Invalid route confidence level');
+if(confidence.score<0 || confidence.score>1) throw new Error('Route confidence score outside [0,1]');
+
+const graph=buildMultiSkillExecutionGraphV77({
+  query:'fix responsive rtl dashboard accessibility and test it',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.20,
+  hostAuthorized:true,
+  approvalRequired:false,
+  approved:true,
+  schemaValidated:true
+},candidates);
+if(!/^[a-f0-9]{64}$/.test(graph.graphDigest)) throw new Error('Missing deterministic graph digest');
+if(!graph.nodes.some(x=>x.id==='PRECHECK') || !graph.nodes.some(x=>x.id==='VERIFY')) throw new Error('Execution graph missing safety gates');
+
+const explanation=explainRoutingDecisionV77({
+  query:'فحص قاعدة البيانات والصلاحيات والأمان',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.20,
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true
+},candidates);
+if(!explanation.agent.selected || !explanation.skills.length || !explanation.capabilities.length) throw new Error('Routing explanation is incomplete');
+
 const audit=auditNativeSkillRuntimeV77(candidates);
 if(audit.status!=='PASS') throw new Error(`v77 runtime audit failed: ${JSON.stringify(audit)}`);
 if(!audit.catalogIntegrity) throw new Error('v77 did not preserve 50-skill catalog integrity');
@@ -103,6 +182,11 @@ console.log(JSON.stringify({
   mutationAuthorizationGate:true,
   approvalGate:true,
   schemaValidationGate:true,
+  highRiskAutoApproval:true,
+  routeConfidence:true,
+  deterministicContractDigest:true,
+  multiSkillExecutionGraph:true,
+  explainableRouting:true,
   preservedInternalCapabilityBaseline:5333,
   executionClaim:false
 }));
