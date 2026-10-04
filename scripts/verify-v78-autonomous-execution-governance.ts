@@ -1,7 +1,7 @@
 import { getSkillMetadataV76 } from '../src/v76-skill-index';
 import { evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../src/v78-autonomous-execution-governance';
 import { buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../src/v78-agent-delegation-consensus';
-import { buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78 } from '../src/v78-execution-lineage';
+import { buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78, type V78ExecutionLineageInput } from '../src/v78-execution-lineage';
 
 const functionRepairSkill=getSkillMetadataV76('krom-function-audit-repair');
 if(!functionRepairSkill) throw new Error('v78 missing krom-function-audit-repair');
@@ -14,7 +14,7 @@ if(!design3dSkill.domains.includes('3d')) throw new Error('v78 3D design skill r
 const lineageAudit=auditExecutionLineageV78();
 if(lineageAudit.status!=='PASS') throw new Error(`v78 execution lineage audit failed: ${JSON.stringify(lineageAudit)}`);
 
-const lineageBase={
+const lineageBase:V78ExecutionLineageInput={
   missionId:'mission-v78-verify',
   objective:'Verify execution lineage',
   stepId:'lineage-step-1',
