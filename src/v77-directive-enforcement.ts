@@ -56,6 +56,23 @@ function overlapScore(a:string,b:string){
   return hit/Math.max(1,Math.min(aa.size,bb.size));
 }
 
+function semanticDirectiveMatch(query:string,directive:string,polarity:'REQUIRE'|'FORBID'|'GUIDE'){
+  const q=normalizeText(query);
+  const d=normalizeText(directive);
+  if(polarity==='FORBID'){
+    const secretDomain=/(secret|credential|token|password|api key|private key|سر|اسرار|كلمة مرور|مفتاح)/.test(d)
+      && /(secret|credential|token|password|api key|private key|سر|اسرار|كلمة مرور|مفتاح)/.test(q);
+    const exposureIntent=/(print|show|display|expose|reveal|output|log|full|complete|اطبع|اعرض|اكشف|اظهر|كامل)/.test(q);
+    if(secretDomain && exposureIntent) return true;
+
+    const productionBlind=/(production|prod|deploy|release|انتاج|نشر|اصدار)/.test(d)
+      && /(production|prod|deploy|release|انتاج|نشر|اصدار)/.test(q)
+      && /(blind|without test|without verification|force|تجاهل|بدون اختبار|بدون تحقق|اجبار)/.test(q);
+    if(productionBlind) return true;
+  }
+  return false;
+}
+
 
 export function evaluateDirectiveApplicabilityV77(query:string,skillNames:string[]){
   const policy=resolveSkillDirectivePolicyV77(skillNames);
@@ -72,8 +89,9 @@ export function evaluateDirectiveApplicabilityV77(query:string,skillNames:string
     const exact=core && queryNorm.includes(core);
     const tokenHits=coreWords.filter(w=>queryWords.has(w));
     const score=exact?1:overlapScore(query,core);
-    const applicable=exact || tokenHits.length>=2 || score>=0.34;
-    return {...directive,core,score:Number(score.toFixed(3)),tokenHits,applicable};
+    const semanticMatch=semanticDirectiveMatch(query,directive.directive,directive.polarity);
+    const applicable=exact || semanticMatch || tokenHits.length>=2 || score>=0.34;
+    return {...directive,core,score:Number(score.toFixed(3)),tokenHits,semanticMatch,applicable};
   }).filter(x=>x.applicable);
 
   const forbidden=matched.filter(x=>x.polarity==='FORBID');
