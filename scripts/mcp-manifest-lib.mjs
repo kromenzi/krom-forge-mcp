@@ -180,10 +180,15 @@ export function buildMcpManifest(options = {}) {
     if (runtimeContractPresent) tools.push(...v54GeneratedTools);
   }
 
-  const capabilityTools = capabilityCandidates.sort((a, b) => b.length - a.length)[0] ?? [];
+  const advertisedCapabilityTools = capabilityCandidates.sort((a, b) => b.length - a.length)[0] ?? [];
   const registeredNames = tools.map((tool) => tool.name);
-  const missingCapabilities = [...new Set(registeredNames)].filter((name) => !capabilityTools.includes(name));
-  const extraCapabilities = [...new Set(capabilityTools)].filter((name) => !registeredNames.includes(name));
+  const registeredNameSet = new Set(registeredNames);
+  // The capability parity contract covers only tools registered through registerKromTool.
+  // Direct server.registerTool entries are public control-plane/gateway tools and must not
+  // inflate the fixed 5333 internal capability registry.
+  const capabilityTools = advertisedCapabilityTools.filter((name) => registeredNameSet.has(name));
+  const missingCapabilities = [...registeredNameSet].filter((name) => !capabilityTools.includes(name));
+  const extraCapabilities = [...new Set(capabilityTools)].filter((name) => !registeredNameSet.has(name));
   const metadataGaps = tools.filter((tool) => !tool.title || !tool.description || !tool.inputSchemaExpression)
     .map((tool) => ({ name: tool.name, missing: [!tool.title && 'title', !tool.description && 'description', !tool.inputSchemaExpression && 'inputSchema'].filter(Boolean) }));
 
