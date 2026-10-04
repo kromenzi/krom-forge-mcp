@@ -30,7 +30,7 @@ const candidates=[
   {name:'krom_v72_build_skill_tool_chain',title:'Build skill tool chain',description:'skill capability tool chain orchestration'}
 ];
 
-if(V76_SKILL_INDEX.length!==152) throw new Error(`Expected 152 v76 skills, got ${V76_SKILL_INDEX.length}`);
+if(V76_SKILL_INDEX.length!==153) throw new Error(`Expected 153 v76 skills, got ${V76_SKILL_INDEX.length}`);
 
 const supervisorAudit=auditExecutionSupervisorV77();
 if(supervisorAudit.status!=='PASS') throw new Error(`Execution supervisor audit failed: ${JSON.stringify(supervisorAudit)}`);
@@ -287,7 +287,7 @@ if(unsupportedReceipt.status!=='BLOCKED') throw new Error('Unsupported execution
 
 const nativeDirectiveAudit=auditNativeSkillDirectiveBundleV77();
 if(nativeDirectiveAudit.status!=='PASS') throw new Error(`Native directive bundle audit failed: ${JSON.stringify(nativeDirectiveAudit)}`);
-if(nativeDirectiveAudit.skillCount!==152) throw new Error(`Expected 152 native skill directive records, got ${nativeDirectiveAudit.skillCount}`);
+if(nativeDirectiveAudit.skillCount!==153) throw new Error(`Expected 153 native skill directive records, got ${nativeDirectiveAudit.skillCount}`);
 if(nativeDirectiveAudit.directiveCount<250) throw new Error(`Expected >=250 deterministic runtime directives, got ${nativeDirectiveAudit.directiveCount}`);
 
 const nativeSecret=getNativeSkillDirectivesV77('krom-secrets-credential-guardian');
@@ -571,13 +571,13 @@ if(teamAudit.status!=='PASS') throw new Error(`Skill team orchestrator audit fai
 
 const audit=auditNativeSkillRuntimeV77(candidates);
 if(audit.status!=='PASS') throw new Error(`v77 runtime audit failed: ${JSON.stringify(audit)}`);
-if(!audit.catalogIntegrity) throw new Error('v77 did not preserve 152-skill catalog integrity');
+if(!audit.catalogIntegrity) throw new Error('v77 did not preserve 153-skill catalog integrity');
 if(!audit.preservesInternalCapabilityBaseline) throw new Error('v77 capability baseline preservation flag failed');
 
 console.log(JSON.stringify({
   status:'PASS',
   release:'v77',
-  skills:152,
+  skills:153,
   multiSkillRouting:true,
   bilingualRouting:true,
   directiveMerge:true,
