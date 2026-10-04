@@ -10,7 +10,7 @@ export const V75_SKILL_NAMES = [
   'krom-prompt-skill-evaluation-engineer','krom-sast-dast-dependency-security-engineer','krom-secrets-credential-guardian','krom-secure-code-auditor',
   'krom-self-evolution-engineer','krom-skill-discovery-curation-engineer','krom-skill-factory-meta-engineer','krom-skill-supply-chain-security-auditor',
   'ksa-accessibility-rtl-i18n-engineer','ksa-ai-hse-assistant-rag-engineer','ksa-auth-rbac-rls-security-engineer',
-  'ksa-backup-restore-disaster-recovery-engineer','ksa-computer-vision-safety-engineer','ksa-data-exchange-etl-reporting-engineer','ksa-database-schema-migration-architect',
+  'ksa-backup-restore-disaster-recovery-engineer','ksa-2026-security-quality-remediation','ksa-computer-vision-safety-engineer','ksa-data-exchange-etl-reporting-engineer','ksa-database-schema-migration-architect',
   'ksa-document-intelligence-ocr-import-engineer','ksa-esp-vision-systems-engineer','ksa-integration-notification-engineer',
   'ksa-mobile-pwa-offline-field-engineer','ksa-performance-observability-sre-engineer','ksa-qa-e2e-test-automation-engineer',
   'ksa-realtime-collaboration-engineer','ksa-safety-board-dashboard-analytics','ksa-safety-board-engineering',
