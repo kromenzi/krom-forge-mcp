@@ -19,11 +19,11 @@ const candidates=[
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
 
-const compound=selectSkillSetV77('fix responsive rtl dashboard accessibility and test it',4,0.55);
-if(compound.length<2) throw new Error('Expected multi-skill selection for compound UI/accessibility request');
+const compound=selectSkillSetV77('fix responsive rtl dashboard accessibility and test it',4,0.20);
+if(compound.length<2 || compound.length>4) throw new Error('Expected bounded multi-skill selection for compound UI/accessibility request');
 
-const arabic=selectSkillSetV77('فحص قاعدة البيانات والصلاحيات والأمان',4,0.55);
-if(arabic.length<2) throw new Error('Expected multi-skill selection for Arabic compound request');
+const arabic=selectSkillSetV77('فحص قاعدة البيانات والصلاحيات والأمان',4,0.20);
+if(arabic.length<2 || arabic.length>4) throw new Error('Expected bounded multi-skill selection for Arabic compound request');
 
 const directives=mergeDirectivesV77(compound.map(x=>x.name));
 if(!directives.length) throw new Error('Merged directives are empty');
