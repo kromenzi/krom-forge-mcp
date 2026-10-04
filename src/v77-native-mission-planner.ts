@@ -6,9 +6,9 @@ import {
   buildExecutionContractV77,
   scoreRouteConfidenceV77,
   buildMultiSkillExecutionGraphV77,
-  explainRoutingDecisionV77,
-  type V76CapabilityCandidate
+  explainRoutingDecisionV77
 } from './v77-native-skill-runtime';
+import type { V76CapabilityCandidate } from './v76-semantic-skill-runtime';
 import { buildSkillExecutionPacketV77 } from './v77-directive-enforcement';
 
 export const v77MissionPlannerSchema = v77RuntimeSchema.extend({
