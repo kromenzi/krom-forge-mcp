@@ -1,20 +1,26 @@
-# KROM Forge v78 Imported Skill Additions
+# KROM Forge v78 Imported Skill Catalog
 
-Added from the user-provided SKILL.md files on 2026-10-04.
+Imported skill catalog total: **152 skills**.
 
-- Imported skill catalog: **52 skills**
-- Specialist agents: **11**
-- Internal capability baseline: **5333**
+## Existing catalog
+- Prior validated catalog: 52 skills
+- Specialist agents: 11
+- Internal capability baseline: 5333
 - Existing host authorization boundaries remain unchanged.
 
-## Added skills
+## New repair packs
+- Error Repair Skill Pack v1.0 — 10 skills — archive SHA-256 `7f3cc49fb9e2001d3e6100e05aea92dc392870ae40e130bed81ef11ff3f055b5`
+- Error Repair Skill Pack v2.0 — 10 skills — archive SHA-256 `89b39a9333e787413bcfc1923a4cf10994161c1e031a99eca35e1b3103d0c384`
+- Advanced Repair Skills Pack v3.0 — 30 skills — archive SHA-256 `0a45175f198b753bd308f07be32b90002b586da6ae9b16ce4b09b6f39128143a`
+- Ultimate Engineering Repair Skills Pack v4.0 — 50 skills — archive SHA-256 `f9cfbed8dd77b7b72376b73d967a54006cdbfccb9376133f71ad675e032cc401`
 
-51. `krom-function-audit-repair`
-   - SHA-256 of original uploaded SKILL.md: `a5ce792588cdba9ba6ba2f76d00cd1ac09d1b32be71784ca7baadb3b96b9362d`
-   - Evidence-first function inventory, caller/callee tracing, root-cause classification, minimal patching, verification and regression review.
+The four user-provided archives contain **100 unique SKILL.md entries**. Runtime metadata preserves each original SKILL.md SHA-256 digest.
 
-52. `krom-3d-design-studio`
-   - SHA-256 of original uploaded SKILL.md: `ed1df35fbbc71eb35af18bf687ad05afa4b4122fefc54429e600aac3f1943c2f`
-   - True 3D, hybrid 3D, pseudo-3D and static 3D art direction with responsive, accessibility, RTL and performance controls.
+The numeric prefixes declared by v2/v3 skills (for example `11-krom-environment-config-repair` and `21-krom-routing-navigation-repair`) are preserved exactly rather than silently renamed.
 
-The source SKILL.md files remain unmodified and retain their original declared KROM Forge v75 compatibility. v78 imports them through the shared skill catalog/runtime.
+## Runtime integration
+- v75 agent fabric: all 11 agents retain `ALL_IMPORTED_SKILLS`.
+- v76 semantic skill index: 152 entries with routing metadata.
+- v77 native runtime/directives: catalog size is derived from the shared v76 index; verifier requires 152.
+- v78 governance/runtime: representative skills from all four packs are verified.
+- Internal capability baseline remains **5333**. These are imported skills, not 100 additional public MCP tools.
