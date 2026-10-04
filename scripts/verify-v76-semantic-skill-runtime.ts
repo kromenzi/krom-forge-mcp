@@ -1,8 +1,16 @@
 import { V75_AGENT_IDS, V75_SKILL_NAMES } from '../src/v75-agent-capability-fabric';
 import { selectAgentV76, rankSkillsV76, rankCapabilitiesV76, buildExecutionPlanV76, auditSemanticRouterV76 } from '../src/v76-semantic-skill-runtime';
+import { auditSkillIndexV76, getSkillMetadataV76 } from '../src/v76-skill-index';
 
 if (V75_AGENT_IDS.length !== 11) throw new Error(`Expected 11 agents, got ${V75_AGENT_IDS.length}`);
 if (V75_SKILL_NAMES.length !== 50) throw new Error(`Expected 50 skills, got ${V75_SKILL_NAMES.length}`);
+
+const skillIndexAudit = auditSkillIndexV76();
+if (skillIndexAudit.status !== 'PASS') throw new Error(`Skill index audit failed: ${JSON.stringify(skillIndexAudit)}`);
+if (skillIndexAudit.actualCount !== 50) throw new Error(`Expected 50 indexed skills, got ${skillIndexAudit.actualCount}`);
+if (skillIndexAudit.digestCoverage !== 50) throw new Error(`Expected SHA-256 coverage for all skills, got ${skillIndexAudit.digestCoverage}`);
+const hseSkill = getSkillMetadataV76('enterprise-hse-platform-engineer');
+if (!hseSkill?.description.includes('HSE')) throw new Error('Validated HSE skill metadata was not loaded');
 
 const capabilityCandidates = [
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'Audit schema migrations database integrity and RLS'},
@@ -47,5 +55,8 @@ console.log(JSON.stringify({
   bilingualSearch:true,
   fuzzyRanking:true,
   ambiguityDetection:true,
+  validatedSkillMetadata:true,
+  skillDigestCoverage:skillIndexAudit.digestCoverage,
+  skillDescriptionCoverage:skillIndexAudit.descriptionCoverage,
   hostAuthorizationBoundaryPreserved:true
 }));
