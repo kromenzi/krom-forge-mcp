@@ -120,17 +120,35 @@ export function buildSkillTeamV77(
       }))
   );
 
+  const highRiskValidatorRequired=Boolean(route.action.highRisk);
+  const teamGates=[
+    {id:'TG1',name:'PRIMARY_ASSIGNED',satisfied:Boolean(primary)},
+    {id:'TG2',name:'ROUTE_READY',satisfied:route.status==='READY'},
+    {id:'TG3',name:'NO_DIRECTIVE_CONFLICTS',satisfied:route.conflicts.length===0},
+    {id:'TG4',name:'HOST_AUTHORIZATION',satisfied:route.authorization.authorizationSatisfied},
+    {id:'TG5',name:'APPROVAL',satisfied:route.authorization.approvalSatisfied},
+    {id:'TG6',name:'HIGH_RISK_VALIDATOR',satisfied:!highRiskValidatorRequired||validators.length>0}
+  ];
+  const failedTeamGates=teamGates.filter(x=>!x.satisfied);
+
   const status=!primary
     ? 'REVIEW_REQUIRED'
     : route.conflicts.length
       ? 'BLOCKED_CONFLICT'
-      : 'READY';
+      : route.status!=='READY'
+        ? route.status
+        : highRiskValidatorRequired&&validators.length===0
+          ? 'REVIEW_REQUIRED'
+          : 'READY';
 
   const canonical={
     release:'v77',
     query:input.query,
     status,
     routeStatus:route.status,
+    actionClass:route.action.class,
+    highRiskValidatorRequired,
+    failedTeamGates:failedTeamGates.map(x=>x.id),
     members:members.map(x=>({
       skill:x.skill,role:x.role,ownerAgent:x.ownerAgent,sha256:x.sha256
     })),
@@ -148,9 +166,14 @@ export function buildSkillTeamV77(
     ownershipConflicts,
     selectedAgent:route.selectedAgent,
     routeConflicts:route.conflicts,
+    routeAuthorization:route.authorization,
+    teamGates,
+    failedTeamGates,
+    highRiskValidatorRequired,
     parallelSupportAllowed:support.length>1 && highOverlapPairs.filter(x=>
       support.some(s=>s.skill===x.a)&&support.some(s=>s.skill===x.b)
     ).length===0,
+    dispatchAllowed:status==='READY'&&failedTeamGates.length===0,
     executionClaim:false
   } as const;
 }
@@ -182,6 +205,19 @@ export function auditSkillTeamOrchestratorV77(capabilityCandidates:V76Capability
     overlapThreshold:0.72
   },capabilityCandidates);
 
+  const blockedMutation=buildSkillTeamV77({
+    query:'deploy production release',
+    maxSkills:5,
+    maxCapabilities:8,
+    relativeSkillThreshold:0.20,
+    hostAuthorized:false,
+    approvalRequired:false,
+    approved:false,
+    schemaValidated:true,
+    maxTeamSize:5,
+    overlapThreshold:0.72
+  },capabilityCandidates);
+
   const checks={
     primaryAssigned:Boolean(ui.primary)&&Boolean(security.primary),
     boundedTeam:ui.members.length<=5&&security.members.length<=5,
@@ -190,7 +226,9 @@ export function auditSkillTeamOrchestratorV77(capabilityCandidates:V76Capability
     provenanceBound:ui.members.every(x=>!x.sha256||/^[a-f0-9]{64}$/.test(x.sha256)),
     overlapScored:ui.overlaps.every(x=>x.score>=0&&x.score<=1),
     wavesPresent:ui.executionWaves.length>0,
-    noExecutionClaim:ui.executionClaim===false&&security.executionClaim===false
+    routeGatePropagated:blockedMutation.status==='BLOCKED_AUTHORIZATION'&&!blockedMutation.dispatchAllowed,
+    teamGatesPresent:ui.teamGates.length>=6&&security.teamGates.length>=6,
+    noExecutionClaim:ui.executionClaim===false&&security.executionClaim===false&&blockedMutation.executionClaim===false
   };
   const passed=Object.values(checks).filter(Boolean).length;
   return {
