@@ -114,6 +114,7 @@ import { v77ExecutionSupervisorSchema, superviseExecutionV77, auditExecutionSupe
 import { v78GovernanceSchema, evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../../src/v78-autonomous-execution-governance';
 import { v78AgentIdSchema, v78DelegationSchema, v78ConsensusSchema, buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../../src/v78-agent-delegation-consensus';
 import { v78ExecutionLineageSchema, buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78 } from '../../src/v78-execution-lineage';
+import { v78DecisionProvenanceSchema, v78AgentTrustSchema, evaluateEvidenceFreshnessV78, buildDecisionProvenanceV78, verifyDecisionProvenanceV78, scoreAgentTrustV78, auditDecisionProvenanceV78 } from '../../src/v78-decision-provenance';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2712,9 +2713,9 @@ const handler = createMcpHandler((server) => {
     'krom_v78_autonomous_governance',
     {
       title:'KROM Forge v78 autonomous execution governance',
-      description:'Unified v78 governance gateway for bounded autonomous execution, dynamic delegation, multi-agent consensus, evidence lineage, consensus receipts, lease-safe ownership transfer, veto handling and deadlock recovery. It evaluates and plans only; it does not execute mutations.',
+      description:'Unified v78 governance gateway for bounded autonomy, delegation, multi-agent consensus, execution lineage, decision provenance, evidence freshness, bounded agent trust scoring, lease-safe ownership, veto handling and deadlock recovery. It evaluates and plans only; it does not execute mutations.',
       inputSchema:z.object({
-        operation:z.enum(['EVALUATE','AUDIT','BUILD_DELEGATION','EVALUATE_CONSENSUS','BUILD_CONSENSUS_RECOVERY','AUDIT_DELEGATION_CONSENSUS','BUILD_EXECUTION_LINEAGE','VERIFY_EXECUTION_LINEAGE','BUILD_OWNERSHIP_TRANSFER','AUDIT_EXECUTION_LINEAGE']),
+        operation:z.enum(['EVALUATE','AUDIT','BUILD_DELEGATION','EVALUATE_CONSENSUS','BUILD_CONSENSUS_RECOVERY','AUDIT_DELEGATION_CONSENSUS','BUILD_EXECUTION_LINEAGE','VERIFY_EXECUTION_LINEAGE','BUILD_OWNERSHIP_TRANSFER','AUDIT_EXECUTION_LINEAGE','EVALUATE_EVIDENCE_FRESHNESS','BUILD_DECISION_PROVENANCE','VERIFY_DECISION_PROVENANCE','SCORE_AGENT_TRUST','AUDIT_DECISION_PROVENANCE']),
         payload:z.unknown().optional()
       })
     },
@@ -2740,6 +2741,20 @@ const handler = createMcpHandler((server) => {
         return result(buildOwnershipTransferV78(parsed));
       }
       if(operation==='AUDIT_EXECUTION_LINEAGE') return result(auditExecutionLineageV78());
+      if(operation==='EVALUATE_EVIDENCE_FRESHNESS'){
+        const parsed=z.object({
+          evidence:v78DecisionProvenanceSchema.shape.evidence,
+          nowEpoch:v78DecisionProvenanceSchema.shape.nowEpoch
+        }).parse(payload);
+        return result(evaluateEvidenceFreshnessV78(parsed));
+      }
+      if(operation==='BUILD_DECISION_PROVENANCE') return result(buildDecisionProvenanceV78(v78DecisionProvenanceSchema.parse(payload)));
+      if(operation==='VERIFY_DECISION_PROVENANCE'){
+        const parsed=v78DecisionProvenanceSchema.extend({claimedDecisionDigest:z.string().regex(/^[a-f0-9]{64}$/)}).parse(payload);
+        return result(verifyDecisionProvenanceV78(parsed));
+      }
+      if(operation==='SCORE_AGENT_TRUST') return result(scoreAgentTrustV78(v78AgentTrustSchema.parse(payload)));
+      if(operation==='AUDIT_DECISION_PROVENANCE') return result(auditDecisionProvenanceV78());
       return result(evaluateAutonomousExecutionV78(v78GovernanceSchema.parse(payload)));
     }
   );
