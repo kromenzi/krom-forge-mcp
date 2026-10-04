@@ -58,8 +58,8 @@ export function resolveSkillDirectivePolicyV77(skillNames:string[]){
     findings.push({
       code:'EMPTY_DIRECTIVE_SET',
       severity:'MEDIUM',
-      blocking:true,
-      message:'Selected skill set produced no enforceable directives.'
+      blocking:false,
+      message:'Selected skill set produced no explicit enforceable directives; continue under global authorization, schema and evidence gates.'
     });
   }
 
