@@ -38,6 +38,9 @@ const BASE_EVIDENCE = [
 
 function profile(name: string) {
   const n = name.toLowerCase();
+  if (n.includes('ksa-2026-security-quality-remediation')) {
+    return { domains:['security','frontend','ui','print','asset','qa','dependency','build','ci','repair','verification'], preferredAgents:['security','frontend','qa','devops','release-auditor'] };
+  }
   if (n.includes('root-cause-debugger') || n.includes('typescript-build') || n.includes('module-import-export') || n.includes('package-dependency') || n.includes('monorepo-workspace')) {
     return { domains:['debugging','build','typescript','module','dependency','repair','verification'], preferredAgents:['backend','architect','qa','devops'] };
   }
