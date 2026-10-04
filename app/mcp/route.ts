@@ -111,6 +111,7 @@ import { v77MissionCheckpointSchema, v77MissionResumeSchema, buildMissionCheckpo
 import { v77AdaptiveRetrySchema, buildAdaptiveRetryDecisionV77, buildSafeReplanV77, auditAdaptiveRetryV77 } from '../../src/v77-adaptive-retry';
 import { v77FailureEventSchema, v77FailureHistorySchema, fingerprintFailureV77, buildFailureHistoryV77, appendFailureEventV77, evaluateFailureLoopV77, auditFailureHistoryV77 } from '../../src/v77-failure-history';
 import { v77ExecutionSupervisorSchema, superviseExecutionV77, auditExecutionSupervisorV77 } from '../../src/v77-execution-supervisor';
+import { v78GovernanceSchema, evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../../src/v78-autonomous-execution-governance';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -409,6 +410,7 @@ const handler = createMcpHandler((server) => {
   "krom_v77_mission_control",
   "krom_v77_resolve_skill_conflicts",
   "krom_v77_audit_directive_enforcement",
+  "krom_v78_autonomous_governance",
   "krom_get_capabilities"
 ]);
   const KROM_TOOL_DIRECTORY = new Map<string, { config: any; handler: (input: any) => any }>();
@@ -2701,6 +2703,22 @@ const handler = createMcpHandler((server) => {
         case 'AUDIT_EXECUTION_SUPERVISOR':
           return result(auditExecutionSupervisorV77());
       }
+    }
+  );
+
+  server.registerTool(
+    'krom_v78_autonomous_governance',
+    {
+      title:'KROM Forge v78 autonomous execution governance',
+      description:'Evaluate bounded autonomous execution policy including authorization, approval, budget, confidence, execution lease, ownership conflicts and rollback readiness. This tool does not execute the action.',
+      inputSchema:z.object({
+        operation:z.enum(['EVALUATE','AUDIT']),
+        payload:z.unknown().optional()
+      })
+    },
+    async ({operation,payload})=>{
+      if(operation==='AUDIT') return result(auditAutonomousExecutionV78());
+      return result(evaluateAutonomousExecutionV78(v78GovernanceSchema.parse(payload)));
     }
   );
 
