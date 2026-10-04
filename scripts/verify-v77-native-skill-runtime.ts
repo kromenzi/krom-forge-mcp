@@ -36,7 +36,7 @@ if(!nativeSecret || nativeSecret.sha256!==V76_SKILL_INDEX.find(x=>x.name==='krom
   throw new Error('Native secret skill SHA-256 does not match validated metadata');
 }
 if(!nativeSecret.directives.some(x=>/secret|credential|سر|مفتاح/i.test(x))) {
-  throw new Error('Native secret guardian directives were not loaded from SKILL.md');
+  throw new Error('Native secret guardian runtime directives were not derived from validated skill metadata');
 }
 
 const compound=selectSkillSetV77('fix responsive rtl dashboard accessibility and test it',4,0.20);
