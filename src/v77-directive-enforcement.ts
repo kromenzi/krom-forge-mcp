@@ -90,7 +90,9 @@ export function evaluateDirectiveApplicabilityV77(query:string,skillNames:string
     const tokenHits=coreWords.filter(w=>queryWords.has(w));
     const score=exact?1:overlapScore(query,core);
     const semanticMatch=semanticDirectiveMatch(query,directive.directive,directive.polarity);
-    const applicable=exact || semanticMatch || tokenHits.length>=2 || score>=0.34;
+    const applicable=directive.polarity==='FORBID'
+      ? semanticMatch
+      : exact || semanticMatch || tokenHits.length>=2 || score>=0.34;
     return {...directive,core,score:Number(score.toFixed(3)),tokenHits,semanticMatch,applicable};
   }).filter(x=>x.applicable);
 
