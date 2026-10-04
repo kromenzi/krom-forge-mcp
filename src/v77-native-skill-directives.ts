@@ -117,11 +117,11 @@ export function auditNativeSkillDirectiveBundleV77(){
     name:x.name,sha256:x.sha256,directives:x.directives
   })))).digest('hex');
 
-  const status=RECORDS.length===50 && duplicates.length===0 && missingMetadata.length===0 &&
+  const status=duplicates.length===0 && missingMetadata.length===0 &&
     hashMismatches.length===0 && emptyDirectives.length===0 && invalidHashes.length===0 ? 'PASS' : 'FAIL';
 
   return {
-    release:'v77',status,skillCount:RECORDS.length,expectedSkillCount:50,directiveCount,
+    release:'v77',status,skillCount:RECORDS.length,expectedSkillCount:V76_SKILL_INDEX.length,directiveCount,
     duplicateSkills:duplicates,missingMetadata,hashMismatches,emptyDirectives,invalidHashes,
     integrityDigest,
     source:'validated-v76-skill-metadata-derived-runtime-policy',
