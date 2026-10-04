@@ -259,33 +259,45 @@ export function buildExecutionPlanV76(input:z.infer<typeof v76SemanticRuntimeSch
 
 export function auditSemanticRouterV76(capabilityCandidates:V76CapabilityCandidate[]){
   const cases=[
-    {q:'audit database schema migrations and rls',agent:'database',skill:'ksa-database-schema-migration-architect'},
-    {q:'fix responsive rtl ui ux dashboard',agent:'uiux',skill:'ksa-safety-board-uiux-design'},
-    {q:'security auth secrets threat model',agent:'security',skill:'krom-appsec-threat-model-engineer'},
-    {q:'deploy release rollback vercel pipeline',agent:'devops',skill:'production-engineering-release-guardian'},
-    {q:'computer vision safety camera esp',agent:'orchestrator',skill:'ksa-computer-vision-safety-engineer'}
+    {q:'audit database schema migrations and rls',agents:['database'],skills:['ksa-database-schema-migration-architect']},
+    {q:'fix responsive rtl ui ux dashboard',agents:['uiux','frontend'],skills:['ksa-safety-board-uiux-design','elite-product-uiux-designer']},
+    {q:'security auth secrets threat model',agents:['security'],skills:['krom-appsec-threat-model-engineer','krom-secrets-credential-guardian','ksa-auth-rbac-rls-security-engineer']},
+    {q:'deploy release rollback vercel pipeline',agents:['devops','release-auditor'],skills:['production-engineering-release-guardian','saudi-forge-public-deployment']},
+    {q:'computer vision safety camera esp',agents:['architect','backend','security','qa'],skills:['ksa-computer-vision-safety-engineer','ksa-esp-vision-systems-engineer']},
+    {q:'تصميم واجهة عربية RTL ولوحة معلومات متجاوبة',agents:['uiux','frontend'],skills:['ksa-safety-board-uiux-design','elite-product-uiux-designer','ksa-accessibility-rtl-i18n-engineer']},
+    {q:'تدقيق قاعدة البيانات والترحيلات وسياسات RLS',agents:['database','security'],skills:['ksa-database-schema-migration-architect','ksa-auth-rbac-rls-security-engineer']},
+    {q:'فحص الأسرار والمصادقة والصلاحيات والثغرات',agents:['security'],skills:['krom-secrets-credential-guardian','ksa-auth-rbac-rls-security-engineer','krom-secure-code-auditor']},
+    {q:'اختبارات E2E وانحدار وجودة قبل الإنتاج',agents:['qa','release-auditor'],skills:['ksa-qa-e2e-test-automation-engineer','production-engineering-release-guardian']},
+    {q:'طباعة تقرير PDF رسمي ثنائي اللغة',agents:['frontend','uiux','qa'],skills:['ksa-safety-board-print-document-architect','typst-pdf-maker','word-playbooks']}
   ];
   const results=cases.map(c=>{
-    const agent=selectAgentV76(c.q);
     const skills=rankSkillsV76(c.q,5);
+    const agent=selectAgentV76(c.q,undefined,skills.map(x=>x.name));
     const capability=rankCapabilitiesV76(c.q,capabilityCandidates,5);
+    const agentPass=c.agents.includes(agent.agentId);
+    const skillPass=skills.some(x=>c.skills.includes(x.name));
+    const capabilityPass=capability.length>0;
     return {
       query:c.q,
-      expectedAgent:c.agent,
+      expectedAgents:c.agents,
       actualAgent:agent.agentId,
-      expectedSkill:c.skill,
+      expectedSkills:c.skills,
       topSkills:skills.map(x=>x.name),
-      skillPass:skills.some(x=>x.name===c.skill),
+      agentPass,
+      skillPass,
+      capabilityPass,
       capabilityCount:capability.length
     };
   });
-  const pass=results.filter(x=>x.skillPass && x.capabilityCount>0).length;
+  const passed=results.filter(x=>x.agentPass && x.skillPass && x.capabilityPass).length;
   return {
     release:'v76',
-    status:pass===results.length?'PASS':'PASS_WITH_GAPS',
+    status:passed===results.length?'PASS':'PASS_WITH_GAPS',
     cases:results.length,
-    passed:pass,
+    passed,
+    failed:results.length-passed,
     results,
-    capabilityCandidates:capabilityCandidates.length
+    capabilityCandidates:capabilityCandidates.length,
+    criteria:'agent + skill + capability must all pass'
   };
 }
