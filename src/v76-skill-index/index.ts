@@ -118,7 +118,7 @@ export function auditSkillIndexV76() {
 
   return {
     release:'v76',
-    status: duplicateNames.length || missing.length || extra.length || invalidHashes.length ||
+    status: duplicateNames.length || missing.length || extra.length || invalidHashes.length || emptyDescriptions.length ||
       missingInstructionContracts.length || missingEvidenceExpectations.length || missingPreferredAgents.length ? 'FAIL' : 'PASS',
     expectedCount:V75_SKILL_NAMES.length,
     actualCount:V76_SKILL_INDEX.length,
