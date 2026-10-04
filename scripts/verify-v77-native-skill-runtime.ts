@@ -13,6 +13,7 @@ import {
 import { resolveSkillDirectivePolicyV77, evaluateDirectiveApplicabilityV77, enforceExecutionPolicyV77, buildSkillExecutionPacketV77, resolveSkillConflictsV77, auditDirectiveEnforcementV77 } from '../src/v77-directive-enforcement';
 import { buildNativeMissionPlanV77, auditNativeMissionPlannerV77 } from '../src/v77-native-mission-planner';
 import { getNativeSkillDirectivesV77, auditNativeSkillDirectiveBundleV77 } from '../src/v77-native-skill-directives';
+import { buildSkillTeamV77, auditSkillTeamOrchestratorV77 } from '../src/v77-skill-team-orchestrator';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -288,6 +289,27 @@ if(missionBlocked.dispatchAllowed) throw new Error('Blocked mission must not be 
 const missionAudit=auditNativeMissionPlannerV77(candidates);
 if(missionAudit.status!=='PASS') throw new Error(`Native mission planner audit failed: ${JSON.stringify(missionAudit)}`);
 
+const skillTeam=buildSkillTeamV77({
+  query:'fix responsive rtl dashboard accessibility and qa regression testing',
+  maxSkills:5,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.20,
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true,
+  maxTeamSize:5,
+  overlapThreshold:0.72
+},candidates);
+if(!skillTeam.primary) throw new Error('Skill team is missing PRIMARY role');
+if(skillTeam.members.length<2 || skillTeam.members.length>5) throw new Error('Skill team size is outside expected bounds');
+if(!/^[a-f0-9]{64}$/.test(skillTeam.teamDigest)) throw new Error('Skill team digest missing');
+if(!skillTeam.members.every(x=>['PRIMARY','SUPPORT','VALIDATOR'].includes(x.role))) throw new Error('Invalid skill team role');
+if(!skillTeam.executionWaves.length) throw new Error('Skill team execution waves are missing');
+
+const teamAudit=auditSkillTeamOrchestratorV77(candidates);
+if(teamAudit.status!=='PASS') throw new Error(`Skill team orchestrator audit failed: ${JSON.stringify(teamAudit)}`);
+
 const audit=auditNativeSkillRuntimeV77(candidates);
 if(audit.status!=='PASS') throw new Error(`v77 runtime audit failed: ${JSON.stringify(audit)}`);
 if(!audit.catalogIntegrity) throw new Error('v77 did not preserve 50-skill catalog integrity');
@@ -315,6 +337,9 @@ console.log(JSON.stringify({
   skillProvenancePacket:true,
   forbidDirectiveBlocking:true,
   nativeMissionPlanner:true,
+  skillTeamOrchestrator:true,
+  skillTeamRoles:true,
+  skillTeamOverlapControl:true,
   nativeSkillDirectiveBundle:true,
   sourceDerivedDirectiveCount:nativeDirectiveAudit.directiveCount,
   nativeSkillShaAudit:true,
