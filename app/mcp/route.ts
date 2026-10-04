@@ -405,9 +405,6 @@ const handler = createMcpHandler((server) => {
   "krom_v77_build_execution_receipt",
   "krom_v77_verify_execution_receipt",
   "krom_v77_audit_execution_receipt",
-  "krom_v77_close_mission",
-  "krom_v77_verify_mission_claim",
-  "krom_v77_audit_mission_closure",
   "krom_v77_resolve_skill_conflicts",
   "krom_v77_audit_directive_enforcement",
   "krom_get_capabilities"
@@ -2656,7 +2653,7 @@ const handler = createMcpHandler((server) => {
     async ()=>result(auditExecutionReceiptV77())
   );
 
-  server.registerTool(
+  registerKromTool(
     'krom_v77_close_mission',
     {
       title:'Close v77 mission',
@@ -2666,7 +2663,7 @@ const handler = createMcpHandler((server) => {
     async (input)=>result(closeMissionV77(input))
   );
 
-  server.registerTool(
+  registerKromTool(
     'krom_v77_verify_mission_claim',
     {
       title:'Verify v77 mission completion claim',
@@ -2676,7 +2673,7 @@ const handler = createMcpHandler((server) => {
     async (input)=>result(verifyMissionClaimV77(input))
   );
 
-  server.registerTool(
+  registerKromTool(
     'krom_v77_audit_mission_closure',
     {
       title:'Audit v77 mission closure',
