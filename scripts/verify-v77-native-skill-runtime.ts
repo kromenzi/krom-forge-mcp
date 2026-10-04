@@ -19,6 +19,7 @@ import { closeMissionV77, verifyMissionClaimV77, auditMissionClosureV77 } from '
 import { buildMissionCheckpointV77, resumeMissionFromCheckpointV77, buildMissionRecoveryPlanV77, auditMissionRecoveryV77 } from '../src/v77-mission-recovery';
 import { buildAdaptiveRetryDecisionV77, buildSafeReplanV77, auditAdaptiveRetryV77 } from '../src/v77-adaptive-retry';
 import { fingerprintFailureV77, buildFailureHistoryV77, evaluateFailureLoopV77, auditFailureHistoryV77 } from '../src/v77-failure-history';
+import { superviseExecutionV77, auditExecutionSupervisorV77 } from '../src/v77-execution-supervisor';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -30,6 +31,41 @@ const candidates=[
 ];
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
+
+const supervisorAudit=auditExecutionSupervisorV77();
+if(supervisorAudit.status!=='PASS') throw new Error(`Execution supervisor audit failed: ${JSON.stringify(supervisorAudit)}`);
+
+const supervisorRetry=superviseExecutionV77({
+  failure:{
+    operation:'fetch dependency',
+    attempt:1,
+    maxAttempts:3,
+    errorMessage:'503 service unavailable',
+    httpStatus:503,
+    hostAuthorized:true,
+    schemaValidated:true,
+    priorIdenticalFailures:0,
+    sideEffectRisk:'LOW'
+  },
+  requireClosureEvidence:true
+});
+if(supervisorRetry.action!=='RETRY_OPERATION'||!supervisorRetry.dispatchAllowed) throw new Error('Supervisor did not allow bounded transient retry');
+
+const supervisorStop=superviseExecutionV77({
+  failure:{
+    operation:'deploy production',
+    attempt:0,
+    maxAttempts:3,
+    errorMessage:'403 permission denied',
+    httpStatus:403,
+    hostAuthorized:false,
+    schemaValidated:true,
+    priorIdenticalFailures:0,
+    sideEffectRisk:'HIGH'
+  },
+  requireClosureEvidence:true
+});
+if(supervisorStop.action!=='STOP_AND_ESCALATE'||supervisorStop.dispatchAllowed) throw new Error('Supervisor failed to stop authorization failure');
 
 const failureHistoryAudit=auditFailureHistoryV77();
 if(failureHistoryAudit.status!=='PASS') throw new Error(`Failure history audit failed: ${JSON.stringify(failureHistoryAudit)}`);
@@ -566,6 +602,7 @@ console.log(JSON.stringify({
   safeReplan:true,
   failureFingerprinting:true,
   antiLoopHistory:true,
+  executionSupervisor:true,
   directivePolicyResolution:true,
   executionPolicyEnforcement:true,
   directiveApplicability:true,
