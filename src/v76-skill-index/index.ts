@@ -4,6 +4,10 @@ import { V76_SKILL_INDEX_2 } from './part-2';
 import { V76_SKILL_INDEX_3 } from './part-3';
 import { V76_SKILL_INDEX_4 } from './part-4';
 import { V76_SKILL_INDEX_5 } from './part-5';
+import { V76_SKILL_INDEX_6 } from './part-6';
+import { V76_SKILL_INDEX_7 } from './part-7';
+import { V76_SKILL_INDEX_8 } from './part-8';
+import { V76_SKILL_INDEX_9 } from './part-9';
 import { V75_SKILL_NAMES } from '../v75-agent-capability-fabric';
 
 export type V76SkillMetadata = {
@@ -34,7 +38,34 @@ const BASE_EVIDENCE = [
 
 function profile(name: string) {
   const n = name.toLowerCase();
-  if (n.includes('function-audit') || n.includes('function-repair')) {
+  if (n.includes('root-cause-debugger') || n.includes('typescript-build') || n.includes('module-import-export') || n.includes('package-dependency') || n.includes('monorepo-workspace')) {
+    return { domains:['debugging','build','typescript','module','dependency','repair','verification'], preferredAgents:['backend','architect','qa','devops'] };
+  }
+  if (n.includes('auth-permission') || n.includes('security-') || n.includes('secrets-credential') || n.includes('session-cookie') || n.includes('token-jwt') || n.includes('mfa-') || n.includes('rbac') || n.includes('multitenancy') || n.includes('rls-policy')) {
+    return { domains:['security','auth','authorization','rbac','rls','session','secrets','repair'], preferredAgents:['security','backend','database','qa'] };
+  }
+  if (n.includes('database-') || n.includes('schema-migration') || n.includes('rpc-function') || n.includes('trigger-event') || n.includes('transaction-') || n.includes('query-performance') || n.includes('connection-pool') || n.includes('storage-bucket') || n.includes('backup-restore')) {
+    return { domains:['database','postgres','supabase','migration','transaction','storage','repair'], preferredAgents:['database','backend','security','qa'] };
+  }
+  if (n.includes('react-ui') || n.includes('hydration') || n.includes('component-props') || n.includes('modal-dialog') || n.includes('table-grid') || n.includes('chart-') || n.includes('responsive-mobile') || n.includes('css-layout') || n.includes('theme-darkmode') || n.includes('accessibility-repair') || n.includes('design-system-consistency')) {
+    return { domains:['frontend','ui','ux','react','responsive','accessibility','repair'], preferredAgents:['frontend','uiux','qa'] };
+  }
+  if (n.includes('api-') || n.includes('webhook') || n.includes('third-party-sdk') || n.includes('integration-contract') || n.includes('realtime-websocket') || n.includes('notification-system') || n.includes('email-delivery') || n.includes('push-notification')) {
+    return { domains:['api','integration','network','webhook','realtime','notification','repair'], preferredAgents:['backend','architect','qa','security'] };
+  }
+  if (n.includes('ci-pipeline') || n.includes('cd-release') || n.includes('deployment-runtime') || n.includes('release-versioning') || n.includes('environment-config') || n.includes('feature-flag')) {
+    return { domains:['devops','ci','cd','deployment','release','environment','repair'], preferredAgents:['devops','release-auditor','qa','orchestrator'] };
+  }
+  if (n.includes('unit-test') || n.includes('integration-test') || n.includes('e2e-browser') || n.includes('test-coverage') || n.includes('flaky-test') || n.includes('regression-hunter')) {
+    return { domains:['qa','test','e2e','regression','coverage','repair'], preferredAgents:['qa','backend','frontend','release-auditor'] };
+  }
+  if (n.includes('print-') || n.includes('pdf-') || n.includes('font-rendering') || n.includes('image-processing') || n.includes('file-upload') || n.includes('file-import-export') || n.includes('data-export-report')) {
+    return { domains:['document','print','pdf','asset','file','report','repair'], preferredAgents:['frontend','uiux','qa','backend'] };
+  }
+  if (n.includes('performance') || n.includes('memory-leak') || n.includes('cpu-event-loop') || n.includes('cache-invalidation') || n.includes('rate-limit')) {
+    return { domains:['performance','reliability','runtime','cache','repair'], preferredAgents:['devops','backend','qa'] };
+  }
+    if (n.includes('function-audit') || n.includes('function-repair')) {
     return { domains:['debugging','function','code-quality','repair','api','supabase','postgres','verification'], preferredAgents:['backend','qa','security','architect'] };
   }
   if (n.includes('3d-design') || n.includes('3d')) {
@@ -79,7 +110,11 @@ const RAW_SKILLS = [
   ...V76_SKILL_INDEX_2,
   ...V76_SKILL_INDEX_3,
   ...V76_SKILL_INDEX_4,
-  ...V76_SKILL_INDEX_5
+  ...V76_SKILL_INDEX_5,
+  ...V76_SKILL_INDEX_6,
+  ...V76_SKILL_INDEX_7,
+  ...V76_SKILL_INDEX_8,
+  ...V76_SKILL_INDEX_9
 ];
 
 export const V76_SKILL_INDEX: readonly V76SkillMetadata[] = RAW_SKILLS.map(skill => {
