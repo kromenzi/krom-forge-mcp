@@ -34,6 +34,11 @@ requireText('npm run verify:v68','v68 incident command benchmark');
 requireText('npm run verify:v69','v69 operations governance benchmark');
 requireText('npm run verify:v70','v70 delivery verification benchmark');
 requireText('npm run verify:v71','v71 continuous assurance benchmark');
+requireText('npm run verify:v72','v72 skill assurance benchmark');
+requireText('npm run verify:v73','v73 patch bundle benchmark');
+requireText('npm run verify:v74','v74 skill registry benchmark');
+requireText('npm run verify:v75','v75 agent capability fabric benchmark');
+requireText('npm run verify:v76','v76 semantic skill runtime benchmark');
 requireText('npm test','unit tests');
 requireText('npm run typecheck','TypeScript');
 requireText('npm run audit:production','production dependency audit');
@@ -44,8 +49,8 @@ requireText('retention-days: 14','evidence retention');
 
 if(validateMcpManifest(manifestA).status!=='PASS') failures.push('MCP manifest integrity failed.');
 if(manifestA.fingerprint!==manifestB.fingerprint) failures.push('Manifest fingerprint is not deterministic.');
-if(manifestA.counts.registered!==5314) failures.push(`Registered tools must equal 5314; found ${manifestA.counts.registered}`);
-if(manifestA.counts.capabilities!==5314) failures.push(`Capability tools must equal 5314; found ${manifestA.counts.capabilities}`);
+if(manifestA.counts.registered!==5333) failures.push(`Registered tools must equal 5333; found ${manifestA.counts.registered}`);
+if(manifestA.counts.capabilities!==5333) failures.push(`Capability tools must equal 5333; found ${manifestA.counts.capabilities}`);
 if(manifestA.integrity.duplicateRegistrations.length) failures.push('Duplicate registrations detected.');
 if(manifestA.integrity.duplicateCapabilities.length) failures.push('Duplicate capabilities detected.');
 if(manifestA.integrity.missingCapabilities.length) failures.push('Missing capability entries detected.');
@@ -56,7 +61,7 @@ if(v54.domains.length!==35||v54.operations.length!==71||v54.domains.length*v54.o
 if(!route.includes('executeV53Tool(spec, input)')||!route.includes('executeV54Tool(spec, input)')) failures.push('Generated runtime execution contracts missing.');
 
 const names=manifestA.tools.map((tool)=>tool.name);
-if(new Set(names).size!==5314) failures.push('Global tool-name uniqueness violated.');
+if(new Set(names).size!==5333) failures.push('Global tool-name uniqueness violated.');
 
 const report={
  status:failures.length?'FAIL':'PASS',
