@@ -4,6 +4,22 @@ import { buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsens
 import { buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78, type V78ExecutionLineageInput } from '../src/v78-execution-lineage';
 import { buildDecisionProvenanceV78, verifyDecisionProvenanceV78, scoreAgentTrustV78, auditDecisionProvenanceV78 } from '../src/v78-decision-provenance';
 
+const repairSkillSamples=[
+  'krom-api-network-repair',
+  '11-krom-environment-config-repair',
+  '21-krom-routing-navigation-repair',
+  'krom-full-system-autonomous-repair-orchestrator',
+  'krom-ci-pipeline-repair',
+  'krom-database-deadlock-repair',
+  'krom-pdf-generation-repair',
+  'krom-design-system-consistency-repair'
+];
+for(const skillName of repairSkillSamples){
+  const meta=getSkillMetadataV76(skillName);
+  if(!meta) throw new Error(`v78 missing imported repair skill: ${skillName}`);
+  if(!/^[a-f0-9]{64}$/.test(meta.sha256)) throw new Error(`v78 invalid skill digest: ${skillName}`);
+}
+
 const functionRepairSkill=getSkillMetadataV76('krom-function-audit-repair');
 if(!functionRepairSkill) throw new Error('v78 missing krom-function-audit-repair');
 if(!functionRepairSkill.domains.includes('debugging')) throw new Error('v78 function repair skill routing profile missing debugging domain');
@@ -205,7 +221,7 @@ console.log(JSON.stringify({
   executionLease:true,
   ownershipConflictDetection:true,
   rollbackGate:true,
-  importedSkillCatalog:52,
+  importedSkillCatalog:152,
   functionAuditRepairSkill:true,
   design3dStudioSkill:true,
   dynamicAgentDelegation:true,
