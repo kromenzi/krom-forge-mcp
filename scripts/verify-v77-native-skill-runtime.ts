@@ -10,6 +10,7 @@ import {
   explainRoutingDecisionV77,
   auditNativeSkillRuntimeV77
 } from '../src/v77-native-skill-runtime';
+import { resolveSkillDirectivePolicyV77, enforceExecutionPolicyV77, resolveSkillConflictsV77, auditDirectiveEnforcementV77 } from '../src/v77-directive-enforcement';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -166,6 +167,43 @@ const explanation=explainRoutingDecisionV77({
 },candidates);
 if(!explanation.agent.selected || !explanation.skills.length || !explanation.capabilities.length) throw new Error('Routing explanation is incomplete');
 
+const policy=resolveSkillDirectivePolicyV77(['ksa-database-schema-migration-architect','krom-secure-code-auditor']);
+if(policy.status!=='PASS') throw new Error(`Expected compatible skill policy PASS, got ${policy.status}`);
+
+const unknownPolicy=resolveSkillDirectivePolicyV77(['not-a-real-skill']);
+if(unknownPolicy.status!=='BLOCKED') throw new Error('Unknown skill must block directive policy');
+
+const enforcementSafe=enforceExecutionPolicyV77({
+  query:'audit database schema and rls',
+  skillNames:['ksa-database-schema-migration-architect'],
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true,
+  evidenceReady:true
+});
+if(enforcementSafe.status!=='READY') throw new Error(`Expected read-only policy READY, got ${enforcementSafe.status}`);
+
+const enforcementBlocked=enforceExecutionPolicyV77({
+  query:'deploy production release',
+  skillNames:['production-engineering-release-guardian'],
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:true,
+  evidenceReady:true
+});
+if(enforcementBlocked.status!=='BLOCKED') throw new Error('Unauthorized production mutation must be blocked');
+if(!enforcementBlocked.findings.some(x=>x.code==='HOST_AUTHORIZATION_REQUIRED')) throw new Error('Authorization finding missing');
+if(!enforcementBlocked.findings.some(x=>x.code==='APPROVAL_REQUIRED')) throw new Error('Approval finding missing');
+
+const conflictsResolved=resolveSkillConflictsV77(['ksa-safety-board-uiux-design','ksa-accessibility-rtl-i18n-engineer']);
+if(!Array.isArray(conflictsResolved.conflicts)) throw new Error('Conflict resolver output invalid');
+if(conflictsResolved.automaticOverride!==false) throw new Error('Conflict resolver must never silently override');
+
+const directiveAudit=auditDirectiveEnforcementV77();
+if(directiveAudit.status!=='PASS') throw new Error(`Directive enforcement audit failed: ${JSON.stringify(directiveAudit)}`);
+
 const audit=auditNativeSkillRuntimeV77(candidates);
 if(audit.status!=='PASS') throw new Error(`v77 runtime audit failed: ${JSON.stringify(audit)}`);
 if(!audit.catalogIntegrity) throw new Error('v77 did not preserve 50-skill catalog integrity');
@@ -187,6 +225,11 @@ console.log(JSON.stringify({
   deterministicContractDigest:true,
   multiSkillExecutionGraph:true,
   explainableRouting:true,
+  directivePolicyResolution:true,
+  executionPolicyEnforcement:true,
+  skillConflictResolver:true,
+  secretHandlingRestriction:true,
+  unknownSkillBlocking:true,
   preservedInternalCapabilityBaseline:5333,
   executionClaim:false
 }));
