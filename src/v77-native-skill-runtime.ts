@@ -131,7 +131,7 @@ export function routeCompoundIntentV77(
   const conflicts=detectDirectiveConflictsV77(skillNames);
   const action=classifyActionV77(input.query);
   const authorizationSatisfied=!action.mutation || input.hostAuthorized;
-  const effectiveApprovalRequired=input.approvalRequired || action.highRisk;
+  const effectiveApprovalRequired=input.approvalRequired || (action.mutation && action.highRisk);
   const approvalSatisfied=!effectiveApprovalRequired || input.approved;
   const status = conflicts.length
     ? 'BLOCKED_CONFLICT'
