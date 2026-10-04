@@ -1,0 +1,53 @@
+name: KSA Security Quality Remediation Gate
+
+on:
+  push:
+    branches:
+      - feat/v78-autonomous-execution-governance
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ksa-remediation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security-quality:
+    name: Security + logo/print quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Verify remediation skill provenance and registration
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f skills/ksa-2026-security-quality-remediation/SKILL.md
+          echo "aa1e905dd1019b858be083fd43e7d1e3a95d2bccd647438d60bd38a8b17d67a4  skills/ksa-2026-security-quality-remediation/SKILL.md" | sha256sum -c -
+          grep -q "'ksa-2026-security-quality-remediation'" src/v75-agent-capability-fabric.ts
+          grep -q '"name":"ksa-2026-security-quality-remediation"' src/v76-skill-index/part-9.ts
+      - name: Dependency vulnerability gate
+        run: npm audit --audit-level=high
+      - name: Verify v75 skill fabric
+        run: npm run verify:v75
+      - name: Verify v76 semantic routing
+        run: npm run verify:v76
+      - name: Verify v77 native directives
+        run: npm run verify:v77
+      - name: Verify v78 governance
+        run: npm run verify:v78
+      - name: TypeScript gate
+        run: npm run typecheck
+      - name: Regression tests
+        run: npm test
+      - name: Production build
+        run: npm run build
