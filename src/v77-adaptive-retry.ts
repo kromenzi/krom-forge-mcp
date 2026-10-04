@@ -40,10 +40,10 @@ export function classifyFailureV77(input:V77AdaptiveRetryInput){
   if(status===401||status===403||/unauthor|forbidden|permission denied|rls|auth/.test(m+' '+code)) failureClass='AUTHORIZATION';
   else if(status===429||/rate limit|too many requests|quota/.test(m+' '+code)) failureClass='RATE_LIMIT';
   else if(status===400||status===422||/validation|invalid input|schema|zod/.test(m+' '+code)) failureClass='VALIDATION';
-  else if(status===404||/not found|missing route|cannot find module/.test(m+' '+code)) failureClass='NOT_FOUND';
+  else if(/typeerror|referenceerror|syntaxerror|compile|typescript|ts\d+|build failed|test failed|assert|cannot find module/.test(m+' '+code)) failureClass='CODE_DEFECT';
+  else if(status===404||/not found|missing route/.test(m+' '+code)) failureClass='NOT_FOUND';
   else if(status===409||/conflict|already exists|duplicate/.test(m+' '+code)) failureClass='CONFLICT';
   else if((status&&status>=500)||/timeout|timed out|econnreset|network|socket hang up|temporary|temporarily unavailable|service unavailable|gateway/.test(m+' '+code)) failureClass='TRANSIENT_NETWORK';
-  else if(/typeerror|referenceerror|syntaxerror|compile|typescript|ts\d+|build failed|test failed|assert/.test(m+' '+code)) failureClass='CODE_DEFECT';
   else if(/architecture|structural|migration conflict|incompatible contract|breaking change|dependency cycle/.test(m+' '+code)) failureClass='STRUCTURAL';
 
   const retryable=['TRANSIENT_NETWORK','RATE_LIMIT','DEPENDENCY_TEMPORARY'].includes(failureClass);
