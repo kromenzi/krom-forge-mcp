@@ -378,7 +378,6 @@ const handler = createMcpHandler((server) => {
   "krom_v76_build_execution_plan",
   "krom_v76_audit_semantic_router",
   "krom_v76_get_skill_metadata",
-  "krom_v76_audit_skill_index",
   "krom_get_capabilities"
 ]);
   const KROM_TOOL_DIRECTORY = new Map<string, { config: any; handler: (input: any) => any }>();
@@ -2313,16 +2312,6 @@ const handler = createMcpHandler((server) => {
         : { release: 'v76', status: 'NOT_FOUND', name, availableSkills: listSkillMetadataV76().map(x => x.name) }
       );
     }
-  );
-
-  server.registerTool(
-    'krom_v76_audit_skill_index',
-    {
-      title: 'Audit v76 validated skill index',
-      description: 'Verify imported skill count, names, duplicate state and SHA-256 metadata against the v75 50-skill contract.',
-      inputSchema: z.object({})
-    },
-    async () => result(auditSkillIndexV76())
   );
 
   registerKromTool(
