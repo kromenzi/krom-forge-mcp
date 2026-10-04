@@ -17,6 +17,7 @@ import { buildSkillTeamV77, auditSkillTeamOrchestratorV77 } from '../src/v77-ski
 import { buildExecutionReceiptV77, verifyExecutionReceiptV77, auditExecutionReceiptV77 } from '../src/v77-execution-receipt';
 import { closeMissionV77, verifyMissionClaimV77, auditMissionClosureV77 } from '../src/v77-mission-closure';
 import { buildMissionCheckpointV77, resumeMissionFromCheckpointV77, buildMissionRecoveryPlanV77, auditMissionRecoveryV77 } from '../src/v77-mission-recovery';
+import { buildAdaptiveRetryDecisionV77, buildSafeReplanV77, auditAdaptiveRetryV77 } from '../src/v77-adaptive-retry';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -28,6 +29,47 @@ const candidates=[
 ];
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
+
+const retryAudit=auditAdaptiveRetryV77();
+if(retryAudit.status!=='PASS') throw new Error(`Adaptive retry audit failed: ${JSON.stringify(retryAudit)}`);
+
+const retryDecision=buildAdaptiveRetryDecisionV77({
+  operation:'fetch dependency',
+  attempt:1,
+  maxAttempts:3,
+  errorMessage:'503 service unavailable',
+  httpStatus:503,
+  hostAuthorized:true,
+  schemaValidated:true,
+  priorIdenticalFailures:0,
+  sideEffectRisk:'LOW'
+});
+if(retryDecision.decision!=='RETRY') throw new Error('Expected transient failure retry');
+
+const authStop=buildAdaptiveRetryDecisionV77({
+  operation:'deploy production',
+  attempt:0,
+  maxAttempts:3,
+  errorMessage:'403 permission denied',
+  httpStatus:403,
+  hostAuthorized:false,
+  schemaValidated:true,
+  priorIdenticalFailures:0,
+  sideEffectRisk:'HIGH'
+});
+if(authStop.decision!=='STOP'||authStop.failureClass!=='AUTHORIZATION') throw new Error('Authorization failure must hard-stop');
+
+const safeReplan=buildSafeReplanV77({
+  operation:'build',
+  attempt:1,
+  maxAttempts:3,
+  errorMessage:'TypeScript TS2307 cannot find module',
+  hostAuthorized:true,
+  schemaValidated:true,
+  priorIdenticalFailures:0,
+  sideEffectRisk:'LOW'
+});
+if(safeReplan.decision!=='REPLAN'||!safeReplan.actions.length) throw new Error('Code defect did not produce a safe replan');
 
 const recoveryAudit=auditMissionRecoveryV77();
 if(recoveryAudit.status!=='PASS') throw new Error(`Mission recovery audit failed: ${JSON.stringify(recoveryAudit)}`);
@@ -477,6 +519,9 @@ console.log(JSON.stringify({
   missionCheckpoint:true,
   missionResume:true,
   recoveryPlanning:true,
+  adaptiveRetry:true,
+  circuitBreaking:true,
+  safeReplan:true,
   directivePolicyResolution:true,
   executionPolicyEnforcement:true,
   directiveApplicability:true,
