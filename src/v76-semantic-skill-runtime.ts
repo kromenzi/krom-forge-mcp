@@ -45,7 +45,27 @@ const SYNONYMS: Record<string,string[]> = {
   'print':['pdf','report','document','a4','طباعة','تقرير'],
   'vision':['camera','computer','cv','esp','image','رؤية','كاميرا'],
   'agent':['orchestrator','workflow','automation','وكيل'],
-  'skill':['capability','tool','plugin','مهارة','اداة','أداة']
+  'skill':['capability','tool','plugin','مهارة','اداة','أداة'],
+  'واجهة':['ui','ux','interface','frontend','design'],
+  'تصميم':['design','ui','ux','architecture'],
+  'سلامة':['safety','hse','ehs','risk','incident'],
+  'سلامه':['safety','hse','ehs','risk','incident'],
+  'قاعدة':['database','db','sql','schema'],
+  'بيانات':['database','db','data','schema'],
+  'نشر':['deploy','deployment','release','vercel'],
+  'أمن':['security','auth','authorization','threat'],
+  'امن':['security','auth','authorization','threat'],
+  'صلاحيات':['auth','authorization','rbac','rls','security'],
+  'اختبار':['test','qa','e2e','regression','verify'],
+  'تحقق':['verify','test','qa','evidence'],
+  'طباعة':['print','pdf','report','document'],
+  'تقرير':['report','print','pdf','document'],
+  'رؤية':['vision','camera','computer','cv'],
+  'كاميرا':['vision','camera','computer','cv'],
+  'وكيل':['agent','orchestrator','workflow'],
+  'مهارة':['skill','capability','tool','plugin'],
+  'اداة':['tool','capability','skill'],
+  'أداة':['tool','capability','skill']
 };
 
 function normalize(value:string){
