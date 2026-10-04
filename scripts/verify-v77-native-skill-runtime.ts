@@ -15,6 +15,7 @@ import { buildNativeMissionPlanV77, auditNativeMissionPlannerV77 } from '../src/
 import { getNativeSkillDirectivesV77, auditNativeSkillDirectiveBundleV77 } from '../src/v77-native-skill-directives';
 import { buildSkillTeamV77, auditSkillTeamOrchestratorV77 } from '../src/v77-skill-team-orchestrator';
 import { buildExecutionReceiptV77, verifyExecutionReceiptV77, auditExecutionReceiptV77 } from '../src/v77-execution-receipt';
+import { closeMissionV77, verifyMissionClaimV77, auditMissionClosureV77 } from '../src/v77-mission-closure';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -26,6 +27,60 @@ const candidates=[
 ];
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
+
+const missionClosureAudit=auditMissionClosureV77();
+if(missionClosureAudit.status!=='PASS') throw new Error(`Mission closure audit failed: ${JSON.stringify(missionClosureAudit)}`);
+
+const missionDigest='e'.repeat(64);
+const missionClaim=verifyMissionClaimV77({
+  missionDigest,
+  expectedCapabilities:['krom_audit_ui','krom_generate_test_plan'],
+  receipts:[
+    {
+      missionDigest,
+      capability:'krom_audit_ui',
+      outcome:'SUCCEEDED',
+      outputSummary:'UI audit verified.',
+      evidenceRefs:['ui:audit:1'],
+      verificationPassed:true,
+      executionAuthorized:true,
+      claimRequested:'PASSED'
+    },
+    {
+      missionDigest,
+      capability:'krom_generate_test_plan',
+      outcome:'SUCCEEDED',
+      outputSummary:'Test plan verified.',
+      evidenceRefs:['qa:test-plan:1'],
+      verificationPassed:true,
+      executionAuthorized:true,
+      claimRequested:'PASSED'
+    }
+  ],
+  claimRequested:'COMPLETED',
+  requireAllCapabilities:true,
+  requireSuccessfulOutcomes:true
+});
+if(missionClaim.status!=='PASS'||!missionClaim.claimAllowed) throw new Error('Verified mission claim did not pass');
+
+const incompleteMission=closeMissionV77({
+  missionDigest,
+  expectedCapabilities:['krom_audit_ui','krom_generate_test_plan'],
+  receipts:[{
+    missionDigest,
+    capability:'krom_audit_ui',
+    outcome:'SUCCEEDED',
+    outputSummary:'UI audit verified.',
+    evidenceRefs:['ui:audit:1'],
+    verificationPassed:true,
+    executionAuthorized:true,
+    claimRequested:'PASSED'
+  }],
+  claimRequested:'COMPLETED',
+  requireAllCapabilities:true,
+  requireSuccessfulOutcomes:true
+});
+if(incompleteMission.status!=='BLOCKED'||incompleteMission.claimAllowed) throw new Error('Incomplete mission closure was not blocked');
 
 const receiptAudit=auditExecutionReceiptV77();
 if(receiptAudit.status!=='PASS') throw new Error(`Execution receipt audit failed: ${JSON.stringify(receiptAudit)}`);
@@ -362,6 +417,8 @@ console.log(JSON.stringify({
   explainableRouting:true,
   executionReceipt:true,
   evidenceClosureGate:true,
+  missionClosure:true,
+  missionClaimVerification:true,
   directivePolicyResolution:true,
   executionPolicyEnforcement:true,
   directiveApplicability:true,
