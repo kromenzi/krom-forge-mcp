@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { V75_AGENT_IDS, V75_SKILL_NAMES } from './v75-agent-capability-fabric';
+import { V75_AGENT_IDS } from './v75-agent-capability-fabric';
+import { V76_SKILL_INDEX, getSkillMetadataV76 } from './v76-skill-index';
 
 export const v76SemanticRuntimeSchema = z.object({
   query: z.string().min(1),
@@ -142,10 +143,17 @@ export function selectAgentV76(query:string, agentHint?: (typeof V75_AGENT_IDS)[
 }
 
 export function rankSkillsV76(query:string, maxResults=10){
-  const ranked=V75_SKILL_NAMES.map(name=>{
-    const direct=scoreText(query,name);
-    const bonus=name.includes('orchestrator')?0.25:0;
-    return {name,score:Number((direct.score+bonus).toFixed(3)),coverage:Number(direct.coverage.toFixed(3))};
+  const ranked=V76_SKILL_INDEX.map(skill=>{
+    const direct=scoreText(query,[skill.name,skill.description].join(' '));
+    const nameOnly=scoreText(query,skill.name);
+    const bonus=skill.name.includes('orchestrator')?0.25:0;
+    return {
+      name:skill.name,
+      description:skill.description,
+      sha256:skill.sha256,
+      score:Number((direct.score+(nameOnly.score*0.35)+bonus).toFixed(3)),
+      coverage:Number(Math.max(direct.coverage,nameOnly.coverage).toFixed(3))
+    };
   }).filter(x=>x.score>0)
     .sort((a,b)=>b.score-a.score || b.coverage-a.coverage || a.name.localeCompare(b.name))
     .slice(0,maxResults);
@@ -192,6 +200,7 @@ export function routeIntentV76(input:z.infer<typeof v76SemanticRuntimeSchema>, c
 export function buildExecutionPlanV76(input:z.infer<typeof v76SemanticRuntimeSchema>, capabilityCandidates:V76CapabilityCandidate[]){
   const route=routeIntentV76(input,capabilityCandidates);
   const selectedSkill=route.skills[0]?.name ?? null;
+  const selectedSkillMetadata=selectedSkill ? getSkillMetadataV76(selectedSkill) : null;
   const selectedCapability=route.capabilities[0]?.name ?? null;
   return {
     release:'v76',
@@ -199,6 +208,7 @@ export function buildExecutionPlanV76(input:z.infer<typeof v76SemanticRuntimeSch
     query:input.query,
     agent:route.selectedAgent.agentId,
     skill:selectedSkill,
+    skillMetadata:selectedSkillMetadata,
     capability:selectedCapability,
     steps:[
       {id:'S1',action:'ROUTE_AGENT',target:route.selectedAgent.agentId},
