@@ -34,6 +34,7 @@ on:
       - v69-autonomous-operations-governance-superplane
       - v70-autonomous-delivery-verification-mesh
       - v71-continuous-assurance-learning-plane
+      - feat/v76-semantic-skill-runtime
 
 jobs:
   contract:
@@ -115,6 +116,21 @@ jobs:
       - name: Verify v71 continuous assurance
         run: npm run verify:v71
 
+      - name: Verify v72 skill assurance
+        run: npm run verify:v72
+
+      - name: Verify v73 patch bundle
+        run: npm run verify:v73
+
+      - name: Verify v74 skill registry
+        run: npm run verify:v74
+
+      - name: Verify v75 agent capability fabric
+        run: npm run verify:v75
+
+      - name: Verify v76 semantic skill runtime
+        run: npm run verify:v76
+
       - name: Unit tests
         run: npm test
 
@@ -194,6 +210,21 @@ jobs:
       - name: Verify v71 continuous assurance
         run: npm run verify:v71
 
+      - name: Verify v72 skill assurance
+        run: npm run verify:v72
+
+      - name: Verify v73 patch bundle
+        run: npm run verify:v73
+
+      - name: Verify v74 skill registry
+        run: npm run verify:v74
+
+      - name: Verify v75 agent capability fabric
+        run: npm run verify:v75
+
+      - name: Verify v76 semantic skill runtime
+        run: npm run verify:v76
+
       - name: Type check
         run: npm run typecheck
 
@@ -232,7 +263,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v71-verification-${{ github.sha }}
+          name: krom-v76-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
