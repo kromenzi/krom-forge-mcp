@@ -3,6 +3,7 @@ import { V76_SKILL_INDEX_1 } from './part-1';
 import { V76_SKILL_INDEX_2 } from './part-2';
 import { V76_SKILL_INDEX_3 } from './part-3';
 import { V76_SKILL_INDEX_4 } from './part-4';
+import { V76_SKILL_INDEX_5 } from './part-5';
 import { V75_SKILL_NAMES } from '../v75-agent-capability-fabric';
 
 export type V76SkillMetadata = {
@@ -33,6 +34,12 @@ const BASE_EVIDENCE = [
 
 function profile(name: string) {
   const n = name.toLowerCase();
+  if (n.includes('function-audit') || n.includes('function-repair')) {
+    return { domains:['debugging','function','code-quality','repair','api','supabase','postgres','verification'], preferredAgents:['backend','qa','security','architect'] };
+  }
+  if (n.includes('3d-design') || n.includes('3d')) {
+    return { domains:['ui','ux','3d','design','webgl','r3f','responsive','accessibility','performance'], preferredAgents:['uiux','frontend','qa','architect'] };
+  }
   if (n.includes('uiux') || n.includes('accessibility') || n.includes('rtl') || n.includes('vision-command-center')) {
     return { domains:['ui','ux','responsive','accessibility','rtl','frontend'], preferredAgents:['uiux','frontend','qa'] };
   }
@@ -71,7 +78,8 @@ const RAW_SKILLS = [
   ...V76_SKILL_INDEX_1,
   ...V76_SKILL_INDEX_2,
   ...V76_SKILL_INDEX_3,
-  ...V76_SKILL_INDEX_4
+  ...V76_SKILL_INDEX_4,
+  ...V76_SKILL_INDEX_5
 ];
 
 export const V76_SKILL_INDEX: readonly V76SkillMetadata[] = RAW_SKILLS.map(skill => {
