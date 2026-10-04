@@ -9,7 +9,8 @@ export const v77RuntimeSchema = z.object({
   relativeSkillThreshold: z.number().min(0).max(1).default(0.55),
   hostAuthorized: z.boolean().default(false),
   approvalRequired: z.boolean().default(false),
-  approved: z.boolean().default(false)
+  approved: z.boolean().default(false),
+  schemaValidated: z.boolean().default(false)
 });
 
 export type V77Directive = {
@@ -167,9 +168,15 @@ export function buildExecutionContractV77(
 ){
   const route=routeCompoundIntentV77(input,capabilityCandidates);
   const capability=route.selectedCapabilities[0]?.name ?? null;
+  const schemaSatisfied=Boolean(capability) && input.schemaValidated;
+  const contractStatus = route.status!=='READY'
+    ? route.status
+    : !schemaSatisfied
+      ? 'BLOCKED_SCHEMA_VALIDATION'
+      : 'READY';
   return {
     release:'v77',
-    status:route.status,
+    status:contractStatus,
     query:input.query,
     agent:route.selectedAgent.agentId,
     skills:route.selectedSkills.map(x=>x.name),
@@ -183,7 +190,7 @@ export function buildExecutionContractV77(
       {id:'P3',name:'CAPABILITY_SELECTED',satisfied:Boolean(capability)},
       {id:'P4',name:'HOST_AUTHORIZATION',satisfied:route.authorization.authorizationSatisfied},
       {id:'P5',name:'APPROVAL',satisfied:route.authorization.approvalSatisfied},
-      {id:'P6',name:'INPUT_SCHEMA_VALIDATION_REQUIRED',satisfied:false},
+      {id:'P6',name:'INPUT_SCHEMA_VALIDATION_REQUIRED',satisfied:schemaSatisfied},
       {id:'P7',name:'POST_EXECUTION_EVIDENCE_REQUIRED',satisfied:false}
     ],
     steps:[
@@ -197,7 +204,7 @@ export function buildExecutionContractV77(
       {id:'S8',action:'DISPATCH_IF_ALL_PRECONDITIONS_PASS',target:capability},
       {id:'S9',action:'VERIFY_EVIDENCE',target:'claim-to-evidence gate'}
     ],
-    dispatchAllowed:route.status==='READY' && Boolean(capability),
+    dispatchAllowed:contractStatus==='READY' && Boolean(capability) && schemaSatisfied,
     hostAuthorizationRequired:route.action.mutation,
     executionClaim:false
   };
@@ -215,7 +222,7 @@ export function auditNativeSkillRuntimeV77(capabilityCandidates:V76CapabilityCan
   const results=cases.map(c=>{
     const route=routeCompoundIntentV77({
       query:c.q,maxSkills:4,maxCapabilities:8,relativeSkillThreshold:0.55,
-      hostAuthorized:c.authorized,approvalRequired:false,approved:false
+      hostAuthorized:c.authorized,approvalRequired:false,approved:false,schemaValidated:true
     },capabilityCandidates);
     const skillPass=route.selectedSkills.length>=c.expectSkills;
     const capabilityPass=route.selectedCapabilities.length>0;
