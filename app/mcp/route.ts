@@ -98,6 +98,7 @@ import { v72SkillSchema, auditSkillToolCoverageV72, assessSkillExecutionSafetyV7
 import { v73PatchSchema, buildPatchBundleV73, verifyPatchBundleV73, buildPatchExecutionContractV73 } from '../../src/v73-patch-bundle';
 import { v74SkillRegistrySchema, auditSkillRegistryV74, validateSkillPackageV74, reviewSkillSupplyChainV74, draftSkillPackageV74, analyzeSkillCapabilityGapsV74, evaluateSkillBehavioralSuiteV74, compareSkillLifecycleV74, normalizeAuditOutcomeV74, buildDependencySbomV74, scanRedactedSecretsV74 } from '../../src/v74-skill-registry';
 import { v75AgentCapabilitySchema, getAgentCapabilityProfileV75, listAgentSkillFabricV75, searchAgentSkillsV75, auditAgentCapabilityFabricV75 } from '../../src/v75-agent-capability-fabric';
+import { v76SemanticRuntimeSchema, routeIntentV76, rankSkillsV76, rankCapabilitiesV76, buildExecutionPlanV76, auditSemanticRouterV76 } from '../../src/v76-semantic-skill-runtime';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -369,6 +370,10 @@ const handler = createMcpHandler((server) => {
   "krom_v75_list_agent_skill_fabric",
   "krom_v75_search_agent_skills",
   "krom_v75_audit_agent_capability_fabric",
+  "krom_v76_route_intent",
+  "krom_v76_rank_skills",
+  "krom_v76_build_execution_plan",
+  "krom_v76_audit_semantic_router",
   "krom_get_capabilities"
 ]);
   const KROM_TOOL_DIRECTORY = new Map<string, { config: any; handler: (input: any) => any }>();
@@ -2196,6 +2201,74 @@ const handler = createMcpHandler((server) => {
     async (input) => result(auditAgentCapabilityFabricV75({ ...input, availableInternalCapabilities: KROM_TOOL_DIRECTORY.size }))
   );
 
+  server.registerTool(
+    'krom_v76_route_intent',
+    {
+      title: 'Route intent with v76 semantic runtime',
+      description: 'Select the best specialist agent, imported skill and internal KROM capability using bilingual token expansion, fuzzy ranking and ambiguity detection.',
+      inputSchema: v76SemanticRuntimeSchema
+    },
+    async (input) => {
+      const candidates = [...KROM_TOOL_DIRECTORY.entries()].map(([name, entry]) => ({
+        name,
+        title: entry.config?.title ?? name,
+        description: entry.config?.description ?? '',
+        publicDirect: KROM_PUBLIC_TOOL_NAMES.has(name)
+      }));
+      return result(routeIntentV76(input, candidates));
+    }
+  );
+
+  server.registerTool(
+    'krom_v76_rank_skills',
+    {
+      title: 'Rank v76 skills',
+      description: 'Rank the full imported skill catalog for an Arabic or English engineering intent using fuzzy and synonym-aware scoring.',
+      inputSchema: v76SemanticRuntimeSchema
+    },
+    async (input) => result({
+      release: 'v76',
+      query: input.query,
+      matches: rankSkillsV76(input.query, input.maxResults)
+    })
+  );
+
+  server.registerTool(
+    'krom_v76_build_execution_plan',
+    {
+      title: 'Build v76 semantic execution plan',
+      description: 'Build an evidence-aware Agent → Skill → Capability plan with ambiguity detection and host-authorization boundaries; does not claim execution.',
+      inputSchema: v76SemanticRuntimeSchema
+    },
+    async (input) => {
+      const candidates = [...KROM_TOOL_DIRECTORY.entries()].map(([name, entry]) => ({
+        name,
+        title: entry.config?.title ?? name,
+        description: entry.config?.description ?? '',
+        publicDirect: KROM_PUBLIC_TOOL_NAMES.has(name)
+      }));
+      return result(buildExecutionPlanV76(input, candidates));
+    }
+  );
+
+  server.registerTool(
+    'krom_v76_audit_semantic_router',
+    {
+      title: 'Audit v76 semantic router',
+      description: 'Run deterministic smoke cases over agent, skill and capability routing and report gaps without fabricating execution.',
+      inputSchema: z.object({})
+    },
+    async () => {
+      const candidates = [...KROM_TOOL_DIRECTORY.entries()].map(([name, entry]) => ({
+        name,
+        title: entry.config?.title ?? name,
+        description: entry.config?.description ?? '',
+        publicDirect: KROM_PUBLIC_TOOL_NAMES.has(name)
+      }));
+      return result(auditSemanticRouterV76(candidates));
+    }
+  );
+
   registerKromTool(
     'krom_get_capabilities',
     {
@@ -2231,21 +2304,16 @@ const handler = createMcpHandler((server) => {
       })
     },
     async ({ query, limit }) => {
-      const q = query.toLowerCase();
-      const matches = [...KROM_TOOL_DIRECTORY.entries()]
-        .filter(([name, entry]) =>
-          name.toLowerCase().includes(q) ||
-          String(entry.config?.title ?? '').toLowerCase().includes(q) ||
-          String(entry.config?.description ?? '').toLowerCase().includes(q)
-        )
-        .slice(0, limit)
-        .map(([name, entry]) => ({
-          name,
-          title: entry.config?.title ?? name,
-          description: entry.config?.description ?? '',
-          publicDirect: KROM_PUBLIC_TOOL_NAMES.has(name)
-        }));
+      const candidates = [...KROM_TOOL_DIRECTORY.entries()].map(([name, entry]) => ({
+        name,
+        title: entry.config?.title ?? name,
+        description: entry.config?.description ?? '',
+        publicDirect: KROM_PUBLIC_TOOL_NAMES.has(name)
+      }));
+      const matches = rankCapabilitiesV76(query, candidates, limit);
       return result({
+        release: 'v76',
+        searchMode: 'semantic-fuzzy-bilingual',
         query,
         count: matches.length,
         totalCapabilities: KROM_TOOL_DIRECTORY.size,
