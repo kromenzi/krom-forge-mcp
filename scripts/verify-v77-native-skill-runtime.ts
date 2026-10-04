@@ -44,10 +44,24 @@ const blocked=buildExecutionContractV77({
   relativeSkillThreshold:0.55,
   hostAuthorized:false,
   approvalRequired:false,
-  approved:false
+  approved:false,
+  schemaValidated:false
 },candidates);
 if(blocked.status!=='BLOCKED_AUTHORIZATION') throw new Error(`Expected BLOCKED_AUTHORIZATION, got ${blocked.status}`);
 if(blocked.dispatchAllowed) throw new Error('Unauthorized mutation must not be dispatchable');
+
+const schemaBlocked=buildExecutionContractV77({
+  query:'audit database schema and rls',
+  maxSkills:4,
+  maxCapabilities:8,
+  relativeSkillThreshold:0.55,
+  hostAuthorized:false,
+  approvalRequired:false,
+  approved:false,
+  schemaValidated:false
+},candidates);
+if(schemaBlocked.status!=='BLOCKED_SCHEMA_VALIDATION') throw new Error(`Expected BLOCKED_SCHEMA_VALIDATION, got ${schemaBlocked.status}`);
+if(schemaBlocked.dispatchAllowed) throw new Error('Schema-unvalidated contract must not be dispatchable');
 
 const authorized=buildExecutionContractV77({
   query:'deploy production release after tests',
@@ -56,7 +70,8 @@ const authorized=buildExecutionContractV77({
   relativeSkillThreshold:0.55,
   hostAuthorized:true,
   approvalRequired:false,
-  approved:false
+  approved:false,
+  schemaValidated:true
 },candidates);
 if(authorized.status==='BLOCKED_AUTHORIZATION') throw new Error('Authorized mutation remained authorization-blocked');
 
@@ -67,7 +82,8 @@ const approvalBlocked=buildExecutionContractV77({
   relativeSkillThreshold:0.55,
   hostAuthorized:true,
   approvalRequired:true,
-  approved:false
+  approved:false,
+  schemaValidated:true
 },candidates);
 if(approvalBlocked.status!=='BLOCKED_APPROVAL') throw new Error(`Expected BLOCKED_APPROVAL, got ${approvalBlocked.status}`);
 
@@ -86,6 +102,7 @@ console.log(JSON.stringify({
   conflictDetection:true,
   mutationAuthorizationGate:true,
   approvalGate:true,
+  schemaValidationGate:true,
   preservedInternalCapabilityBaseline:5333,
   executionClaim:false
 }));
