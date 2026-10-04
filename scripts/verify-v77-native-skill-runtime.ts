@@ -14,6 +14,7 @@ import { resolveSkillDirectivePolicyV77, evaluateDirectiveApplicabilityV77, enfo
 import { buildNativeMissionPlanV77, auditNativeMissionPlannerV77 } from '../src/v77-native-mission-planner';
 import { getNativeSkillDirectivesV77, auditNativeSkillDirectiveBundleV77 } from '../src/v77-native-skill-directives';
 import { buildSkillTeamV77, auditSkillTeamOrchestratorV77 } from '../src/v77-skill-team-orchestrator';
+import { buildExecutionReceiptV77, verifyExecutionReceiptV77, auditExecutionReceiptV77 } from '../src/v77-execution-receipt';
 
 const candidates=[
   {name:'krom_audit_database_architecture',title:'Audit database architecture',description:'database schema migration rls audit'},
@@ -25,6 +26,34 @@ const candidates=[
 ];
 
 if(V76_SKILL_INDEX.length!==50) throw new Error(`Expected 50 v76 skills, got ${V76_SKILL_INDEX.length}`);
+
+const receiptAudit=auditExecutionReceiptV77();
+if(receiptAudit.status!=='PASS') throw new Error(`Execution receipt audit failed: ${JSON.stringify(receiptAudit)}`);
+
+const receipt=buildExecutionReceiptV77({
+  missionDigest:'b'.repeat(64),
+  capability:'krom_decide_release',
+  outcome:'SUCCEEDED',
+  outputSummary:'Release decision verified.',
+  evidenceRefs:['ci:v77:pass','vercel:preview:ready'],
+  verificationPassed:true,
+  executionAuthorized:true,
+  claimRequested:'PASSED'
+});
+if(!receipt.claimAllowed || receipt.closureStatus!=='VERIFIED_SUCCESS') throw new Error('Verified execution receipt did not allow completion claim');
+if(!/^[a-f0-9]{64}$/.test(receipt.receiptDigest)) throw new Error('Execution receipt digest is invalid');
+
+const unsupportedReceipt=verifyExecutionReceiptV77({
+  missionDigest:'b'.repeat(64),
+  capability:'krom_decide_release',
+  outcome:'SUCCEEDED',
+  outputSummary:'Unsupported release claim.',
+  evidenceRefs:[],
+  verificationPassed:false,
+  executionAuthorized:true,
+  claimRequested:'DEPLOYED'
+});
+if(unsupportedReceipt.status!=='BLOCKED') throw new Error('Unsupported execution claim was not blocked');
 
 const nativeDirectiveAudit=auditNativeSkillDirectiveBundleV77();
 if(nativeDirectiveAudit.status!=='PASS') throw new Error(`Native directive bundle audit failed: ${JSON.stringify(nativeDirectiveAudit)}`);
@@ -331,6 +360,8 @@ console.log(JSON.stringify({
   deterministicContractDigest:true,
   multiSkillExecutionGraph:true,
   explainableRouting:true,
+  executionReceipt:true,
+  evidenceClosureGate:true,
   directivePolicyResolution:true,
   executionPolicyEnforcement:true,
   directiveApplicability:true,
