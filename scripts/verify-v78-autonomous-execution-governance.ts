@@ -1,5 +1,14 @@
+import { getSkillMetadataV76 } from '../src/v76-skill-index';
 import { evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../src/v78-autonomous-execution-governance';
 import { buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../src/v78-agent-delegation-consensus';
+
+const functionRepairSkill=getSkillMetadataV76('krom-function-audit-repair');
+if(!functionRepairSkill) throw new Error('v78 missing krom-function-audit-repair');
+if(!functionRepairSkill.domains.includes('debugging')) throw new Error('v78 function repair skill routing profile missing debugging domain');
+
+const design3dSkill=getSkillMetadataV76('krom-3d-design-studio');
+if(!design3dSkill) throw new Error('v78 missing krom-3d-design-studio');
+if(!design3dSkill.domains.includes('3d')) throw new Error('v78 3D design skill routing profile missing 3d domain');
 
 const delegationAudit=auditAgentDelegationConsensusV78();
 if(delegationAudit.status!=='PASS') throw new Error(`v78 delegation/consensus audit failed: ${JSON.stringify(delegationAudit)}`);
@@ -95,6 +104,9 @@ console.log(JSON.stringify({
   executionLease:true,
   ownershipConflictDetection:true,
   rollbackGate:true,
+  importedSkillCatalog:52,
+  functionAuditRepairSkill:true,
+  design3dStudioSkill:true,
   dynamicAgentDelegation:true,
   multiAgentConsensus:true,
   vetoAndDeadlockHandling:true,
