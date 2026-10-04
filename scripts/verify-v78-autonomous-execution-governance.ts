@@ -2,6 +2,7 @@ import { getSkillMetadataV76 } from '../src/v76-skill-index';
 import { evaluateAutonomousExecutionV78, auditAutonomousExecutionV78 } from '../src/v78-autonomous-execution-governance';
 import { buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../src/v78-agent-delegation-consensus';
 import { buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78, type V78ExecutionLineageInput } from '../src/v78-execution-lineage';
+import { buildDecisionProvenanceV78, verifyDecisionProvenanceV78, scoreAgentTrustV78, auditDecisionProvenanceV78 } from '../src/v78-decision-provenance';
 
 const functionRepairSkill=getSkillMetadataV76('krom-function-audit-repair');
 if(!functionRepairSkill) throw new Error('v78 missing krom-function-audit-repair');
@@ -10,6 +11,66 @@ if(!functionRepairSkill.domains.includes('debugging')) throw new Error('v78 func
 const design3dSkill=getSkillMetadataV76('krom-3d-design-studio');
 if(!design3dSkill) throw new Error('v78 missing krom-3d-design-studio');
 if(!design3dSkill.domains.includes('3d')) throw new Error('v78 3D design skill routing profile missing 3d domain');
+
+const provenanceAudit=auditDecisionProvenanceV78();
+if(provenanceAudit.status!=='PASS') throw new Error(`v78 decision provenance audit failed: ${JSON.stringify(provenanceAudit)}`);
+
+const provenance=buildDecisionProvenanceV78({
+  decisionId:'release-v78-1',
+  objective:'Approve verified release decision',
+  decidedBy:'release-auditor',
+  decision:'APPROVE',
+  rationale:['Current verified build and test evidence supports the decision.'],
+  evidence:[{
+    id:'build:v78',
+    digest:'c'.repeat(64),
+    verified:true,
+    issuedAtEpoch:10_000,
+    maxAgeSeconds:600,
+    revoked:false,
+    sourceTrust:0.95
+  }],
+  nowEpoch:10_300,
+  minimumFreshEvidence:1,
+  minimumAverageTrust:0.8,
+  independentValidator:'qa'
+});
+if(provenance.status!=='VERIFIED'||!provenance.continuationAllowed) throw new Error('v78 decision provenance did not verify current evidence');
+
+const provenanceVerification=verifyDecisionProvenanceV78({
+  decisionId:'release-v78-1',
+  objective:'Approve verified release decision',
+  decidedBy:'release-auditor',
+  decision:'APPROVE',
+  rationale:['Current verified build and test evidence supports the decision.'],
+  evidence:[{
+    id:'build:v78',
+    digest:'c'.repeat(64),
+    verified:true,
+    issuedAtEpoch:10_000,
+    maxAgeSeconds:600,
+    revoked:false,
+    sourceTrust:0.95
+  }],
+  nowEpoch:10_300,
+  minimumFreshEvidence:1,
+  minimumAverageTrust:0.8,
+  independentValidator:'qa',
+  claimedDecisionDigest:provenance.decisionDigest
+});
+if(provenanceVerification.status!=='PASS'||!provenanceVerification.digestMatches) throw new Error('v78 decision digest verification failed');
+
+const trust=scoreAgentTrustV78({
+  agent:'qa',
+  verifiedDecisions:12,
+  overturnedDecisions:1,
+  verifiedEvidenceContributions:15,
+  staleEvidenceContributions:1,
+  authorizationViolations:0,
+  unresolvedConflicts:0,
+  baselineTrust:0.6
+});
+if(trust.trust<0.6) throw new Error('v78 trust scoring unexpectedly degraded verified QA agent');
 
 const lineageAudit=auditExecutionLineageV78();
 if(lineageAudit.status!=='PASS') throw new Error(`v78 execution lineage audit failed: ${JSON.stringify(lineageAudit)}`);
@@ -154,5 +215,8 @@ console.log(JSON.stringify({
   consensusReceipts:true,
   leaseSafeOwnershipTransfer:true,
   lineageTamperDetection:true,
+  decisionProvenance:true,
+  evidenceFreshness:true,
+  agentTrustScoring:true,
   executionClaim:false
 },null,2));
