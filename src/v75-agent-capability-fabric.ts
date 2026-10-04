@@ -17,7 +17,8 @@ export const V75_SKILL_NAMES = [
   'ksa-safety-board-hse-automation-workflow','ksa-safety-board-orchestrator','ksa-safety-board-orchestrator-v3','ksa-safety-board-print-document-architect',
   'ksa-safety-board-uiux-design','ksa-vision-command-center-uiux','ksa-vision-reliability-security-auditor','outlook-playbooks',
   'powerpoint-playbooks','production-engineering-release-guardian','saudi-forge-public-deployment','skill-creator',
-  'system-settings-playbooks','typst-pdf-maker','whatsapp-playbooks','word-playbooks'
+  'system-settings-playbooks','typst-pdf-maker','whatsapp-playbooks','word-playbooks',
+  'krom-function-audit-repair','krom-3d-design-studio'
 ] as const;
 
 const preferredHostTools: Record<(typeof V75_AGENT_IDS)[number], string[]> = {
