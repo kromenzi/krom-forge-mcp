@@ -71,6 +71,7 @@ export function buildMcpManifest(options = {}) {
   const source = ts.createSourceFile(absoluteRoute, route, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
   const tools = [];
   const publicTools = [];
+  const controlTools = [];
   const publicToolNames = new Set();
   const capabilityCandidates = [];
   const modules = [];
@@ -102,7 +103,7 @@ export function buildMcpManifest(options = {}) {
 
   const visit = (node) => {
     if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) &&
-        node.name.text === 'KROM_PUBLIC_TOOL_NAMES' && node.initializer &&
+        node.name.text === 'KROM_CORE_PUBLIC_TOOL_NAMES' && node.initializer &&
         ts.isNewExpression(node.initializer) && node.initializer.arguments?.length) {
       const [arg] = node.initializer.arguments;
       if (ts.isArrayLiteralExpression(arg)) {
@@ -128,6 +129,26 @@ export function buildMcpManifest(options = {}) {
           description: literalText(descriptionProperty?.initializer) ?? '',
           inputSchemaExpression: inputSchemaProperty?.initializer.getText(source) ?? '',
           line: location.line + 1
+        });
+      }
+    }
+
+    if (ts.isCallExpression(node) && ts.isIdentifier(node.expression) &&
+        node.expression.text === 'registerControlTool') {
+      const [nameNode, configNode] = node.arguments;
+      const name = literalText(nameNode);
+      if (name && ts.isObjectLiteralExpression(configNode)) {
+        const titleProperty = objectProperty(configNode, 'title');
+        const descriptionProperty = objectProperty(configNode, 'description');
+        const inputSchemaProperty = objectProperty(configNode, 'inputSchema');
+        const location = source.getLineAndCharacterOfPosition(node.getStart(source));
+        controlTools.push({
+          name,
+          title: literalText(titleProperty?.initializer) ?? '',
+          description: literalText(descriptionProperty?.initializer) ?? '',
+          inputSchemaExpression: inputSchemaProperty?.initializer.getText(source) ?? '',
+          line: location.line + 1,
+          controlPlane: true
         });
       }
     }
@@ -194,8 +215,9 @@ export function buildMcpManifest(options = {}) {
 
   const internalByName = new Map(tools.map((tool) => [tool.name, tool]));
   const gatewayByName = new Map(publicTools.map((tool) => [tool.name, tool]));
+  const controlByName = new Map(controlTools.map((tool) => [tool.name, tool]));
   const resolvedPublicTools = [...publicToolNames].map((name) =>
-    internalByName.get(name) ?? gatewayByName.get(name) ?? {
+    internalByName.get(name) ?? controlByName.get(name) ?? gatewayByName.get(name) ?? {
       name,
       title: '',
       description: '',
@@ -216,6 +238,7 @@ export function buildMcpManifest(options = {}) {
       registered: new Set(registeredNames).size,
       capabilities: new Set(capabilityTools).size,
       publicDirect: new Set(resolvedPublicTools.map((tool) => tool.name)).size,
+      controlPlane: new Set(controlTools.map((tool) => tool.name)).size,
       sourceModules: new Set(modules).size
     },
     integrity: {
@@ -228,6 +251,7 @@ export function buildMcpManifest(options = {}) {
     },
     sourceModules: [...new Set(modules)].sort(),
     tools,
+    controlTools,
     publicTools: resolvedPublicTools
   };
   const fingerprint = `sha256:${crypto.createHash('sha256').update(JSON.stringify(body)).digest('hex')}`;
