@@ -54,7 +54,7 @@ const design3dSkill=getSkillMetadataV76('krom-3d-design-studio');
 if(!design3dSkill) throw new Error('v78 missing krom-3d-design-studio');
 if(!design3dSkill.domains.includes('3d')) throw new Error('v78 3D design skill routing profile missing 3d domain');
 
-for(const skillName of ['kfg-001-developer-experience','ent-101-skill','ent-200-skill']){
+for(const skillName of ['kfg-001-developer-experience','ent-101-skill','ent-200-enterprise-system-composer']){
   const meta=getSkillMetadataV76(skillName);
   if(!meta) throw new Error(`v78 missing v79 native skill: ${skillName}`);
   if(!/^[a-f0-9]{64}$/.test(meta.sha256)) throw new Error(`v78 invalid v79 native skill digest: ${skillName}`);

@@ -19,7 +19,7 @@ if (!remediationSkill.domains.includes('security') || !remediationSkill.domains.
 const hseSkill = getSkillMetadataV76('enterprise-hse-platform-engineer');
 if (!hseSkill?.description.includes('HSE')) throw new Error('Validated HSE skill metadata was not loaded');
 
-for(const skillName of ['kfg-001-developer-experience','ent-101-skill','ent-200-skill']){
+for(const skillName of ['kfg-001-developer-experience','ent-101-skill','ent-200-enterprise-system-composer']){
   const meta=getSkillMetadataV76(skillName);
   if(!meta) throw new Error(`Missing v79 native skill metadata: ${skillName}`);
   if(!/^[a-f0-9]{64}$/.test(meta.sha256)) throw new Error(`Invalid v79 native skill digest: ${skillName}`);
