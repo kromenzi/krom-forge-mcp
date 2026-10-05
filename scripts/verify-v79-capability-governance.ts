@@ -26,7 +26,8 @@ if (!route.includes('KROM_CONTROL_TOOL_DIRECTORY')) fail('Control-plane director
 
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse core public tool list.');
-const coreTools = [...coreBlock[1].matchAll(/['"]([^'"]+)['"]/g)].map((match) => match[1]);
+const coreBlockText = coreBlock?.[1] ?? '';
+const coreTools = [...coreBlockText.matchAll(/['"]([^'"]+)['"]/g)].map((match) => match[1]);
 if (coreTools.length < 10 || coreTools.length > 15) fail(`Core public tool surface must contain 10-15 tools; got ${coreTools.length}`);
 if (new Set(coreTools).size !== coreTools.length) fail('Core public tool surface contains duplicates.');
 
