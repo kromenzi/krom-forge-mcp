@@ -1,6 +1,6 @@
 {
   "name": "krom-forge-mcp",
-  "version": "78.0.0",
+  "version": "79.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,8 +19,8 @@
     "test": "node scripts/run-tests.mjs",
     "typecheck": "tsc --noEmit",
     "audit:production": "npm audit --omit=dev --audit-level=high",
-    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run verify:v56 && npm run verify:v57 && npm run verify:v58 && npm run verify:v59 && npm run verify:v60 && npm run verify:v61 && npm run verify:v62 && npm run verify:v63 && npm run verify:v64 && npm run verify:v65 && npm run verify:v66 && npm run verify:v67 && npm run verify:v68 && npm run verify:v69 && npm run verify:v70 && npm run verify:v71 && npm run verify:v72 && npm run verify:v73 && npm run verify:v74 && npm run verify:v75 && npm run verify:v76 && npm run verify:v77 && npm run verify:v78 && npm run typecheck && npm test && npm run audit:production && npm run build",
-    "build": "npm run verify:v75 && npm run verify:v76 && npm run verify:v77 && npm run verify:v78 && next build",
+    "ci": "npm run verify:mcp -- --manifest-output .artifacts/mcp-manifest.json && npm run verify:automation && npm run verify:v55 && npm run verify:v56 && npm run verify:v57 && npm run verify:v58 && npm run verify:v59 && npm run verify:v60 && npm run verify:v61 && npm run verify:v62 && npm run verify:v63 && npm run verify:v64 && npm run verify:v65 && npm run verify:v66 && npm run verify:v67 && npm run verify:v68 && npm run verify:v69 && npm run verify:v70 && npm run verify:v71 && npm run verify:v72 && npm run verify:v73 && npm run verify:v74 && npm run verify:v75 && npm run verify:v76 && npm run verify:v77 && npm run verify:v78 && npm run verify:v79 && npm run typecheck && npm test && npm run audit:production && npm run build",
+    "build": "npm run verify:v75 && npm run verify:v76 && npm run verify:v77 && npm run verify:v78 && npm run verify:v79 && next build",
     "start": "next start",
     "verify:v64": "tsx scripts/verify-v64-trust-runtime.ts",
     "verify:v65": "tsx scripts/verify-v65-identity-delegation.ts",
@@ -36,7 +36,8 @@
     "verify:v75": "tsx scripts/verify-v75-agent-capability-fabric.ts",
     "verify:v76": "tsx scripts/verify-v76-semantic-skill-runtime.ts",
     "verify:v77": "tsx scripts/verify-v77-native-skill-runtime.ts",
-    "verify:v78": "tsx scripts/verify-v78-autonomous-execution-governance.ts"
+    "verify:v78": "tsx scripts/verify-v78-autonomous-execution-governance.ts",
+    "verify:v79": "tsx scripts/verify-v79-capability-governance.ts"
   },
   "engines": {
     "node": ">=20"
