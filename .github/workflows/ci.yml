@@ -36,6 +36,7 @@ on:
       - v71-continuous-assurance-learning-plane
       - feat/v76-semantic-skill-runtime
       - feat/v77-native-skill-runtime
+      - feat/v79-capability-intelligence-governance
 
 jobs:
   contract:
@@ -134,6 +135,12 @@ jobs:
 
       - name: Verify v77 native skill runtime
         run: npm run verify:v77
+
+      - name: Verify v78 autonomous governance
+        run: npm run verify:v78
+
+      - name: Verify v79 capability governance
+        run: npm run verify:v79
 
       - name: Unit tests
         run: npm test
@@ -245,7 +252,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          npm run start -- --hostname 127.0.0.1 --port 3000 > /tmp/krom-forge-next.log 2>&1 &
+          KROM_MCP_REQUIRE_AUTH=true KROM_MCP_AUTH_TOKEN=ci-v79-smoke-token npm run start -- --hostname 127.0.0.1 --port 3000 > /tmp/krom-forge-next.log 2>&1 &
           SERVER_PID=$!
           trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
 
@@ -264,13 +271,13 @@ jobs:
             exit 1
           fi
 
-          node scripts/smoke-http.mjs http://127.0.0.1:3000
+          KROM_MCP_AUTH_TOKEN=ci-v79-smoke-token KROM_EXPECT_AUTH=true node scripts/smoke-http.mjs http://127.0.0.1:3000
 
       - name: Upload verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v77-verification-${{ github.sha }}
+          name: krom-v79-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn
