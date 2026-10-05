@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { V79_NATIVE_SKILL_PACK_NAMES } from './v79-native-skill-pack-catalog';
 
 export const V75_AGENT_IDS = [
   'orchestrator','architect','researcher','backend','frontend','uiux','database','security','qa','devops','release-auditor'
@@ -120,7 +121,8 @@ export const V75_SKILL_NAMES = [
   'krom-search-index-repair',
   'krom-file-import-export-repair',
   'krom-data-export-report-repair',
-  'krom-design-system-consistency-repair'
+  'krom-design-system-consistency-repair',
+  ...V79_NATIVE_SKILL_PACK_NAMES
 ] as const;
 
 const preferredHostTools: Record<(typeof V75_AGENT_IDS)[number], string[]> = {
