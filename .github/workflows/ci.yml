@@ -11,6 +11,7 @@ on:
   pull_request:
     branches:
       - main
+      - feat/v79-capability-intelligence-governance
   push:
     branches:
       - main
@@ -37,6 +38,7 @@ on:
       - feat/v76-semantic-skill-runtime
       - feat/v77-native-skill-runtime
       - feat/v79-capability-intelligence-governance
+      - feat/v80-adaptive-skill-intelligence
 
 jobs:
   contract:
@@ -142,6 +144,9 @@ jobs:
       - name: Verify v79 capability governance
         run: npm run verify:v79
 
+      - name: Verify v80 adaptive skill intelligence
+        run: npm run verify:v80
+
       - name: Unit tests
         run: npm test
 
@@ -238,6 +243,9 @@ jobs:
 
       - name: Verify v77 native skill runtime
         run: npm run verify:v77
+
+      - name: Verify v80 adaptive skill intelligence
+        run: npm run verify:v80
 
       - name: Type check
         run: npm run typecheck

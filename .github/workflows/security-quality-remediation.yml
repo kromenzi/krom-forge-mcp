@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/v78-autonomous-execution-governance
+      - feat/v80-adaptive-skill-intelligence
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -66,6 +67,8 @@ jobs:
         run: npm run verify:v77
       - name: Verify v78 governance
         run: npm run verify:v78
+      - name: Verify v80 adaptive skill intelligence
+        run: npm run verify:v80
       - name: TypeScript gate
         run: npm run typecheck
       - name: Regression tests
