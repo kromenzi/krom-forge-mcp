@@ -29,6 +29,8 @@ import {
   recordSkillObservationV80
 } from '../src/v80-operational-learning';
 import { V75_SKILL_NAMES } from '../src/v75-agent-capability-fabric';
+import { V80_V42_SHADOW_SEEDS } from '../src/v80-v42-shadow-seeds';
+import { V80_PROMOTED_V42_SKILL_NAMES, V80_PROMOTED_V42_SKILL_COUNT } from '../src/v80-promoted-v42-skill-seeds';
 import {
   auditSkillOnboardingGovernanceV80,
   buildRetirementPortfolioV80,
@@ -65,6 +67,13 @@ import {
   prepareV42PromotionTransactionV80
 } from '../src/v80-authorized-promotion-executor';
 
+import {
+  auditV42RealCatalogPromotionAdapterV80,
+  digestRealSkillCatalogV80,
+  prepareV42RealCatalogPromotionV80,
+  verifyV42RealCatalogPatchV80
+} from '../src/v80-real-catalog-promotion-adapter';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -73,6 +82,12 @@ const fail = (message: string): never => {
 const root = process.cwd();
 const route = fs.readFileSync(path.resolve(root, 'app/mcp/route.ts'), 'utf8');
 const packageJson = JSON.parse(fs.readFileSync(path.resolve(root, 'package.json'), 'utf8'));
+const expectedStableSkillCount=1465+V80_PROMOTED_V42_SKILL_COUNT;
+const promotedV42NameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
+const remainingShadowSeeds=V80_V42_SHADOW_SEEDS.filter(seed=>!promotedV42NameSet.has(seed.n));
+const firstShadowSkillName=remainingShadowSeeds[0]?.n;
+const secondShadowSkillName=remainingShadowSeeds[1]?.n;
+if(!firstShadowSkillName||!secondShadowSkillName) fail('Phase 8 verification requires at least two remaining SHADOW candidates.');
 
 if (V80_RELEASE !== 'v80') fail('Unexpected v80 release marker.');
 if (!route.includes("'krom_v80_adaptive_skill_intelligence'")) fail('v80 control-plane gateway is not registered.');
@@ -394,18 +409,20 @@ const v42Audit = auditV42ShadowRegistryV80();
 if (v42Audit.status !== 'PASS') fail(`v4.2 shadow registry audit failed: ${v42Audit.failures.join(', ')}`);
 
 const v42Summary = getV42ShadowRegistrySummaryV80();
-if (v42Summary.shadowCandidates.count !== 500) fail('v4.2 shadow registry must contain exactly 500 candidates.');
-if (v42Summary.stableCatalog.count !== 1465 || !v42Summary.stableCatalog.unchanged) {
-  fail('Registering v4.2 shadow candidates changed the stable 1,465-skill catalog.');
+if (v42Summary.shadowCandidates.count !== 500-V80_PROMOTED_V42_SKILL_COUNT) {
+  fail('v4.2 shadow registry count is not aligned with real catalog promotions.');
 }
-if (v42Summary.shadowCandidates.executable || v42Summary.shadowCandidates.promoted !== 0) {
-  fail('v4.2 shadow candidates became executable or promoted without authorization.');
+if (v42Summary.stableCatalog.count !== expectedStableSkillCount || !v42Summary.stableCatalog.aligned) {
+  fail('v4.2 shadow registry stable catalog count is not promotion-aware.');
+}
+if (v42Summary.shadowCandidates.executable || v42Summary.shadowCandidates.promoted !== V80_PROMOTED_V42_SKILL_COUNT) {
+  fail('v4.2 shadow/promoted lifecycle partition is inconsistent.');
 }
 if (v42Summary.collisionAudit.exactStableCollisions.length || v42Summary.collisionAudit.normalizedStableCollisions.length) {
   fail('v4.2 shadow pack collides with the stable catalog.');
 }
 
-const firstShadow = getV42ShadowCandidateV80({skillName:'kfg-v4-0001-bounded-context-migration-map'});
+const firstShadow = getV42ShadowCandidateV80({skillName:firstShadowSkillName});
 if (firstShadow.status !== 'FOUND' || firstShadow.lifecycle !== 'SHADOW' || firstShadow.executable) {
   fail('v4.2 candidate lookup did not preserve SHADOW/non-executable state.');
 }
@@ -419,7 +436,7 @@ const qualifiedCanary = selectV42CanaryCohortV80({
   maxCandidates:2,
   maxPerArea:2,
   evidence:[{
-    skillName:'kfg-v4-0001-bounded-context-migration-map',
+    skillName:firstShadowSkillName,
     benchmarkScore:0.97,
     benchmarkCases:45,
     semanticMaxSimilarity:0.60,
@@ -431,7 +448,7 @@ const qualifiedCanary = selectV42CanaryCohortV80({
     securityPass:true
   }]
 });
-if (qualifiedCanary.selectedCount !== 1 || qualifiedCanary.selected[0]?.skillName !== 'kfg-v4-0001-bounded-context-migration-map') {
+if (qualifiedCanary.selectedCount !== 1 || qualifiedCanary.selected[0]?.skillName !== firstShadowSkillName) {
   fail('Qualified SHADOW evidence did not produce a deterministic CANARY recommendation.');
 }
 if (qualifiedCanary.executable || qualifiedCanary.promotionApplied || !qualifiedCanary.hostAuthorizationRequired) {
@@ -445,7 +462,7 @@ if (shadowBenchmarkAudit.status !== 'PASS') {
 
 const benchmarkResults = Array.from({length:24},(_,index)=>({
   caseId:`verify-shadow-${index}`,
-  skillName:'kfg-v4-0001-bounded-context-migration-map',
+  skillName:firstShadowSkillName,
   outcome:'PASS' as const,
   evidenceRefs:[`verify:evidence:${index}`],
   validatorPass:true,
@@ -480,13 +497,13 @@ if (shadowBenchmark.canaryRecommendation.selectedCount !== 1) {
 if (shadowBenchmark.canaryRecommendation.executable || shadowBenchmark.canaryRecommendation.promotionApplied) {
   fail('Shadow benchmark runner crossed the non-executable/non-promotion boundary.');
 }
-if (shadowBenchmark.stableCatalogCount !== 1465 || shadowBenchmark.stableCatalogMutation) {
-  fail('Shadow benchmark runner changed the stable 1,465-skill catalog.');
+if (shadowBenchmark.stableCatalogCount !== expectedStableSkillCount || shadowBenchmark.stableCatalogMutation) {
+  fail('Shadow benchmark runner changed the expected stable catalog.');
 }
 
 const shadowReport = getV42ShadowBenchmarkReportV80({
   benchmarkId:'verify-v80-phase5',
-  skillName:'kfg-v4-0001-bounded-context-migration-map',
+  skillName:firstShadowSkillName,
   results:benchmarkResults
 });
 if (shadowReport.status !== 'FOUND' || shadowReport.lifecycle !== 'SHADOW' || shadowReport.executable) {
@@ -499,7 +516,7 @@ if (promotionAudit.status !== 'PASS') {
 }
 
 const promotionBase = {
-  skillName:'kfg-v4-0001-bounded-context-migration-map',
+  skillName:firstShadowSkillName,
   currentLifecycle:'SHADOW' as const,
   riskLevel:'medium' as const,
   benchmarkScore:0.97,
@@ -573,7 +590,7 @@ if (stableReady.status !== 'READY' || stableReady.recommendation !== 'PROMOTE_ST
 const promotionPlan = buildV42PromotionPlanV80({
   assessments:[
     promotionBase,
-    {...promotionBase,skillName:'kfg-v4-0002-architecture-fitness-function-suite',benchmarkScore:0.60}
+    {...promotionBase,skillName:secondShadowSkillName,benchmarkScore:0.60}
   ],
   maxPromotions:5,
   maxPerArea:5
@@ -584,8 +601,8 @@ if (promotionPlan.counts.selected !== 1 || promotionPlan.counts.promoteCanary !=
 if (promotionPlan.promotionApplied || promotionPlan.deploymentApplied || promotionPlan.executable || promotionPlan.stableCatalogMutation) {
   fail('Promotion plan mutated runtime, deployment, or stable catalog.');
 }
-if (promotionPlan.stableCatalogCount !== 1465) {
-  fail('Promotion controller changed the stable 1,465-skill baseline.');
+if (promotionPlan.stableCatalogCount !== expectedStableSkillCount) {
+  fail('Promotion controller changed the expected stable catalog baseline.');
 }
 
 const executorAudit = auditV42AuthorizedPromotionExecutorV80();
@@ -596,7 +613,7 @@ if (executorAudit.status !== 'PASS') {
 const suppliedPromotionState = {
   registryVersion:'verify-v80-phase7',
   entries:[{
-    skillName:'kfg-v4-0001-bounded-context-migration-map',
+    skillName:firstShadowSkillName,
     lifecycle:'SHADOW' as const,
     transitionRevision:0
   }]
@@ -726,8 +743,80 @@ const committedStable = executeV42PromotionTransactionV80({
 if (committedStable.status !== 'COMMITTED_TO_SUPPLIED_STATE' || committedStable.stateAfter.entries[0]?.lifecycle !== 'STABLE') {
   fail('Authorized CANARY to STABLE supplied-state transition failed.');
 }
-if (committedStable.stableCatalogCount !== 1465 || committedStable.runtimeCatalogMutation) {
+if (committedStable.stableCatalogCount !== expectedStableSkillCount || committedStable.runtimeCatalogMutation) {
   fail('Authorized promotion executor changed the real stable catalog baseline.');
+}
+
+const realCatalogAudit = auditV42RealCatalogPromotionAdapterV80();
+if (realCatalogAudit.status !== 'PASS') {
+  fail(`Real catalog promotion adapter audit failed: ${realCatalogAudit.failures.join(', ')}`);
+}
+if (V80_PROMOTED_V42_SKILL_COUNT !== 0 || V80_PROMOTED_V42_SKILL_NAMES.length !== 0) {
+  fail('Phase 8 foundation must not promote any v4.2 candidate yet.');
+}
+if (V75_SKILL_NAMES.length !== 1465) {
+  fail('Phase 8 foundation changed the real stable skill count before an authorized promotion batch.');
+}
+
+const actualCatalogDigest=digestRealSkillCatalogV80();
+const stableReceipt={
+  skillName:firstShadowSkillName,
+  transactionId:committedStable.transactionId,
+  status:'COMMITTED_TO_SUPPLIED_STATE' as const,
+  targetLifecycle:'STABLE' as const,
+  beforeDigest:committedStable.beforeDigest,
+  afterDigest:committedStable.afterDigest,
+  authorizationId:committedStable.evidenceRecord.authorizationId,
+  approvalEvidenceRefs:committedStable.evidenceRecord.approvalEvidenceRefs,
+  postApplyEvidenceRefs:committedStable.evidenceRecord.postApplyEvidenceRefs
+};
+
+const unauthorizedCatalogPatch=prepareV42RealCatalogPromotionV80({
+  expectedCatalogDigest:actualCatalogDigest,
+  catalogAuthorization:false,
+  catalogAuthorizationId:'verify-catalog-denied',
+  catalogApprovalEvidenceRefs:['verify:catalog:denied'],
+  receipts:[stableReceipt]
+});
+if (unauthorizedCatalogPatch.status !== 'BLOCKED' || !unauthorizedCatalogPatch.blockers.includes('CATALOG_AUTHORIZATION_REQUIRED')) {
+  fail('Real catalog adapter did not require explicit catalog authorization.');
+}
+
+const staleCatalogPatch=prepareV42RealCatalogPromotionV80({
+  expectedCatalogDigest:'0'.repeat(64),
+  catalogAuthorization:true,
+  catalogAuthorizationId:'verify-catalog-digest',
+  catalogApprovalEvidenceRefs:['verify:catalog:digest'],
+  receipts:[stableReceipt]
+});
+if (staleCatalogPatch.status !== 'BLOCKED' || !staleCatalogPatch.blockers.includes('EXPECTED_CATALOG_DIGEST_MISMATCH')) {
+  fail('Real catalog adapter did not protect the expected catalog digest.');
+}
+
+const readyCatalogPatch=prepareV42RealCatalogPromotionV80({
+  expectedCatalogDigest:actualCatalogDigest,
+  catalogAuthorization:true,
+  catalogAuthorizationId:'verify-catalog-ready',
+  catalogApprovalEvidenceRefs:['verify:catalog:ready'],
+  receipts:[stableReceipt]
+});
+if (readyCatalogPatch.status !== 'PATCH_READY' || readyCatalogPatch.expectedStableSkillCountAfter !== 1466) {
+  fail('Valid Phase 7 STABLE receipt did not produce a one-skill real catalog patch plan.');
+}
+if (readyCatalogPatch.repositoryMutationApplied || readyCatalogPatch.runtimeCatalogMutationApplied || readyCatalogPatch.deploymentMutationApplied) {
+  fail('Real catalog adapter applied a mutation instead of returning an authorized patch plan.');
+}
+if (!readyCatalogPatch.patch.replacementSource.includes(firstShadowSkillName) || !readyCatalogPatch.patch.rollbackSource.includes('V80_PROMOTED_V42_SKILL_NAMES')) {
+  fail('Real catalog patch/rollback source is incomplete.');
+}
+
+const verifiedCatalogPatch=verifyV42RealCatalogPatchV80({
+  proposedPromotedNames:[firstShadowSkillName],
+  expectedStableSkillCount:1466,
+  expectedCatalogDigest:readyCatalogPatch.nextCatalogDigest
+});
+if (verifiedCatalogPatch.status !== 'PASS') {
+  fail(`Prepared real catalog patch did not verify: ${verifiedCatalogPatch.failures.join(', ')}`);
 }
 
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
@@ -774,5 +863,11 @@ console.log(JSON.stringify({
   atomicRollback:true,
   suppliedStateOnlyExecution:true,
   realStableCatalogPreservedAfterExecutor:true,
+  realCatalogPromotionAdapter:true,
+  promotedV42RegistryCount:V80_PROMOTED_V42_SKILL_COUNT,
+  promotionAwareStableCatalog:true,
+  catalogDigestGate:true,
+  catalogPatchRollbackSource:true,
+  realCatalogPatchApplied:false,
   automaticCatalogMutation:false
 }, null, 2));
