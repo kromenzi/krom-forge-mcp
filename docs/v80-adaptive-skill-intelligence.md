@@ -102,6 +102,94 @@ The benchmark evaluator reports:
 
 This creates a measurable basis for comparing future routing versions.
 
+## Phase 2 — Operational Learning Loop
+
+v80 now includes a portable observation ledger so routing quality can improve from verified mission outcomes instead of remaining a static scoring model.
+
+### Host-carried observation ledger
+
+The ledger records:
+
+- skill identity;
+- mission digest when available;
+- domain;
+- primary and validator agents;
+- PASS / FAIL / BLOCKED / UNVERIFIED outcome;
+- evidence completeness;
+- post-execution verification;
+- regression signal;
+- handoff count;
+- latency.
+
+Unknown skill names are rejected. Duplicate observation IDs are not re-recorded.
+
+The ledger is deliberately **PORTABLE_HOST_CARRIED**. KROM returns updated state to the host and does not silently persist it server-side. Durable persistence requires a separately authorized adapter.
+
+### Mission outcome normalization
+
+A verified mission result can be converted into one observation per selected skill.
+
+A SUCCEEDED outcome becomes PASS only when:
+
+- execution was authorized;
+- verification passed;
+- at least one evidence reference exists.
+
+Otherwise the result remains UNVERIFIED. FAILED maps to FAIL and PARTIAL maps to BLOCKED.
+
+### Operational skill health
+
+The health snapshot aggregates real observations into the existing effectiveness score and reports:
+
+- observed skill count;
+- catalog coverage;
+- per-skill sample confidence;
+- success / validator / evidence / regression / failure / latency signals;
+- unobserved skill count.
+
+### Routing with operational history
+
+The adaptive route can now start from the existing v76 semantic candidates and re-rank them using:
+
+semantic fit + evidence fit + measured historical quality + agent fit + lifecycle maturity - risk penalty
+
+Unobserved skills receive a neutral historical prior rather than being treated as proven or bad.
+
+### Governed lifecycle proposals
+
+The operational loop can recommend lifecycle changes using measured outcomes and quality gates.
+
+Recommendations never mutate the catalog automatically. Any promotion, downgrade, deprecation or retirement remains a host-authorized change.
+
+### Skill Control Center snapshot
+
+The control-center snapshot exposes:
+
+- total and observed skills;
+- observation coverage;
+- lifecycle distribution;
+- top and bottom measured skills;
+- lifecycle change proposals;
+- domain/role agent performance recommendations;
+- persistence status.
+
+This is backend state suitable for a future UI, not a claim that a visual dashboard has been deployed.
+
+### New operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- CREATE_OBSERVATION_LEDGER
+- RECORD_SKILL_OBSERVATION
+- RECORD_MISSION_OUTCOME
+- BUILD_SKILL_HEALTH_SNAPSHOT
+- ROUTE_WITH_OPERATIONAL_HISTORY
+- PROPOSE_LIFECYCLE_ACTIONS
+- BUILD_CONTROL_CENTER_SNAPSHOT
+- AUDIT_OPERATIONAL_LEARNING
+
+No additional public or control-plane gateway is created.
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
