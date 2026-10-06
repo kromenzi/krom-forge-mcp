@@ -11,6 +11,7 @@ on:
   pull_request:
     branches:
       - main
+      - feat/v79-capability-intelligence-governance
   push:
     branches:
       - main
