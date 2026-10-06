@@ -53,7 +53,7 @@ export const v80RecordObservationSchema=z.object({
   observation:v80SkillObservationSchema
 });
 
-export function recordSkillObservationV80(input:z.infer<typeof v80RecordObservationSchema>){
+export function recordSkillObservationV80(input:z.input<typeof v80RecordObservationSchema>){
   const parsed=v80RecordObservationSchema.parse(input);
   if(!knownSkills.has(parsed.observation.skillName)){
     return {
@@ -107,7 +107,7 @@ export const v80MissionOutcomeSchema=z.object({
   timestampEpoch:z.number().int().min(0).default(0)
 });
 
-export function recordMissionOutcomeV80(input:z.infer<typeof v80MissionOutcomeSchema>){
+export function recordMissionOutcomeV80(input:z.input<typeof v80MissionOutcomeSchema>){
   const parsed=v80MissionOutcomeSchema.parse(input);
   const unknownSkills=parsed.skillNames.filter(name=>!knownSkills.has(name));
   if(unknownSkills.length){
@@ -208,7 +208,7 @@ export const v80SkillHealthSchema=z.object({
   minConfidenceSamples:z.number().int().positive().default(20)
 });
 
-export function buildSkillHealthSnapshotV80(input:z.infer<typeof v80SkillHealthSchema>){
+export function buildSkillHealthSnapshotV80(input:z.input<typeof v80SkillHealthSchema>){
   const parsed=v80SkillHealthSchema.parse(input);
   const observedSkills=[...new Set(parsed.ledger.observations.map(item=>item.skillName))].sort();
   const health=observedSkills.map(skillName=>{
@@ -255,7 +255,7 @@ function inferRisk(name:string,domains:string[]):'low'|'medium'|'high'{
   return 'low';
 }
 
-export function routeWithOperationalHistoryV80(input:z.infer<typeof v80RouteFromLedgerSchema>){
+export function routeWithOperationalHistoryV80(input:z.input<typeof v80RouteFromLedgerSchema>){
   const parsed=v80RouteFromLedgerSchema.parse(input);
   const semantic=rankSkillsV76(parsed.query,parsed.maxCandidates);
   if(!semantic.length){
@@ -329,7 +329,7 @@ export const v80LifecycleProposalSchema=z.object({
   })).default({})
 });
 
-export function proposeLifecycleActionsV80(input:z.infer<typeof v80LifecycleProposalSchema>){
+export function proposeLifecycleActionsV80(input:z.input<typeof v80LifecycleProposalSchema>){
   const parsed=v80LifecycleProposalSchema.parse(input);
   const observedSkills=[...new Set(parsed.ledger.observations.map(item=>item.skillName))].sort();
   const proposals=observedSkills.map(skillName=>{
@@ -378,7 +378,7 @@ export const v80ControlCenterSchema=z.object({
   minConfidenceSamples:z.number().int().positive().default(20)
 });
 
-export function buildSkillControlCenterSnapshotV80(input:z.infer<typeof v80ControlCenterSchema>){
+export function buildSkillControlCenterSnapshotV80(input:z.input<typeof v80ControlCenterSchema>){
   const parsed=v80ControlCenterSchema.parse(input);
   const health=buildSkillHealthSnapshotV80({
     ledger:parsed.ledger,
