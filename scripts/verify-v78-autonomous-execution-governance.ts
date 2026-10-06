@@ -253,7 +253,7 @@ console.log(JSON.stringify({
   executionLease:true,
   ownershipConflictDetection:true,
   rollbackGate:true,
-  importedSkillCatalog:465,
+  importedSkillCatalog:1465,
   functionAuditRepairSkill:true,
   design3dStudioSkill:true,
   dynamicAgentDelegation:true,
