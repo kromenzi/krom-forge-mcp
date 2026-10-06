@@ -121,6 +121,7 @@ import {
   resolveCapabilityProfileV79,
   summarizeInputSchemaV79
 } from '../../src/v79-capability-governance';
+import * as v80 from '../../src/v80-adaptive-skill-intelligence';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2826,6 +2827,26 @@ const handler = createMcpHandler((server) => {
       if(operation==='SCORE_AGENT_TRUST') return result(scoreAgentTrustV78(v78AgentTrustSchema.parse(payload)));
       if(operation==='AUDIT_DECISION_PROVENANCE') return result(auditDecisionProvenanceV78());
       return result(evaluateAutonomousExecutionV78(v78GovernanceSchema.parse(payload)));
+    }
+  );
+
+  registerControlTool(
+    'krom_v80_adaptive_skill_intelligence',
+    {
+      title:'KROM Forge v80 adaptive skill intelligence',
+      description:'Evidence-bound adaptive skill control plane for effectiveness scoring, historical/evidence-aware routing, governed lifecycle recommendations, agent performance learning, evidence dependency invalidation, high-risk multi-agent review and deterministic benchmark metrics. It never self-modifies skills, permissions, repositories or deployments.',
+      inputSchema:v80.v80AdaptiveSkillIntelligenceSchema
+    },
+    async ({operation,payload})=>{
+      if(operation==='SCORE_SKILL_EFFECTIVENESS') return result(v80.scoreSkillEffectivenessV80(v80.v80EffectivenessSchema.parse(payload)));
+      if(operation==='RANK_ADAPTIVE_SKILLS') return result(v80.rankAdaptiveSkillsV80(v80.v80AdaptiveRoutingSchema.parse(payload)));
+      if(operation==='EVALUATE_SKILL_LIFECYCLE') return result(v80.evaluateSkillLifecycleV80(v80.v80LifecycleEvaluationSchema.parse(payload)));
+      if(operation==='BUILD_AGENT_PERFORMANCE_MATRIX') return result(v80.buildAgentPerformanceMatrixV80(v80.v80AgentMatrixSchema.parse(payload)));
+      if(operation==='BUILD_EVIDENCE_GRAPH') return result(v80.buildEvidenceGraphV80(v80.v80EvidenceGraphSchema.parse(payload)));
+      if(operation==='INVALIDATE_EVIDENCE_GRAPH') return result(v80.invalidateEvidenceGraphV80(v80.v80EvidenceInvalidationSchema.parse(payload)));
+      if(operation==='EVALUATE_MULTI_AGENT_REVIEW') return result(v80.evaluateMultiAgentReviewV80(v80.v80MultiAgentReviewSchema.parse(payload)));
+      if(operation==='EVALUATE_BENCHMARK') return result(v80.evaluateSkillBenchmarkV80(v80.v80BenchmarkSchema.parse(payload)));
+      return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
 
