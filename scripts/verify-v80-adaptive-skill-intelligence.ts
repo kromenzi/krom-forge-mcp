@@ -58,6 +58,13 @@ import {
   evaluateV42PromotionReadinessV80
 } from '../src/v80-canary-promotion-controller';
 
+import {
+  auditV42AuthorizedPromotionExecutorV80,
+  digestPromotionStateV80,
+  executeV42PromotionTransactionV80,
+  prepareV42PromotionTransactionV80
+} from '../src/v80-authorized-promotion-executor';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -581,6 +588,148 @@ if (promotionPlan.stableCatalogCount !== 1465) {
   fail('Promotion controller changed the stable 1,465-skill baseline.');
 }
 
+const executorAudit = auditV42AuthorizedPromotionExecutorV80();
+if (executorAudit.status !== 'PASS') {
+  fail(`Authorized promotion executor audit failed: ${executorAudit.failures.join(', ')}`);
+}
+
+const suppliedPromotionState = {
+  registryVersion:'verify-v80-phase7',
+  entries:[{
+    skillName:'kfg-v4-0001-bounded-context-migration-map',
+    lifecycle:'SHADOW' as const,
+    transitionRevision:0
+  }]
+};
+const suppliedDigest = digestPromotionStateV80(suppliedPromotionState);
+
+const preparedTransaction = prepareV42PromotionTransactionV80({
+  state:suppliedPromotionState,
+  readiness:promotionBase
+});
+if (preparedTransaction.status !== 'PREPARED' || preparedTransaction.expectedStateDigest !== suppliedDigest) {
+  fail('Authorized promotion executor did not prepare a deterministic transaction.');
+}
+
+const unauthorizedTransaction = executeV42PromotionTransactionV80({
+  state:suppliedPromotionState,
+  readiness:promotionBase,
+  expectedStateDigest:suppliedDigest,
+  hostAuthorization:false,
+  authorizationId:'verify-denied',
+  approvalEvidenceRefs:['verify:approval-denied'],
+  postApplyVerification:{
+    passed:true,
+    observedLifecycle:'CANARY',
+    evidenceRefs:['verify:post-denied']
+  }
+});
+if (unauthorizedTransaction.status !== 'DENIED' || !unauthorizedTransaction.reasons.includes('HOST_AUTHORIZATION_REQUIRED')) {
+  fail('Authorized promotion executor did not block missing host authorization.');
+}
+if (unauthorizedTransaction.afterDigest !== suppliedDigest) {
+  fail('Denied promotion altered the supplied state.');
+}
+
+const mismatchTransaction = executeV42PromotionTransactionV80({
+  state:suppliedPromotionState,
+  readiness:promotionBase,
+  expectedStateDigest:'0'.repeat(64),
+  hostAuthorization:true,
+  authorizationId:'verify-digest-mismatch',
+  approvalEvidenceRefs:['verify:approval-digest'],
+  postApplyVerification:{
+    passed:true,
+    observedLifecycle:'CANARY',
+    evidenceRefs:['verify:post-digest']
+  }
+});
+if (mismatchTransaction.status !== 'DENIED' || !mismatchTransaction.reasons.includes('EXPECTED_STATE_DIGEST_MISMATCH')) {
+  fail('Authorized promotion executor did not block stale/concurrent supplied state.');
+}
+
+const rollbackTransaction = executeV42PromotionTransactionV80({
+  state:suppliedPromotionState,
+  readiness:promotionBase,
+  expectedStateDigest:suppliedDigest,
+  hostAuthorization:true,
+  authorizationId:'verify-rollback',
+  approvalEvidenceRefs:['verify:approval-rollback'],
+  postApplyVerification:{
+    passed:false,
+    observedLifecycle:'CANARY',
+    evidenceRefs:['verify:post-failed']
+  }
+});
+if (rollbackTransaction.status !== 'ROLLED_BACK' || !rollbackTransaction.atomicRollbackApplied) {
+  fail('Failed post-promotion verification did not trigger atomic rollback.');
+}
+if (rollbackTransaction.afterDigest !== suppliedDigest || rollbackTransaction.stateAfter.entries[0]?.lifecycle !== 'SHADOW') {
+  fail('Atomic rollback did not restore the exact prior supplied state.');
+}
+
+const committedCanary = executeV42PromotionTransactionV80({
+  state:suppliedPromotionState,
+  readiness:promotionBase,
+  expectedStateDigest:suppliedDigest,
+  hostAuthorization:true,
+  authorizationId:'verify-canary',
+  approvalEvidenceRefs:['verify:approval-canary'],
+  postApplyVerification:{
+    passed:true,
+    observedLifecycle:'CANARY',
+    evidenceRefs:['verify:post-canary']
+  }
+});
+if (committedCanary.status !== 'COMMITTED_TO_SUPPLIED_STATE' || committedCanary.stateAfter.entries[0]?.lifecycle !== 'CANARY') {
+  fail('Authorized SHADOW to CANARY supplied-state transition failed.');
+}
+if (committedCanary.repositoryMutation || committedCanary.runtimeCatalogMutation || committedCanary.deploymentMutation) {
+  fail('Supplied-state promotion escaped into repository/runtime/deployment mutation.');
+}
+
+const canarySuppliedState = committedCanary.stateAfter;
+const canarySuppliedDigest = digestPromotionStateV80(canarySuppliedState);
+const committedStable = executeV42PromotionTransactionV80({
+  state:canarySuppliedState,
+  readiness:{
+    ...promotionBase,
+    currentLifecycle:'CANARY',
+    benchmarkScore:0.98,
+    benchmarkCases:80,
+    passRate:0.98,
+    validatorPassRate:0.99,
+    evidenceCompletenessRate:1,
+    securityPassRate:1,
+    unsupportedClaimRate:0,
+    regressionRate:0.01,
+    latencyPassRate:0.99,
+    canaryExposurePercent:10,
+    canaryObservationHours:48,
+    rollback:{
+      ready:true,
+      tested:true,
+      targetLifecycle:'CANARY',
+      evidenceRefs:['verify:stable-rollback']
+    }
+  },
+  expectedStateDigest:canarySuppliedDigest,
+  hostAuthorization:true,
+  authorizationId:'verify-stable',
+  approvalEvidenceRefs:['verify:approval-stable'],
+  postApplyVerification:{
+    passed:true,
+    observedLifecycle:'STABLE',
+    evidenceRefs:['verify:post-stable']
+  }
+});
+if (committedStable.status !== 'COMMITTED_TO_SUPPLIED_STATE' || committedStable.stateAfter.entries[0]?.lifecycle !== 'STABLE') {
+  fail('Authorized CANARY to STABLE supplied-state transition failed.');
+}
+if (committedStable.stableCatalogCount !== 1465 || committedStable.runtimeCatalogMutation) {
+  fail('Authorized promotion executor changed the real stable catalog baseline.');
+}
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -620,5 +769,10 @@ console.log(JSON.stringify({
   rollbackContractGate:true,
   highRiskJudgeGate:true,
   stablePromotionRecommendationGoverned:true,
+  authorizedPromotionExecutor:true,
+  expectedStateDigestGate:true,
+  atomicRollback:true,
+  suppliedStateOnlyExecution:true,
+  realStableCatalogPreservedAfterExecutor:true,
   automaticCatalogMutation:false
 }, null, 2));

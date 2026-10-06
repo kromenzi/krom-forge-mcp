@@ -127,6 +127,7 @@ import * as v80skills from '../../src/v80-skill-onboarding-governance';
 import * as v80v42 from '../../src/v80-v42-shadow-registry';
 import * as v80bench from '../../src/v80-shadow-benchmark-runner';
 import * as v80promo from '../../src/v80-canary-promotion-controller';
+import * as v80exec from '../../src/v80-authorized-promotion-executor';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2875,6 +2876,9 @@ const handler = createMcpHandler((server) => {
       if(operation==='EVALUATE_V42_PROMOTION_READINESS') return result(v80promo.evaluateV42PromotionReadinessV80(v80promo.v80PromotionReadinessSchema.parse(payload)));
       if(operation==='BUILD_V42_PROMOTION_PLAN') return result(v80promo.buildV42PromotionPlanV80(v80promo.v80PromotionPlanSchema.parse(payload)));
       if(operation==='AUDIT_V42_PROMOTION_CONTROLLER') return result(v80promo.auditV42PromotionControllerV80());
+      if(operation==='PREPARE_V42_PROMOTION_TRANSACTION') return result(v80exec.prepareV42PromotionTransactionV80(v80exec.v80PreparePromotionTransactionSchema.parse(payload)));
+      if(operation==='EXECUTE_V42_PROMOTION_TRANSACTION') return result(v80exec.executeV42PromotionTransactionV80(v80exec.v80ExecutePromotionTransactionSchema.parse(payload)));
+      if(operation==='AUDIT_V42_AUTHORIZED_PROMOTION_EXECUTOR') return result(v80exec.auditV42AuthorizedPromotionExecutorV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
