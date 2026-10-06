@@ -123,6 +123,7 @@ import {
 } from '../../src/v79-capability-governance';
 import * as v80 from '../../src/v80-adaptive-skill-intelligence';
 import * as v80ops from '../../src/v80-operational-learning';
+import * as v80skills from '../../src/v80-skill-onboarding-governance';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2855,6 +2856,12 @@ const handler = createMcpHandler((server) => {
       if(operation==='PROPOSE_LIFECYCLE_ACTIONS') return result(v80ops.proposeLifecycleActionsV80(v80ops.v80LifecycleProposalSchema.parse(payload)));
       if(operation==='BUILD_CONTROL_CENTER_SNAPSHOT') return result(v80ops.buildSkillControlCenterSnapshotV80(v80ops.v80ControlCenterSchema.parse(payload)));
       if(operation==='AUDIT_OPERATIONAL_LEARNING') return result(v80ops.auditOperationalLearningV80());
+      if(operation==='EVALUATE_SKILL_ONBOARDING') return result(v80skills.evaluateSkillOnboardingV80(v80skills.v80OnboardingGateSchema.parse(payload)));
+      if(operation==='EVALUATE_SKILL_PACK_ONBOARDING') return result(v80skills.evaluateSkillPackOnboardingV80(v80skills.v80BatchOnboardingSchema.parse(payload)));
+      if(operation==='CLASSIFY_DUPLICATE_PAIR') return result(v80skills.classifySkillDuplicatePairV80(v80skills.v80DuplicatePairSchema.parse(payload)));
+      if(operation==='EVALUATE_SKILL_RETIREMENT') return result(v80skills.evaluateSkillRetirementV80(v80skills.v80RetirementAssessmentSchema.parse(payload)));
+      if(operation==='BUILD_RETIREMENT_PORTFOLIO') return result(v80skills.buildRetirementPortfolioV80(v80skills.v80RetirementPortfolioSchema.parse(payload)));
+      if(operation==='AUDIT_SKILL_ONBOARDING_GOVERNANCE') return result(v80skills.auditSkillOnboardingGovernanceV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
