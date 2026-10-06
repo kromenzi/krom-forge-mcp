@@ -542,6 +542,9 @@ export const v80AdaptiveSkillIntelligenceSchema = z.object({
     'GET_V42_SHADOW_CANDIDATE',
     'SELECT_V42_CANARY_COHORT',
     'AUDIT_V42_SHADOW_REGISTRY',
+    'EVALUATE_V42_SHADOW_BENCHMARK',
+    'GET_V42_SHADOW_BENCHMARK_REPORT',
+    'AUDIT_V42_SHADOW_BENCHMARK_RUNNER',
     'AUDIT'
   ]),
   payload: z.unknown().optional()

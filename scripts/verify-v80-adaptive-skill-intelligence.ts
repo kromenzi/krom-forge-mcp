@@ -46,6 +46,12 @@ import {
   selectV42CanaryCohortV80
 } from '../src/v80-v42-shadow-registry';
 
+import {
+  auditV42ShadowBenchmarkRunnerV80,
+  evaluateV42ShadowBenchmarkV80,
+  getV42ShadowBenchmarkReportV80
+} from '../src/v80-shadow-benchmark-runner';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -419,6 +425,61 @@ if (qualifiedCanary.executable || qualifiedCanary.promotionApplied || !qualified
   fail('CANARY recommendation crossed the host-authorization boundary.');
 }
 
+const shadowBenchmarkAudit = auditV42ShadowBenchmarkRunnerV80();
+if (shadowBenchmarkAudit.status !== 'PASS') {
+  fail(`Shadow benchmark runner audit failed: ${shadowBenchmarkAudit.failures.join(', ')}`);
+}
+
+const benchmarkResults = Array.from({length:24},(_,index)=>({
+  caseId:`verify-shadow-${index}`,
+  skillName:'kfg-v4-0001-bounded-context-migration-map',
+  outcome:'PASS' as const,
+  evidenceRefs:[`verify:evidence:${index}`],
+  validatorPass:true,
+  securityPass:true,
+  unsupportedClaim:false,
+  regressionDetected:false,
+  latencyMs:700,
+  latencyBudgetMs:5000,
+  semanticSimilarity:0.52,
+  proceduralSimilarity:0.61,
+  specializationDistinct:true,
+  sourceRef:`verify:case:${index}`
+}));
+
+const shadowBenchmark = evaluateV42ShadowBenchmarkV80({
+  benchmarkId:'verify-v80-phase5',
+  results:benchmarkResults,
+  minimumCasesPerSkill:20,
+  canaryBenchmarkThreshold:0.90,
+  maxCanaryCandidates:5,
+  maxCanaryPerArea:2
+});
+if (shadowBenchmark.status !== 'PASS' || shadowBenchmark.evaluatedSkills !== 1) {
+  fail('Shadow benchmark runner did not aggregate supplied benchmark results.');
+}
+if (shadowBenchmark.sourceMode !== 'SUPPLIED_RESULTS_ONLY' || shadowBenchmark.externalExecutionPerformed) {
+  fail('Shadow benchmark runner fabricated external execution.');
+}
+if (shadowBenchmark.canaryRecommendation.selectedCount !== 1) {
+  fail('Strong benchmark evidence did not produce one CANARY recommendation.');
+}
+if (shadowBenchmark.canaryRecommendation.executable || shadowBenchmark.canaryRecommendation.promotionApplied) {
+  fail('Shadow benchmark runner crossed the non-executable/non-promotion boundary.');
+}
+if (shadowBenchmark.stableCatalogCount !== 1465 || shadowBenchmark.stableCatalogMutation) {
+  fail('Shadow benchmark runner changed the stable 1,465-skill catalog.');
+}
+
+const shadowReport = getV42ShadowBenchmarkReportV80({
+  benchmarkId:'verify-v80-phase5',
+  skillName:'kfg-v4-0001-bounded-context-migration-map',
+  results:benchmarkResults
+});
+if (shadowReport.status !== 'FOUND' || shadowReport.lifecycle !== 'SHADOW' || shadowReport.executable) {
+  fail('Per-skill benchmark report did not preserve SHADOW/non-executable state.');
+}
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -450,5 +511,8 @@ console.log(JSON.stringify({
   v42ShadowCandidates:500,
   v42StableCatalogPreserved:true,
   v42CanarySelectionGoverned:true,
+  shadowBenchmarkRunner:true,
+  suppliedBenchmarkResultsOnly:true,
+  benchmarkCanaryRecommendationsGoverned:true,
   automaticCatalogMutation:false
 }, null, 2));

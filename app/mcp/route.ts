@@ -125,6 +125,7 @@ import * as v80 from '../../src/v80-adaptive-skill-intelligence';
 import * as v80ops from '../../src/v80-operational-learning';
 import * as v80skills from '../../src/v80-skill-onboarding-governance';
 import * as v80v42 from '../../src/v80-v42-shadow-registry';
+import * as v80bench from '../../src/v80-shadow-benchmark-runner';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2867,6 +2868,9 @@ const handler = createMcpHandler((server) => {
       if(operation==='GET_V42_SHADOW_CANDIDATE') return result(v80v42.getV42ShadowCandidateV80(v80v42.v80V42CandidateLookupSchema.parse(payload)));
       if(operation==='SELECT_V42_CANARY_COHORT') return result(v80v42.selectV42CanaryCohortV80(v80v42.v80V42CanarySelectionSchema.parse(payload)));
       if(operation==='AUDIT_V42_SHADOW_REGISTRY') return result(v80v42.auditV42ShadowRegistryV80());
+      if(operation==='EVALUATE_V42_SHADOW_BENCHMARK') return result(v80bench.evaluateV42ShadowBenchmarkV80(v80bench.v80ShadowBenchmarkRunSchema.parse(payload)));
+      if(operation==='GET_V42_SHADOW_BENCHMARK_REPORT') return result(v80bench.getV42ShadowBenchmarkReportV80(v80bench.v80ShadowBenchmarkReportSchema.parse(payload)));
+      if(operation==='AUDIT_V42_SHADOW_BENCHMARK_RUNNER') return result(v80bench.auditV42ShadowBenchmarkRunnerV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
