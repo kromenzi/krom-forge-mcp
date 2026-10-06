@@ -126,6 +126,7 @@ import * as v80ops from '../../src/v80-operational-learning';
 import * as v80skills from '../../src/v80-skill-onboarding-governance';
 import * as v80v42 from '../../src/v80-v42-shadow-registry';
 import * as v80bench from '../../src/v80-shadow-benchmark-runner';
+import * as v80promo from '../../src/v80-canary-promotion-controller';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2871,6 +2872,9 @@ const handler = createMcpHandler((server) => {
       if(operation==='EVALUATE_V42_SHADOW_BENCHMARK') return result(v80bench.evaluateV42ShadowBenchmarkV80(v80bench.v80ShadowBenchmarkRunSchema.parse(payload)));
       if(operation==='GET_V42_SHADOW_BENCHMARK_REPORT') return result(v80bench.getV42ShadowBenchmarkReportV80(v80bench.v80ShadowBenchmarkReportSchema.parse(payload)));
       if(operation==='AUDIT_V42_SHADOW_BENCHMARK_RUNNER') return result(v80bench.auditV42ShadowBenchmarkRunnerV80());
+      if(operation==='EVALUATE_V42_PROMOTION_READINESS') return result(v80promo.evaluateV42PromotionReadinessV80(v80promo.v80PromotionReadinessSchema.parse(payload)));
+      if(operation==='BUILD_V42_PROMOTION_PLAN') return result(v80promo.buildV42PromotionPlanV80(v80promo.v80PromotionPlanSchema.parse(payload)));
+      if(operation==='AUDIT_V42_PROMOTION_CONTROLLER') return result(v80promo.auditV42PromotionControllerV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
