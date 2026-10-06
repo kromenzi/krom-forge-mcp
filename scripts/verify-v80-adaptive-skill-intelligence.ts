@@ -127,7 +127,8 @@ if (benchmark.top1Accuracy !== 0.5 || benchmark.top3Recall !== 1) fail('Benchmar
 
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
-const coreTools = [...coreBlock[1].matchAll(/['"]([^'"]+)['"]/g)].map(match => match[1]);
+const coreBlockText = coreBlock?.[1] ?? '';
+const coreTools = [...coreBlockText.matchAll(/['"]([^'"]+)['"]/g)].map(match => match[1]);
 if (coreTools.length !== 15) fail(`Expected 15 compact public tools, got ${coreTools.length}`);
 if (coreTools.includes('krom_v80_adaptive_skill_intelligence')) fail('v80 control-plane tool leaked into compact public tools.');
 
