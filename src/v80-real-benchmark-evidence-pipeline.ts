@@ -189,25 +189,25 @@ export const v80VerifyRealBenchmarkReceiptsSchema=z.object({
   requireAllManifestCases:z.boolean().default(false)
 });
 
-export function verifyV42RealBenchmarkReceiptsV80(input:z.input<typeof v80VerifyRealBenchmarkReceiptsSchema>){
-  const parsed=v80VerifyRealBenchmarkReceiptsSchema.parse(input);
+export function verifyV42RealBenchmarkManifestIntegrityV80(input:z.input<typeof v80RealBenchmarkManifestSchema>){
+  const manifest=v80RealBenchmarkManifestSchema.parse(input);
   // Rebuild from authoritative shadow seeds; caller-supplied digests are not proof.
   const manifestFailures:string[]=[];
   try {
     const rebuilt=buildV42RealBenchmarkManifestV80({
-      benchmarkId:parsed.manifest.benchmarkId,
-      cases:parsed.manifest.cases.map(item=>({
+      benchmarkId:manifest.benchmarkId,
+      cases:manifest.cases.map(item=>({
         caseId:item.caseId, skillName:item.skillName,
         scenarioId:item.scenarioId, scenarioRef:item.scenarioRef,
         expectedEvidenceKinds:item.expectedEvidenceKinds,
         latencyBudgetMs:item.latencyBudgetMs
       }))
     });
-    if(parsed.manifest.caseCount!==rebuilt.caseCount) manifestFailures.push('MANIFEST_CASE_COUNT_MISMATCH');
-    if(parsed.manifest.manifestDigest!==rebuilt.manifestDigest) manifestFailures.push('MANIFEST_DIGEST_MISMATCH');
-    if(parsed.manifest.stableCatalogCount!==rebuilt.stableCatalogCount||
-       parsed.manifest.promotedV42Count!==rebuilt.promotedV42Count) manifestFailures.push('STALE_CATALOG_BINDING');
-    parsed.manifest.cases.forEach((item,index)=>{
+    if(manifest.caseCount!==rebuilt.caseCount) manifestFailures.push('MANIFEST_CASE_COUNT_MISMATCH');
+    if(manifest.manifestDigest!==rebuilt.manifestDigest) manifestFailures.push('MANIFEST_DIGEST_MISMATCH');
+    if(manifest.stableCatalogCount!==rebuilt.stableCatalogCount||
+       manifest.promotedV42Count!==rebuilt.promotedV42Count) manifestFailures.push('STALE_CATALOG_BINDING');
+    manifest.cases.forEach((item,index)=>{
       const expected=rebuilt.cases[index];
       if(item.caseDigest!==expected.caseDigest||
          sha256(canonicalCaseIdentity(item))!==expected.caseDigest) {
@@ -217,6 +217,12 @@ export function verifyV42RealBenchmarkReceiptsV80(input:z.input<typeof v80Verify
   } catch {
     manifestFailures.push('INVALID_MANIFEST_CANDIDATES');
   }
+  return [...new Set(manifestFailures)];
+}
+
+export function verifyV42RealBenchmarkReceiptsV80(input:z.input<typeof v80VerifyRealBenchmarkReceiptsSchema>){
+  const parsed=v80VerifyRealBenchmarkReceiptsSchema.parse(input);
+  const manifestFailures=verifyV42RealBenchmarkManifestIntegrityV80(parsed.manifest);
   const manifestByCaseId=new Map(parsed.manifest.cases.map(item=>[item.caseId,item]));
   const duplicateReceiptCaseIds=[...new Set(
     parsed.receipts.map(item=>item.caseId).filter((id,index,items)=>items.indexOf(id)!==index)
