@@ -1,4 +1,23 @@
-# KROM Forge v28 — Coding & Patch Engine
+# KROM Forge v79 — Capability Intelligence & Runtime Governance
+
+## v79 Capability Intelligence
+
+v79 keeps the verified **5,333 internal capability registry** intact while shrinking the default MCP `tools/list` surface to **15 canonical tools**. ChatGPT and other clients see a compact orchestration surface; KROM routes specialized work through governed search/describe/dispatch gateways.
+
+### Trusted profiles
+
+- `core` (default): compact public surface; ordinary internal analysis/planning/governance capabilities remain discoverable while administration-class capabilities are denied.
+- `project`, `change`, `security-release`, `research-ui`, `skills-admin`: server-selected specialization profiles.
+- `full-legacy`: transitional compatibility mode that restores the previous direct surface. The profile is read from `KROM_MCP_PROFILE`; it is never accepted from model input.
+
+### Canonical gateway
+
+`krom_search_capabilities` returns a bounded, metadata-rich result set (default 8, max 20). `krom_describe_capability` returns lifecycle/domain/risk/permission/evidence metadata and a compact schema summary. `krom_dispatch_capability` enforces the trusted server profile before validating the target input schema and dispatching.
+
+### MCP security controls
+
+Set `KROM_MCP_REQUIRE_AUTH=true` and `KROM_MCP_AUTH_TOKEN=<secret>` to require a Bearer token. `KROM_MCP_MAX_BODY_BYTES` defaults to 1 MiB and `KROM_MCP_MAX_CONCURRENCY` defaults to 8 per runtime instance. Do not commit tokens. Configure them through the deployment environment after the MCP client is configured to send credentials.
+
 
 ## v51 Frontier Operations
 

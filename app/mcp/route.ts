@@ -115,6 +115,22 @@ import { v78GovernanceSchema, evaluateAutonomousExecutionV78, auditAutonomousExe
 import { v78AgentIdSchema, v78DelegationSchema, v78ConsensusSchema, buildDynamicDelegationV78, evaluateMultiAgentConsensusV78, buildConsensusRecoveryV78, auditAgentDelegationConsensusV78 } from '../../src/v78-agent-delegation-consensus';
 import { v78ExecutionLineageSchema, buildExecutionLineageV78, verifyExecutionLineageV78, buildOwnershipTransferV78, auditExecutionLineageV78 } from '../../src/v78-execution-lineage';
 import { v78DecisionProvenanceSchema, v78AgentTrustSchema, evaluateEvidenceFreshnessV78, buildDecisionProvenanceV78, verifyDecisionProvenanceV78, scoreAgentTrustV78, auditDecisionProvenanceV78 } from '../../src/v78-decision-provenance';
+import {
+  buildCapabilityMetadataV79,
+  isCapabilityAllowedV79,
+  resolveCapabilityProfileV79,
+  summarizeInputSchemaV79
+} from '../../src/v79-capability-governance';
+import * as v80 from '../../src/v80-adaptive-skill-intelligence';
+import * as v80ops from '../../src/v80-operational-learning';
+import * as v80skills from '../../src/v80-skill-onboarding-governance';
+import * as v80v42 from '../../src/v80-v42-shadow-registry';
+import * as v80bench from '../../src/v80-shadow-benchmark-runner';
+import * as v80promo from '../../src/v80-canary-promotion-controller';
+import * as v80exec from '../../src/v80-authorized-promotion-executor';
+import * as v80catalog from '../../src/v80-real-catalog-promotion-adapter';
+import * as v80realbench from '../../src/v80-real-benchmark-evidence-pipeline';
+import * as v80campaign from '../../src/v80-real-benchmark-campaign-orchestrator';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -297,7 +313,7 @@ import { knowledgeGraphSchema, graphQuerySchema, compareKnowledgeGraphsSchema } 
 import { auditKnowledgeGraph, queryKnowledgeNeighborhood, findKnowledgeContradictions, evaluateKnowledgeEvidenceCoverage, buildImpactGraph, compareKnowledgeGraphs } from '../../src/knowledge-graph-engine';
 
 const handler = createMcpHandler((server) => {
-  const KROM_PUBLIC_TOOL_NAMES = new Set([
+  const KROM_LEGACY_PUBLIC_TOOL_NAMES = new Set([
   "krom_route_workflow",
   "krom_select_tools",
   "krom_build_task_graph",
@@ -416,6 +432,34 @@ const handler = createMcpHandler((server) => {
   "krom_v78_autonomous_governance",
   "krom_get_capabilities"
 ]);
+
+  KROM_LEGACY_PUBLIC_TOOL_NAMES.add('krom_search_capabilities');
+  KROM_LEGACY_PUBLIC_TOOL_NAMES.add('krom_describe_capability');
+  KROM_LEGACY_PUBLIC_TOOL_NAMES.add('krom_dispatch_capability');
+
+  const KROM_CORE_PUBLIC_TOOL_NAMES = new Set([
+    'krom_route_workflow',
+    'krom_inspect_project',
+    'krom_plan_code_change',
+    'krom_verify_evidence',
+    'krom_audit_ui',
+    'krom_evaluate_security_assessment',
+    'krom_evaluate_production_readiness',
+    'krom_decide_release',
+    'krom_v77_build_native_mission_plan',
+    'krom_v77_mission_control',
+    'krom_v78_autonomous_governance',
+    'krom_get_capabilities',
+    'krom_search_capabilities',
+    'krom_describe_capability',
+    'krom_dispatch_capability'
+  ]);
+
+  const KROM_PROFILE = resolveCapabilityProfileV79(process.env.KROM_MCP_PROFILE);
+  const KROM_PUBLIC_TOOL_NAMES = KROM_PROFILE === 'full-legacy'
+    ? KROM_LEGACY_PUBLIC_TOOL_NAMES
+    : KROM_CORE_PUBLIC_TOOL_NAMES;
+
   const KROM_TOOL_DIRECTORY = new Map<string, { config: any; handler: (input: any) => any }>();
 
   const registerKromTool: typeof server.registerTool = ((...args: any[]) => {
@@ -427,6 +471,42 @@ const handler = createMcpHandler((server) => {
       (server.registerTool as any)(...args);
     }
   }) as typeof server.registerTool;
+
+  const KROM_CONTROL_TOOL_DIRECTORY = new Map<string, { config: any; handler: (input: any) => any }>();
+
+  const registerControlTool: typeof server.registerTool = ((...args: any[]) => {
+    const name = String(args[0] ?? '');
+    const config = args[1] ?? {};
+    const handlerFn = args[args.length - 1] as (input: any) => any;
+    KROM_CONTROL_TOOL_DIRECTORY.set(name, { config, handler: handlerFn });
+    if (KROM_PUBLIC_TOOL_NAMES.has(name)) {
+      (server.registerTool as any)(...args);
+    }
+  }) as typeof server.registerTool;
+
+  const getCapabilityEntry = (name: string) =>
+    KROM_TOOL_DIRECTORY.get(name) ?? KROM_CONTROL_TOOL_DIRECTORY.get(name);
+
+  const getCapabilityMetadata = (name: string, entry: { config: any; handler: (input: any) => any }) =>
+    buildCapabilityMetadataV79(
+      name,
+      entry.config?.title ?? name,
+      entry.config?.description ?? '',
+      KROM_PUBLIC_TOOL_NAMES.has(name),
+      KROM_CONTROL_TOOL_DIRECTORY.has(name)
+    );
+
+  const listGovernedCapabilities = () => {
+    const combined = new Map<string, { config: any; handler: (input: any) => any }>([
+      ...KROM_TOOL_DIRECTORY.entries(),
+      ...KROM_CONTROL_TOOL_DIRECTORY.entries()
+    ]);
+    return [...combined.entries()].map(([name, entry]) => ({
+      name,
+      entry,
+      metadata: getCapabilityMetadata(name, entry)
+    }));
+  };
 
   registerKromTool(
     'krom_route_workflow',
@@ -2201,7 +2281,7 @@ const handler = createMcpHandler((server) => {
   registerKromTool('krom_v74_build_dependency_sbom',{title:'Build dependency SBOM',description:'Build an SBOM from supplied dependency metadata without external lookup.',inputSchema:v74SkillRegistrySchema},async(input)=>result(buildDependencySbomV74(input)));
   registerKromTool('krom_v74_scan_redacted_secrets',{title:'Scan redacted secrets',description:'Detect secret-like patterns in supplied redacted samples without returning raw values.',inputSchema:v74SkillRegistrySchema},async(input)=>result(scanRedactedSecretsV74(input)));
 
-  server.registerTool(
+  registerControlTool(
     'krom_v75_get_agent_capability_profile',
     {
       title: 'Get v75 agent capability profile',
@@ -2211,7 +2291,7 @@ const handler = createMcpHandler((server) => {
     async (input) => result(getAgentCapabilityProfileV75({ ...input, availableInternalCapabilities: KROM_TOOL_DIRECTORY.size }))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v75_list_agent_skill_fabric',
     {
       title: 'List v75 agent skill fabric',
@@ -2221,7 +2301,7 @@ const handler = createMcpHandler((server) => {
     async () => result(listAgentSkillFabricV75())
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v75_search_agent_skills',
     {
       title: 'Search v75 agent skills',
@@ -2231,7 +2311,7 @@ const handler = createMcpHandler((server) => {
     async (input) => result(searchAgentSkillsV75(input))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v75_audit_agent_capability_fabric',
     {
       title: 'Audit v75 agent capability fabric',
@@ -2241,7 +2321,7 @@ const handler = createMcpHandler((server) => {
     async (input) => result(auditAgentCapabilityFabricV75({ ...input, availableInternalCapabilities: KROM_TOOL_DIRECTORY.size }))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v76_route_intent',
     {
       title: 'Route intent with v76 semantic runtime',
@@ -2259,7 +2339,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v76_rank_skills',
     {
       title: 'Rank v76 skills',
@@ -2273,7 +2353,7 @@ const handler = createMcpHandler((server) => {
     })
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v76_get_skill_contract',
     {
       title: 'Get v76 skill contract',
@@ -2288,7 +2368,7 @@ const handler = createMcpHandler((server) => {
     })
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v76_audit_skill_index',
     {
       title: 'Audit v76 skill index',
@@ -2298,7 +2378,7 @@ const handler = createMcpHandler((server) => {
     async () => result(auditSkillIndexV76())
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v76_build_execution_plan',
     {
       title: 'Build v76 semantic execution plan',
@@ -2316,7 +2396,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v76_audit_semantic_router',
     {
       title: 'Audit v76 semantic router',
@@ -2334,7 +2414,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v76_get_skill_metadata',
     {
       title: 'Get v76 skill metadata',
@@ -2350,7 +2430,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_select_skill_set',
     {
       title: 'Select v77 multi-skill set',
@@ -2365,7 +2445,7 @@ const handler = createMcpHandler((server) => {
     })
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_route_compound_intent',
     {
       title: 'Route v77 compound intent',
@@ -2383,7 +2463,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_build_execution_contract',
     {
       title: 'Build v77 execution contract',
@@ -2401,7 +2481,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_score_route_confidence',
     {
       title: 'Score v77 route confidence',
@@ -2419,7 +2499,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_build_multi_skill_execution_graph',
     {
       title: 'Build v77 multi-skill execution graph',
@@ -2437,7 +2517,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_explain_routing_decision',
     {
       title: 'Explain v77 routing decision',
@@ -2455,7 +2535,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_audit_native_skill_runtime',
     {
       title: 'Audit v77 native skill runtime',
@@ -2473,7 +2553,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_resolve_skill_policy',
     {
       title:'Resolve v77 skill directive policy',
@@ -2483,7 +2563,7 @@ const handler = createMcpHandler((server) => {
     async ({skillNames})=>result(resolveSkillDirectivePolicyV77(skillNames))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_evaluate_directive_applicability',
     {
       title:'Evaluate v77 directive applicability',
@@ -2496,7 +2576,7 @@ const handler = createMcpHandler((server) => {
     async ({query,skillNames})=>result(evaluateDirectiveApplicabilityV77(query,skillNames))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_build_skill_execution_packet',
     {
       title:'Build v77 skill execution packet',
@@ -2514,7 +2594,7 @@ const handler = createMcpHandler((server) => {
     async (input)=>result(buildSkillExecutionPacketV77(input))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_enforce_execution_policy',
     {
       title:'Enforce v77 execution policy',
@@ -2532,7 +2612,7 @@ const handler = createMcpHandler((server) => {
     async (input)=>result(enforceExecutionPolicyV77(input))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_build_native_mission_plan',
     {
       title:'Build v77 native mission plan',
@@ -2550,7 +2630,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_audit_native_mission_planner',
     {
       title:'Audit v77 native mission planner',
@@ -2568,7 +2648,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_get_native_skill_directives',
     {
       title:'Get v77 native skill directives',
@@ -2584,7 +2664,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_audit_native_skill_directives',
     {
       title:'Audit v77 native skill directives',
@@ -2594,7 +2674,7 @@ const handler = createMcpHandler((server) => {
     async ()=>result(auditNativeSkillDirectiveBundleV77())
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_build_skill_team',
     {
       title:'Build v77 skill team',
@@ -2612,7 +2692,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_audit_skill_team_orchestrator',
     {
       title:'Audit v77 skill team orchestrator',
@@ -2630,7 +2710,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_mission_control',
     {
       title:'KROM Forge v77 mission control',
@@ -2709,7 +2789,7 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v78_autonomous_governance',
     {
       title:'KROM Forge v78 autonomous execution governance',
@@ -2759,7 +2839,64 @@ const handler = createMcpHandler((server) => {
     }
   );
 
-  server.registerTool(
+  registerControlTool(
+    'krom_v80_adaptive_skill_intelligence',
+    {
+      title:'KROM Forge v80 adaptive skill intelligence',
+      description:'Evidence-bound adaptive skill control plane for effectiveness scoring, historical/evidence-aware routing, governed lifecycle recommendations, agent performance learning, evidence dependency invalidation, high-risk multi-agent review and deterministic benchmark metrics. It never self-modifies skills, permissions, repositories or deployments.',
+      inputSchema:v80.v80AdaptiveSkillIntelligenceSchema
+    },
+    async ({operation,payload})=>{
+      if(operation==='SCORE_SKILL_EFFECTIVENESS') return result(v80.scoreSkillEffectivenessV80(v80.v80EffectivenessSchema.parse(payload)));
+      if(operation==='RANK_ADAPTIVE_SKILLS') return result(v80.rankAdaptiveSkillsV80(v80.v80AdaptiveRoutingSchema.parse(payload)));
+      if(operation==='EVALUATE_SKILL_LIFECYCLE') return result(v80.evaluateSkillLifecycleV80(v80.v80LifecycleEvaluationSchema.parse(payload)));
+      if(operation==='BUILD_AGENT_PERFORMANCE_MATRIX') return result(v80.buildAgentPerformanceMatrixV80(v80.v80AgentMatrixSchema.parse(payload)));
+      if(operation==='BUILD_EVIDENCE_GRAPH') return result(v80.buildEvidenceGraphV80(v80.v80EvidenceGraphSchema.parse(payload)));
+      if(operation==='INVALIDATE_EVIDENCE_GRAPH') return result(v80.invalidateEvidenceGraphV80(v80.v80EvidenceInvalidationSchema.parse(payload)));
+      if(operation==='EVALUATE_MULTI_AGENT_REVIEW') return result(v80.evaluateMultiAgentReviewV80(v80.v80MultiAgentReviewSchema.parse(payload)));
+      if(operation==='EVALUATE_BENCHMARK') return result(v80.evaluateSkillBenchmarkV80(v80.v80BenchmarkSchema.parse(payload)));
+      if(operation==='CREATE_OBSERVATION_LEDGER') return result(v80ops.createObservationLedgerV80());
+      if(operation==='RECORD_SKILL_OBSERVATION') return result(v80ops.recordSkillObservationV80(v80ops.v80RecordObservationSchema.parse(payload)));
+      if(operation==='RECORD_MISSION_OUTCOME') return result(v80ops.recordMissionOutcomeV80(v80ops.v80MissionOutcomeSchema.parse(payload)));
+      if(operation==='BUILD_SKILL_HEALTH_SNAPSHOT') return result(v80ops.buildSkillHealthSnapshotV80(v80ops.v80SkillHealthSchema.parse(payload)));
+      if(operation==='ROUTE_WITH_OPERATIONAL_HISTORY') return result(v80ops.routeWithOperationalHistoryV80(v80ops.v80RouteFromLedgerSchema.parse(payload)));
+      if(operation==='PROPOSE_LIFECYCLE_ACTIONS') return result(v80ops.proposeLifecycleActionsV80(v80ops.v80LifecycleProposalSchema.parse(payload)));
+      if(operation==='BUILD_CONTROL_CENTER_SNAPSHOT') return result(v80ops.buildSkillControlCenterSnapshotV80(v80ops.v80ControlCenterSchema.parse(payload)));
+      if(operation==='AUDIT_OPERATIONAL_LEARNING') return result(v80ops.auditOperationalLearningV80());
+      if(operation==='EVALUATE_SKILL_ONBOARDING') return result(v80skills.evaluateSkillOnboardingV80(v80skills.v80OnboardingGateSchema.parse(payload)));
+      if(operation==='EVALUATE_SKILL_PACK_ONBOARDING') return result(v80skills.evaluateSkillPackOnboardingV80(v80skills.v80BatchOnboardingSchema.parse(payload)));
+      if(operation==='CLASSIFY_DUPLICATE_PAIR') return result(v80skills.classifySkillDuplicatePairV80(v80skills.v80DuplicatePairSchema.parse(payload)));
+      if(operation==='EVALUATE_SKILL_RETIREMENT') return result(v80skills.evaluateSkillRetirementV80(v80skills.v80RetirementAssessmentSchema.parse(payload)));
+      if(operation==='BUILD_RETIREMENT_PORTFOLIO') return result(v80skills.buildRetirementPortfolioV80(v80skills.v80RetirementPortfolioSchema.parse(payload)));
+      if(operation==='AUDIT_SKILL_ONBOARDING_GOVERNANCE') return result(v80skills.auditSkillOnboardingGovernanceV80());
+      if(operation==='GET_V42_SHADOW_REGISTRY_SUMMARY') return result(v80v42.getV42ShadowRegistrySummaryV80());
+      if(operation==='GET_V42_SHADOW_CANDIDATE') return result(v80v42.getV42ShadowCandidateV80(v80v42.v80V42CandidateLookupSchema.parse(payload)));
+      if(operation==='SELECT_V42_CANARY_COHORT') return result(v80v42.selectV42CanaryCohortV80(v80v42.v80V42CanarySelectionSchema.parse(payload)));
+      if(operation==='AUDIT_V42_SHADOW_REGISTRY') return result(v80v42.auditV42ShadowRegistryV80());
+      if(operation==='EVALUATE_V42_SHADOW_BENCHMARK') return result(v80bench.evaluateV42ShadowBenchmarkV80(v80bench.v80ShadowBenchmarkRunSchema.parse(payload)));
+      if(operation==='GET_V42_SHADOW_BENCHMARK_REPORT') return result(v80bench.getV42ShadowBenchmarkReportV80(v80bench.v80ShadowBenchmarkReportSchema.parse(payload)));
+      if(operation==='AUDIT_V42_SHADOW_BENCHMARK_RUNNER') return result(v80bench.auditV42ShadowBenchmarkRunnerV80());
+      if(operation==='EVALUATE_V42_PROMOTION_READINESS') return result(v80promo.evaluateV42PromotionReadinessV80(v80promo.v80PromotionReadinessSchema.parse(payload)));
+      if(operation==='BUILD_V42_PROMOTION_PLAN') return result(v80promo.buildV42PromotionPlanV80(v80promo.v80PromotionPlanSchema.parse(payload)));
+      if(operation==='AUDIT_V42_PROMOTION_CONTROLLER') return result(v80promo.auditV42PromotionControllerV80());
+      if(operation==='PREPARE_V42_PROMOTION_TRANSACTION') return result(v80exec.prepareV42PromotionTransactionV80(v80exec.v80PreparePromotionTransactionSchema.parse(payload)));
+      if(operation==='EXECUTE_V42_PROMOTION_TRANSACTION') return result(v80exec.executeV42PromotionTransactionV80(v80exec.v80ExecutePromotionTransactionSchema.parse(payload)));
+      if(operation==='AUDIT_V42_AUTHORIZED_PROMOTION_EXECUTOR') return result(v80exec.auditV42AuthorizedPromotionExecutorV80());
+      if(operation==='PREPARE_V42_REAL_CATALOG_PROMOTION') return result(v80catalog.prepareV42RealCatalogPromotionV80(v80catalog.v80PrepareRealCatalogPromotionSchema.parse(payload)));
+      if(operation==='VERIFY_V42_REAL_CATALOG_PATCH') return result(v80catalog.verifyV42RealCatalogPatchV80(v80catalog.v80VerifyRealCatalogPatchSchema.parse(payload)));
+      if(operation==='AUDIT_V42_REAL_CATALOG_PROMOTION_ADAPTER') return result(v80catalog.auditV42RealCatalogPromotionAdapterV80());
+      if(operation==='BUILD_V42_REAL_BENCHMARK_MANIFEST') return result(v80realbench.buildV42RealBenchmarkManifestV80(v80realbench.v80BuildRealBenchmarkManifestSchema.parse(payload)));
+      if(operation==='VERIFY_V42_REAL_BENCHMARK_RECEIPTS') return result(v80realbench.verifyV42RealBenchmarkReceiptsV80(v80realbench.v80VerifyRealBenchmarkReceiptsSchema.parse(payload)));
+      if(operation==='BUILD_V42_REAL_BENCHMARK_EVIDENCE') return result(v80realbench.buildV42RealBenchmarkEvidenceV80(v80realbench.v80BuildRealBenchmarkEvidenceSchema.parse(payload)));
+      if(operation==='AUDIT_V42_REAL_BENCHMARK_EVIDENCE_PIPELINE') return result(v80realbench.auditV42RealBenchmarkEvidencePipelineV80());
+      if(operation==='PLAN_V42_REAL_BENCHMARK_CAMPAIGN') return result(v80campaign.planV42RealBenchmarkCampaignV80(v80campaign.v80PlanRealBenchmarkCampaignSchema.parse(payload)));
+      if(operation==='BUILD_V42_REAL_BENCHMARK_CAMPAIGN_STATUS') return result(v80campaign.buildV42RealBenchmarkCampaignStatusV80(v80campaign.v80BuildRealBenchmarkCampaignStatusSchema.parse(payload)));
+      if(operation==='AUDIT_V42_REAL_BENCHMARK_CAMPAIGN_ORCHESTRATOR') return result(v80campaign.auditV42RealBenchmarkCampaignOrchestratorV80());
+      return result(v80.auditAdaptiveSkillIntelligenceV80());
+    }
+  );
+
+  registerControlTool(
     'krom_v77_resolve_skill_conflicts',
     {
       title:'Resolve v77 skill conflicts',
@@ -2769,7 +2906,7 @@ const handler = createMcpHandler((server) => {
     async ({skillNames})=>result(resolveSkillConflictsV77(skillNames))
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_v77_audit_directive_enforcement',
     {
       title:'Audit v77 directive enforcement',
@@ -2803,60 +2940,131 @@ const handler = createMcpHandler((server) => {
     })
   );
 
-  server.registerTool(
+  registerControlTool(
     'krom_search_capabilities',
     {
       title: 'Search KROM Forge capabilities',
-      description: 'Search the full internal KROM Forge capability registry without exposing thousands of tools directly to the model.',
+      description: 'Search the governed internal KROM Forge capability catalog using the server-trusted profile without exposing thousands of tools directly.',
       inputSchema: z.object({
         query: z.string().min(1),
-        limit: z.number().int().min(1).max(50).default(20)
+        limit: z.number().int().min(1).max(20).default(8),
+        domain: z.string().min(1).optional(),
+        lifecycle: z.enum(['stable', 'beta', 'legacy', 'deprecated']).optional()
       })
     },
-    async ({ query, limit }) => {
-      const candidates = [...KROM_TOOL_DIRECTORY.entries()].map(([name, entry]) => ({
-        name,
-        title: entry.config?.title ?? name,
-        description: entry.config?.description ?? '',
-        publicDirect: KROM_PUBLIC_TOOL_NAMES.has(name)
-      }));
-      const matches = rankCapabilitiesV76(query, candidates, limit);
+    async ({ query, limit, domain, lifecycle }) => {
+      const allowed = listGovernedCapabilities().filter(({ metadata }) =>
+        isCapabilityAllowedV79(metadata, KROM_PROFILE) &&
+        (!domain || metadata.domain === domain) &&
+        (!lifecycle || metadata.lifecycle === lifecycle)
+      );
+      const ranked = rankCapabilitiesV76(
+        query,
+        allowed.map(({ name, entry, metadata }) => ({
+          name,
+          title: entry.config?.title ?? name,
+          description: entry.config?.description ?? '',
+          publicDirect: metadata.publicDirect
+        })),
+        Math.min(limit + 1, 20)
+      );
+      const hasMore = ranked.length > limit;
+      const matches = ranked.slice(0, limit).map((match: any) => {
+        const governed = allowed.find((item) => item.name === match.name);
+        return {
+          ...match,
+          metadata: governed?.metadata ?? null
+        };
+      });
       return result({
-        release: 'v76',
-        searchMode: 'semantic-fuzzy-bilingual',
+        release: 'v79',
+        profile: KROM_PROFILE,
+        searchMode: 'semantic-fuzzy-bilingual-governed',
         query,
         count: matches.length,
-        totalCapabilities: KROM_TOOL_DIRECTORY.size,
+        hasMore,
+        internalCapabilities: KROM_TOOL_DIRECTORY.size,
+        controlPlaneTools: KROM_CONTROL_TOOL_DIRECTORY.size,
         matches
       });
     }
   );
 
-  server.registerTool(
+  registerControlTool(
+    'krom_describe_capability',
+    {
+      title: 'Describe KROM Forge capability',
+      description: 'Return governed capability metadata and a compact input-schema summary only when the server-trusted profile permits access.',
+      inputSchema: z.object({ tool: z.string().min(1) })
+    },
+    async ({ tool }) => {
+      const target = getCapabilityEntry(tool);
+      if (!target) return result({ release: 'v79', status: 'NOT_FOUND', tool });
+      const metadata = getCapabilityMetadata(tool, target);
+      if (!isCapabilityAllowedV79(metadata, KROM_PROFILE)) {
+        return result({ release: 'v79', status: 'FORBIDDEN', tool, profile: KROM_PROFILE });
+      }
+      return result({
+        release: 'v79',
+        status: 'FOUND',
+        profile: KROM_PROFILE,
+        tool,
+        title: target.config?.title ?? tool,
+        description: target.config?.description ?? '',
+        metadata,
+        inputSchema: summarizeInputSchemaV79(target.config?.inputSchema)
+      });
+    }
+  );
+
+  registerControlTool(
     'krom_dispatch_capability',
     {
       title: 'Dispatch KROM Forge capability',
-      description: 'Invoke any registered internal KROM Forge capability by exact tool name. The target input is validated against the capability schema before execution.',
+      description: 'Invoke an allowed internal or control-plane capability by exact tool name after trusted-profile authorization and schema validation.',
       inputSchema: z.object({
         tool: z.string().min(1),
         input: z.record(z.string(), z.unknown()).default({})
       })
     },
     async ({ tool, input }) => {
-      const target = KROM_TOOL_DIRECTORY.get(tool);
+      const startedAt = Date.now();
+      const target = getCapabilityEntry(tool);
       if (!target) {
         return result({
+          release: 'v79',
           status: 'NOT_FOUND',
           tool,
           hint: 'Use krom_search_capabilities to find the exact capability name.'
         });
       }
 
+      const metadata = getCapabilityMetadata(tool, target);
+      if (!isCapabilityAllowedV79(metadata, KROM_PROFILE)) {
+        console.info(JSON.stringify({
+          event: 'krom_capability_dispatch',
+          release: 'v79',
+          profile: KROM_PROFILE,
+          tool,
+          allowed: false,
+          durationMs: Date.now() - startedAt
+        }));
+        return result({
+          release: 'v79',
+          status: 'FORBIDDEN',
+          tool,
+          profile: KROM_PROFILE,
+          requiredPermission: metadata.requiredPermission
+        });
+      }
+
       const schema = target.config?.inputSchema;
+      let output: any;
       if (schema && typeof schema.safeParse === 'function') {
         const parsed = schema.safeParse(input);
         if (!parsed.success) {
           return result({
+            release: 'v79',
             status: 'INVALID_INPUT',
             tool,
             issues: parsed.error.issues.map((issue: any) => ({
@@ -2865,10 +3073,20 @@ const handler = createMcpHandler((server) => {
             }))
           });
         }
-        return target.handler(parsed.data);
+        output = await target.handler(parsed.data);
+      } else {
+        output = await target.handler(input);
       }
 
-      return target.handler(input);
+      console.info(JSON.stringify({
+        event: 'krom_capability_dispatch',
+        release: 'v79',
+        profile: KROM_PROFILE,
+        tool,
+        allowed: true,
+        durationMs: Date.now() - startedAt
+      }));
+      return output;
     }
   );
 
@@ -2876,4 +3094,40 @@ const handler = createMcpHandler((server) => {
   serverInfo: { name: 'krom-forge', version: pkg.version }
 });
 
-export { handler as GET, handler as POST };
+let activeMcpRequests = 0;
+
+const governedHandler = async (request: Request) => {
+  const maxBodyBytes = Math.max(1024, Number(process.env.KROM_MCP_MAX_BODY_BYTES ?? 1_048_576));
+  const maxConcurrency = Math.max(1, Number(process.env.KROM_MCP_MAX_CONCURRENCY ?? 8));
+  const contentLength = Number(request.headers.get('content-length') ?? 0);
+
+  if (Number.isFinite(contentLength) && contentLength > maxBodyBytes) {
+    return Response.json({ error: 'REQUEST_TOO_LARGE', maxBodyBytes }, { status: 413 });
+  }
+
+  if (activeMcpRequests >= maxConcurrency) {
+    return Response.json(
+      { error: 'CONCURRENCY_LIMIT', maxConcurrency },
+      { status: 429, headers: { 'Retry-After': '1' } }
+    );
+  }
+
+  if (process.env.KROM_MCP_REQUIRE_AUTH === 'true') {
+    const token = process.env.KROM_MCP_AUTH_TOKEN;
+    if (!token) {
+      return Response.json({ error: 'AUTH_CONFIGURATION_MISSING' }, { status: 503 });
+    }
+    if (request.headers.get('authorization') !== `Bearer ${token}`) {
+      return Response.json({ error: 'UNAUTHORIZED' }, { status: 401 });
+    }
+  }
+
+  activeMcpRequests += 1;
+  try {
+    return await (handler as any)(request);
+  } finally {
+    activeMcpRequests = Math.max(0, activeMcpRequests - 1);
+  }
+};
+
+export { governedHandler as GET, governedHandler as POST };

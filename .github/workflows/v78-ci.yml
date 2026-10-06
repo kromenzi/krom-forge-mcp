@@ -1,13 +1,16 @@
-name: KROM Forge v78 CI
+name: KROM Forge v78/v79 CI
 
 on:
   push:
     branches:
       - feat/v78-autonomous-execution-governance
+      - feat/v79-capability-intelligence-governance
   pull_request:
     paths:
       - 'src/v78-**'
+      - 'src/v79-**'
       - 'scripts/verify-v78-**'
+      - 'scripts/verify-v79-**'
       - 'app/mcp-v78/**'
       - 'app/mcp/route.ts'
       - 'package.json'
@@ -28,4 +31,5 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run verify:v78
+      - run: npm run verify:v79
       - run: npm run typecheck

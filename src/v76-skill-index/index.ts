@@ -10,6 +10,7 @@ import { V76_SKILL_INDEX_8 } from './part-8';
 import { V76_SKILL_INDEX_9 } from './part-9';
 import { V76_SKILL_INDEX_10 } from './part-10';
 import { V75_SKILL_NAMES } from '../v75-agent-capability-fabric';
+import { V79_NATIVE_SKILL_PACK_INDEX } from '../v79-native-skill-pack-catalog';
 
 export type V76SkillMetadata = {
   name: string;
@@ -137,7 +138,7 @@ const RAW_SKILLS = [
   ...V76_SKILL_INDEX_10
 ];
 
-export const V76_SKILL_INDEX: readonly V76SkillMetadata[] = RAW_SKILLS.map(skill => {
+const LEGACY_SKILL_INDEX: readonly V76SkillMetadata[] = RAW_SKILLS.map(skill => {
   const p = profile(skill.name);
   return {
     name: skill.name,
@@ -150,6 +151,10 @@ export const V76_SKILL_INDEX: readonly V76SkillMetadata[] = RAW_SKILLS.map(skill
   };
 });
 
+export const V76_SKILL_INDEX: readonly V76SkillMetadata[] = [
+  ...LEGACY_SKILL_INDEX,
+  ...V79_NATIVE_SKILL_PACK_INDEX
+];
 const SKILL_MAP = new Map(V76_SKILL_INDEX.map(skill => [skill.name, skill]));
 
 export function getSkillMetadataV76(name: string) {
