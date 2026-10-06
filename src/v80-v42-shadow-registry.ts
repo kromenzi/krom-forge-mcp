@@ -10,7 +10,7 @@ for (const name of V75_SKILL_NAMES as readonly string[]) {
   stableNormalized.set(key,[...(stableNormalized.get(key)??[]),name]);
 }
 
-const candidateNames = new Set(V80_V42_SHADOW_SEEDS.map(item=>item.n));
+const candidateNames = new Set<string>(V80_V42_SHADOW_SEEDS.map(item=>item.n));
 const round=(value:number,digits=4)=>Number(value.toFixed(digits));
 
 export const V80_V42_SHADOW_REGISTRY_META = {
