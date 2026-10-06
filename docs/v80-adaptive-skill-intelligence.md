@@ -190,6 +190,125 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 
 No additional public or control-plane gateway is created.
 
+## Phase 3 — Shadow/Canary Onboarding + Duplicate/Retirement Intelligence
+
+Phase 3 adds governed skill admission and lifecycle reduction intelligence. It is designed for large incoming packs such as a future 500-skill expansion, while keeping the live catalog immutable until a host-authorized integration occurs.
+
+### Shadow/Canary onboarding gate
+
+Every candidate skill is evaluated for:
+
+- exact-name collision against the current catalog;
+- normalized-name collision;
+- semantic maximum similarity;
+- procedural maximum similarity;
+- explicit semantic-duplicate evidence;
+- purpose-overlap risk;
+- contract validity;
+- JSON schema validity;
+- security gate;
+- provenance and checksums;
+- agent mapping;
+- capability mapping;
+- evidence contract;
+- behavioral-test coverage;
+- benchmark quality and sample count.
+
+Possible recommendations:
+
+- BLOCKED
+- REVIEW_REQUIRED
+- SHADOW
+- CANARY
+
+Exact/normalized collisions and high-confidence duplicates block onboarding. High similarity without enough evidence requires review. A clean candidate without enough operational benchmark evidence enters SHADOW. A clean, well-benchmarked candidate may be recommended for a governed CANARY.
+
+### Pack onboarding gate
+
+A batch pack can be evaluated without mutating the catalog.
+
+The gate verifies:
+
+- internal exact duplicate names;
+- internal normalized-name collisions;
+- baseline consistency;
+- current skill count;
+- 15-tool public surface;
+- 5,333 internal capability target;
+- 11-agent baseline;
+- per-skill onboarding recommendations.
+
+The result is one of:
+
+- BLOCKED
+- CONDITIONAL
+- READY_FOR_GOVERNED_ONBOARDING
+
+The target catalog count is reported as a projection only.
+
+### Duplicate intelligence
+
+Skill pairs are evaluated using:
+
+- semantic similarity;
+- procedural similarity;
+- purpose similarity;
+- outcome agreement;
+- evidence overlap;
+- co-selection rate;
+- sample size;
+- explicit specialization distinction.
+
+Classifications:
+
+- BLOCK_EXACT_DUPLICATE
+- KEEP_SPECIALIZED
+- MERGE_CANDIDATE
+- REVIEW
+- DISTINCT
+
+A high topical similarity does not force a merge when the two skills have legitimate specialized behavior.
+
+### Retirement intelligence
+
+Retirement is deliberately stricter than duplicate detection.
+
+A RETIRE recommendation requires:
+
+- the skill is already DEPRECATED;
+- sufficient operational samples;
+- zero recent usage;
+- no open incidents;
+- no unresolved security blocker;
+- no unique value remaining;
+- a STABLE replacement;
+- replacement quality at least as strong as the retiring skill;
+- at least 95% coverage match;
+- high duplicate/replacement confidence.
+
+Other recommendations include:
+
+- KEEP
+- CANARY_DOWNGRADE
+- DEPRECATE
+- REVIEW
+- RETIRE
+
+Every recommendation that reduces lifecycle state requires host authorization. Phase 3 never mutates a skill, rewrites the catalog, merges skills, or deploys automatically.
+
+### Phase 3 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- EVALUATE_SKILL_ONBOARDING
+- EVALUATE_SKILL_PACK_ONBOARDING
+- CLASSIFY_DUPLICATE_PAIR
+- EVALUATE_SKILL_RETIREMENT
+- BUILD_RETIREMENT_PORTFOLIO
+- AUDIT_SKILL_ONBOARDING_GOVERNANCE
+
+No additional public tool or v80 gateway is created.
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
