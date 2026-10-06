@@ -18,7 +18,7 @@ import {
 
 const promotedNameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
 const shadowSeeds=V80_V42_SHADOW_SEEDS.filter(seed=>!promotedNameSet.has(seed.n));
-const shadowByName=new Map(shadowSeeds.map(seed=>[seed.n,seed] as const));
+const shadowByName=new Map<string,(typeof V80_V42_SHADOW_SEEDS)[number]>(shadowSeeds.map(seed=>[seed.n,seed]));
 
 const v80CampaignScenarioSchema=z.object({
   scenarioId:z.string().min(1),
@@ -352,7 +352,7 @@ export function buildV42RealBenchmarkCampaignStatusV80(input:z.input<typeof v80B
     : null;
 
   const reportBySkill=new Map((benchmark?.reports??[]).map(report=>[report.skillName,report]));
-  const selectedByBenchmark=new Set((benchmark?.canaryRecommendation.selected??[]).map(item=>item.skillName));
+  const selectedByBenchmark=new Set<string>((benchmark?.canaryRecommendation.selected??[]).map(item=>item.skillName));
   const recordsBySkill=new Map<string,typeof verifiedRecords>();
   for(const record of verifiedRecords){
     recordsBySkill.set(record.skillName,[...(recordsBySkill.get(record.skillName)??[]),record]);
