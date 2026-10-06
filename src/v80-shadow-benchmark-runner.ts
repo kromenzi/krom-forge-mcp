@@ -2,14 +2,21 @@ import { z } from 'zod';
 import { V75_SKILL_NAMES } from './v75-agent-capability-fabric';
 import { V80_V42_SHADOW_SEEDS } from './v80-v42-shadow-seeds';
 import {
+  V80_PROMOTED_V42_SKILL_NAMES,
+  V80_PROMOTED_V42_SKILL_COUNT
+} from './v80-promoted-v42-skill-seeds';
+import {
   selectV42CanaryCohortV80,
   v80V42CanarySelectionSchema
 } from './v80-v42-shadow-registry';
 
 const stableSkillCount=V75_SKILL_NAMES.length;
+const promotedNameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
+const activeShadowSeeds=V80_V42_SHADOW_SEEDS.filter(item=>!promotedNameSet.has(item.n));
 const shadowByName=new Map<string,(typeof V80_V42_SHADOW_SEEDS)[number]>(
-  V80_V42_SHADOW_SEEDS.map(item=>[item.n,item])
+  activeShadowSeeds.map(item=>[item.n,item])
 );
+const candidateNames=new Set<string>(V80_V42_SHADOW_SEEDS.map(item=>item.n));
 const round=(value:number,digits=4)=>Number(value.toFixed(digits));
 const ratio=(num:number,den:number)=>den?num/den:0;
 
@@ -116,7 +123,12 @@ export function evaluateV42ShadowBenchmarkV80(input:z.input<typeof v80ShadowBenc
   const unknownSkillNames=[...new Set(
     parsed.results
       .map(item=>item.skillName)
-      .filter(name=>!shadowByName.has(name))
+      .filter(name=>!candidateNames.has(name))
+  )].sort();
+  const alreadyPromotedSkillNames=[...new Set(
+    parsed.results
+      .map(item=>item.skillName)
+      .filter(name=>promotedNameSet.has(name))
   )].sort();
 
   const duplicateCaseIds=[...new Set(
@@ -176,7 +188,7 @@ export function evaluateV42ShadowBenchmarkV80(input:z.input<typeof v80ShadowBenc
   };
 
   const status =
-    unknownSkillNames.length||duplicateCaseIds.length
+    unknownSkillNames.length||alreadyPromotedSkillNames.length||duplicateCaseIds.length
       ? 'CONDITIONAL'
       : 'PASS';
 
@@ -188,11 +200,13 @@ export function evaluateV42ShadowBenchmarkV80(input:z.input<typeof v80ShadowBenc
     sourceMode:'SUPPLIED_RESULTS_ONLY',
     externalExecutionPerformed:false,
     stableCatalogCount:stableSkillCount,
-    shadowCandidateCount:V80_V42_SHADOW_SEEDS.length,
+    shadowCandidateCount:activeShadowSeeds.length,
+    promotedCandidateCount:V80_PROMOTED_V42_SKILL_COUNT,
     submittedCases:parsed.results.length,
     acceptedCases:accepted.length,
     evaluatedSkills:reports.length,
     unknownSkillNames,
+    alreadyPromotedSkillNames,
     duplicateCaseIds,
     insufficientSamples,
     failureTaxonomy,
@@ -218,6 +232,18 @@ export const v80ShadowBenchmarkReportSchema=z.object({
 
 export function getV42ShadowBenchmarkReportV80(input:z.input<typeof v80ShadowBenchmarkReportSchema>){
   const parsed=v80ShadowBenchmarkReportSchema.parse(input);
+  if(promotedNameSet.has(parsed.skillName)){
+    return {
+      release:'v80',
+      phase:'shadow-benchmark-runner',
+      benchmarkId:parsed.benchmarkId,
+      status:'ALREADY_PROMOTED',
+      skillName:parsed.skillName,
+      lifecycle:'STABLE',
+      executable:true,
+      executionClaim:false
+    } as const;
+  }
   if(!shadowByName.has(parsed.skillName)){
     return {
       release:'v80',
@@ -255,8 +281,20 @@ export function getV42ShadowBenchmarkReportV80(input:z.input<typeof v80ShadowBen
 }
 
 export function auditV42ShadowBenchmarkRunnerV80(){
-  const skillA=V80_V42_SHADOW_SEEDS[0].n;
-  const skillB=V80_V42_SHADOW_SEEDS[1].n;
+  const candidates=activeShadowSeeds.slice(0,2);
+  const skillA=candidates[0]?.n;
+  const skillB=candidates[1]?.n;
+  if(!skillA||!skillB){
+    return {
+      release:'v80',
+      phase:'shadow-benchmark-runner',
+      status:'PASS',
+      checks:{noRemainingShadowCandidates:true},
+      failures:[],
+      executionClaim:false
+    } as const;
+  }
+
   const results:V80ShadowBenchmarkCase[]=[];
 
   for(let i=0;i<24;i++){
@@ -322,9 +360,10 @@ export function auditV42ShadowBenchmarkRunnerV80(){
     }]
   });
 
+  const expectedStableCount=1465+V80_PROMOTED_V42_SKILL_COUNT;
   const checks={
-    stableCatalogPreserved:run.stableCatalogCount===1465&&!run.stableCatalogMutation,
-    shadowRegistryCount:run.shadowCandidateCount===500,
+    stableCatalogAligned:run.stableCatalogCount===expectedStableCount&&!run.stableCatalogMutation,
+    shadowRegistryCount:run.shadowCandidateCount===500-V80_PROMOTED_V42_SKILL_COUNT,
     suppliedResultsOnly:run.sourceMode==='SUPPLIED_RESULTS_ONLY'&&!run.externalExecutionPerformed,
     aggregatesTwoSkills:run.evaluatedSkills===2,
     strongSkillRanksAboveWeak:(run.reports[0]?.skillName===skillA),
