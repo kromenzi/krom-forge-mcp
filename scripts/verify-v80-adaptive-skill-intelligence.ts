@@ -74,6 +74,13 @@ import {
   verifyV42RealCatalogPatchV80
 } from '../src/v80-real-catalog-promotion-adapter';
 
+import {
+  auditV42RealBenchmarkEvidencePipelineV80,
+  buildV42RealBenchmarkEvidenceV80,
+  buildV42RealBenchmarkManifestV80,
+  verifyV42RealBenchmarkReceiptsV80
+} from '../src/v80-real-benchmark-evidence-pipeline';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -87,7 +94,7 @@ const promotedV42NameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
 const remainingShadowSeeds=V80_V42_SHADOW_SEEDS.filter(seed=>!promotedV42NameSet.has(seed.n));
 const firstShadowSkillName=remainingShadowSeeds[0]?.n;
 const secondShadowSkillName=remainingShadowSeeds[1]?.n;
-if(!firstShadowSkillName||!secondShadowSkillName) fail('Phase 8 verification requires at least two remaining SHADOW candidates.');
+if(!firstShadowSkillName||!secondShadowSkillName) fail('Phase 9 verification requires at least two remaining SHADOW candidates.');
 
 if (V80_RELEASE !== 'v80') fail('Unexpected v80 release marker.');
 if (!route.includes("'krom_v80_adaptive_skill_intelligence'")) fail('v80 control-plane gateway is not registered.');
@@ -819,6 +826,99 @@ if (verifiedCatalogPatch.status !== 'PASS') {
   fail(`Prepared real catalog patch did not verify: ${verifiedCatalogPatch.failures.join(', ')}`);
 }
 
+const realBenchmarkAudit=auditV42RealBenchmarkEvidencePipelineV80();
+if(realBenchmarkAudit.status!=='PASS'){
+  fail(`Real benchmark evidence pipeline audit failed: ${realBenchmarkAudit.failures.join(', ')}`);
+}
+
+const realBenchmarkManifest=buildV42RealBenchmarkManifestV80({
+  benchmarkId:'verify-v80-phase9',
+  cases:[{
+    caseId:'verify-real-1',
+    skillName:firstShadowSkillName,
+    scenarioId:'verify-real-scenario-1',
+    scenarioRef:'verify:real:scenario:1',
+    expectedEvidenceKinds:['result','validator','security'],
+    latencyBudgetMs:5000
+  }]
+});
+const realManifestCase=realBenchmarkManifest.cases[0];
+if(realBenchmarkManifest.executionPerformed || realBenchmarkManifest.caseCount!==1){
+  fail('Phase 9 manifest fabricated execution or lost benchmark cases.');
+}
+if(realManifestCase.skillInstructionHash!==remainingShadowSeeds[0].h){
+  fail('Phase 9 manifest did not bind the current candidate instruction hash.');
+}
+
+const realHostReceipt={
+  benchmarkId:realBenchmarkManifest.benchmarkId,
+  caseId:realManifestCase.caseId,
+  skillName:realManifestCase.skillName,
+  manifestCaseDigest:realManifestCase.caseDigest,
+  hostExecutionId:'verify-host-run-001',
+  evidenceOrigin:'HOST_EXECUTION' as const,
+  executionPerformed:true,
+  sourceRef:'host://verify/run/001',
+  evidenceRefs:['verify:host:result','verify:host:validator','verify:host:security'],
+  evidenceKinds:['result','validator','security'],
+  outcome:'PASS' as const,
+  validatorPass:true,
+  securityPass:true,
+  unsupportedClaim:false,
+  regressionDetected:false,
+  latencyMs:900,
+  semanticSimilarity:0.55,
+  proceduralSimilarity:0.62,
+  specializationDistinct:true,
+  hostAttestation:'host-verified'
+};
+
+const verifiedRealReceipts=verifyV42RealBenchmarkReceiptsV80({
+  manifest:realBenchmarkManifest,
+  receipts:[realHostReceipt],
+  requireAllManifestCases:true
+});
+if(verifiedRealReceipts.status!=='PASS'||verifiedRealReceipts.verifiedReceipts!==1){
+  fail('Valid host benchmark receipt did not pass Phase 9 verification.');
+}
+
+const tamperedRealReceipt=verifyV42RealBenchmarkReceiptsV80({
+  manifest:realBenchmarkManifest,
+  receipts:[{...realHostReceipt,manifestCaseDigest:'0'.repeat(64)}]
+});
+if(tamperedRealReceipt.rejectedReceipts!==1||!tamperedRealReceipt.evaluations[0]?.failures.includes('MANIFEST_CASE_DIGEST_MISMATCH')){
+  fail('Phase 9 did not reject a tampered manifest-case digest.');
+}
+
+const fixtureRealReceipt=verifyV42RealBenchmarkReceiptsV80({
+  manifest:realBenchmarkManifest,
+  receipts:[{...realHostReceipt,evidenceOrigin:'FIXTURE' as const}]
+});
+if(fixtureRealReceipt.rejectedReceipts!==1||!fixtureRealReceipt.evaluations[0]?.failures.includes('NON_HOST_EXECUTION_EVIDENCE')){
+  fail('Phase 9 accepted fixture evidence as real host execution.');
+}
+
+const realBenchmarkEvidence=buildV42RealBenchmarkEvidenceV80({
+  manifest:realBenchmarkManifest,
+  receipts:[realHostReceipt],
+  minimumCasesPerSkill:1,
+  canaryBenchmarkThreshold:0.50,
+  maxCanaryCandidates:5,
+  maxCanaryPerArea:5
+});
+if(realBenchmarkEvidence.phase5BenchmarkInput.caseCount!==1||!realBenchmarkEvidence.benchmark){
+  fail('Verified host receipt did not feed the existing Phase 5 benchmark pipeline.');
+}
+if(realBenchmarkEvidence.externalExecutionPerformedByPipeline){
+  fail('Phase 9 claimed external execution performed by the pipeline itself.');
+}
+if(realBenchmarkEvidence.promotionApplied||realBenchmarkEvidence.repositoryMutationApplied||realBenchmarkEvidence.runtimeCatalogMutationApplied||realBenchmarkEvidence.deploymentMutationApplied){
+  fail('Phase 9 crossed promotion/repository/runtime/deployment mutation boundaries.');
+}
+if(realBenchmarkEvidence.stableCatalogCount!==1465||realBenchmarkEvidence.promotedV42Count!==0){
+  fail('Phase 9 changed the real stable catalog before a promotion batch.');
+}
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -869,5 +969,11 @@ console.log(JSON.stringify({
   catalogDigestGate:true,
   catalogPatchRollbackSource:true,
   realCatalogPatchApplied:false,
+  realBenchmarkEvidencePipeline:true,
+  deterministicBenchmarkManifest:true,
+  hostReceiptDigestBinding:true,
+  fixtureEvidenceRejected:true,
+  verifiedHostEvidenceFeedsPhase5:true,
+  externalExecutionNotFabricated:true,
   automaticCatalogMutation:false
 }, null, 2));

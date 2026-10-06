@@ -722,6 +722,87 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 - VERIFY_V42_REAL_CATALOG_PATCH
 - AUDIT_V42_REAL_CATALOG_PROMOTION_ADAPTER
 
+## Phase 9 — Host-Verified Real Benchmark Evidence Pipeline
+
+Phase 9 adds the evidence bridge between synthetic/verifier coverage and genuine host-observed benchmark execution.
+
+It does **not** execute external workloads itself and it does **not** promote any skill. Its purpose is to prevent fixture, declared-only or self-asserted results from being treated as production-quality benchmark evidence.
+
+### Deterministic benchmark manifest
+
+A benchmark manifest binds every planned execution case to:
+
+- benchmark ID and case ID;
+- v4.2 SHADOW skill name;
+- current skill instruction SHA-256;
+- primary agent;
+- validator agent;
+- scenario ID and scenario source reference;
+- expected evidence kinds;
+- latency budget.
+
+Each case receives a deterministic SHA-256 case digest, and the complete manifest receives a deterministic manifest digest.
+
+Already-promoted candidates and unknown v4.2 names are rejected.
+
+### Host execution receipt
+
+A result counts as real benchmark evidence only when the supplied receipt includes:
+
+- `executionPerformed=true`;
+- `evidenceOrigin=HOST_EXECUTION`;
+- matching benchmark, case, skill and manifest-case digest;
+- non-empty host execution ID;
+- source reference;
+- evidence references;
+- all evidence kinds required by the manifest;
+- outcome;
+- validator result;
+- security result;
+- latency result;
+- semantic/procedural similarity observations;
+- regression signal;
+- host attestation.
+
+The pipeline rejects:
+
+- fixture evidence;
+- self-asserted evidence;
+- declared-only evidence;
+- missing execution evidence;
+- stale or tampered case digests;
+- missing expected evidence kinds;
+- duplicate receipt case IDs.
+
+### Existing Phase 5 integration
+
+Only verified host receipts are converted to the existing `V80ShadowBenchmarkCase` format.
+
+This means the existing benchmark scoring, regression analysis, similarity checks and CANARY recommendation logic remain authoritative while Phase 9 strengthens the provenance of their inputs.
+
+Receipt digests and host execution IDs are appended to the evidence references passed downstream.
+
+### Anti-fabrication boundary
+
+Phase 9 explicitly reports:
+
+- `externalExecutionPerformedByPipeline=false`;
+- `repositoryMutationApplied=false`;
+- `runtimeCatalogMutationApplied=false`;
+- `deploymentMutationApplied=false`;
+- `promotionApplied=false`.
+
+A generated manifest is a plan, not execution evidence. A verifier fixture is test evidence for the pipeline itself, not evidence that a candidate skill ran successfully on a real host.
+
+### Phase 9 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- BUILD_V42_REAL_BENCHMARK_MANIFEST
+- VERIFY_V42_REAL_BENCHMARK_RECEIPTS
+- BUILD_V42_REAL_BENCHMARK_EVIDENCE
+- AUDIT_V42_REAL_BENCHMARK_EVIDENCE_PIPELINE
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
