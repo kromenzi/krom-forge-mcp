@@ -12,7 +12,7 @@ import {
 } from './v80-shadow-benchmark-runner';
 
 const promotedNameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
-const shadowByName=new Map(
+const shadowByName=new Map<string,(typeof V80_V42_SHADOW_SEEDS)[number]>(
   V80_V42_SHADOW_SEEDS
     .filter(seed=>!promotedNameSet.has(seed.n))
     .map(seed=>[seed.n,seed] as const)
