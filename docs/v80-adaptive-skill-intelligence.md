@@ -940,4 +940,44 @@ The gate verifies:
 
 ## Release posture
 
+### Host benchmark execution adapter
+
+`src/v80-host-benchmark-executor.ts` adds `executeV42HostBenchmarkV80` for a
+trusted host process. It is a library function, not an MCP tool: remote clients
+cannot supply executable JavaScript, shell commands or URLs for it to dispatch.
+
+The host supplies a manifest, an exact source commit and an adapter with:
+
+- `loadInstruction(skillName)`, returning the actual UTF-8 instruction bytes;
+- `execute({benchmarkCase, instruction, signal})`, running the domain-specific
+  case and returning measured outcomes, validator/security results and artifacts;
+- `evidenceOrigin`, explicitly `HOST_EXECUTION` or `FIXTURE`.
+
+Before calling the adapter, the runner revalidates manifest identities and
+catalog counts and enforces a bounded case budget. Before executing each case,
+it compares the SHA-256 of the instruction bytes with the registered hash.
+Metadata-only skill seeds therefore cannot stand in for an executable skill.
+If the original package hashes normalized text instead of raw UTF-8 bytes, the
+host must resolve that package contract before using this adapter; it must not
+rewrite registered hashes to force acceptance.
+
+The runner observes elapsed time, creates execution IDs, hashes artifact content
+and binds receipts to the exact commit. Missing expected artifact kinds, adapter
+exceptions and cancellation produce no successful receipt for the affected case.
+The adapter must honor the supplied abort signal and use its own process limits;
+this library does not terminate an external process or sandbox trusted host code.
+
+Artifacts and their content are returned to the host for durable storage. They
+are not persisted by KROM. The host is responsible for secret redaction before
+returning artifacts. Error messages are deliberately omitted from reports.
+
+Fixture receipts remain fixtures and are rejected as real benchmark evidence.
+The adapter is a trust boundary: artifact hashes demonstrate byte integrity,
+not an independent signature proving that a validator or agent ran. This runner
+does not by itself enable production promotion or mutate the catalog.
+
+Verification covers absent adapters, incorrect instruction bytes, manifest
+tampering, cancellation, fixture isolation, missing artifacts and failed adapters.
+These tests exercise the runner, not the 500 candidate instruction bodies.
+
 This branch is an implementation candidate for v80. It is not a Production release and does not claim deployment.

@@ -895,6 +895,25 @@ if(tamperedRealReceipt.rejectedReceipts!==1||!tamperedRealReceipt.evaluations[0]
   fail('Phase 9 did not reject a tampered manifest-case digest.');
 }
 
+// An attacker changes both manifest content and its receipt binding.
+for(const mutate of [
+  (manifest:{-readonly [K in keyof typeof realBenchmarkManifest]:typeof realBenchmarkManifest[K]})=>{manifest.cases[0].scenarioRef='attacker://replacement';},
+  (manifest:{-readonly [K in keyof typeof realBenchmarkManifest]:typeof realBenchmarkManifest[K]})=>{manifest.cases[0].skillInstructionHash='f'.repeat(64);},
+  (manifest:{-readonly [K in keyof typeof realBenchmarkManifest]:typeof realBenchmarkManifest[K]})=>{manifest.caseCount+=1;},
+  (manifest:{-readonly [K in keyof typeof realBenchmarkManifest]:typeof realBenchmarkManifest[K]})=>{manifest.manifestDigest='f'.repeat(64);}
+]){
+  const altered=structuredClone(realBenchmarkManifest);
+  mutate(altered);
+  const result=verifyV42RealBenchmarkReceiptsV80({manifest:altered,receipts:[realHostReceipt]});
+  if(result.status!=='BLOCKED'||result.verifiedReceipts!==0) fail('Tampered manifest accepted as execution evidence.');
+}
+const repeatedEvidence=buildV42RealBenchmarkEvidenceV80({
+  manifest:realBenchmarkManifest,receipts:[realHostReceipt,realHostReceipt]
+});
+if(repeatedEvidence.status!=='BLOCKED'||repeatedEvidence.benchmark||repeatedEvidence.promotionReadyCandidates.length){
+  fail('Duplicate receipts reached CANARY recommendation.');
+}
+
 const fixtureRealReceipt=verifyV42RealBenchmarkReceiptsV80({
   manifest:realBenchmarkManifest,
   receipts:[{...realHostReceipt,evidenceOrigin:'FIXTURE' as const}]
