@@ -39,6 +39,13 @@ import {
 } from '../src/v80-skill-onboarding-governance';
 
 
+import {
+  auditV42ShadowRegistryV80,
+  getV42ShadowCandidateV80,
+  getV42ShadowRegistrySummaryV80,
+  selectV42CanaryCohortV80
+} from '../src/v80-v42-shadow-registry';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -364,6 +371,54 @@ if (portfolio.counts.CANARY_DOWNGRADE !== 1 || portfolio.counts.KEEP !== 1) {
   fail('Retirement portfolio did not separate degraded and healthy skills correctly.');
 }
 
+const v42Audit = auditV42ShadowRegistryV80();
+if (v42Audit.status !== 'PASS') fail(`v4.2 shadow registry audit failed: ${v42Audit.failures.join(', ')}`);
+
+const v42Summary = getV42ShadowRegistrySummaryV80();
+if (v42Summary.shadowCandidates.count !== 500) fail('v4.2 shadow registry must contain exactly 500 candidates.');
+if (v42Summary.stableCatalog.count !== 1465 || !v42Summary.stableCatalog.unchanged) {
+  fail('Registering v4.2 shadow candidates changed the stable 1,465-skill catalog.');
+}
+if (v42Summary.shadowCandidates.executable || v42Summary.shadowCandidates.promoted !== 0) {
+  fail('v4.2 shadow candidates became executable or promoted without authorization.');
+}
+if (v42Summary.collisionAudit.exactStableCollisions.length || v42Summary.collisionAudit.normalizedStableCollisions.length) {
+  fail('v4.2 shadow pack collides with the stable catalog.');
+}
+
+const firstShadow = getV42ShadowCandidateV80({skillName:'kfg-v4-0001-bounded-context-migration-map'});
+if (firstShadow.status !== 'FOUND' || firstShadow.lifecycle !== 'SHADOW' || firstShadow.executable) {
+  fail('v4.2 candidate lookup did not preserve SHADOW/non-executable state.');
+}
+
+const emptyCanary = selectV42CanaryCohortV80({evidence:[]});
+if (emptyCanary.selectedCount !== 0 || emptyCanary.executable || emptyCanary.promotionApplied) {
+  fail('Canary selection must not promote or execute candidates without evidence.');
+}
+
+const qualifiedCanary = selectV42CanaryCohortV80({
+  maxCandidates:2,
+  maxPerArea:2,
+  evidence:[{
+    skillName:'kfg-v4-0001-bounded-context-migration-map',
+    benchmarkScore:0.97,
+    benchmarkCases:45,
+    semanticMaxSimilarity:0.60,
+    proceduralMaxSimilarity:0.72,
+    specializationDistinct:true,
+    evidenceComplete:true,
+    validatorPass:true,
+    regressionRate:0.01,
+    securityPass:true
+  }]
+});
+if (qualifiedCanary.selectedCount !== 1 || qualifiedCanary.selected[0]?.skillName !== 'kfg-v4-0001-bounded-context-migration-map') {
+  fail('Qualified SHADOW evidence did not produce a deterministic CANARY recommendation.');
+}
+if (qualifiedCanary.executable || qualifiedCanary.promotionApplied || !qualifiedCanary.hostAuthorizationRequired) {
+  fail('CANARY recommendation crossed the host-authorization boundary.');
+}
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -391,5 +446,9 @@ console.log(JSON.stringify({
   controlCenterSnapshot:true,
   shadowCanaryOnboarding:true,
   duplicateRetirementIntelligence:true,
+  v42ShadowRegistry:true,
+  v42ShadowCandidates:500,
+  v42StableCatalogPreserved:true,
+  v42CanarySelectionGoverned:true,
   automaticCatalogMutation:false
 }, null, 2));
