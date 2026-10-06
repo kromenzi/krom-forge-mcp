@@ -20,6 +20,16 @@ import {
   v80MultiAgentReviewSchema
 } from '../src/v80-adaptive-skill-intelligence';
 
+import {
+  auditOperationalLearningV80,
+  buildSkillControlCenterSnapshotV80,
+  buildSkillHealthSnapshotV80,
+  createObservationLedgerV80,
+  recordMissionOutcomeV80,
+  recordSkillObservationV80
+} from '../src/v80-operational-learning';
+import { V75_SKILL_NAMES } from '../src/v75-agent-capability-fabric';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -125,6 +135,61 @@ const benchmark = evaluateSkillBenchmarkV80(v80BenchmarkSchema.parse({
 }));
 if (benchmark.top1Accuracy !== 0.5 || benchmark.top3Recall !== 1) fail('Benchmark metrics are not deterministic.');
 
+const operationalAudit = auditOperationalLearningV80();
+if (operationalAudit.status !== 'PASS') fail(`Operational learning audit failed: ${operationalAudit.failures.join(', ')}`);
+
+const knownSkill = V75_SKILL_NAMES[0];
+let ledger = createObservationLedgerV80();
+for (let i=0; i<4; i++) {
+  const recorded = recordSkillObservationV80({
+    ledger,
+    observation:{
+      id:`verify-observation-${i}`,
+      skillName:knownSkill,
+      domain:'verification',
+      primaryAgent:'qa',
+      validatorAgent:'qa',
+      outcome:'PASS',
+      evidenceComplete:true,
+      verificationPassed:true,
+      regressionDetected:false,
+      handoffCount:0,
+      latencyMs:900,
+      timestampEpoch:i
+    }
+  });
+  if (!recorded.recorded) fail('Known skill observation was not recorded.');
+  ledger = recorded.ledger;
+}
+
+const healthSnapshot = buildSkillHealthSnapshotV80({ledger,minConfidenceSamples:2});
+if (healthSnapshot.observedSkillCount !== 1 || healthSnapshot.health[0]?.skillName !== knownSkill) {
+  fail('Operational health snapshot did not aggregate the observed skill.');
+}
+
+const missionOutcome = recordMissionOutcomeV80({
+  ledger,
+  missionDigest:'c'.repeat(64),
+  skillNames:[knownSkill],
+  domain:'verification',
+  primaryAgent:'qa',
+  validatorAgent:'release-auditor',
+  outcome:'SUCCEEDED',
+  evidenceRefs:['github-actions:verify-v80'],
+  verificationPassed:true,
+  executionAuthorized:true,
+  latencyMs:1000
+});
+if (missionOutcome.normalizedOutcome !== 'PASS' || missionOutcome.recorded !== 1) {
+  fail('Verified mission outcome was not normalized into a PASS observation.');
+}
+
+const controlCenter = buildSkillControlCenterSnapshotV80({ledger:missionOutcome.ledger,minConfidenceSamples:2});
+if (controlCenter.catalog.skills !== audit.currentSkillCatalogCount || controlCenter.catalog.agents !== 11) {
+  fail('Control-center snapshot does not match current KROM catalog/agent baselines.');
+}
+if (controlCenter.persistence.durableStoreConfigured) fail('Operational learning must remain portable without an authorized persistence adapter.');
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -146,5 +211,8 @@ console.log(JSON.stringify({
   currentSkillCatalogCount:audit.currentSkillCatalogCount,
   agentCount:audit.agentCount,
   engines:audit.engines,
-  additionalControls:audit.additionalControls
+  additionalControls:audit.additionalControls,
+  operationalLearning:true,
+  portableObservationLedger:true,
+  controlCenterSnapshot:true
 }, null, 2));

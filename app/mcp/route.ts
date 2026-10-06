@@ -122,6 +122,7 @@ import {
   summarizeInputSchemaV79
 } from '../../src/v79-capability-governance';
 import * as v80 from '../../src/v80-adaptive-skill-intelligence';
+import * as v80ops from '../../src/v80-operational-learning';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2846,6 +2847,14 @@ const handler = createMcpHandler((server) => {
       if(operation==='INVALIDATE_EVIDENCE_GRAPH') return result(v80.invalidateEvidenceGraphV80(v80.v80EvidenceInvalidationSchema.parse(payload)));
       if(operation==='EVALUATE_MULTI_AGENT_REVIEW') return result(v80.evaluateMultiAgentReviewV80(v80.v80MultiAgentReviewSchema.parse(payload)));
       if(operation==='EVALUATE_BENCHMARK') return result(v80.evaluateSkillBenchmarkV80(v80.v80BenchmarkSchema.parse(payload)));
+      if(operation==='CREATE_OBSERVATION_LEDGER') return result(v80ops.createObservationLedgerV80());
+      if(operation==='RECORD_SKILL_OBSERVATION') return result(v80ops.recordSkillObservationV80(v80ops.v80RecordObservationSchema.parse(payload)));
+      if(operation==='RECORD_MISSION_OUTCOME') return result(v80ops.recordMissionOutcomeV80(v80ops.v80MissionOutcomeSchema.parse(payload)));
+      if(operation==='BUILD_SKILL_HEALTH_SNAPSHOT') return result(v80ops.buildSkillHealthSnapshotV80(v80ops.v80SkillHealthSchema.parse(payload)));
+      if(operation==='ROUTE_WITH_OPERATIONAL_HISTORY') return result(v80ops.routeWithOperationalHistoryV80(v80ops.v80RouteFromLedgerSchema.parse(payload)));
+      if(operation==='PROPOSE_LIFECYCLE_ACTIONS') return result(v80ops.proposeLifecycleActionsV80(v80ops.v80LifecycleProposalSchema.parse(payload)));
+      if(operation==='BUILD_CONTROL_CENTER_SNAPSHOT') return result(v80ops.buildSkillControlCenterSnapshotV80(v80ops.v80ControlCenterSchema.parse(payload)));
+      if(operation==='AUDIT_OPERATIONAL_LEARNING') return result(v80ops.auditOperationalLearningV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
