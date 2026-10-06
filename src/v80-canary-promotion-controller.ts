@@ -229,7 +229,7 @@ export function buildV42PromotionPlanV80(input:z.input<typeof v80PromotionPlanSc
 
   const evaluated=parsed.assessments.map(item=>evaluateV42PromotionReadinessV80(item));
   const ready=evaluated
-    .filter((item):item is Extract<typeof item,{status:'READY'}>=>item.status==='READY')
+    .flatMap(item=>item.status==='READY'&&'metrics' in item?[item]:[])
     .sort((a,b)=>{
       const lifecyclePriority=(value:string)=>value==='PROMOTE_STABLE'?2:1;
       return lifecyclePriority(b.recommendation)-lifecyclePriority(a.recommendation)||
