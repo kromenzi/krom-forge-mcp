@@ -130,6 +130,7 @@ import * as v80promo from '../../src/v80-canary-promotion-controller';
 import * as v80exec from '../../src/v80-authorized-promotion-executor';
 import * as v80catalog from '../../src/v80-real-catalog-promotion-adapter';
 import * as v80realbench from '../../src/v80-real-benchmark-evidence-pipeline';
+import * as v80campaign from '../../src/v80-real-benchmark-campaign-orchestrator';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2888,6 +2889,9 @@ const handler = createMcpHandler((server) => {
       if(operation==='VERIFY_V42_REAL_BENCHMARK_RECEIPTS') return result(v80realbench.verifyV42RealBenchmarkReceiptsV80(v80realbench.v80VerifyRealBenchmarkReceiptsSchema.parse(payload)));
       if(operation==='BUILD_V42_REAL_BENCHMARK_EVIDENCE') return result(v80realbench.buildV42RealBenchmarkEvidenceV80(v80realbench.v80BuildRealBenchmarkEvidenceSchema.parse(payload)));
       if(operation==='AUDIT_V42_REAL_BENCHMARK_EVIDENCE_PIPELINE') return result(v80realbench.auditV42RealBenchmarkEvidencePipelineV80());
+      if(operation==='PLAN_V42_REAL_BENCHMARK_CAMPAIGN') return result(v80campaign.planV42RealBenchmarkCampaignV80(v80campaign.v80PlanRealBenchmarkCampaignSchema.parse(payload)));
+      if(operation==='BUILD_V42_REAL_BENCHMARK_CAMPAIGN_STATUS') return result(v80campaign.buildV42RealBenchmarkCampaignStatusV80(v80campaign.v80BuildRealBenchmarkCampaignStatusSchema.parse(payload)));
+      if(operation==='AUDIT_V42_REAL_BENCHMARK_CAMPAIGN_ORCHESTRATOR') return result(v80campaign.auditV42RealBenchmarkCampaignOrchestratorV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
