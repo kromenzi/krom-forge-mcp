@@ -390,6 +390,86 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 - SELECT_V42_CANARY_COHORT
 - AUDIT_V42_SHADOW_REGISTRY
 
+## Phase 5 — Shadow Benchmark Runner
+
+The v80 Shadow Benchmark Runner evaluates **supplied benchmark results** for the 500 v4.2 SHADOW candidates.
+
+It does not execute external tests by itself and does not claim that a benchmark ran unless result records are supplied by the host.
+
+### Case contract
+
+Each supplied benchmark case can carry:
+
+- case ID;
+- candidate skill name;
+- PASS / FAIL / BLOCKED outcome;
+- evidence references;
+- validator result;
+- security result;
+- unsupported-claim signal;
+- regression signal;
+- latency and latency budget;
+- semantic/procedural similarity context;
+- source reference.
+
+Unknown candidate names are reported instead of being accepted as valid shadow skills.
+
+### Per-skill benchmark score
+
+The runner aggregates:
+
+- pass rate;
+- validator pass rate;
+- evidence completeness;
+- security pass rate;
+- supported-claim rate;
+- latency-budget pass rate;
+- source binding;
+- regression penalty.
+
+The score is deterministic and evidence-bound. It is used only as input to the existing governed CANARY selector.
+
+### CANARY recommendation
+
+A benchmark result can recommend a candidate for CANARY only when the existing Phase 4 gates are satisfied, including:
+
+- minimum sample count;
+- benchmark threshold;
+- evidence completeness;
+- validator pass;
+- security pass;
+- regression threshold;
+- similarity/specialization review.
+
+The output remains:
+
+- recommendation only;
+- non-executable;
+- no automatic promotion;
+- host authorization required before any runtime/catalog mutation.
+
+### Failure taxonomy
+
+The batch report includes counts for:
+
+- failed benchmark cases;
+- blocked cases;
+- missing evidence;
+- validator failures;
+- security failures;
+- unsupported claims;
+- regressions;
+- latency-budget misses;
+- missing source references.
+
+### Phase 5 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- EVALUATE_V42_SHADOW_BENCHMARK
+- GET_V42_SHADOW_BENCHMARK_REPORT
+- AUDIT_V42_SHADOW_BENCHMARK_RUNNER
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
