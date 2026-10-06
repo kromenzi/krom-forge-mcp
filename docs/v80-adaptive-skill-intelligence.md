@@ -309,6 +309,89 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 
 No additional public tool or v80 gateway is created.
 
+## Phase 4 — v4.2 500-Skill Shadow Catalog
+
+The reviewed v4.2 pack is now represented inside source control as a **non-active SHADOW candidate catalog**.
+
+Source package:
+
+- Pack: `KROM-Forge-v79-Native-Skills-Pack-v4.2-500-New`
+- Version: `4.2.0`
+- Archive SHA-256: `6dfa6f35e552712d6158c12917d0cf632f87707a607ed9a8657857eda1aa05a5`
+- Candidate skills: **500**
+- Active runtime skills: **1,465**
+- Projected catalog only if every candidate is eventually promoted: **1,965**
+
+Source quality evidence carried into the shadow registry:
+
+- 500/500 unique procedural bodies;
+- 0 exact normalized clusters;
+- 0 similarity pairs at or above 0.90;
+- highest reported combined similarity: 0.8961;
+- 4,000 declared behavioral tests;
+- source security gate PASS;
+- 0 secret-pattern hits;
+- 0 unsafe mutation payload hits.
+
+### Non-active boundary
+
+The 500 records are not appended to the v75/v76/v77 active runtime indexes.
+
+They do not:
+
+- increase the active 1,465-skill catalog;
+- change the 15-tool compact public MCP surface;
+- change the fixed 5,333 internal capabilities;
+- change agent permissions;
+- create executable capabilities;
+- create a second v80 gateway.
+
+Every candidate is marked:
+
+- lifecycle: SHADOW
+- runtimeActivated: false
+
+### Collision gate
+
+Phase 4 audits every candidate against the live active catalog using both:
+
+- exact skill name;
+- normalized skill identity.
+
+Any collision fails the shadow-catalog audit and blocks later promotion.
+
+### Governed onboarding posture
+
+The source pack has strong structural/originality evidence but no real KROM operational benchmark history yet.
+
+Therefore Phase 4 intentionally supplies:
+
+- benchmarkScore: 0
+- benchmarkCases: 0
+
+to the onboarding engine.
+
+The expected result is:
+
+- SHADOW: 500
+- CANARY: 0
+- REVIEW_REQUIRED: 0
+- BLOCKED: 0
+
+This does not mean the skills are weak. It means structural package quality and real runtime effectiveness are treated as separate evidence classes.
+
+Promotion to CANARY must occur per skill after evidence-bound SHADOW observations exist. STABLE promotion remains subject to later lifecycle gates.
+
+### Phase 4 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway also supports:
+
+- AUDIT_V42_SHADOW_CATALOG
+- GET_V42_SHADOW_CATALOG
+- EVALUATE_V42_SHADOW_PACK
+
+The paged catalog API exposes candidate metadata without activating the candidate.
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
