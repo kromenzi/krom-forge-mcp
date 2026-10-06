@@ -29,6 +29,15 @@ import {
   recordSkillObservationV80
 } from '../src/v80-operational-learning';
 import { V75_SKILL_NAMES } from '../src/v75-agent-capability-fabric';
+import {
+  auditSkillOnboardingGovernanceV80,
+  buildRetirementPortfolioV80,
+  classifySkillDuplicatePairV80,
+  evaluateSkillOnboardingV80,
+  evaluateSkillPackOnboardingV80,
+  evaluateSkillRetirementV80
+} from '../src/v80-skill-onboarding-governance';
+
 
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
@@ -190,6 +199,171 @@ if (controlCenter.catalog.skills !== audit.currentSkillCatalogCount || controlCe
 }
 if (controlCenter.persistence.durableStoreConfigured) fail('Operational learning must remain portable without an authorized persistence adapter.');
 
+const onboardingAudit = auditSkillOnboardingGovernanceV80();
+if (onboardingAudit.status !== 'PASS') fail(`Onboarding governance audit failed: ${onboardingAudit.failures.join(', ')}`);
+if (onboardingAudit.publicToolSurfaceChange !== 0 || onboardingAudit.internalCapabilityRegistryChange !== 0 || onboardingAudit.additionalGatewayCount !== 0) {
+  fail('Phase 3 must not expand public tools, fixed capabilities, or v80 gateway count.');
+}
+
+const onboardingCandidate = evaluateSkillOnboardingV80({
+  candidate:{
+    skillName:'verify-v80-shadow-canary-skill',
+    packageId:'verify-pack',
+    domain:'testing',
+    primaryAgent:'qa',
+    validatorAgent:'release-auditor',
+    handoffAgents:['orchestrator'],
+    contractValid:true,
+    schemaValid:true,
+    securityPass:true,
+    provenanceValid:true,
+    checksumValid:true,
+    agentMappingValid:true,
+    capabilityMappingValid:true,
+    evidenceContractValid:true,
+    behavioralTests:8,
+    benchmarkScore:0.96,
+    benchmarkCases:40,
+    semanticMaxSimilarity:0.55,
+    proceduralMaxSimilarity:0.51,
+    purposeOverlapRisk:'low'
+  }
+});
+if (onboardingCandidate.recommendation !== 'CANARY' || !onboardingCandidate.onboardingAllowed) {
+  fail('High-quality candidate did not clear the governed CANARY onboarding gate.');
+}
+
+const collisionCandidate = evaluateSkillOnboardingV80({
+  candidate:{
+    skillName:knownSkill,
+    packageId:'verify-pack',
+    primaryAgent:'qa',
+    validatorAgent:'release-auditor',
+    contractValid:true,
+    schemaValid:true,
+    securityPass:true,
+    provenanceValid:true,
+    checksumValid:true,
+    agentMappingValid:true,
+    capabilityMappingValid:true,
+    evidenceContractValid:true,
+    behavioralTests:8
+  }
+});
+if (collisionCandidate.recommendation !== 'BLOCKED') fail('Existing catalog collision was not blocked.');
+
+const packGate = evaluateSkillPackOnboardingV80({
+  packName:'verify-v80-pack',
+  version:'1.0.0',
+  baseCatalogCount:audit.currentSkillCatalogCount,
+  candidates:[
+    {
+      skillName:'verify-v80-pack-skill-a',
+      packageId:'verify-v80-pack',
+      primaryAgent:'qa',
+      validatorAgent:'release-auditor',
+      handoffAgents:['orchestrator'],
+      contractValid:true,
+      schemaValid:true,
+      securityPass:true,
+      provenanceValid:true,
+      checksumValid:true,
+      agentMappingValid:true,
+      capabilityMappingValid:true,
+      evidenceContractValid:true,
+      behavioralTests:8,
+      benchmarkScore:0.94,
+      benchmarkCases:25,
+      semanticMaxSimilarity:0.45,
+      proceduralMaxSimilarity:0.40
+    },
+    {
+      skillName:'verify-v80-pack-skill-b',
+      packageId:'verify-v80-pack',
+      primaryAgent:'database',
+      validatorAgent:'qa',
+      handoffAgents:['release-auditor'],
+      contractValid:true,
+      schemaValid:true,
+      securityPass:true,
+      provenanceValid:true,
+      checksumValid:true,
+      agentMappingValid:true,
+      capabilityMappingValid:true,
+      evidenceContractValid:true,
+      behavioralTests:8,
+      benchmarkScore:0.75,
+      benchmarkCases:8,
+      semanticMaxSimilarity:0.50,
+      proceduralMaxSimilarity:0.48
+    }
+  ]
+});
+if (packGate.status !== 'READY_FOR_GOVERNED_ONBOARDING' || packGate.counts.BLOCKED !== 0) {
+  fail('Clean onboarding pack did not pass package governance.');
+}
+
+const specializedPair = classifySkillDuplicatePairV80({
+  skillA:'api-rate-limit-diagnostic',
+  skillB:'api-rate-limit-recovery',
+  semanticSimilarity:0.94,
+  proceduralSimilarity:0.86,
+  purposeSimilarity:0.90,
+  outcomeAgreement:0.85,
+  evidenceOverlap:0.78,
+  coSelectionRate:0.60,
+  sampleSize:35,
+  specializationDistinct:true
+});
+if (specializedPair.classification !== 'KEEP_SPECIALIZED') fail('Distinct specialization was incorrectly treated as redundant.');
+
+const retirement = evaluateSkillRetirementV80({
+  skillName:'verify-legacy-skill',
+  currentLifecycle:'DEPRECATED',
+  sampleSize:60,
+  usageLast30d:0,
+  effectivenessScore:80,
+  uniqueValueRemaining:false,
+  openIncidents:0,
+  securityBlocker:false,
+  replacementName:'verify-stable-replacement',
+  replacementLifecycle:'STABLE',
+  replacementEffectivenessScore:94,
+  duplicateConfidence:0.97,
+  coverageMatch:0.99
+});
+if (retirement.recommendation !== 'RETIRE' || !retirement.hostAuthorizationRequired) {
+  fail('Strong retirement evidence did not produce a governed RETIRE recommendation.');
+}
+
+const portfolio = buildRetirementPortfolioV80({
+  assessments:[
+    {
+      skillName:'weak-stable-skill',
+      currentLifecycle:'STABLE',
+      sampleSize:50,
+      usageLast30d:20,
+      effectivenessScore:62,
+      regressionRate:0.20,
+      failureRate:0.18,
+      uniqueValueRemaining:true
+    },
+    {
+      skillName:'healthy-stable-skill',
+      currentLifecycle:'STABLE',
+      sampleSize:50,
+      usageLast30d:20,
+      effectivenessScore:94,
+      regressionRate:0.02,
+      failureRate:0.02,
+      uniqueValueRemaining:true
+    }
+  ]
+});
+if (portfolio.counts.CANARY_DOWNGRADE !== 1 || portfolio.counts.KEEP !== 1) {
+  fail('Retirement portfolio did not separate degraded and healthy skills correctly.');
+}
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -214,5 +388,8 @@ console.log(JSON.stringify({
   additionalControls:audit.additionalControls,
   operationalLearning:true,
   portableObservationLedger:true,
-  controlCenterSnapshot:true
+  controlCenterSnapshot:true,
+  shadowCanaryOnboarding:true,
+  duplicateRetirementIntelligence:true,
+  automaticCatalogMutation:false
 }, null, 2));
