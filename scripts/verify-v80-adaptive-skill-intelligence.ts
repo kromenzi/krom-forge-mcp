@@ -81,6 +81,11 @@ import {
   verifyV42RealBenchmarkReceiptsV80
 } from '../src/v80-real-benchmark-evidence-pipeline';
 
+import {
+  auditV42RealBenchmarkCampaignOrchestratorV80,
+  planV42RealBenchmarkCampaignV80
+} from '../src/v80-real-benchmark-campaign-orchestrator';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -919,6 +924,57 @@ if(realBenchmarkEvidence.stableCatalogCount!==1465||realBenchmarkEvidence.promot
   fail('Phase 9 changed the real stable catalog before a promotion batch.');
 }
 
+const campaignAudit=auditV42RealBenchmarkCampaignOrchestratorV80();
+if(campaignAudit.status!=='PASS'){
+  fail(`Real benchmark campaign orchestrator audit failed: ${campaignAudit.failures.join(', ')}`);
+}
+
+const campaignPlan=planV42RealBenchmarkCampaignV80({
+  campaignId:'verify-v80-phase10-plan',
+  scenarioBank:[
+    {
+      scenarioId:'verify-campaign-a',
+      scenarioRef:'verify://campaign/a',
+      areas:['*'],
+      expectedEvidenceKinds:['result','validator','security'],
+      latencyBudgetMs:5000
+    },
+    {
+      scenarioId:'verify-campaign-b',
+      scenarioRef:'verify://campaign/b',
+      areas:['*'],
+      expectedEvidenceKinds:['result','validator','security'],
+      latencyBudgetMs:5000
+    },
+    {
+      scenarioId:'verify-campaign-c',
+      scenarioRef:'verify://campaign/c',
+      areas:['*'],
+      expectedEvidenceKinds:['result','validator','security'],
+      latencyBudgetMs:5000
+    }
+  ],
+  requestedSkillNames:[firstShadowSkillName,secondShadowSkillName],
+  targetCasesPerSkill:20,
+  maxSkills:2,
+  casesPerSkill:4,
+  maxTotalCases:8
+});
+if(campaignPlan.status!=='READY_FOR_HOST_EXECUTION'||campaignPlan.plannedCases!==8||campaignPlan.selectedSkillCount!==2){
+  fail('Phase 10 did not create the expected balanced host-execution campaign.');
+}
+if(campaignPlan.executionPerformed||campaignPlan.externalExecutionPerformedByOrchestrator){
+  fail('Phase 10 campaign planner fabricated external execution.');
+}
+if(campaignPlan.promotionApplied||campaignPlan.repositoryMutationApplied||campaignPlan.runtimeCatalogMutationApplied||campaignPlan.deploymentMutationApplied){
+  fail('Phase 10 campaign planner crossed promotion/catalog/deployment mutation boundaries.');
+}
+if(!route.includes("PLAN_V42_REAL_BENCHMARK_CAMPAIGN")||
+   !route.includes("BUILD_V42_REAL_BENCHMARK_CAMPAIGN_STATUS")||
+   !route.includes("AUDIT_V42_REAL_BENCHMARK_CAMPAIGN_ORCHESTRATOR")){
+  fail('Phase 10 operations are not wired through the existing v80 gateway.');
+}
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -975,5 +1031,11 @@ console.log(JSON.stringify({
   fixtureEvidenceRejected:true,
   verifiedHostEvidenceFeedsPhase5:true,
   externalExecutionNotFabricated:true,
+  realBenchmarkCampaignOrchestrator:true,
+  balancedCampaignPlanning:true,
+  scenarioDiversityGate:true,
+  sourceDiversityGate:true,
+  promotionReviewQueue:true,
+  campaignExecutionNotFabricated:true,
   automaticCatalogMutation:false
 }, null, 2));
