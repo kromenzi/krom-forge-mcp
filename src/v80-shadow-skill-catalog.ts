@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { V75_AGENT_IDS, V75_SKILL_NAMES } from './v75-agent-capability-fabric';
 import {
@@ -5,11 +6,10 @@ import {
   normalizeSkillIdentityV80,
   type V80SkillOnboardingCandidate
 } from './v80-skill-onboarding-governance';
-import { V80_V42_SHADOW_SKILLS_0 } from './v80-shadow-skill-catalog-part-0';
-import { V80_V42_SHADOW_SKILLS_1 } from './v80-shadow-skill-catalog-part-1';
-import { V80_V42_SHADOW_SKILLS_2 } from './v80-shadow-skill-catalog-part-2';
-import { V80_V42_SHADOW_SKILLS_3 } from './v80-shadow-skill-catalog-part-3';
-import { V80_V42_SHADOW_SKILLS_4 } from './v80-shadow-skill-catalog-part-4';
+import {
+  V80_V42_SHADOW_AREAS,
+  V80_V42_SHADOW_SLUGS
+} from './v80-shadow-skill-catalog-source';
 
 export const V80_V42_SHADOW_SOURCE = {
   packName:'KROM-Forge-v79-Native-Skills-Pack-v4.2-500-New',
@@ -39,23 +39,6 @@ export const V80_V42_SHADOW_SOURCE = {
   }
 } as const;
 
-type RawShadowSkill = {
-  name:string;
-  sha256:string;
-  area:string;
-  primaryAgent?:string;
-  validatorAgent?:string;
-  handoffAgents?:readonly string[];
-};
-
-const RAW_V42_SHADOW_SKILLS:RawShadowSkill[] = [
-  ...V80_V42_SHADOW_SKILLS_0,
-  ...V80_V42_SHADOW_SKILLS_1,
-  ...V80_V42_SHADOW_SKILLS_2,
-  ...V80_V42_SHADOW_SKILLS_3,
-  ...V80_V42_SHADOW_SKILLS_4
-];
-
 const agentSet = new Set<string>(V75_AGENT_IDS as readonly string[]);
 
 function inferPrimaryAgent(area:string){
@@ -65,7 +48,7 @@ function inferPrimaryAgent(area:string){
   if (['digitaltwins','iot','otit','distributed','microservices','monorepos','mcp','modelrouting','saudi','architecture'].includes(area)) return 'architect';
   if (['hr','maintenance','analytics','bi','ai','llm','rag','embeddings','vision','ocr','docintel','arabic','rootcause'].includes(area)) return 'researcher';
   if (['accessibility','pdf','images','video','audio','unit-testing','integration-testing','e2e','contract-testing','chaos','hse'].includes(area)) return 'qa';
-  if (['rls','elasticsearch','dataeng','etl','data-quality','vector','spreadsheet','erp','finance','assets'].includes(area)) return 'database';
+  if (['rls','elasticsearch','dataeng','etl','dataquality','vector','excel','spreadsheet','erp','finance','assets'].includes(area)) return 'database';
   if (['frontend','mobile','i18n'].includes(area)) return 'frontend';
   if (['uiux','rtl'].includes(area)) return 'uiux';
   if (['devops','cicd','github-actions','vercel','containers','kubernetes','terraform','serverless','edge','observability','performance'].includes(area)) return 'devops';
@@ -73,37 +56,47 @@ function inferPrimaryAgent(area:string){
 }
 
 function inferValidatorAgent(area:string,primary:string){
-  if (['database','rls','elasticsearch','dataeng','etl','data-quality','vector','spreadsheet','erp','finance','assets','manufacturing','supplychain','cmms'].includes(area)) return primary==='database'?'qa':'database';
-  if (['security','cybersecurity','privacy','industrial','iot','otit','auth','abac','appsec','cloudsec','secrets'].includes(area)) return primary==='security'?'qa':'security';
-  if (['architecture','distributed','microservices','monorepos','digitaltwins','modelrouting'].includes(area)) return primary==='architect'?'qa':'architect';
-  if (['disaster','incident','governance','sre','git-forensics'].includes(area)) return primary==='release-auditor'?'qa':'release-auditor';
+  if (['database','rls','elasticsearch','dataeng','etl','dataquality','vector','excel','spreadsheet','erp','finance','assets','manufacturing','supplychain','cmms'].includes(area)) {
+    return primary==='database'?'qa':'database';
+  }
+  if (['security','cybersecurity','privacy','industrial','iot','otit','auth','abac','appsec','cloudsec','secrets'].includes(area)) {
+    return primary==='security'?'qa':'security';
+  }
+  if (['architecture','distributed','microservices','monorepos','digitaltwins','modelrouting'].includes(area)) {
+    return primary==='architect'?'qa':'architect';
+  }
+  if (['disaster','incident','governance','sre','git-forensics'].includes(area)) {
+    return primary==='release-auditor'?'qa':'release-auditor';
+  }
   if (['uiux','rtl','accessibility'].includes(area)) return primary==='qa'?'uiux':'qa';
   return 'qa';
 }
 
 function defaultHandoffs(primary:string,validator:string){
-  const ordered=[validator,'qa','release-auditor','orchestrator']
-    .filter((value,index,array)=>value!==primary&&array.indexOf(value)===index);
-  return ordered.slice(0,2);
+  return [validator,'qa','release-auditor','orchestrator']
+    .filter((value,index,array)=>value!==primary&&array.indexOf(value)===index)
+    .slice(0,2);
 }
 
-function normalizeRecord(raw:RawShadowSkill,index:number){
-  const primaryAgent=agentSet.has(raw.primaryAgent??'') ? raw.primaryAgent! : inferPrimaryAgent(raw.area);
-  const validatorAgent=agentSet.has(raw.validatorAgent??'') && raw.validatorAgent!==primaryAgent
-    ? raw.validatorAgent!
-    : inferValidatorAgent(raw.area,primaryAgent);
-  const handoffAgents=(raw.handoffAgents??defaultHandoffs(primaryAgent,validatorAgent))
-    .filter(agent=>agentSet.has(agent)&&agent!==primaryAgent)
-    .filter((agent,index,array)=>array.indexOf(agent)===index)
-    .slice(0,6);
+function buildCandidate(slug:string,index:number){
+  const id=index+1;
+  const area=V80_V42_SHADOW_AREAS[Math.floor(index/5)] ?? 'general';
+  const name=`kfg-v4-${String(id).padStart(4,'0')}-${slug}`;
+  const primaryAgent=inferPrimaryAgent(area);
+  const validatorAgent=inferValidatorAgent(area,primaryAgent);
+  const handoffAgents=defaultHandoffs(primaryAgent,validatorAgent);
+  const shadowIdentitySha256=createHash('sha256')
+    .update(`${V80_V42_SHADOW_SOURCE.archiveSha256}:${name}`)
+    .digest('hex');
   return {
-    id:index+1,
-    name:raw.name,
-    sha256:raw.sha256,
-    area:raw.area,
+    id,
+    name,
+    slug,
+    area,
     primaryAgent,
     validatorAgent,
     handoffAgents,
+    shadowIdentitySha256,
     lifecycle:'SHADOW' as const,
     runtimeActivated:false,
     sourcePack:V80_V42_SHADOW_SOURCE.packName,
@@ -111,7 +104,7 @@ function normalizeRecord(raw:RawShadowSkill,index:number){
   };
 }
 
-export const V80_V42_SHADOW_SKILLS = RAW_V42_SHADOW_SKILLS.map(normalizeRecord);
+export const V80_V42_SHADOW_SKILLS = V80_V42_SHADOW_SLUGS.map(buildCandidate);
 
 export const v80ShadowCatalogQuerySchema=z.object({
   offset:z.number().int().min(0).default(0),
@@ -126,28 +119,30 @@ function duplicates(values:string[]){
 
 export function auditV80ShadowCatalog(){
   const names=V80_V42_SHADOW_SKILLS.map(item=>item.name);
-  const hashes=V80_V42_SHADOW_SKILLS.map(item=>item.sha256);
+  const hashes=V80_V42_SHADOW_SKILLS.map(item=>item.shadowIdentitySha256);
   const activeNames=new Set<string>(V75_SKILL_NAMES as readonly string[]);
   const activeNormalized=new Set((V75_SKILL_NAMES as readonly string[]).map(normalizeSkillIdentityV80));
   const exactCollisions=names.filter(name=>activeNames.has(name)).sort();
   const normalizedCollisions=names
     .filter(name=>activeNormalized.has(normalizeSkillIdentityV80(name)))
     .sort();
-  const invalidHashes=V80_V42_SHADOW_SKILLS
-    .filter(item=>!/^[a-f0-9]{64}$/.test(item.sha256))
+  const invalidIdentityHashes=V80_V42_SHADOW_SKILLS
+    .filter(item=>!/^[a-f0-9]{64}$/.test(item.shadowIdentitySha256))
     .map(item=>item.name);
   const invalidAgents=V80_V42_SHADOW_SKILLS
     .filter(item=>!agentSet.has(item.primaryAgent)||!agentSet.has(item.validatorAgent))
     .map(item=>item.name);
   const activeCatalogCount=V75_SKILL_NAMES.length;
   const checks={
+    sourceAreaCount:V80_V42_SHADOW_AREAS.length===100,
+    sourceSlugCount:V80_V42_SHADOW_SLUGS.length===500,
     candidateCount:V80_V42_SHADOW_SKILLS.length===V80_V42_SHADOW_SOURCE.candidateCount,
     uniqueNames:new Set(names).size===V80_V42_SHADOW_SOURCE.candidateCount,
-    uniqueHashes:new Set(hashes).size===V80_V42_SHADOW_SOURCE.candidateCount,
+    uniqueShadowIdentityHashes:new Set(hashes).size===V80_V42_SHADOW_SOURCE.candidateCount,
     internalExactDuplicates:duplicates(names).length===0,
     exactActiveCollisions:exactCollisions.length===0,
     normalizedActiveCollisions:normalizedCollisions.length===0,
-    hashesValid:invalidHashes.length===0,
+    identityHashesValid:invalidIdentityHashes.length===0,
     agentsValid:invalidAgents.length===0,
     activeCatalogPreserved:activeCatalogCount===V80_V42_SHADOW_SOURCE.baseCatalogCount,
     publicSurfacePreserved:V80_V42_SHADOW_SOURCE.publicTools===15,
@@ -170,10 +165,11 @@ export function auditV80ShadowCatalog(){
     exactCollisions,
     normalizedCollisions,
     internalDuplicateNames:duplicates(names),
-    invalidHashes,
+    invalidIdentityHashes,
     invalidAgents,
     checks,
     failures,
+    note:'Per-skill shadowIdentitySha256 is a deterministic registry identity derived from archive SHA + skill name; it is not presented as the source SKILL.md SHA.',
     executionClaim:false
   } as const;
 }
