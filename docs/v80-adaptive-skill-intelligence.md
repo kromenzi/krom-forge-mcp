@@ -803,6 +803,88 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 - BUILD_V42_REAL_BENCHMARK_EVIDENCE
 - AUDIT_V42_REAL_BENCHMARK_EVIDENCE_PIPELINE
 
+## Phase 10 — Real Benchmark Campaign Orchestrator & Promotion Review Queue
+
+Phase 10 turns the Phase 9 receipt model into a repeatable campaign process for the remaining v4.2 SHADOW candidates.
+
+It still does **not** execute workloads itself. It plans host execution, aggregates only Phase 9-verified host receipts, measures coverage and produces a bounded promotion-review queue.
+
+### Host-supplied scenario bank
+
+Campaign planning starts from a host-supplied scenario bank. Each scenario declares:
+
+- scenario ID;
+- scenario source reference;
+- applicable skill areas, or `*` for a cross-domain scenario;
+- expected evidence kinds;
+- latency budget.
+
+The planner never invents a PASS/FAIL result. It only selects scenarios and creates a Phase 9 execution manifest.
+
+### Balanced campaign planning
+
+The planner prioritizes candidates with the lowest verified real-case coverage and can cap:
+
+- total selected skills;
+- cases per skill in one batch;
+- total cases in one campaign.
+
+Only remaining SHADOW candidates are eligible. Already-promoted and unknown candidates are blocked.
+
+Every planned case is passed through the Phase 9 deterministic manifest builder, preserving skill hash and primary/validator bindings.
+
+### Coverage and diversity gates
+
+The campaign status aggregates verified Phase 9 host receipts across multiple batches.
+
+Default promotion-review coverage requires:
+
+- at least 20 verified real cases per skill;
+- at least 3 distinct scenario IDs;
+- at least 2 distinct source references;
+- unique host execution IDs;
+- no receipt replay inflation.
+
+Duplicate receipt digests and duplicate host execution IDs are reported and excluded from coverage.
+
+### Phase 5 quality gate reuse
+
+Verified campaign receipts are converted back into the existing Phase 5 benchmark format.
+
+A skill enters the Phase 10 promotion-review queue only when both are true:
+
+1. real evidence coverage/diversity requirements pass; and
+2. the existing Phase 5 CANARY benchmark gate selects the skill.
+
+This keeps benchmark scoring, validator/security requirements, similarity checks and regression thresholds authoritative.
+
+### Promotion review queue
+
+The queue is deterministic and bounded. It is sorted by:
+
+- promotion-review eligibility;
+- benchmark score;
+- verified real-case count;
+- skill name.
+
+Being in the queue is **not** a promotion. Phase 6/7 authorization and lifecycle controls still apply.
+
+Phase 10 keeps these boundaries false:
+
+- `executionPerformedByOrchestrator`;
+- `promotionApplied`;
+- `repositoryMutationApplied`;
+- `runtimeCatalogMutationApplied`;
+- `deploymentMutationApplied`.
+
+### Phase 10 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- PLAN_V42_REAL_BENCHMARK_CAMPAIGN
+- BUILD_V42_REAL_BENCHMARK_CAMPAIGN_STATUS
+- AUDIT_V42_REAL_BENCHMARK_CAMPAIGN_ORCHESTRATOR
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
