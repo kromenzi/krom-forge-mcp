@@ -309,6 +309,87 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 
 No additional public tool or v80 gateway is created.
 
+## Phase 4 — v4.2 Shadow Candidate Registry
+
+The reviewed `KROM-Forge-v79-Native-Skills-Pack-v4.2-500-New` is registered as a **metadata-only SHADOW candidate registry**.
+
+Important boundary:
+
+- stable KROM skill catalog remains **1,465**;
+- shadow candidate count is **500**;
+- target catalog remains **1,965 only if future promotions are explicitly approved**;
+- shadow candidates are **non-executable by default**;
+- no v75/v76/v77 stable skill index is mutated;
+- no public tool or internal capability is added;
+- the existing single v80 control-plane gateway is reused.
+
+### Registry evidence
+
+The registry binds to archive SHA-256:
+
+`6dfa6f35e552712d6158c12917d0cf632f87707a607ed9a8657857eda1aa05a5`
+
+Reviewed package facts carried into the registry:
+
+- 500 candidates;
+- 4,000 declared behavioral tests;
+- 500 input schemas;
+- 500 output schemas;
+- 500 normalized procedural bodies;
+- 0 procedural pairs >= 0.90;
+- highest reviewed procedural similarity 0.8961;
+- 0 high-confidence semantic duplicates;
+- package validation PASS;
+- 0 blocking capability gaps.
+
+### Shadow registry audit
+
+The registry independently checks:
+
+- exact-name collisions against the stable catalog;
+- normalized-name collisions against the stable catalog;
+- duplicate candidate names;
+- duplicate instruction hashes;
+- stable 1,465-skill baseline;
+- 11-agent baseline;
+- non-executable SHADOW default.
+
+A failed collision or baseline check blocks registry readiness.
+
+### Canary cohort selection
+
+Candidates remain SHADOW until evidence is supplied.
+
+CANARY recommendation requires, by default:
+
+- benchmark score >= 0.90;
+- at least 20 benchmark cases;
+- evidence completeness;
+- validator PASS;
+- security PASS;
+- regression rate <= 0.05;
+- no unresolved high-similarity concern unless the specialization is explicitly distinct.
+
+The selector is deterministic and can cap both:
+
+- total CANARY recommendations;
+- candidates per domain/area.
+
+A CANARY result is **recommendation only**:
+
+- no candidate is promoted automatically;
+- no candidate becomes executable automatically;
+- host authorization is required before any stable-runtime change.
+
+### Phase 4 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- GET_V42_SHADOW_REGISTRY_SUMMARY
+- GET_V42_SHADOW_CANDIDATE
+- SELECT_V42_CANARY_COHORT
+- AUDIT_V42_SHADOW_REGISTRY
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
