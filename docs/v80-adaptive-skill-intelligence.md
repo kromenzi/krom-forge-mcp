@@ -470,6 +470,97 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 - GET_V42_SHADOW_BENCHMARK_REPORT
 - AUDIT_V42_SHADOW_BENCHMARK_RUNNER
 
+## Phase 6 — CANARY Promotion Controller
+
+Phase 6 adds a deterministic governance layer between benchmark readiness and any future catalog/runtime promotion.
+
+The controller does **not** apply promotions. It emits a recommendation and an authorization scope only.
+
+### SHADOW → CANARY gates
+
+A SHADOW candidate is eligible for a CANARY recommendation only when all applicable gates pass:
+
+- benchmark cases >= 20;
+- benchmark score >= 0.90;
+- pass rate >= 0.90;
+- validator pass rate >= 0.95;
+- evidence completeness >= 0.95;
+- security pass rate = 1.00;
+- unsupported-claim rate <= 0.02;
+- regression rate <= 0.05;
+- latency-budget pass rate >= 0.90;
+- evidence is within the configured freshness window;
+- rollback contract is ready, tested and evidence-backed;
+- no open critical incidents;
+- primary and validator reviews are PASS.
+
+High-risk promotion additionally requires an independent judge with PASS and distinct reviewer identities.
+
+### CANARY → STABLE gates
+
+STABLE recommendation is stricter:
+
+- benchmark/canary cases >= 60;
+- benchmark score >= 0.95;
+- pass rate >= 0.95;
+- validator pass rate >= 0.97;
+- evidence completeness >= 0.98;
+- security pass rate = 1.00;
+- unsupported-claim rate <= 0.01;
+- regression rate <= 0.03;
+- latency-budget pass rate >= 0.95;
+- CANARY exposure >= 5%;
+- CANARY observation window >= 24 hours;
+- fresh evidence;
+- tested rollback contract;
+- review approval.
+
+### Evidence freshness
+
+The controller is deterministic: the host supplies both:
+
+- `evidenceGeneratedAtEpoch`;
+- `nowEpoch`.
+
+No server clock is used to fabricate freshness. Evidence outside the configured freshness window is blocked.
+
+### Rollback contract
+
+A promotion recommendation requires:
+
+- rollback ready;
+- rollback tested;
+- rollback evidence references;
+- a valid fallback lifecycle target.
+
+This prevents promoting a candidate without a verified recovery path.
+
+### Batch promotion plan
+
+The promotion plan can evaluate up to 500 assessments and cap:
+
+- total recommended promotions;
+- promotions per area/domain.
+
+Ready items are ordered deterministically by lifecycle priority, benchmark score, sample count and skill name.
+
+Even when the plan selects candidates:
+
+- `promotionApplied=false`;
+- `deploymentApplied=false`;
+- `executable=false`;
+- `stableCatalogMutation=false`.
+
+The stable runtime remains **1,465 skills** until a separate host-authorized catalog change is performed.
+
+### Phase 6 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- EVALUATE_V42_PROMOTION_READINESS
+- BUILD_V42_PROMOTION_PLAN
+- AUDIT_V42_PROMOTION_CONTROLLER
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
