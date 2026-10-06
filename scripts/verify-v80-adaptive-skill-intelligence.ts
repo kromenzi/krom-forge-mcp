@@ -52,6 +52,12 @@ import {
   getV42ShadowBenchmarkReportV80
 } from '../src/v80-shadow-benchmark-runner';
 
+import {
+  auditV42PromotionControllerV80,
+  buildV42PromotionPlanV80,
+  evaluateV42PromotionReadinessV80
+} from '../src/v80-canary-promotion-controller';
+
 const fail = (message: string): never => {
   console.error(`FAIL: ${message}`);
   process.exit(1);
@@ -480,6 +486,101 @@ if (shadowReport.status !== 'FOUND' || shadowReport.lifecycle !== 'SHADOW' || sh
   fail('Per-skill benchmark report did not preserve SHADOW/non-executable state.');
 }
 
+const promotionAudit = auditV42PromotionControllerV80();
+if (promotionAudit.status !== 'PASS') {
+  fail(`Promotion controller audit failed: ${promotionAudit.failures.join(', ')}`);
+}
+
+const promotionBase = {
+  skillName:'kfg-v4-0001-bounded-context-migration-map',
+  currentLifecycle:'SHADOW' as const,
+  riskLevel:'medium' as const,
+  benchmarkScore:0.97,
+  benchmarkCases:40,
+  passRate:0.97,
+  validatorPassRate:0.98,
+  evidenceCompletenessRate:1,
+  securityPassRate:1,
+  unsupportedClaimRate:0,
+  regressionRate:0.01,
+  latencyPassRate:0.99,
+  evidenceGeneratedAtEpoch:1000,
+  nowEpoch:1200,
+  freshnessWindowSeconds:3600,
+  review:{
+    primary:{agent:'architect' as const,status:'PASS' as const},
+    validator:{agent:'qa' as const,status:'PASS' as const}
+  },
+  rollback:{
+    ready:true,
+    tested:true,
+    targetLifecycle:'SHADOW' as const,
+    evidenceRefs:['verify:rollback']
+  },
+  openCriticalIncidents:0
+};
+
+const canaryReady = evaluateV42PromotionReadinessV80(promotionBase);
+if (canaryReady.status !== 'READY' || canaryReady.recommendation !== 'PROMOTE_CANARY') {
+  fail('Qualified SHADOW candidate was not recommended for CANARY.');
+}
+if (canaryReady.promotionApplied || canaryReady.deploymentApplied || canaryReady.executable) {
+  fail('Promotion readiness crossed host authorization or execution boundary.');
+}
+
+const stalePromotion = evaluateV42PromotionReadinessV80({...promotionBase,nowEpoch:10000});
+if (stalePromotion.status !== 'BLOCKED' || !stalePromotion.blockers.includes('STALE_EVIDENCE')) {
+  fail('Stale promotion evidence was not blocked.');
+}
+
+const highRiskNoJudge = evaluateV42PromotionReadinessV80({...promotionBase,riskLevel:'high'});
+if (highRiskNoJudge.status !== 'BLOCKED' || !highRiskNoJudge.blockers.includes('HIGH_RISK_JUDGE_REQUIRED')) {
+  fail('High-risk promotion did not require an independent judge.');
+}
+
+const stableReady = evaluateV42PromotionReadinessV80({
+  ...promotionBase,
+  currentLifecycle:'CANARY',
+  benchmarkScore:0.98,
+  benchmarkCases:80,
+  passRate:0.98,
+  validatorPassRate:0.99,
+  evidenceCompletenessRate:1,
+  securityPassRate:1,
+  unsupportedClaimRate:0,
+  regressionRate:0.01,
+  latencyPassRate:0.99,
+  canaryExposurePercent:10,
+  canaryObservationHours:48,
+  rollback:{
+    ready:true,
+    tested:true,
+    targetLifecycle:'CANARY',
+    evidenceRefs:['verify:stable-rollback']
+  }
+});
+if (stableReady.status !== 'READY' || stableReady.recommendation !== 'PROMOTE_STABLE') {
+  fail('Qualified CANARY candidate was not recommended for STABLE.');
+}
+
+const promotionPlan = buildV42PromotionPlanV80({
+  assessments:[
+    promotionBase,
+    {...promotionBase,skillName:'kfg-v4-0002-architecture-fitness-function-suite',benchmarkScore:0.60}
+  ],
+  maxPromotions:5,
+  maxPerArea:5
+});
+if (promotionPlan.counts.selected !== 1 || promotionPlan.counts.promoteCanary !== 1) {
+  fail('Promotion plan did not select only qualified candidates.');
+}
+if (promotionPlan.promotionApplied || promotionPlan.deploymentApplied || promotionPlan.executable || promotionPlan.stableCatalogMutation) {
+  fail('Promotion plan mutated runtime, deployment, or stable catalog.');
+}
+if (promotionPlan.stableCatalogCount !== 1465) {
+  fail('Promotion controller changed the stable 1,465-skill baseline.');
+}
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -514,5 +615,10 @@ console.log(JSON.stringify({
   shadowBenchmarkRunner:true,
   suppliedBenchmarkResultsOnly:true,
   benchmarkCanaryRecommendationsGoverned:true,
+  canaryPromotionController:true,
+  evidenceFreshnessGate:true,
+  rollbackContractGate:true,
+  highRiskJudgeGate:true,
+  stablePromotionRecommendationGoverned:true,
   automaticCatalogMutation:false
 }, null, 2));

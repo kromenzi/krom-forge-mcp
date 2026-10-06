@@ -545,6 +545,9 @@ export const v80AdaptiveSkillIntelligenceSchema = z.object({
     'EVALUATE_V42_SHADOW_BENCHMARK',
     'GET_V42_SHADOW_BENCHMARK_REPORT',
     'AUDIT_V42_SHADOW_BENCHMARK_RUNNER',
+    'EVALUATE_V42_PROMOTION_READINESS',
+    'BUILD_V42_PROMOTION_PLAN',
+    'AUDIT_V42_PROMOTION_CONTROLLER',
     'AUDIT'
   ]),
   payload: z.unknown().optional()
