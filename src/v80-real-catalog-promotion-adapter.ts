@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
-import { V79_NATIVE_SKILL_PACK_INDEX } from './v79-native-skill-pack-catalog';
+import { V76_SKILL_INDEX } from './v76-skill-index';
 import { V80_V42_SHADOW_SEEDS } from './v80-v42-shadow-seeds';
 import {
   V80_PROMOTED_V42_SKILL_NAMES,
@@ -13,7 +13,7 @@ const candidateByName=new Map<string,(typeof V80_V42_SHADOW_SEEDS)[number]>(
 const promotedNameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
 
 export function digestRealSkillCatalogV80(){
-  const canonical=V79_NATIVE_SKILL_PACK_INDEX
+  const canonical=V76_SKILL_INDEX
     .map(skill=>({
       name:skill.name,
       sha256:skill.sha256,
@@ -109,7 +109,7 @@ function futureCatalogDigest(names:string[]){
     });
 
   const canonical=[
-    ...V79_NATIVE_SKILL_PACK_INDEX.map(skill=>({
+    ...V76_SKILL_INDEX.map(skill=>({
       name:skill.name,
       sha256:skill.sha256,
       domains:[...skill.domains].sort(),
@@ -174,12 +174,12 @@ export function prepareV42RealCatalogPromotionV80(input:z.input<typeof v80Prepar
     currentCatalogDigest,
     expectedCatalogDigest:parsed.expectedCatalogDigest,
     nextCatalogDigest,
-    currentStableSkillCount:V79_NATIVE_SKILL_PACK_INDEX.length,
+    currentStableSkillCount:V76_SKILL_INDEX.length,
     currentPromotedV42Count:V80_PROMOTED_V42_SKILL_COUNT,
     requestedPromotionCount:parsed.receipts.length,
     expectedStableSkillCountAfter:blockers.length
-      ? V79_NATIVE_SKILL_PACK_INDEX.length
-      : V79_NATIVE_SKILL_PACK_INDEX.length+requestedNames.length,
+      ? V76_SKILL_INDEX.length
+      : V76_SKILL_INDEX.length+requestedNames.length,
     duplicateReceiptSkills,
     unknownCandidates,
     alreadyPromoted,
@@ -224,7 +224,7 @@ export function verifyV42RealCatalogPatchV80(input:z.input<typeof v80VerifyRealC
 
   const proposedSeeds=parsed.proposedPromotedNames.map(name=>candidateByName.get(name)).filter(Boolean);
   const proposedCatalog=[
-    ...V79_NATIVE_SKILL_PACK_INDEX
+    ...V76_SKILL_INDEX
       .filter(skill=>!promotedNameSet.has(skill.name))
       .map(skill=>({
         name:skill.name,
@@ -307,7 +307,7 @@ export function auditV42RealCatalogPromotionAdapterV80(){
 
   const checks={
     currentPromotedRegistryEmpty:V80_PROMOTED_V42_SKILL_COUNT===0,
-    currentStableCount1465:V79_NATIVE_SKILL_PACK_INDEX.length===1465,
+    currentStableCount1465:V76_SKILL_INDEX.length===1465,
     authorizationRequired:denied.status==='BLOCKED'&&denied.blockers.includes('CATALOG_AUTHORIZATION_REQUIRED'),
     catalogDigestProtected:mismatch.status==='BLOCKED'&&mismatch.blockers.includes('EXPECTED_CATALOG_DIGEST_MISMATCH'),
     stableReceiptProducesPatch:ready.status==='PATCH_READY'&&ready.expectedStableSkillCountAfter===1466,
