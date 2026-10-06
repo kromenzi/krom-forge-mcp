@@ -129,6 +129,7 @@ import * as v80bench from '../../src/v80-shadow-benchmark-runner';
 import * as v80promo from '../../src/v80-canary-promotion-controller';
 import * as v80exec from '../../src/v80-authorized-promotion-executor';
 import * as v80catalog from '../../src/v80-real-catalog-promotion-adapter';
+import * as v80realbench from '../../src/v80-real-benchmark-evidence-pipeline';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2883,6 +2884,10 @@ const handler = createMcpHandler((server) => {
       if(operation==='PREPARE_V42_REAL_CATALOG_PROMOTION') return result(v80catalog.prepareV42RealCatalogPromotionV80(v80catalog.v80PrepareRealCatalogPromotionSchema.parse(payload)));
       if(operation==='VERIFY_V42_REAL_CATALOG_PATCH') return result(v80catalog.verifyV42RealCatalogPatchV80(v80catalog.v80VerifyRealCatalogPatchSchema.parse(payload)));
       if(operation==='AUDIT_V42_REAL_CATALOG_PROMOTION_ADAPTER') return result(v80catalog.auditV42RealCatalogPromotionAdapterV80());
+      if(operation==='BUILD_V42_REAL_BENCHMARK_MANIFEST') return result(v80realbench.buildV42RealBenchmarkManifestV80(v80realbench.v80BuildRealBenchmarkManifestSchema.parse(payload)));
+      if(operation==='VERIFY_V42_REAL_BENCHMARK_RECEIPTS') return result(v80realbench.verifyV42RealBenchmarkReceiptsV80(v80realbench.v80VerifyRealBenchmarkReceiptsSchema.parse(payload)));
+      if(operation==='BUILD_V42_REAL_BENCHMARK_EVIDENCE') return result(v80realbench.buildV42RealBenchmarkEvidenceV80(v80realbench.v80BuildRealBenchmarkEvidenceSchema.parse(payload)));
+      if(operation==='AUDIT_V42_REAL_BENCHMARK_EVIDENCE_PIPELINE') return result(v80realbench.auditV42RealBenchmarkEvidencePipelineV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );
