@@ -636,6 +636,92 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 
 A future phase may add an explicitly authorized repository/catalog mutation adapter. That adapter must remain separate from this supplied-state transaction engine and must retain rollback and evidence guarantees.
 
+## Phase 8 — Real Catalog Promotion Adapter
+
+Phase 8 establishes the repository-controlled bridge from the governed v4.2 lifecycle into KROM's real skill catalog.
+
+No v4.2 skill is promoted in this phase. The promoted registry is intentionally empty, so the real stable catalog remains **1,465 skills**.
+
+### Single promoted-skill registry
+
+The file:
+
+`src/v80-promoted-v42-skill-seeds.ts`
+
+is the single source of truth for v4.2 candidates that have received an explicitly authorized real catalog promotion.
+
+The v79 native catalog now includes the derived promoted seeds. Because V75, V76 and V77 already consume that catalog, future entries propagate automatically through:
+
+- V79 native skill metadata;
+- V75 agent skill access;
+- V76 semantic skill index and routing;
+- V77 native directive/runtime policy.
+
+Verification counts are promotion-aware: the expected stable count is `1,465 + promoted-v4.2 count`.
+
+### Promotion receipt requirement
+
+The real catalog adapter accepts only Phase 7 receipts representing:
+
+- `status=COMMITTED_TO_SUPPLIED_STATE`;
+- `targetLifecycle=STABLE`;
+- a valid transaction ID;
+- distinct before/after state digests;
+- authorization evidence;
+- post-apply verification evidence.
+
+Unknown, duplicate or already-promoted candidates are blocked.
+
+### Catalog authorization and concurrency
+
+Preparing a real catalog patch requires:
+
+- `catalogAuthorization=true`;
+- catalog authorization ID;
+- catalog approval evidence;
+- the exact current catalog SHA-256 digest.
+
+A stale or mismatched catalog digest blocks patch preparation.
+
+The maximum promotion batch is 25 skills.
+
+### Exact patch + rollback source
+
+A valid request returns:
+
+- the target file path;
+- complete replacement source for the promoted registry;
+- complete rollback source for the prior promoted registry;
+- current and projected stable catalog counts;
+- current and projected catalog digests;
+- receipt evidence binding.
+
+Phase 8 does **not** write the repository itself:
+
+- `repositoryMutationApplied=false`;
+- `runtimeCatalogMutationApplied=false`;
+- `deploymentMutationApplied=false`.
+
+This keeps repository mutation as an explicit host action after review.
+
+### Promotion-aware lifecycle
+
+Once a future authorized promotion is actually committed to the repository:
+
+- promoted candidates stop participating in SHADOW benchmark selection;
+- lookup reports them as STABLE;
+- promotion controllers reject them as already stable;
+- V75/V76/V77 count expectations expand automatically;
+- remaining SHADOW count becomes `500 - promoted count`.
+
+### Phase 8 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- PREPARE_V42_REAL_CATALOG_PROMOTION
+- VERIFY_V42_REAL_CATALOG_PATCH
+- AUDIT_V42_REAL_CATALOG_PROMOTION_ADAPTER
+
 ## MCP Surface
 
 One new control-plane gateway is registered:

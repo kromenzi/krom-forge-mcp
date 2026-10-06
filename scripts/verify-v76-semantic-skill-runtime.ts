@@ -1,14 +1,17 @@
 import { V75_AGENT_IDS, V75_SKILL_NAMES } from '../src/v75-agent-capability-fabric';
 import { selectAgentV76, rankSkillsV76, rankCapabilitiesV76, buildExecutionPlanV76, auditSemanticRouterV76 } from '../src/v76-semantic-skill-runtime';
 import { auditSkillIndexV76, getSkillMetadataV76 } from '../src/v76-skill-index';
+import { V80_PROMOTED_V42_SKILL_COUNT } from '../src/v80-promoted-v42-skill-seeds';
+
+const expectedSkillCount=1465+V80_PROMOTED_V42_SKILL_COUNT;
 
 if (V75_AGENT_IDS.length !== 11) throw new Error(`Expected 11 agents, got ${V75_AGENT_IDS.length}`);
-if (V75_SKILL_NAMES.length !== 1465) throw new Error(`Expected 1465 skills, got ${V75_SKILL_NAMES.length}`);
+if (V75_SKILL_NAMES.length !== expectedSkillCount) throw new Error(`Expected ${expectedSkillCount} skills, got ${V75_SKILL_NAMES.length}`);
 
 const skillIndexAudit = auditSkillIndexV76();
 if (skillIndexAudit.status !== 'PASS') throw new Error(`Skill index audit failed: ${JSON.stringify(skillIndexAudit)}`);
-if (skillIndexAudit.actualCount !== 1465) throw new Error(`Expected 1465 indexed skills, got ${skillIndexAudit.actualCount}`);
-if (skillIndexAudit.digestCoverage !== 1465) throw new Error(`Expected SHA-256 coverage for all 1465 skills, got ${skillIndexAudit.digestCoverage}`);
+if (skillIndexAudit.actualCount !== expectedSkillCount) throw new Error(`Expected ${expectedSkillCount} indexed skills, got ${skillIndexAudit.actualCount}`);
+if (skillIndexAudit.digestCoverage !== expectedSkillCount) throw new Error(`Expected SHA-256 coverage for all ${expectedSkillCount} skills, got ${skillIndexAudit.digestCoverage}`);
 const repairSamples=['krom-api-network-repair','11-krom-environment-config-repair','21-krom-routing-navigation-repair','krom-full-system-autonomous-repair-orchestrator'];
 for(const skillName of repairSamples){
   if(!getSkillMetadataV76(skillName)) throw new Error(`Missing imported repair skill metadata: ${skillName}`);
@@ -73,7 +76,7 @@ console.log(JSON.stringify({
   status:'PASS',
   release:'v76',
   agents:11,
-  skills:1465,
+  skills:expectedSkillCount,
   preservedInternalCapabilityBaseline:5333,
   bilingualSearch:true,
   fuzzyRanking:true,

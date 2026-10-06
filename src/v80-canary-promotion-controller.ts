@@ -1,11 +1,14 @@
 import { z } from 'zod';
 import { V75_AGENT_IDS, V75_SKILL_NAMES } from './v75-agent-capability-fabric';
 import { V80_V42_SHADOW_SEEDS } from './v80-v42-shadow-seeds';
+import { V80_PROMOTED_V42_SKILL_NAMES, V80_PROMOTED_V42_SKILL_COUNT } from './v80-promoted-v42-skill-seeds';
 
 const agentSchema=z.enum(V75_AGENT_IDS);
 const candidateByName=new Map<string,(typeof V80_V42_SHADOW_SEEDS)[number]>(
   V80_V42_SHADOW_SEEDS.map(item=>[item.n,item])
 );
+const promotedNameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
+const promotableSeeds=V80_V42_SHADOW_SEEDS.filter(item=>!promotedNameSet.has(item.n));
 const round=(value:number,digits=4)=>Number(value.toFixed(digits));
 
 export const v80PromotionReviewSchema=z.object({
@@ -81,6 +84,24 @@ export function evaluateV42PromotionReadinessV80(input:V80PromotionReadinessInpu
       promotionApplied:false,
       deploymentApplied:false,
       executable:false,
+      stableCatalogMutation:false,
+      executionClaim:false
+    } as const;
+  }
+  if(promotedNameSet.has(parsed.skillName)){
+    return {
+      release:'v80',
+      phase:'canary-promotion-controller',
+      status:'ALREADY_STABLE',
+      skillName:parsed.skillName,
+      area:seed.a,
+      recommendation:'NONE',
+      proposedLifecycle:'STABLE',
+      blockers:['ALREADY_PROMOTED_STABLE'],
+      promotionApplied:false,
+      deploymentApplied:false,
+      executable:true,
+      stableCatalogCount:V75_SKILL_NAMES.length,
       stableCatalogMutation:false,
       executionClaim:false
     } as const;
@@ -282,8 +303,10 @@ export function buildV42PromotionPlanV80(input:z.input<typeof v80PromotionPlanSc
 }
 
 export function auditV42PromotionControllerV80(){
+  const auditSeedA=promotableSeeds[0]??V80_V42_SHADOW_SEEDS[0];
+  const auditSeedB=promotableSeeds[1]??V80_V42_SHADOW_SEEDS[1];
   const base={
-    skillName:V80_V42_SHADOW_SEEDS[0].n,
+    skillName:auditSeedA.n,
     currentLifecycle:'SHADOW' as const,
     riskLevel:'medium' as const,
     benchmarkScore:0.97,
@@ -348,7 +371,7 @@ export function auditV42PromotionControllerV80(){
   const plan=buildV42PromotionPlanV80({
     assessments:[base,{
       ...base,
-      skillName:V80_V42_SHADOW_SEEDS[1].n,
+      skillName:auditSeedB.n,
       benchmarkScore:0.60
     }],
     maxPromotions:5,
@@ -364,7 +387,7 @@ export function auditV42PromotionControllerV80(){
     qualifiedCanaryRecommendsStable:stable.status==='READY'&&stable.recommendation==='PROMOTE_STABLE',
     planSelectsOnlyReady:plan.counts.selected===1&&plan.selected[0]?.skillName===base.skillName,
     noAutomaticPromotion:!plan.promotionApplied&&!plan.deploymentApplied&&!plan.executable,
-    stableCatalogPreserved:plan.stableCatalogCount===1465&&!plan.stableCatalogMutation
+    stableCatalogPreserved:plan.stableCatalogCount===1465+V80_PROMOTED_V42_SKILL_COUNT&&!plan.stableCatalogMutation
   };
   const failures=Object.entries(checks).filter(([,ok])=>!ok).map(([name])=>name);
   return {

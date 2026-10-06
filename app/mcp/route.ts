@@ -128,6 +128,7 @@ import * as v80v42 from '../../src/v80-v42-shadow-registry';
 import * as v80bench from '../../src/v80-shadow-benchmark-runner';
 import * as v80promo from '../../src/v80-canary-promotion-controller';
 import * as v80exec from '../../src/v80-authorized-promotion-executor';
+import * as v80catalog from '../../src/v80-real-catalog-promotion-adapter';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2879,6 +2880,9 @@ const handler = createMcpHandler((server) => {
       if(operation==='PREPARE_V42_PROMOTION_TRANSACTION') return result(v80exec.prepareV42PromotionTransactionV80(v80exec.v80PreparePromotionTransactionSchema.parse(payload)));
       if(operation==='EXECUTE_V42_PROMOTION_TRANSACTION') return result(v80exec.executeV42PromotionTransactionV80(v80exec.v80ExecutePromotionTransactionSchema.parse(payload)));
       if(operation==='AUDIT_V42_AUTHORIZED_PROMOTION_EXECUTOR') return result(v80exec.auditV42AuthorizedPromotionExecutorV80());
+      if(operation==='PREPARE_V42_REAL_CATALOG_PROMOTION') return result(v80catalog.prepareV42RealCatalogPromotionV80(v80catalog.v80PrepareRealCatalogPromotionSchema.parse(payload)));
+      if(operation==='VERIFY_V42_REAL_CATALOG_PATCH') return result(v80catalog.verifyV42RealCatalogPatchV80(v80catalog.v80VerifyRealCatalogPatchSchema.parse(payload)));
+      if(operation==='AUDIT_V42_REAL_CATALOG_PROMOTION_ADAPTER') return result(v80catalog.auditV42RealCatalogPromotionAdapterV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );

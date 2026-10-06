@@ -1,4 +1,7 @@
 import { V76_SKILL_INDEX } from '../src/v76-skill-index';
+import { V80_PROMOTED_V42_SKILL_COUNT } from '../src/v80-promoted-v42-skill-seeds';
+
+const expectedSkillCount=1465+V80_PROMOTED_V42_SKILL_COUNT;
 import {
   selectSkillSetV77,
   mergeDirectivesV77,
@@ -30,7 +33,7 @@ const candidates=[
   {name:'krom_v72_build_skill_tool_chain',title:'Build skill tool chain',description:'skill capability tool chain orchestration'}
 ];
 
-if(V76_SKILL_INDEX.length!==1465) throw new Error(`Expected 1465 v76 skills, got ${V76_SKILL_INDEX.length}`);
+if(V76_SKILL_INDEX.length!==expectedSkillCount) throw new Error(`Expected ${expectedSkillCount} v76 skills, got ${V76_SKILL_INDEX.length}`);
 
 const supervisorAudit=auditExecutionSupervisorV77();
 if(supervisorAudit.status!=='PASS') throw new Error(`Execution supervisor audit failed: ${JSON.stringify(supervisorAudit)}`);
@@ -287,7 +290,7 @@ if(unsupportedReceipt.status!=='BLOCKED') throw new Error('Unsupported execution
 
 const nativeDirectiveAudit=auditNativeSkillDirectiveBundleV77();
 if(nativeDirectiveAudit.status!=='PASS') throw new Error(`Native directive bundle audit failed: ${JSON.stringify(nativeDirectiveAudit)}`);
-if(nativeDirectiveAudit.skillCount!==1465) throw new Error(`Expected 1465 native skill directive records, got ${nativeDirectiveAudit.skillCount}`);
+if(nativeDirectiveAudit.skillCount!==expectedSkillCount) throw new Error(`Expected ${expectedSkillCount} native skill directive records, got ${nativeDirectiveAudit.skillCount}`);
 if(nativeDirectiveAudit.directiveCount<250) throw new Error(`Expected >=250 deterministic runtime directives, got ${nativeDirectiveAudit.directiveCount}`);
 
 const nativeSecret=getNativeSkillDirectivesV77('krom-secrets-credential-guardian');
@@ -571,13 +574,13 @@ if(teamAudit.status!=='PASS') throw new Error(`Skill team orchestrator audit fai
 
 const audit=auditNativeSkillRuntimeV77(candidates);
 if(audit.status!=='PASS') throw new Error(`v77 runtime audit failed: ${JSON.stringify(audit)}`);
-if(!audit.catalogIntegrity) throw new Error('v77 did not preserve 1465-skill catalog integrity');
+if(!audit.catalogIntegrity) throw new Error(`v77 did not preserve ${expectedSkillCount}-skill catalog integrity`);
 if(!audit.preservesInternalCapabilityBaseline) throw new Error('v77 capability baseline preservation flag failed');
 
 console.log(JSON.stringify({
   status:'PASS',
   release:'v77',
-  skills:1465,
+  skills:expectedSkillCount,
   multiSkillRouting:true,
   bilingualRouting:true,
   directiveMerge:true,

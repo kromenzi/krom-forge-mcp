@@ -2,12 +2,15 @@ import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { V75_SKILL_NAMES } from './v75-agent-capability-fabric';
 import { V80_V42_SHADOW_SEEDS } from './v80-v42-shadow-seeds';
+import { V80_PROMOTED_V42_SKILL_NAMES, V80_PROMOTED_V42_SKILL_COUNT } from './v80-promoted-v42-skill-seeds';
 import {
   evaluateV42PromotionReadinessV80,
   v80PromotionReadinessSchema
 } from './v80-canary-promotion-controller';
 
 const candidateNames=new Set<string>(V80_V42_SHADOW_SEEDS.map(item=>item.n));
+const promotedNameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
+const promotableSeeds=V80_V42_SHADOW_SEEDS.filter(item=>!promotedNameSet.has(item.n));
 
 export const v80PromotionLifecycleSchema=z.enum(['SHADOW','CANARY','STABLE']);
 
@@ -80,6 +83,7 @@ export function prepareV42PromotionTransactionV80(input:z.input<typeof v80Prepar
   const blockers:string[]=[];
   if(stateAudit.duplicateSkills.length) blockers.push('DUPLICATE_STATE_ENTRIES');
   if(stateAudit.unknownSkills.length) blockers.push('UNKNOWN_STATE_SKILLS');
+  if(promotedNameSet.has(parsed.readiness.skillName)) blockers.push('ALREADY_PROMOTED_STABLE');
   if(!entry) blockers.push('SKILL_NOT_PRESENT_IN_STATE');
   if(entry&&entry.lifecycle!==parsed.readiness.currentLifecycle) blockers.push('STATE_LIFECYCLE_MISMATCH');
   if(readiness.status!=='READY') blockers.push('PROMOTION_READINESS_NOT_READY');
@@ -260,7 +264,7 @@ export function executeV42PromotionTransactionV80(input:z.input<typeof v80Execut
 }
 
 export function auditV42AuthorizedPromotionExecutorV80(){
-  const skillName=V80_V42_SHADOW_SEEDS[0].n;
+  const skillName=(promotableSeeds[0]??V80_V42_SHADOW_SEEDS[0]).n;
   const shadowState:V80PromotionState={
     registryVersion:'audit-v80-phase7',
     entries:[{skillName,lifecycle:'SHADOW',transitionRevision:0}]
@@ -372,7 +376,7 @@ export function auditV42AuthorizedPromotionExecutorV80(){
     noRepositoryMutation:!committed.repositoryMutation&&!stableCommitted.repositoryMutation,
     noRuntimeCatalogMutation:!committed.runtimeCatalogMutation&&!stableCommitted.runtimeCatalogMutation,
     noDeploymentMutation:!committed.deploymentMutation&&!stableCommitted.deploymentMutation,
-    realStableCatalogPreserved:V75_SKILL_NAMES.length===1465
+    realStableCatalogPreserved:V75_SKILL_NAMES.length===1465+V80_PROMOTED_V42_SKILL_COUNT
   };
   const failures=Object.entries(checks).filter(([,ok])=>!ok).map(([name])=>name);
   return {
