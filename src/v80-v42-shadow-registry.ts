@@ -2,6 +2,14 @@ import { z } from 'zod';
 import { V75_AGENT_IDS, V75_SKILL_NAMES } from './v75-agent-capability-fabric';
 import { normalizeSkillIdentityV80 } from './v80-skill-onboarding-governance';
 import { V80_V42_SHADOW_SEEDS } from './v80-v42-shadow-seeds';
+import {
+  V80_PROMOTED_V42_SKILL_NAMES,
+  V80_PROMOTED_V42_SKILL_COUNT
+} from './v80-promoted-v42-skill-seeds';
+
+const BASE_STABLE_SKILL_COUNT=1465;
+const promotedNameSet=new Set<string>(V80_PROMOTED_V42_SKILL_NAMES);
+const activeShadowSeeds=V80_V42_SHADOW_SEEDS.filter(item=>!promotedNameSet.has(item.n));
 
 const stableNames = new Set<string>(V75_SKILL_NAMES as readonly string[]);
 const stableNormalized = new Map<string,string[]>();
@@ -17,7 +25,7 @@ export const V80_V42_SHADOW_REGISTRY_META = {
   registryName:'KROM-Forge-v79-Native-Skills-Pack-v4.2-500-New',
   sourceVersion:'4.2.0',
   sourceArchiveSha256:'6dfa6f35e552712d6158c12917d0cf632f87707a607ed9a8657857eda1aa05a5',
-  stableCatalogBaseline:1465,
+  baseStableCatalogCount:BASE_STABLE_SKILL_COUNT,
   candidateCount:500,
   targetCatalogIfAllPromoted:1965,
   publicToolBaseline:15,
@@ -37,9 +45,12 @@ export const V80_V42_SHADOW_REGISTRY_META = {
 } as const;
 
 export function getV42ShadowRegistrySummaryV80(){
-  const exactStableCollisions=V80_V42_SHADOW_SEEDS.filter(item=>stableNames.has(item.n)).map(item=>item.n).sort();
+  const exactStableCollisions=activeShadowSeeds
+    .filter(item=>stableNames.has(item.n))
+    .map(item=>item.n)
+    .sort();
 
-  const normalizedStableCollisions=V80_V42_SHADOW_SEEDS
+  const normalizedStableCollisions=activeShadowSeeds
     .map(item=>({name:item.n,normalized:normalizeSkillIdentityV80(item.n)}))
     .filter(item=>stableNormalized.has(item.normalized))
     .map(item=>({
@@ -65,21 +76,23 @@ export function getV42ShadowRegistrySummaryV80(){
   const areaCounts:Record<string,number>={};
   const primaryAgentCounts:Record<string,number>={};
   const validatorAgentCounts:Record<string,number>={};
-  for(const item of V80_V42_SHADOW_SEEDS){
+  for(const item of activeShadowSeeds){
     areaCounts[item.a]=(areaCounts[item.a]??0)+1;
     primaryAgentCounts[item.p]=(primaryAgentCounts[item.p]??0)+1;
     validatorAgentCounts[item.v]=(validatorAgentCounts[item.v]??0)+1;
   }
 
-  const stableCatalogUnchanged=V75_SKILL_NAMES.length===V80_V42_SHADOW_REGISTRY_META.stableCatalogBaseline;
+  const expectedStableCatalogCount=BASE_STABLE_SKILL_COUNT+V80_PROMOTED_V42_SKILL_COUNT;
+  const stableCatalogAligned=V75_SKILL_NAMES.length===expectedStableCatalogCount;
   const agentBaselineUnchanged=V75_AGENT_IDS.length===V80_V42_SHADOW_REGISTRY_META.agentBaseline;
   const registryValid=
     V80_V42_SHADOW_SEEDS.length===V80_V42_SHADOW_REGISTRY_META.candidateCount &&
+    activeShadowSeeds.length+V80_PROMOTED_V42_SKILL_COUNT===V80_V42_SHADOW_REGISTRY_META.candidateCount &&
     duplicateCandidateNames.length===0 &&
     duplicateInstructionHashes.length===0 &&
     exactStableCollisions.length===0 &&
     normalizedStableCollisions.length===0 &&
-    stableCatalogUnchanged &&
+    stableCatalogAligned &&
     agentBaselineUnchanged;
 
   return {
@@ -87,8 +100,19 @@ export function getV42ShadowRegistrySummaryV80(){
     phase:'v42-shadow-registry',
     status:registryValid?'PASS':'BLOCKED',
     meta:V80_V42_SHADOW_REGISTRY_META,
-    stableCatalog:{count:V75_SKILL_NAMES.length,unchanged:stableCatalogUnchanged},
-    shadowCandidates:{count:V80_V42_SHADOW_SEEDS.length,lifecycle:'SHADOW',executable:false,promoted:0},
+    stableCatalog:{
+      count:V75_SKILL_NAMES.length,
+      expectedCount:expectedStableCatalogCount,
+      aligned:stableCatalogAligned,
+      baseCount:BASE_STABLE_SKILL_COUNT,
+      promotedV42Count:V80_PROMOTED_V42_SKILL_COUNT
+    },
+    shadowCandidates:{
+      count:activeShadowSeeds.length,
+      lifecycle:'SHADOW',
+      executable:false,
+      promoted:V80_PROMOTED_V42_SKILL_COUNT
+    },
     collisionAudit:{exactStableCollisions,normalizedStableCollisions,duplicateCandidateNames,duplicateInstructionHashes},
     distributions:{
       areas:Object.fromEntries(Object.entries(areaCounts).sort(([a],[b])=>a.localeCompare(b))),
@@ -99,8 +123,7 @@ export function getV42ShadowRegistrySummaryV80(){
       corePublicToolsExpected:15,
       internalCapabilitiesExpected:5333,
       controlPlaneGatewaysAdded:0,
-      stableSkillCatalogMutation:false,
-      candidateExecutionEnabled:false,
+      unpromotedCandidateExecutionEnabled:false,
       productionMutation:false
     },
     executionClaim:false
@@ -115,6 +138,7 @@ export function getV42ShadowCandidateV80(input:z.input<typeof v80V42CandidateLoo
   if(!candidate){
     return {release:'v80',status:'NOT_FOUND',skillName:parsed.skillName,executionClaim:false} as const;
   }
+  const promoted=promotedNameSet.has(candidate.n);
   return {
     release:'v80',
     status:'FOUND',
@@ -123,10 +147,12 @@ export function getV42ShadowCandidateV80(input:z.input<typeof v80V42CandidateLoo
     primaryAgent:candidate.p,
     validatorAgent:candidate.v,
     instructionHash:candidate.h,
-    lifecycle:'SHADOW',
-    executable:false,
+    lifecycle:promoted?'STABLE':'SHADOW',
+    executable:promoted,
     stableCatalogMember:stableNames.has(candidate.n),
-    nextGate:'Provide evidence-bound shadow benchmark observations before CANARY recommendation.',
+    nextGate:promoted
+      ? 'Candidate is already promoted into the real stable catalog.'
+      : 'Provide evidence-bound shadow benchmark observations before CANARY recommendation.',
     executionClaim:false
   } as const;
 }
@@ -157,9 +183,16 @@ export const v80V42CanarySelectionSchema=z.object({
 export function selectV42CanaryCohortV80(input:z.input<typeof v80V42CanarySelectionSchema>){
   const parsed=v80V42CanarySelectionSchema.parse(input);
   const evidenceMap=new Map(parsed.evidence.map(item=>[item.skillName,item]));
-  const unknownEvidenceSkills=parsed.evidence.filter(item=>!candidateNames.has(item.skillName)).map(item=>item.skillName).sort();
+  const unknownEvidenceSkills=parsed.evidence
+    .filter(item=>!candidateNames.has(item.skillName))
+    .map(item=>item.skillName)
+    .sort();
+  const alreadyPromotedEvidenceSkills=parsed.evidence
+    .filter(item=>promotedNameSet.has(item.skillName))
+    .map(item=>item.skillName)
+    .sort();
 
-  const evaluations=V80_V42_SHADOW_SEEDS.map(candidate=>{
+  const evaluations=activeShadowSeeds.map(candidate=>{
     const evidence=evidenceMap.get(candidate.n);
     if(!evidence){
       return {skillName:candidate.n,area:candidate.a,eligible:false,reason:'NO_SHADOW_BENCHMARK_EVIDENCE',score:0,benchmarkCases:0};
@@ -211,14 +244,16 @@ export function selectV42CanaryCohortV80(input:z.input<typeof v80V42CanarySelect
   return {
     release:'v80',
     phase:'v42-canary-selection',
-    status:unknownEvidenceSkills.length?'CONDITIONAL':'PASS',
+    status:unknownEvidenceSkills.length||alreadyPromotedEvidenceSkills.length?'CONDITIONAL':'PASS',
     stableCatalogCount:V75_SKILL_NAMES.length,
-    shadowCandidateCount:V80_V42_SHADOW_SEEDS.length,
+    shadowCandidateCount:activeShadowSeeds.length,
+    promotedCandidateCount:V80_PROMOTED_V42_SKILL_COUNT,
     evidenceItems:parsed.evidence.length,
     eligibleCount:eligible.length,
     selectedCount:selected.length,
     selected,
     unknownEvidenceSkills,
+    alreadyPromotedEvidenceSkills,
     rejected:evaluations.filter(item=>!item.eligible),
     promotionApplied:false,
     selectedLifecycle:'CANARY_RECOMMENDATION_ONLY',
@@ -230,39 +265,43 @@ export function selectV42CanaryCohortV80(input:z.input<typeof v80V42CanarySelect
 
 export function auditV42ShadowRegistryV80(){
   const summary=getV42ShadowRegistrySummaryV80();
-  const first=V80_V42_SHADOW_SEEDS[0];
+  const first=activeShadowSeeds[0];
   const noEvidence=selectV42CanaryCohortV80({evidence:[]});
-  const positive=selectV42CanaryCohortV80({
-    maxCandidates:3,
-    maxPerArea:3,
-    evidence:[{
-      skillName:first.n,
-      benchmarkScore:0.96,
-      benchmarkCases:40,
-      semanticMaxSimilarity:0.62,
-      proceduralMaxSimilarity:0.71,
-      specializationDistinct:true,
-      evidenceComplete:true,
-      validatorPass:true,
-      regressionRate:0.01,
-      securityPass:true
-    }]
-  });
+  const positive=first
+    ? selectV42CanaryCohortV80({
+        maxCandidates:3,
+        maxPerArea:3,
+        evidence:[{
+          skillName:first.n,
+          benchmarkScore:0.96,
+          benchmarkCases:40,
+          semanticMaxSimilarity:0.62,
+          proceduralMaxSimilarity:0.71,
+          specializationDistinct:true,
+          evidenceComplete:true,
+          validatorPass:true,
+          regressionRate:0.01,
+          securityPass:true
+        }]
+      })
+    : null;
   const unknown=getV42ShadowCandidateV80({skillName:'not-a-v42-shadow-candidate'});
-  const found=getV42ShadowCandidateV80({skillName:first.n});
+  const found=first?getV42ShadowCandidateV80({skillName:first.n}):null;
+  const expectedStableCount=BASE_STABLE_SKILL_COUNT+V80_PROMOTED_V42_SKILL_COUNT;
 
   const checks={
     candidateCountIs500:V80_V42_SHADOW_SEEDS.length===500,
-    stableCatalogRemains1465:V75_SKILL_NAMES.length===1465,
+    lifecyclePartitionComplete:activeShadowSeeds.length+V80_PROMOTED_V42_SKILL_COUNT===500,
+    stableCatalogAligned:V75_SKILL_NAMES.length===expectedStableCount,
     noExactStableCollisions:summary.collisionAudit.exactStableCollisions.length===0,
     noNormalizedStableCollisions:summary.collisionAudit.normalizedStableCollisions.length===0,
     uniqueCandidateNames:summary.collisionAudit.duplicateCandidateNames.length===0,
     uniqueInstructionHashes:summary.collisionAudit.duplicateInstructionHashes.length===0,
     shadowDefaultNonExecutable:summary.shadowCandidates.lifecycle==='SHADOW'&&!summary.shadowCandidates.executable,
     noEvidenceProducesNoCanary:noEvidence.selectedCount===0,
-    qualifiedEvidenceCanRecommendCanary:positive.selectedCount===1&&positive.selected[0]?.skillName===first.n,
-    canaryDoesNotExecute:positive.executable===false&&!positive.promotionApplied,
-    lookupBounded:found.status==='FOUND'&&found.lifecycle==='SHADOW'&&unknown.status==='NOT_FOUND',
+    qualifiedEvidenceCanRecommendCanary:!first||(positive?.selectedCount===1&&positive.selected[0]?.skillName===first.n),
+    canaryDoesNotExecute:!positive||(positive.executable===false&&!positive.promotionApplied),
+    lookupBounded:!first||(found?.status==='FOUND'&&found.lifecycle==='SHADOW'&&unknown.status==='NOT_FOUND'),
     publicSurfaceUnchanged:summary.boundaries.corePublicToolsExpected===15,
     internalCapabilityRegistryUnchanged:summary.boundaries.internalCapabilitiesExpected===5333,
     noAdditionalGateway:summary.boundaries.controlPlaneGatewaysAdded===0
