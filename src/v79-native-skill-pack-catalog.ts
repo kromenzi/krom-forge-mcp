@@ -1,9 +1,11 @@
 // Generated from the user-approved KROM Native Skill Pack archives.
 // Adds imported skill metadata only; public MCP tools and the 5,333 capability baseline are unchanged.
+// Total after v3 integration: 1,465 skills (165 original + 300 prior native + 1,000 combined v3).
 
 import { V79_NATIVE_SKILL_SEEDS_0 } from './v79-native-skill-seeds-part-0';
 import { V79_NATIVE_SKILL_SEEDS_1 } from './v79-native-skill-seeds-part-1';
 import { V79_NATIVE_SKILL_SEEDS_2 } from './v79-native-skill-seeds-part-2';
+import { V79_COMBINED_1000_SKILL_SEEDS } from './v79-combined-1000-skill-seeds';
 
 export type V79NativeSkillMetadata = {
   name: string;
@@ -36,7 +38,8 @@ const BASE_EVIDENCE = [
 const SEEDS = [
   ...V79_NATIVE_SKILL_SEEDS_0,
   ...V79_NATIVE_SKILL_SEEDS_1,
-  ...V79_NATIVE_SKILL_SEEDS_2
+  ...V79_NATIVE_SKILL_SEEDS_2,
+  ...V79_COMBINED_1000_SKILL_SEEDS
 ];
 
 export const V79_NATIVE_SKILL_PACK_INDEX: readonly V79NativeSkillMetadata[] = SEEDS.map(seed => ({
