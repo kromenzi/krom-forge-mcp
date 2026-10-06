@@ -2,7 +2,15 @@
 // Source pack SHA-256: 5198023c9a24b0e6ba07cc94007c51b4144c07b6f3089c844e1484739249b173
 // Runtime metadata integration only. Preserves 15 public MCP tools, 5,333 internal capabilities, and 11 agents.
 
-export const V79_COMBINED_1000_SKILL_SEEDS = [
+export type V79CombinedSkillSeed = {
+  name: string;
+  description: string;
+  sha256: string;
+  domains: string[];
+  preferredAgents: string[];
+};
+
+export const V79_COMBINED_1000_SKILL_SEEDS: readonly V79CombinedSkillSeed[] = [
   {
     "name": "krom-v79-next-api-versioning-diagnostic",
     "description": "KV1000-0001 — KROM v79 native engineering skill for diagnostic of versioning in api. Evidence-bound specialized diagnosis, contract and boundary analysis, migration, resilience, observability, performance, regression, recovery and compliance as applicable. Mutating actions require host authorization and verification evidence.",
@@ -17975,7 +17983,7 @@ export const V79_COMBINED_1000_SKILL_SEEDS = [
       "uiux"
     ]
   }
-] as const;
+];
 
 if (V79_COMBINED_1000_SKILL_SEEDS.length !== 1000) {
   throw new Error(`Expected 1000 combined v79 skill seeds, got ${V79_COMBINED_1000_SKILL_SEEDS.length}`);
