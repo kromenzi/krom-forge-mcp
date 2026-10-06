@@ -280,7 +280,7 @@ export function buildV42RealBenchmarkCampaignStatusV80(input:z.input<typeof v80B
       receipts:batch.receipts,
       requireAllManifestCases:false
     });
-    if(verification.rejectedReceipts){
+    if(verification.status==='BLOCKED'||verification.rejectedReceipts){
       rejectedBatches.push({
         benchmarkId:batch.manifest.benchmarkId,
         status:verification.status,
@@ -288,6 +288,7 @@ export function buildV42RealBenchmarkCampaignStatusV80(input:z.input<typeof v80B
       });
     }
 
+    if(verification.status==='BLOCKED') continue;
     const manifestByCaseId=new Map(batch.manifest.cases.map(item=>[item.caseId,item]));
     for(const evaluation of verification.evaluations){
       if(!evaluation.verified) continue;
@@ -413,7 +414,7 @@ export function buildV42RealBenchmarkCampaignStatusV80(input:z.input<typeof v80B
     release:'v80',
     phase:'real-benchmark-campaign-orchestrator',
     status:
-      duplicateReceiptDigests.length||duplicateHostExecutionIds.length
+      rejectedBatches.length||duplicateReceiptDigests.length||duplicateHostExecutionIds.length
         ? 'CONDITIONAL'
         : verifiedRecords.length
           ? 'PASS'
