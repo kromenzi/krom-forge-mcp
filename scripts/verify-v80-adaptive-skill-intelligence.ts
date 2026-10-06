@@ -37,6 +37,12 @@ import {
   evaluateSkillPackOnboardingV80,
   evaluateSkillRetirementV80
 } from '../src/v80-skill-onboarding-governance';
+import {
+  V80_V42_SHADOW_SKILLS,
+  auditV80ShadowCatalog,
+  evaluateV80ShadowPack,
+  getV80ShadowCatalogPage
+} from '../src/v80-shadow-skill-catalog';
 
 
 const fail = (message: string): never => {
@@ -364,6 +370,35 @@ if (portfolio.counts.CANARY_DOWNGRADE !== 1 || portfolio.counts.KEEP !== 1) {
   fail('Retirement portfolio did not separate degraded and healthy skills correctly.');
 }
 
+const shadowAudit = auditV80ShadowCatalog();
+if (shadowAudit.status !== 'PASS') fail(`v4.2 shadow catalog audit failed: ${shadowAudit.failures.join(', ')}`);
+if (V80_V42_SHADOW_SKILLS.length !== 500) fail(`Expected 500 v4.2 shadow candidates, got ${V80_V42_SHADOW_SKILLS.length}`);
+if (shadowAudit.activeCatalogCount !== 1465) fail(`Active runtime catalog changed unexpectedly: ${shadowAudit.activeCatalogCount}`);
+if (shadowAudit.projectedCatalogIfEventuallyPromoted !== 1965) fail('Projected post-promotion catalog must be 1,965.');
+if (shadowAudit.exactCollisions.length !== 0 || shadowAudit.normalizedCollisions.length !== 0) {
+  fail('v4.2 shadow candidates collide with the active catalog.');
+}
+if (shadowAudit.runtimeActivated) fail('Shadow catalog must remain non-active.');
+
+const shadowPack = evaluateV80ShadowPack();
+if (shadowPack.status !== 'PASS') fail('v4.2 shadow pack failed governed onboarding evaluation.');
+if (shadowPack.onboarding.counts.SHADOW !== 500) fail(`Expected all 500 candidates in SHADOW, got ${shadowPack.onboarding.counts.SHADOW}`);
+if (
+  shadowPack.onboarding.counts.CANARY !== 0 ||
+  shadowPack.onboarding.counts.REVIEW_REQUIRED !== 0 ||
+  shadowPack.onboarding.counts.BLOCKED !== 0
+) {
+  fail('v4.2 pack must not be promoted, blocked, or review-gated without new operational evidence.');
+}
+if (shadowPack.activeCatalogCount !== 1465 || shadowPack.projectedCatalogIfEventuallyPromoted !== 1965) {
+  fail('Shadow pack active/projected catalog counts are inconsistent.');
+}
+if (shadowPack.runtimeActivated || shadowPack.promotionApplied) fail('Phase 4 must not mutate the active runtime catalog.');
+
+const shadowPage = getV80ShadowCatalogPage({offset:0,limit:10});
+if (shadowPage.items.length !== 10 || shadowPage.totalShadowCandidates !== 500) fail('Shadow catalog paging contract failed.');
+if (shadowPage.items.some(item=>item.lifecycle!=='SHADOW'||item.runtimeActivated)) fail('Paged shadow candidates must remain inactive SHADOW records.');
+
 const coreBlock = route.match(/const KROM_CORE_PUBLIC_TOOL_NAMES = new Set\(\[([\s\S]*?)\]\);/);
 if (!coreBlock) fail('Could not parse compact public tool surface.');
 const coreBlockText = coreBlock?.[1] ?? '';
@@ -391,5 +426,9 @@ console.log(JSON.stringify({
   controlCenterSnapshot:true,
   shadowCanaryOnboarding:true,
   duplicateRetirementIntelligence:true,
+  v42ShadowCatalogCandidates:V80_V42_SHADOW_SKILLS.length,
+  activeSkillCatalogCount:shadowAudit.activeCatalogCount,
+  projectedSkillCatalogIfPromoted:shadowAudit.projectedCatalogIfEventuallyPromoted,
+  v42RuntimeActivated:false,
   automaticCatalogMutation:false
 }, null, 2));

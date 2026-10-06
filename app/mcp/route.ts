@@ -124,6 +124,7 @@ import {
 import * as v80 from '../../src/v80-adaptive-skill-intelligence';
 import * as v80ops from '../../src/v80-operational-learning';
 import * as v80skills from '../../src/v80-skill-onboarding-governance';
+import * as v80shadow from '../../src/v80-shadow-skill-catalog';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2862,6 +2863,9 @@ const handler = createMcpHandler((server) => {
       if(operation==='EVALUATE_SKILL_RETIREMENT') return result(v80skills.evaluateSkillRetirementV80(v80skills.v80RetirementAssessmentSchema.parse(payload)));
       if(operation==='BUILD_RETIREMENT_PORTFOLIO') return result(v80skills.buildRetirementPortfolioV80(v80skills.v80RetirementPortfolioSchema.parse(payload)));
       if(operation==='AUDIT_SKILL_ONBOARDING_GOVERNANCE') return result(v80skills.auditSkillOnboardingGovernanceV80());
+      if(operation==='AUDIT_V42_SHADOW_CATALOG') return result(v80shadow.auditV80ShadowCatalog());
+      if(operation==='GET_V42_SHADOW_CATALOG') return result(v80shadow.getV80ShadowCatalogPage(v80shadow.v80ShadowCatalogQuerySchema.parse(payload)));
+      if(operation==='EVALUATE_V42_SHADOW_PACK') return result(v80shadow.evaluateV80ShadowPack());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
   );

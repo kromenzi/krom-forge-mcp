@@ -538,6 +538,9 @@ export const v80AdaptiveSkillIntelligenceSchema = z.object({
     'EVALUATE_SKILL_RETIREMENT',
     'BUILD_RETIREMENT_PORTFOLIO',
     'AUDIT_SKILL_ONBOARDING_GOVERNANCE',
+    'AUDIT_V42_SHADOW_CATALOG',
+    'GET_V42_SHADOW_CATALOG',
+    'EVALUATE_V42_SHADOW_PACK',
     'AUDIT'
   ]),
   payload: z.unknown().optional()
