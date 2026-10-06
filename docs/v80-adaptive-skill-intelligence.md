@@ -561,6 +561,81 @@ The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
 - BUILD_V42_PROMOTION_PLAN
 - AUDIT_V42_PROMOTION_CONTROLLER
 
+## Phase 7 — Authorized Promotion Executor + Atomic Rollback
+
+Phase 7 adds an execution boundary after the Phase 6 promotion recommendation.
+
+The executor still does **not** mutate KROM's real stable catalog. It applies an authorized lifecycle transition only to a caller-supplied promotion-state snapshot and returns the resulting snapshot plus evidence.
+
+### Transaction preconditions
+
+A promotion transaction is prepared only when:
+
+- the candidate exists in the v4.2 registry;
+- the supplied state contains the candidate;
+- the supplied state lifecycle matches the Phase 6 readiness lifecycle;
+- Phase 6 readiness is `READY`;
+- the supplied state contains no duplicate or unknown candidate records.
+
+Preparation produces a deterministic transaction ID and expected state SHA-256 digest.
+
+### Explicit host authorization
+
+Execution requires:
+
+- `hostAuthorization=true`;
+- an authorization ID;
+- approval evidence references;
+- the exact `expectedStateDigest` from the before-state.
+
+A digest mismatch blocks the transaction. This provides optimistic-concurrency protection against stale or changed supplied state.
+
+### Atomic lifecycle transition
+
+Supported transitions are governed by Phase 6 readiness:
+
+- SHADOW → CANARY;
+- CANARY → STABLE.
+
+The executor first builds an attempted supplied-state snapshot, then evaluates caller-supplied post-apply verification evidence.
+
+If post-apply verification does not PASS or the observed lifecycle does not equal the expected target, the operation returns:
+
+- `status=ROLLED_BACK`;
+- the exact original supplied state as `stateAfter`;
+- `afterDigest=beforeDigest`;
+- `atomicRollbackApplied=true`.
+
+### Commit semantics
+
+A successful transaction returns:
+
+- `status=COMMITTED_TO_SUPPLIED_STATE`;
+- incremented transition revision;
+- transaction ID on the transitioned record;
+- before, attempted and after digests;
+- authorization and verification evidence record.
+
+This is a real deterministic state transition on the value supplied to the operation, but it is **not** a repository, deployment, database, or live catalog mutation.
+
+The following remain false:
+
+- `repositoryMutation`;
+- `runtimeCatalogMutation`;
+- `deploymentMutation`.
+
+The real KROM stable catalog therefore remains **1,465 skills**.
+
+### Phase 7 operations
+
+The existing `krom_v80_adaptive_skill_intelligence` gateway now also supports:
+
+- PREPARE_V42_PROMOTION_TRANSACTION
+- EXECUTE_V42_PROMOTION_TRANSACTION
+- AUDIT_V42_AUTHORIZED_PROMOTION_EXECUTOR
+
+A future phase may add an explicitly authorized repository/catalog mutation adapter. That adapter must remain separate from this supplied-state transaction engine and must retain rollback and evidence guarantees.
+
 ## MCP Surface
 
 One new control-plane gateway is registered:
