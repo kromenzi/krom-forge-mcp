@@ -1,0 +1,14 @@
+# Codex interactive host sample
+
+Repository: kromenzi/krom-forge-mcp. Source identity: the clean commit recorded in request.json. Environment: local Node execution, not production. Owner/operator: Codex acting on Abdulkareem's instruction to complete the host integration. No merge, deployment or promotion is authorized. Read each exact instruction from the live request before working. Do not precompute or replay responses.
+
+## repair-claims
+Audit the claim that the new local host bridge binds actual operator results to the loaded instruction, source commit and current case. Inspect src/v80-codex-host-bridge.ts and src/v80-host-benchmark-executor.ts; run tests/v80-codex-host-bridge.test.ts and the host runner tests. Require zero accepted cross-request or cross-commit responses. Distinguish unit fixtures from the interactive execution. Inventory control points, test malformed/stale/cross-scope results, record source-bound evidence and risk. Acceptance is an accurate control verdict, including trust limitations, not mandatory PASS for the implementation. Do not treat operator assertions as independent cryptographic attestation. QA reviews the actual audit before closure.
+
+## timeout-policy
+Audit the schema and cancellation boundary of the local host execution path. The direct signal is a fresh timeout/cancellation test log; the cross-check is the runner's timeout and abort tests and source. Require unresolved host work to stop waiting within its case budget (allow 1000ms scheduling overhead for local tests), no successful receipt after cancellation, and no schema bypass on retries. Inspect stale policy, late responses and replay. State explicitly whether the instruction-loading step is inside the timeout boundary, and whether cancellation can forcibly stop an arbitrary third-party executor. No claim about deployed MCP transport is permitted from this local test. Security reviews the decisive evidence before release-impacting closure.
+
+## Response and evidence
+Write response.json.tmp then atomically rename it to response.json in the live case directory. Echo protocol, requestId, requestDigest, sourceCommit, instructionHash; executor is codex-interactive. result follows V80TrustedHostExecutor. Include actual audit, independent validator, security review and command output as artifacts. Similarity is not measured by this sample: use conservative semanticSimilarity=1, proceduralSimilarity=1, specializationDistinct=false and disclose these placeholders. These values cannot support promotion. A receipt proves binding, not correctness; inspect outcome and validatorPass separately.
+
+This is trusted local operator IPC. It does not launch another Codex process or require a model API key; it requires an active Codex session to service each request. Other local writers inside the trusted boundary can forge responses. Keep the directory private and never accept an untrusted external response as host proof.

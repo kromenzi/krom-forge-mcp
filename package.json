@@ -40,7 +40,8 @@
     "verify:v79": "tsx scripts/verify-v79-capability-governance.ts",
     "verify:v80": "tsx scripts/verify-v80-adaptive-skill-intelligence.ts",
     "generate:v80:v43": "tsx scripts/generate-v80-v43-instruction-pack.ts",
-    "verify:v80:v43": "tsx scripts/verify-v80-v43-instruction-pack.ts"
+    "verify:v80:v43": "tsx scripts/verify-v80-v43-instruction-pack.ts",
+    "benchmark:v80:codex": "node --import tsx scripts/run-v80-codex-host.ts"
   },
   "engines": {
     "node": ">=20"

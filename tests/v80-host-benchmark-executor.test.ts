@@ -85,3 +85,13 @@ test('host receipts bind artifact bytes and fixtures stay ineligible',async()=>{
     assert.equal(JSON.stringify(failing).includes('credential'),false);
   } finally {Object.defineProperty(seed,'h',{value:original,writable:true});}
 });
+
+test('runner removes abort listeners after a completed case',async()=>{
+  const {default:EventEmitter}=await import('node:events');
+  const {loadV43InstructionV80}=await import('../src/v80-v43-instruction-loader');
+  const controller=new AbortController();
+  const output=await executeV42HostBenchmarkV80({manifest:manifest(),sourceCommit:commit,signal:controller.signal,
+    adapter:{evidenceOrigin:'FIXTURE',loadInstruction:loadV43InstructionV80,execute:async()=>result}});
+  assert.equal(output.receipts.length,1);
+  assert.equal(EventEmitter.getEventListeners(controller.signal,'abort').length,0);
+});

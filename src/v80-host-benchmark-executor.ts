@@ -48,7 +48,8 @@ export async function executeV43HostBenchmarkV80(input:{manifest:Manifest;source
         const hostExecutionId=randomUUID(); const started=performance.now(); executedCases++; const caseController=new AbortController(); const onAbort=()=>caseController.abort(signal.reason); signal.addEventListener('abort',onAbort,{once:true});
         let timer:ReturnType<typeof setTimeout>|undefined;
         const timeoutPromise=new Promise<never>((_,reject)=>{timer=setTimeout(()=>{caseController.abort(new Error('HOST_CASE_TIMEOUT'));reject(new Error('HOST_CASE_TIMEOUT'));},benchmarkCase.latencyBudgetMs);});
-        const abortPromise=new Promise<never>((_,reject)=>{if(signal.aborted) reject(new Error('HOST_EXECUTION_ABORTED')); else signal.addEventListener('abort',()=>reject(new Error('HOST_EXECUTION_ABORTED')),{once:true});});
+        let rejectAbort:()=>void=()=>{};
+        const abortPromise=new Promise<never>((_,reject)=>{rejectAbort=()=>reject(new Error('HOST_EXECUTION_ABORTED'));if(signal.aborted) rejectAbort(); else signal.addEventListener('abort',rejectAbort,{once:true});});
         try {
           const result=resultSchema.parse(await Promise.race([input.adapter!.execute({benchmarkCase:structuredClone(benchmarkCase),instruction,signal:caseController.signal}),timeoutPromise,abortPromise]));
           const latencyMs=performance.now()-started;
@@ -56,7 +57,7 @@ export async function executeV43HostBenchmarkV80(input:{manifest:Manifest;source
           const caseArtifacts=result.artifacts.map(artifact=>({caseId:benchmarkCase.caseId,...artifact,sha256:digest(artifact.content)})); const evidenceKinds=[...new Set(caseArtifacts.map(artifact=>artifact.kind))];
           if(benchmarkCase.expectedEvidenceKinds.some(kind=>!evidenceKinds.includes(kind))){failures.push({caseId:benchmarkCase.caseId,reason:'MISSING_EXECUTION_ARTIFACTS'});continue;}
           const receipt=v80HostBenchmarkReceiptSchema.parse({...result,benchmarkId:manifest.benchmarkId,caseId:benchmarkCase.caseId,skillName:benchmarkCase.skillName,manifestCaseDigest:benchmarkCase.caseDigest,hostExecutionId,evidenceOrigin:input.adapter!.evidenceOrigin,executionPerformed:true,sourceRef:'git:'+sourceCommit,latencyMs,evidenceRefs:caseArtifacts.map(artifact=>'sha256:'+artifact.sha256),evidenceKinds,hostAttestation:'host-adapter:'+hostExecutionId,instructionHashContract:V80_V43_HASH_CONTRACT}); receipts.push(receipt);artifacts.push(...caseArtifacts);
-        } finally {if(timer) clearTimeout(timer);signal.removeEventListener('abort',onAbort);}
+        } finally {if(timer) clearTimeout(timer);signal.removeEventListener('abort',onAbort);signal.removeEventListener('abort',rejectAbort);}
       } catch(error){
         const reason=error instanceof Error?error.message:'HOST_ADAPTER_OR_RESULT_FAILURE';
         if(reason==='HOST_EXECUTION_ABORTED'){blockers.push(reason);break;}

@@ -1,0 +1,7 @@
+{
+  "benchmarkId": "v43-codex-interactive-sample-20261007",
+  "cases": [
+    {"caseId":"repair-claims","skillName":"kfg-v4-0180-repair-claim-evidence-auditor","scenarioId":"audit-host-bridge-evidence","scenarioRef":"repo:benchmarks/codex-host/scenarios.md#repair-claims","expectedEvidenceKinds":["result","validator","security","tool-log"],"latencyBudgetMs":600000},
+    {"caseId":"timeout-policy","skillName":"kfg-v4-0297-mcp-tool-timeout-policy","scenarioId":"audit-host-timeout-boundary","scenarioRef":"repo:benchmarks/codex-host/scenarios.md#timeout-policy","expectedEvidenceKinds":["result","validator","security","tool-log"],"latencyBudgetMs":600000}
+  ]
+}
