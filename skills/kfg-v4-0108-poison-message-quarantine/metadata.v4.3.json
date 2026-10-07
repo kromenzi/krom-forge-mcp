@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0108-poison-message-quarantine",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "13ce1e0c065c268f2f729b44d3ea5e51c96ade6d6dc9a093b4af9d8afd3cfe32",
+  "rawFileHash": "13ce1e0c065c268f2f729b44d3ea5e51c96ade6d6dc9a093b4af9d8afd3cfe32",
+  "legacyInstructionHash": "716bda33b9e1271ee8247c706d2975821d89435d8b18ed6c9020bb92483bf486",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7223
+}

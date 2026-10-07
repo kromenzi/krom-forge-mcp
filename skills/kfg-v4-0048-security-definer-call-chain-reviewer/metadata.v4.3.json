@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0048-security-definer-call-chain-reviewer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9123d4997d9644e92c4e863467197992667353e27d991e443a2c56bdf43cfb31",
+  "rawFileHash": "9123d4997d9644e92c4e863467197992667353e27d991e443a2c56bdf43cfb31",
+  "legacyInstructionHash": "efccb680db1838ff7704b7ab25ec11dc8850b92e7251463d6dbb16500258cd13",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7476
+}

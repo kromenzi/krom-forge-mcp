@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0012-design-token-drift-detector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "84094411fb97120c4c313e23f1651b8b487e3aa060a86ad8e565ca11a4e96ec6",
+  "rawFileHash": "84094411fb97120c4c313e23f1651b8b487e3aa060a86ad8e565ca11a4e96ec6",
+  "legacyInstructionHash": "d6ab7f3aff5f032d2c6643aa0054b847e91d0b817e0a57e6f890a4440e46c7b9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7346
+}

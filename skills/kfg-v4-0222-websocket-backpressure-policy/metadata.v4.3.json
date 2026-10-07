@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0222-websocket-backpressure-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9f9aedd9a56d2370173bb7690a5cbbf92d1f59cbe930259de9da0ef78f27e664",
+  "rawFileHash": "9f9aedd9a56d2370173bb7690a5cbbf92d1f59cbe930259de9da0ef78f27e664",
+  "legacyInstructionHash": "898269e481e55681181a53128d024297346b33afda8ee4d1c460230661a04598",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7355
+}

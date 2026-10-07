@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0435-asset-location-integrity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7011536009b2c7e2bba23a7d1297442aee223efaaa043656b6fcf40c8336e1e9",
+  "rawFileHash": "7011536009b2c7e2bba23a7d1297442aee223efaaa043656b6fcf40c8336e1e9",
+  "legacyInstructionHash": "5ec69cb565a84d8864af9928a2244c9bcc770b9f43c5f6eb9957a5d08a8d53c1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7265
+}

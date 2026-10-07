@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0375-wcag-evidence-matrix",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9d7661a22783cc43cd2e0f5268410eeda27214eea97e0c2222df9aed83308232",
+  "rawFileHash": "9d7661a22783cc43cd2e0f5268410eeda27214eea97e0c2222df9aed83308232",
+  "legacyInstructionHash": "d5f6a277ea8ada0eb72c5453ffb83cf69fa31a3700ca0acaf42218b9bc1fbce5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7278
+}

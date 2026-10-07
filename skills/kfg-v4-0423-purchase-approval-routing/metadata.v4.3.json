@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0423-purchase-approval-routing",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e1d86482ae8d2c5a44d4c3692158e7a15ac0c337981b41e7114f3cf50998b4a3",
+  "rawFileHash": "e1d86482ae8d2c5a44d4c3692158e7a15ac0c337981b41e7114f3cf50998b4a3",
+  "legacyInstructionHash": "01d69a073c3d5fcfa060a25aae3c2983e549155ad94c1298043534fd1cf31bdb",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7255
+}

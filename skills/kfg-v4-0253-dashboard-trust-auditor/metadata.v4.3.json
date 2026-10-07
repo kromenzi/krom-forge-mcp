@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0253-dashboard-trust-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "275a04e13d155367dd05ae277c3d2239f3cd782ba7adf196749c4a0eed17c66c",
+  "rawFileHash": "275a04e13d155367dd05ae277c3d2239f3cd782ba7adf196749c4a0eed17c66c",
+  "legacyInstructionHash": "4807a073bf42558ba7ae98c5d32db5f1576febd87fbcc32e8aa32b26b2210a16",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7449
+}

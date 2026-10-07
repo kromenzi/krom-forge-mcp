@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0175-root-cause-confidence-scorer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b2cf63300d8a27466715101db8db1713dd9898ef129f28da001f04bbad2ce29b",
+  "rawFileHash": "b2cf63300d8a27466715101db8db1713dd9898ef129f28da001f04bbad2ce29b",
+  "legacyInstructionHash": "7289c42baa3120a6b91d881450917a837dd7fa6de91869db8eb8d0f3b0d64024",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7276
+}

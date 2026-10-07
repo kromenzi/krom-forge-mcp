@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0190-dependency-sunset-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4406a36c32b00c0882ffcc9ebd447af4061ae999f0733b71d2f8ee7308c0bbe4",
+  "rawFileHash": "4406a36c32b00c0882ffcc9ebd447af4061ae999f0733b71d2f8ee7308c0bbe4",
+  "legacyInstructionHash": "12bfe44b29900300a2f5b2c2ffcae7f35da9c3ade025f11ad8a00f95832d0473",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7356
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0381-translation-key-lifecycle",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "38a317c20812fc2205dc8961cfb322db5619e91f327e806833849fa1e4f38d53",
+  "rawFileHash": "38a317c20812fc2205dc8961cfb322db5619e91f327e806833849fa1e4f38d53",
+  "legacyInstructionHash": "5cd16ba2d9575181d7ed86bc5e2adff5d375a285f11fa28a449c04f4c90e5ff9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7228
+}

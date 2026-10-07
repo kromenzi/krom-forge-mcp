@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0136-property-based-test-seeder",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4afb71bdfa4fca0a43d67a9d48661086b9958c328dfa8a7c8e801c8148d83a30",
+  "rawFileHash": "4afb71bdfa4fca0a43d67a9d48661086b9958c328dfa8a7c8e801c8148d83a30",
+  "legacyInstructionHash": "71a49fc5eeb30a917786aefea9714c70dfd0525be5c4b189b142ae67c65b3f05",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7262
+}

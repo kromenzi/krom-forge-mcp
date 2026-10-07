@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0128-contract-version-support-matrix",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "608177f300058d036b9338f2ac6dd0d95e05c9e1bdbd55721cc9d9367a626ad2",
+  "rawFileHash": "608177f300058d036b9338f2ac6dd0d95e05c9e1bdbd55721cc9d9367a626ad2",
+  "legacyInstructionHash": "02f8342e5f2d147a42261d7298217a99c1701aa147c65cd24466f3c9889535ef",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7388
+}

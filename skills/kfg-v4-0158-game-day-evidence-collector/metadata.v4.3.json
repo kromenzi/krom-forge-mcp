@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0158-game-day-evidence-collector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f97e9cdd32526eb50ab81a4f1638d62d84ea1b50e32842f8695c50685ceae969",
+  "rawFileHash": "f97e9cdd32526eb50ab81a4f1638d62d84ea1b50e32842f8695c50685ceae969",
+  "legacyInstructionHash": "76f2f7e2f5bb8bb0a1b4da9ad89b3eb30ab7b452fd818e87e07e8a36387f7de0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7216
+}

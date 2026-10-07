@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0261-model-serving-readiness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "250e0a7144233bfb1fe0f144961db51ae3c06f1142c12a31679253c7ddad7f0a",
+  "rawFileHash": "250e0a7144233bfb1fe0f144961db51ae3c06f1142c12a31679253c7ddad7f0a",
+  "legacyInstructionHash": "e2e60a3bdac1e306df573e5d79071e8b5e38f3b8a3e00d57e4f4ba7a03bdbe85",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7242
+}

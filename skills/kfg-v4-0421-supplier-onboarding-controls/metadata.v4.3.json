@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0421-supplier-onboarding-controls",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9d6b08465ed9975f6ce658827e2e773102ceb424683ec8fd66f863267ccb83c1",
+  "rawFileHash": "9d6b08465ed9975f6ce658827e2e773102ceb424683ec8fd66f863267ccb83c1",
+  "legacyInstructionHash": "c5c8af9d5ffcff6e87b9175ba8c78197f85ed3be4b2dba6fc54fc9035655e6c6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7345
+}

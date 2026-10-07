@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0137-mutation-testing-signal-analyzer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1108ffd200efe43e692f7dbb0f3f5e9ae599a815eee101282bd9e8c635641e44",
+  "rawFileHash": "1108ffd200efe43e692f7dbb0f3f5e9ae599a815eee101282bd9e8c635641e44",
+  "legacyInstructionHash": "deaa168eacbc41f4a6f458684567cfdb77c6a0dff800e99f81ebbb234a6a4dcd",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7379
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0037-session-fixation-detector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "41f2f9d9199f65b876d518ed119764985b8d7a1316c0be2de112612b7467670c",
+  "rawFileHash": "41f2f9d9199f65b876d518ed119764985b8d7a1316c0be2de112612b7467670c",
+  "legacyInstructionHash": "8423fb5dbf9fd137884e565699be87224671e096b02b577b87afa95de918bc5e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7283
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0432-asset-ownership-transfer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "df1d3d85136870ab2af6143e965a6f566fd92a6ac2d5ae231313f4b551bfb6de",
+  "rawFileHash": "df1d3d85136870ab2af6143e965a6f566fd92a6ac2d5ae231313f4b551bfb6de",
+  "legacyInstructionHash": "3e1c3bbd01ce03f0d4097c06ed980025dae9e68c38aa747fdcb0098a3cfd30bc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7242
+}

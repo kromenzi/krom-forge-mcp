@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0363-subtitle-timing-validator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7e49c16be405874a9360effe1caa7ba1385951a9c8c6bc84812e1e8a5b740f8c",
+  "rawFileHash": "7e49c16be405874a9360effe1caa7ba1385951a9c8c6bc84812e1e8a5b740f8c",
+  "legacyInstructionHash": "fc93ca787c08600666f27d659000e4608dcb487d4e1e12fb99ec9b600783044b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7296
+}

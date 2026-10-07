@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0201-workload-identity-manifest",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b48812105e24aba4d9b4e9e85ca4aa522ce46a4530f285f04e59a63e61aeeeb1",
+  "rawFileHash": "b48812105e24aba4d9b4e9e85ca4aa522ce46a4530f285f04e59a63e61aeeeb1",
+  "legacyInstructionHash": "676aa43e9815e2b46ac55db1aa60fbb3e089f1ac58481edaf924f73f60e3d1ad",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7280
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0124-split-brain-detection-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a2d5ad01e281ca0b5e6de6d1e376ce6a00748e8cf02a654c8b63eef593af7cf6",
+  "rawFileHash": "a2d5ad01e281ca0b5e6de6d1e376ce6a00748e8cf02a654c8b63eef593af7cf6",
+  "legacyInstructionHash": "cbfb9ca3295a8a6f450ad716b170baf2d040afe110833fcaab7130ddfb5f410e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7383
+}

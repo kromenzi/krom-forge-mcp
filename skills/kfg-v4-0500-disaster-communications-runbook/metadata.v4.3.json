@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0500-disaster-communications-runbook",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "91d36ed76e2281226031f7c54cbc7f306b8e0467c9aa4129c5a5636ff8850ee6",
+  "rawFileHash": "91d36ed76e2281226031f7c54cbc7f306b8e0467c9aa4129c5a5636ff8850ee6",
+  "legacyInstructionHash": "8fc035b72d567c9c646207510e9e983d71063bb6c7bf1e68c06b5b052ce1c9d2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7421
+}

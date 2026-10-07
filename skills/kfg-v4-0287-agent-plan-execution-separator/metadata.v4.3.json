@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0287-agent-plan-execution-separator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fa68d64be1919e862ca64b296ff2e2e76577d87737f3bcaf2ae22b7e916c07de",
+  "rawFileHash": "fa68d64be1919e862ca64b296ff2e2e76577d87737f3bcaf2ae22b7e916c07de",
+  "legacyInstructionHash": "0f2906d3f21530ce976130353f11ee3006291ee8402c1ca6c85d77f299bc7750",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7313
+}

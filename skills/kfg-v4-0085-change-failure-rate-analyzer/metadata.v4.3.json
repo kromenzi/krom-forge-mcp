@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0085-change-failure-rate-analyzer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "01ea693cf964a62d45c2fca2cd863a208cc81f441333a7ea80648d7b583ec7a1",
+  "rawFileHash": "01ea693cf964a62d45c2fca2cd863a208cc81f441333a7ea80648d7b583ec7a1",
+  "legacyInstructionHash": "b66344bead8cd0b33e52c71674c2c5b449ae861fbe64542b695ad1f710780610",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7367
+}

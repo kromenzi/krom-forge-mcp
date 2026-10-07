@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0132-incremental-build-correctness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c1c7914c2d091fb8ddc010ecbc1488b0dd83f0dfa16c467fc4610cf8cc2e21ba",
+  "rawFileHash": "c1c7914c2d091fb8ddc010ecbc1488b0dd83f0dfa16c467fc4610cf8cc2e21ba",
+  "legacyInstructionHash": "7557dbf998291083179ac9575f24e2119f6c316714eb8a6ade6bdbedb7924ca8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7403
+}

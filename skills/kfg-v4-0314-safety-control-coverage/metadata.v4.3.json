@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0314-safety-control-coverage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ecadf8e06f930036cf4613e67e29accdaa54e31b02498b172d9b5ea253b86ee6",
+  "rawFileHash": "ecadf8e06f930036cf4613e67e29accdaa54e31b02498b172d9b5ea253b86ee6",
+  "legacyInstructionHash": "5f949bd1f4d1818a02185dfdbcfeec4c4563318818af10a82752f9059f557840",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7214
+}

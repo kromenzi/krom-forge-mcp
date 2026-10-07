@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0210-provider-version-upgrade-map",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7aea69612bcd3bc8f24648f1fe40d7886c58a1c47840b63d03c600ebebd28adc",
+  "rawFileHash": "7aea69612bcd3bc8f24648f1fe40d7886c58a1c47840b63d03c600ebebd28adc",
+  "legacyInstructionHash": "99fe54a6c689debd8da9f252b6804fe25c5fb6398c5c495b55311d2d5a867d38",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7325
+}

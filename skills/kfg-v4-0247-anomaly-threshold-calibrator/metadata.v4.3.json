@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0247-anomaly-threshold-calibrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "085131ea6850a4d066e0dc304084f63a5972e75c6dc6c496900f79f95214aaa0",
+  "rawFileHash": "085131ea6850a4d066e0dc304084f63a5972e75c6dc6c496900f79f95214aaa0",
+  "legacyInstructionHash": "ce90db77658abf9189af33eb111b7444ff73d9191bc09a2b8d326bd22aae291b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7352
+}

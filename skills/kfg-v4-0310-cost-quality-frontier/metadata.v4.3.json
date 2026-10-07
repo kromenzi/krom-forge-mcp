@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0310-cost-quality-frontier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "88c5264bb000917a9522abd57531b316e050851b7d4b202fb8f7e155a4d5cd58",
+  "rawFileHash": "88c5264bb000917a9522abd57531b316e050851b7d4b202fb8f7e155a4d5cd58",
+  "legacyInstructionHash": "b2e9dcaf2b669118658edd69f82d5a9f6a100f804d3568705b000770041b4809",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7207
+}

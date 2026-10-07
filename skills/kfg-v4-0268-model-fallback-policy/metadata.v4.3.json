@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0268-model-fallback-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d2a0bc808dacecd4cadcb8b85b869bb82313ddeceb8759d58a8cd9c7c8c6c609",
+  "rawFileHash": "d2a0bc808dacecd4cadcb8b85b869bb82313ddeceb8759d58a8cd9c7c8c6c609",
+  "legacyInstructionHash": "fb7b9c9e0fc1cd76d8b5e7c0a62d0352a85a49371214651429bbd97e3cb23ba1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7166
+}

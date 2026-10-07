@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0102-stale-while-revalidate-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "13f4cc7a69c14146707fd8848abe11f90db454c1c63efff902f083551ca54f6c",
+  "rawFileHash": "13f4cc7a69c14146707fd8848abe11f90db454c1c63efff902f083551ca54f6c",
+  "legacyInstructionHash": "93b8571a17785198864d01153acdb6263e5ee1dd1ae919e2a64c649d86e778de",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7275
+}

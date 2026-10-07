@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0362-video-segment-integrity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "dd18987a9a220f12be134b03b8986806264cd64689e8766c664b449058af8051",
+  "rawFileHash": "dd18987a9a220f12be134b03b8986806264cd64689e8766c664b449058af8051",
+  "legacyInstructionHash": "60a5c85d824a1c48ad681c5103810e8ab590eecacc420d86cdc6441b4ec545de",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7656
+}

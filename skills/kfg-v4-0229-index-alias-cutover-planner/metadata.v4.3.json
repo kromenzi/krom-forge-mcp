@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0229-index-alias-cutover-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e3c119d41cd53dbeed508803f015c50b2cbc4e82b817996cd38e98bc2a7fd738",
+  "rawFileHash": "e3c119d41cd53dbeed508803f015c50b2cbc4e82b817996cd38e98bc2a7fd738",
+  "legacyInstructionHash": "eb555c2d45dc8fb29bc3a5781ecc01ad0d81a227f0e7faeb40de280513f0c434",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7255
+}

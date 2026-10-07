@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0448-inspection-sampling-plan",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "27a546ee8269c710ed2ebe75bd4b784bd1f62ecc29d8e75a1b57b347d394e351",
+  "rawFileHash": "27a546ee8269c710ed2ebe75bd4b784bd1f62ecc29d8e75a1b57b347d394e351",
+  "legacyInstructionHash": "a2c3c393528d1c2dc976529d31bad6a2dd1076e0fcb4842e07ac81ebf0cb9ac0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7343
+}

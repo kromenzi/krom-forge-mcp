@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0415-workforce-capacity-forecast",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "25942bcfd01be69a083ec765b8c65d4e967bd2534f0b560353f5abfd3f502f35",
+  "rawFileHash": "25942bcfd01be69a083ec765b8c65d4e967bd2534f0b560353f5abfd3f502f35",
+  "legacyInstructionHash": "8aab856094f811b51e9b45d508379dcffd5bc2695523f66dc0df0eb1022e60c3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7262
+}

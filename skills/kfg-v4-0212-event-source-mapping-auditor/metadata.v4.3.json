@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0212-event-source-mapping-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d6e6c4eab730533c50c7bb0d6f82aeddff8700a443d75dbb1729dc67f1137a54",
+  "rawFileHash": "d6e6c4eab730533c50c7bb0d6f82aeddff8700a443d75dbb1729dc67f1137a54",
+  "legacyInstructionHash": "35d671db6eb326fead0865280529dcde298b09302a4da3d917182d3c9f43d278",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7400
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0271-retrieval-chunk-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "34accabd2c6ee70c98ff69ec60bda199b2d4dbcc5c8ac54d73c0672fcea38e97",
+  "rawFileHash": "34accabd2c6ee70c98ff69ec60bda199b2d4dbcc5c8ac54d73c0672fcea38e97",
+  "legacyInstructionHash": "b5dd849d7eceae51dc4ea5041646199d96491ed93b2c6ab29fcd8058306a4466",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7305
+}

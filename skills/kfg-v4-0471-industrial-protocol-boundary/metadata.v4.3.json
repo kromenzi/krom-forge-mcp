@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0471-industrial-protocol-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "63f4acfb993f94b6848f41a4973f3f004f6fc5e47f012967f9405138b3813b2e",
+  "rawFileHash": "63f4acfb993f94b6848f41a4973f3f004f6fc5e47f012967f9405138b3813b2e",
+  "legacyInstructionHash": "27c857fa38cc5038cfb19bc52df51123613d1de9c867d7af6536c8ab323453cf",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7516
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0094-alert-noise-correlation-miner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7718ea2f8c6caa98b99cb2df04f494e503c4ab16e9b890cd7acde898a5dedeba",
+  "rawFileHash": "7718ea2f8c6caa98b99cb2df04f494e503c4ab16e9b890cd7acde898a5dedeba",
+  "legacyInstructionHash": "beb3a0ac2acb5ec808af9929a604652da8c8fbb8e2b703ac5345b29b1f4ff4b4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7345
+}

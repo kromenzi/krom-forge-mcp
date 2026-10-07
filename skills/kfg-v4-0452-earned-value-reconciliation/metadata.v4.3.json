@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0452-earned-value-reconciliation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "980ffd04531619e0de942c0d57e5f5e27e5e7272c191a7fa21a4f3bad336519f",
+  "rawFileHash": "980ffd04531619e0de942c0d57e5f5e27e5e7272c191a7fa21a4f3bad336519f",
+  "legacyInstructionHash": "2f87e841fcf6ce4b50b0bf232630ad0a4db4e6c9fc2dcb8106f8671812fb000d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7338
+}

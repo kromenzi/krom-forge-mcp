@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0209-drift-remediation-safety",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7ee37c4b869501368dfaef1a609a083938ff1055799473d58f2dc5658cb9eff5",
+  "rawFileHash": "7ee37c4b869501368dfaef1a609a083938ff1055799473d58f2dc5658cb9eff5",
+  "legacyInstructionHash": "a5f92c86e71d1ba7cf33614b795a89e3c5696ee3a2d23f50c22e435f0c976c19",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7338
+}

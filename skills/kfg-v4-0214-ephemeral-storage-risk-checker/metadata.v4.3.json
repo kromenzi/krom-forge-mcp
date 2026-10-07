@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0214-ephemeral-storage-risk-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c9dc204347445f97a590ba4dc324e2eb48b668d65ae2764d1a659d7433c08a9a",
+  "rawFileHash": "c9dc204347445f97a590ba4dc324e2eb48b668d65ae2764d1a659d7433c08a9a",
+  "legacyInstructionHash": "2a9fb4531aacde0279061f9428e1a915fc03c3e48a9929f20a2e4e6968adc70b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7395
+}

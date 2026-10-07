@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0414-hr-document-retention",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "855a098486c42679f887ea8abac60a47f4b4de9a5e93729a3d26734d522aa78b",
+  "rawFileHash": "855a098486c42679f887ea8abac60a47f4b4de9a5e93729a3d26734d522aa78b",
+  "legacyInstructionHash": "39c9fed9a76d68009edddbbae6c81ec6bdd2351cce40ef6d64c9691e7f41db2e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7184
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0223-connection-resume-protocol",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "32803ac5a8ad8405984f194928ef40df5b8fc39063c5395acb0c605b625a89d6",
+  "rawFileHash": "32803ac5a8ad8405984f194928ef40df5b8fc39063c5395acb0c605b625a89d6",
+  "legacyInstructionHash": "7cd336d08283c3c11418bf6eed42982b2c59921793c842503f9ce51e4c280a23",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7350
+}

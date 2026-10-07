@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0057-network-segment-intent-validator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9512f6776e96eec66f63ee62eceb7fbaa997047c76c72fdf4065de3d14fee6b1",
+  "rawFileHash": "9512f6776e96eec66f63ee62eceb7fbaa997047c76c72fdf4065de3d14fee6b1",
+  "legacyInstructionHash": "1604cdeda3114445ee1e7bd225e5c6e34bdc8240524f3f9e19d79d6957954fee",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7290
+}

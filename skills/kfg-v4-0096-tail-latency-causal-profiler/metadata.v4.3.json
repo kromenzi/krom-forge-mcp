@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0096-tail-latency-causal-profiler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f84e5621e5b98fde48ba3165b5773b259cead93eb3884b18c5967b93e1399a54",
+  "rawFileHash": "f84e5621e5b98fde48ba3165b5773b259cead93eb3884b18c5967b93e1399a54",
+  "legacyInstructionHash": "b9ef9309e42e6a4b30e5da97884181e01c3423a4e2a47f54ca8817a9d8452d66",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7315
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0411-employee-lifecycle-integrity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b59437d67293461b3fb1d9bb875edf3286a12ae383dcf2b49243a350c18dc05b",
+  "rawFileHash": "b59437d67293461b3fb1d9bb875edf3286a12ae383dcf2b49243a350c18dc05b",
+  "legacyInstructionHash": "0e0dcc20bacf181ea91857e9536871b86f35de7ecb3fa13bcd29ab79ebce1329",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7294
+}

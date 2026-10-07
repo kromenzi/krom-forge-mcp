@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0450-supplier-quality-escalation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "49f8604f1b6e0ea3643d3325af3ea84be736d24e161e747e165081b1450111c1",
+  "rawFileHash": "49f8604f1b6e0ea3643d3325af3ea84be736d24e161e747e165081b1450111c1",
+  "legacyInstructionHash": "6f1575f6c06fd3025c37157f4ed24bf7cf691f9f718a1fac85171edac4844d9a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7354
+}

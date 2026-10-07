@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0470-iot-battery-life-model",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b338c7b6340d0d243f96d4899610816486a986d14473b7a3e7b52d7ee8ff4336",
+  "rawFileHash": "b338c7b6340d0d243f96d4899610816486a986d14473b7a3e7b52d7ee8ff4336",
+  "legacyInstructionHash": "13efe16b7163b707000f9beff6fe7124b5887767c1ac2ea49a72860cc6d71aac",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7214
+}

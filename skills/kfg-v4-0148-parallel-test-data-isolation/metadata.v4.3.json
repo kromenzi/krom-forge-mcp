@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0148-parallel-test-data-isolation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "339e19e7953cac7a1dca5c5ad4abc5fa28d9154a7b8e0e2ed561c9fe66564ef6",
+  "rawFileHash": "339e19e7953cac7a1dca5c5ad4abc5fa28d9154a7b8e0e2ed561c9fe66564ef6",
+  "legacyInstructionHash": "63a1db3e6ac4532f93af9e0bd5e0a40c64b73b481fb48b7f7e0df402951c25f6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7204
+}

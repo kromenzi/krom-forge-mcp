@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0275-rag-failure-taxonomy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d561dbec64abad377388eff582f53d00c1b6b1304022afbd7f3dc725f8f0ad72",
+  "rawFileHash": "d561dbec64abad377388eff582f53d00c1b6b1304022afbd7f3dc725f8f0ad72",
+  "legacyInstructionHash": "329240a99258eda318ccf7e8acb7e2c6a18e39b23f83d22c87228bc1c8f2d142",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7144
+}

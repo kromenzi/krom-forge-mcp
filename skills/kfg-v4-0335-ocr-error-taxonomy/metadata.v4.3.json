@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0335-ocr-error-taxonomy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "bcb9b95fd54a5d83fcf28173ae74c9c4e8203b615ebc5b4ada15129d529d3a3f",
+  "rawFileHash": "bcb9b95fd54a5d83fcf28173ae74c9c4e8203b615ebc5b4ada15129d529d3a3f",
+  "legacyInstructionHash": "d8147b17e6132643760c68dedfccbede77a741c550d8185c200617b557d01a5f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7136
+}

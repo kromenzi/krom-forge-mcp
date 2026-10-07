@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0438-failure-code-taxonomy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "10a641c8d07aa3fa6e3e1d69d38368d9c152d60ac4793bdb1ea94b2b807d367b",
+  "rawFileHash": "10a641c8d07aa3fa6e3e1d69d38368d9c152d60ac4793bdb1ea94b2b807d367b",
+  "legacyInstructionHash": "1fc40c4dbddadcb3729a90a00fcb54301ef1c7eba08c6dc462375ecab1d71512",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7290
+}

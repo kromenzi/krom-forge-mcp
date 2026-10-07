@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0276-vector-index-recall-calibrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6a8b3a1415aaaaab35b5c564dae5113881bbeb648cb765972a3a8c5fe7866c9d",
+  "rawFileHash": "6a8b3a1415aaaaab35b5c564dae5113881bbeb648cb765972a3a8c5fe7866c9d",
+  "legacyInstructionHash": "c45431b4ea162c8762459b82d37a6571d99a2e71fd2e93e313f72f26a614fa86",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7280
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0069-parallel-job-resource-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "81e0984d0aa3d8a167a353c0dc52912910fb8d756579519a6be090d37850b373",
+  "rawFileHash": "81e0984d0aa3d8a167a353c0dc52912910fb8d756579519a6be090d37850b373",
+  "legacyInstructionHash": "cb69ae600c63d74afd445e2352d456c42e43d07d6a7177a1d62ba370b2d8a7ef",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7373
+}

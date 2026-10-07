@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0063-redaction-boundary-tester",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "865627e3fee8b9a058fbff0de3792785b9f9e14910c18c03e7d2c0b066c5304c",
+  "rawFileHash": "865627e3fee8b9a058fbff0de3792785b9f9e14910c18c03e7d2c0b066c5304c",
+  "legacyInstructionHash": "c095d0f2841111a063f75117eee4365636cf1212673ddd51f444a0536f78b85b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7421
+}

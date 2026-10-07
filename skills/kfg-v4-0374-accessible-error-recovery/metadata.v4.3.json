@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0374-accessible-error-recovery",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9076cd20886239da0046f4ed94fdd32822d82ccb0a91f91365405812015209bb",
+  "rawFileHash": "9076cd20886239da0046f4ed94fdd32822d82ccb0a91f91365405812015209bb",
+  "legacyInstructionHash": "7892910668ea60008f9bc34d290f92e9e88d4ce62068d9602bf3ff7362fc9378",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7362
+}

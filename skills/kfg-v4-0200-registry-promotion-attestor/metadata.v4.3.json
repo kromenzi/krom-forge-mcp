@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0200-registry-promotion-attestor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9e7ccd7cbaf157b0208383cbb179a2ee05b463254b4e21671bb14425bc9104fe",
+  "rawFileHash": "9e7ccd7cbaf157b0208383cbb179a2ee05b463254b4e21671bb14425bc9104fe",
+  "legacyInstructionHash": "bf862bbaffd63c988c3bcedca0683d1e776ae3e7c9d528c1036c36de1158fc14",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7237
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0440-spare-parts-availability",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "171eba9fbbdecb75f5320b04231a8670daabf3e60d1d006d9063752a53c88335",
+  "rawFileHash": "171eba9fbbdecb75f5320b04231a8670daabf3e60d1d006d9063752a53c88335",
+  "legacyInstructionHash": "a88992d0cd7787f4b581f5bf5de69ddebacc69cc911ef23564479212d9d788cc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7331
+}

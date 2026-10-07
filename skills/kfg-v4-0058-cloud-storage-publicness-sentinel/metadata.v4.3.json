@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0058-cloud-storage-publicness-sentinel",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c7f90a3dda47bf8bf5035f33113cda991983bbe2a2ad5d45f45021b9527c6787",
+  "rawFileHash": "c7f90a3dda47bf8bf5035f33113cda991983bbe2a2ad5d45f45021b9527c6787",
+  "legacyInstructionHash": "1c66928596bf03ebf4fb7139d497e74195d61adb078934d77dcc996f98ab5e12",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7368
+}

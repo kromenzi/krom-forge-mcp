@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0134-changeset-release-integrity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9278c50ac5273db490cf22936e480e63f419771d01d5cc26de580fa54b43064f",
+  "rawFileHash": "9278c50ac5273db490cf22936e480e63f419771d01d5cc26de580fa54b43064f",
+  "legacyInstructionHash": "3c4b6db93623e671138c3a711a23282382e76ea1403e5abaf39fb447d78ca049",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7373
+}

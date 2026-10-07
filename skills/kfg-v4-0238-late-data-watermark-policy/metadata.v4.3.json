@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0238-late-data-watermark-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d7d18e913857b6091a18b7a79891ec13a2fb3e5f4fa6fe02d17dd93387812146",
+  "rawFileHash": "d7d18e913857b6091a18b7a79891ec13a2fb3e5f4fa6fe02d17dd93387812146",
+  "legacyInstructionHash": "2b409ca9dcd7f6dc4c0f5247d2f4389780dd5bfa0e526fff66b15f1861ff5a72",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7180
+}

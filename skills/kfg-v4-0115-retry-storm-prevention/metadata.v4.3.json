@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0115-retry-storm-prevention",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a1e4800a0cd1b5f13f17ce9b56ed727e9c50c7bc442034617926e36eaa83e443",
+  "rawFileHash": "a1e4800a0cd1b5f13f17ce9b56ed727e9c50c7bc442034617926e36eaa83e443",
+  "legacyInstructionHash": "11c27e450b8a26985c6fb8715bbc01ab9b9d6e992c2276486fdbd2301c8473a9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7154
+}

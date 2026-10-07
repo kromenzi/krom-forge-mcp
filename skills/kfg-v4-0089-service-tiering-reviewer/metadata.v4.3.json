@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0089-service-tiering-reviewer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "98114138b13e3db0763fd5fe2cb439f295712d6d2e8105b2661efc1566a3f6a7",
+  "rawFileHash": "98114138b13e3db0763fd5fe2cb439f295712d6d2e8105b2661efc1566a3f6a7",
+  "legacyInstructionHash": "090bd502953332f430de3e7533b5566630d634bd49afd79a0e648d8395e02d52",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7314
+}

@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { V75_SKILL_NAMES } from './v75-agent-capability-fabric';
 import { V80_V42_SHADOW_SEEDS } from './v80-v42-shadow-seeds';
+import { V80_V43_HASH_CONTRACT } from './v80-v43-instruction-contract';
 import {
   V80_PROMOTED_V42_SKILL_NAMES,
   V80_PROMOTED_V42_SKILL_COUNT
@@ -180,7 +181,8 @@ export const v80HostBenchmarkReceiptSchema=z.object({
   semanticSimilarity:z.number().min(0).max(1).default(0),
   proceduralSimilarity:z.number().min(0).max(1).default(0),
   specializationDistinct:z.boolean().default(true),
-  hostAttestation:z.string().min(1)
+  hostAttestation:z.string().min(1),
+  instructionHashContract:z.string().default('legacy-unbound')
 });
 
 export const v80VerifyRealBenchmarkReceiptsSchema=z.object({
@@ -242,6 +244,7 @@ export function verifyV42RealBenchmarkReceiptsV80(input:z.input<typeof v80Verify
     if(!receipt.sourceRef.trim()) failures.push('SOURCE_REF_REQUIRED');
     if(!receipt.hostAttestation.trim()) failures.push('HOST_ATTESTATION_REQUIRED');
     if(!receipt.evidenceRefs.length) failures.push('EVIDENCE_REFS_REQUIRED');
+    if(receipt.instructionHashContract!==V80_V43_HASH_CONTRACT) failures.push('LEGACY_HASH_CONTRACT_INVALIDATED');
 
     const missingEvidenceKinds=expected
       ? expected.expectedEvidenceKinds.filter(kind=>!receipt.evidenceKinds.includes(kind))
@@ -269,7 +272,8 @@ export function verifyV42RealBenchmarkReceiptsV80(input:z.input<typeof v80Verify
       semanticSimilarity:receipt.semanticSimilarity,
       proceduralSimilarity:receipt.proceduralSimilarity,
       specializationDistinct:receipt.specializationDistinct,
-      hostAttestation:receipt.hostAttestation
+      hostAttestation:receipt.hostAttestation,
+      instructionHashContract:receipt.instructionHashContract
     });
 
     return {
@@ -462,7 +466,8 @@ export function auditV42RealBenchmarkEvidencePipelineV80(){
     semanticSimilarity:0.55,
     proceduralSimilarity:0.62,
     specializationDistinct:true,
-    hostAttestation:'verified-host-execution'
+    hostAttestation:'verified-host-execution',
+    instructionHashContract:V80_V43_HASH_CONTRACT
   };
 
   const valid=verifyV42RealBenchmarkReceiptsV80({

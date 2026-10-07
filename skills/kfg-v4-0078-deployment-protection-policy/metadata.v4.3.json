@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0078-deployment-protection-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5996f62570a0781a183f66a8c6be013cbea75bc2709afc007f1dd685f9e11c1d",
+  "rawFileHash": "5996f62570a0781a183f66a8c6be013cbea75bc2709afc007f1dd685f9e11c1d",
+  "legacyInstructionHash": "318c05cd1c14a691dc9fd0d0a7897e6d194b36a9334ccdf56b05c9dd7ecce8e0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7316
+}

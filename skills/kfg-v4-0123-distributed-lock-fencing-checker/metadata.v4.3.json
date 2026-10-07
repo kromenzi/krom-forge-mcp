@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0123-distributed-lock-fencing-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1930d7294fb270a819bdbac5fb12aafec10b9666876917d7ae4b9e80c3cae4eb",
+  "rawFileHash": "1930d7294fb270a819bdbac5fb12aafec10b9666876917d7ae4b9e80c3cae4eb",
+  "legacyInstructionHash": "1e0fe69c292223bbec98f089dc0654477b6c9c76bca3e3eb8f470288989aaa3f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7424
+}

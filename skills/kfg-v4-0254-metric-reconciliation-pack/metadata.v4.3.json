@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0254-metric-reconciliation-pack",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6cc906c8f55239f243303ec33260faf327a7bab59aeeb521f5735ffd1572fed9",
+  "rawFileHash": "6cc906c8f55239f243303ec33260faf327a7bab59aeeb521f5735ffd1572fed9",
+  "legacyInstructionHash": "24b852cbe84685993e27d71a28d6207e7fd69ccca57e5dbeac82d6b20920f63e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7326
+}

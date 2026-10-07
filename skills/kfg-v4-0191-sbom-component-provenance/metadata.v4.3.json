@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0191-sbom-component-provenance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d7d5975e72b1e265abc2b67f6b28ec6a6d2aa820c66494b758155b22630ed465",
+  "rawFileHash": "d7d5975e72b1e265abc2b67f6b28ec6a6d2aa820c66494b758155b22630ed465",
+  "legacyInstructionHash": "9c40b8f9c3db89b9757ea84bdba1799f8832c728b65ca2c45141ba3c70e66a24",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7251
+}

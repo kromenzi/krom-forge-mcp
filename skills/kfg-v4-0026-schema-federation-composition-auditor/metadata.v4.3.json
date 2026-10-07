@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0026-schema-federation-composition-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9419670e3aff9abfdb13e6bfb1a742d88a78cef3d520801ea7d7acf79b7643f3",
+  "rawFileHash": "9419670e3aff9abfdb13e6bfb1a742d88a78cef3d520801ea7d7acf79b7643f3",
+  "legacyInstructionHash": "50d423c2732b03ccdd8cb4f47f062dd6400cf74bb1bf8309ecdc53672f2088f3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7537
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0458-site-instruction-change",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1fd7b42f06987400fdcc94e424881456d02fe8634441179902f1ca87747fbbb3",
+  "rawFileHash": "1fd7b42f06987400fdcc94e424881456d02fe8634441179902f1ca87747fbbb3",
+  "legacyInstructionHash": "5fb6f1d94313732cb8205ccea91222229fad40c223323ca0eb16fa5d5d6eba24",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7321
+}

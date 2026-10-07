@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0206-state-lock-contention-analyzer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f7d7fd37a5fadc263feab21b5ba93211c99b80aaf5c26cebb56185bf8b2481ee",
+  "rawFileHash": "f7d7fd37a5fadc263feab21b5ba93211c99b80aaf5c26cebb56185bf8b2481ee",
+  "legacyInstructionHash": "b40695e2581eab5edbe46a5bce1741c207122e36fb168b15784560cbf6c9df27",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7340
+}

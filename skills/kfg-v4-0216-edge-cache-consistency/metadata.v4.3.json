@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0216-edge-cache-consistency",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cab3cd61074a652edc8a6ae4cc7a34c2538aecd2e9c6c6efccca9c8de23d3a83",
+  "rawFileHash": "cab3cd61074a652edc8a6ae4cc7a34c2538aecd2e9c6c6efccca9c8de23d3a83",
+  "legacyInstructionHash": "609cea64662184980276732bc972ad6607b6eab1f332ed4a2770764cd4bfae1c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7265
+}

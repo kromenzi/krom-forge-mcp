@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0174-contributing-factor-classifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3f9b6b7fded7278e66272bff8f40201104e8e64b3933fc9fdbb81138ecc31acf",
+  "rawFileHash": "3f9b6b7fded7278e66272bff8f40201104e8e64b3933fc9fdbb81138ecc31acf",
+  "legacyInstructionHash": "de27f472f489462e93dc4ae201701ff14f54a791f2a5163dfddd72bad2f0c456",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7360
+}

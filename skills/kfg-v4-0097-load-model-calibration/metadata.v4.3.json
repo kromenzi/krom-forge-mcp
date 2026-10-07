@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0097-load-model-calibration",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "098f69be5a7f8b67b13f736345ab152e95ac957c2f73522e7a9897a76b671386",
+  "rawFileHash": "098f69be5a7f8b67b13f736345ab152e95ac957c2f73522e7a9897a76b671386",
+  "legacyInstructionHash": "bfaf824d5c8b67b836a3786527c543285176fb3024f0cd8eafe1efb155b11b22",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7290
+}

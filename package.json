@@ -38,7 +38,9 @@
     "verify:v77": "tsx scripts/verify-v77-native-skill-runtime.ts",
     "verify:v78": "tsx scripts/verify-v78-autonomous-execution-governance.ts",
     "verify:v79": "tsx scripts/verify-v79-capability-governance.ts",
-    "verify:v80": "tsx scripts/verify-v80-adaptive-skill-intelligence.ts"
+    "verify:v80": "tsx scripts/verify-v80-adaptive-skill-intelligence.ts",
+    "generate:v80:v43": "tsx scripts/generate-v80-v43-instruction-pack.ts",
+    "verify:v80:v43": "tsx scripts/verify-v80-v43-instruction-pack.ts"
   },
   "engines": {
     "node": ">=20"

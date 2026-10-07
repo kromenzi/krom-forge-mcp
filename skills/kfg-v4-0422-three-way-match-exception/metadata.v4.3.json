@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0422-three-way-match-exception",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f6b6bb33c5abf0bfc79f3e4ed6ce366754dbffd520f495fb6c8534f757be6993",
+  "rawFileHash": "f6b6bb33c5abf0bfc79f3e4ed6ce366754dbffd520f495fb6c8534f757be6993",
+  "legacyInstructionHash": "aeac88f3ddd07fad1afe54c25ad5ac852fed9911d18045e6a92233f1b6277928",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7191
+}

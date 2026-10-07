@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0049-rls-performance-plan-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ca62ea61521f51407071f17e80f0033a548d0030dcff5bb906923096c3039352",
+  "rawFileHash": "ca62ea61521f51407071f17e80f0033a548d0030dcff5bb906923096c3039352",
+  "legacyInstructionHash": "3dd30cbe5863a8f889f59210810e97e11a85ea67c0c56608c0129d14aa928652",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7322
+}

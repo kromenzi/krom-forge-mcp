@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0299-mcp-session-boundary-audit",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d83c1fd89ccb59536dc30a3b1810a6db581250389ce08952948d1238eda0b815",
+  "rawFileHash": "d83c1fd89ccb59536dc30a3b1810a6db581250389ce08952948d1238eda0b815",
+  "legacyInstructionHash": "a8299045984cf74813ab9d7c4926dae3ed82c43c3d10de346ee437fb8ee16ed0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7420
+}

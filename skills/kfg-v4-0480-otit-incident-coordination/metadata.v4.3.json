@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0480-otit-incident-coordination",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9e76dc16f658bd8558a84bb69e7679af5b5fdaf1c3a6e2e7ad3a082c351467bf",
+  "rawFileHash": "9e76dc16f658bd8558a84bb69e7679af5b5fdaf1c3a6e2e7ad3a082c351467bf",
+  "legacyInstructionHash": "29024df7531da23182374ea386667165579c21447323a7db9f077db37592b6f3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7346
+}

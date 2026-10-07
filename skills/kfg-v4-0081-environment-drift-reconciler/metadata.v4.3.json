@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0081-environment-drift-reconciler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4657b13a85483cf014c71614bcf2afb81183a6ef68e4a318106f3778eb774b96",
+  "rawFileHash": "4657b13a85483cf014c71614bcf2afb81183a6ef68e4a318106f3778eb774b96",
+  "legacyInstructionHash": "7cdc2104c34b5b120ba8c7d5a823b7823acd41696a0a2656ab1933f4643cee67",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7420
+}

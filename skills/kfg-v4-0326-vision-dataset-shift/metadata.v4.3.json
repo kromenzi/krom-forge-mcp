@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0326-vision-dataset-shift",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0ec19e34ad6138ecefa472f1eb01019cb3771d603315329e8a2edefac828ccb2",
+  "rawFileHash": "0ec19e34ad6138ecefa472f1eb01019cb3771d603315329e8a2edefac828ccb2",
+  "legacyInstructionHash": "f80cf48107091d38b8e96be42fba5c3b1b9acf2747295f202eac80c57fb44e46",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7213
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0244-etl-replay-safety",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3e8c726efc060e250ad5e8fc84325deff5636132fad643ec77367d2d0f41fdbb",
+  "rawFileHash": "3e8c726efc060e250ad5e8fc84325deff5636132fad643ec77367d2d0f41fdbb",
+  "legacyInstructionHash": "3df5e9487cc84d3eaa2cb5575b5899cb0b64186640343de9029ea5ff24a56478",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7138
+}

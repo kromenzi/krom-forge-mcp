@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0463-simulation-to-reality-gap",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d3b26dd3858461a2e28a0f9a6846b83425ccbdae290ab0849353484428e17ce7",
+  "rawFileHash": "d3b26dd3858461a2e28a0f9a6846b83425ccbdae290ab0849353484428e17ce7",
+  "legacyInstructionHash": "ce933c67019de7ea07084367b828747abbdc46dd6e69ce31d316463a1b7e1c8a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7338
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0270-llm-cost-attribution",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2a298630b33d95f11ce811bc62b64a5714b4a3aec08342ca423b1d6174b4979a",
+  "rawFileHash": "2a298630b33d95f11ce811bc62b64a5714b4a3aec08342ca423b1d6174b4979a",
+  "legacyInstructionHash": "87be6b8600b12a366bb14bb5e5700c68d0191f67b77d6e5d1535cab41a87f479",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7146
+}

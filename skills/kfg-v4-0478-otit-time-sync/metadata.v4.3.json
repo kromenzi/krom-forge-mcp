@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0478-otit-time-sync",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "db4d6f5e451f97e9ac0bdb801288aa371af62faa93daaee973c29fb55f9021b4",
+  "rawFileHash": "db4d6f5e451f97e9ac0bdb801288aa371af62faa93daaee973c29fb55f9021b4",
+  "legacyInstructionHash": "54bd0f168fe24827e568de197fadda5013a924edc0133e0c639a9c575783e794",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7090
+}

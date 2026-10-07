@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0477-historian-to-cloud-lineage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5e1c6d1cd181cc0738c6db2302c0aaced70cd8db231b86fc30dda6ffa38b90bc",
+  "rawFileHash": "5e1c6d1cd181cc0738c6db2302c0aaced70cd8db231b86fc30dda6ffa38b90bc",
+  "legacyInstructionHash": "3b6a81b5e1168c0c7e3cd37f775d4e5eff87a93034b202a19d08f72d66fde26c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7266
+}

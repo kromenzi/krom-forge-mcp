@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0133-package-graph-cycle-detector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b8a3bf39497bdeb25612fc55431210b0c18433c283a1eb3fc1446f76e2122250",
+  "rawFileHash": "b8a3bf39497bdeb25612fc55431210b0c18433c283a1eb3fc1446f76e2122250",
+  "legacyInstructionHash": "4c4b7038e51774d728fb2844926f39d13f42fe9ed3bb463131b640c8f80bf074",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7356
+}

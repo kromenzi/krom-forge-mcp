@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0016-offline-first-sync-merkle-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "35707b54c1776bd42d9a3707270fa723e1782cb463dd606c9e638ff932c0ad8e",
+  "rawFileHash": "35707b54c1776bd42d9a3707270fa723e1782cb463dd606c9e638ff932c0ad8e",
+  "legacyInstructionHash": "5db6e00614eff5997560e6e1c60fdea5280ff2ec91ac567b2d25e7d3043538b1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7366
+}

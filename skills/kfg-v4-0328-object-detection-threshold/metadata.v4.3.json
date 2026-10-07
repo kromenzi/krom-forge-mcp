@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0328-object-detection-threshold",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7bf4b07b55d65a5ae7d28230c661125efe4d9ccd04bc5189adf38067533ff041",
+  "rawFileHash": "7bf4b07b55d65a5ae7d28230c661125efe4d9ccd04bc5189adf38067533ff041",
+  "legacyInstructionHash": "9bac3be7828caa9cc1aef9d2085c8f6dd1e5e43c16b3836b9d291dd8d222c75f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7321
+}

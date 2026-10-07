@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0068-promotion-evidence-gate",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f12cd23dd2b4647b653844916516843109073be4e67a72b179dd672d4bbcc4bb",
+  "rawFileHash": "f12cd23dd2b4647b653844916516843109073be4e67a72b179dd672d4bbcc4bb",
+  "legacyInstructionHash": "9f6fa7eea42189be096607724abbf920d3df77f078be7a900e6b05ed4ecb4655",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7241
+}

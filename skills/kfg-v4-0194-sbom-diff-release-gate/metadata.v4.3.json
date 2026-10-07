@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0194-sbom-diff-release-gate",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8869dd24c8aec5ce9503547c0d4e09b8b9be1785049448ea6af91a2313b908ca",
+  "rawFileHash": "8869dd24c8aec5ce9503547c0d4e09b8b9be1785049448ea6af91a2313b908ca",
+  "legacyInstructionHash": "59353afde7ba16144f7609465e59e99713441904b01bf4b0a8393000523e435a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7226
+}

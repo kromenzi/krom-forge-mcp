@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0043-policy-combining-algorithm-reviewer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "15dcc6c182ed9c93e7f2be4024981d3be99508becdc978d6c8554eaf1ac3b855",
+  "rawFileHash": "15dcc6c182ed9c93e7f2be4024981d3be99508becdc978d6c8554eaf1ac3b855",
+  "legacyInstructionHash": "b456c05de7bb9b30b00b60c03da545a4211887a7af0df50e4e8410476a4df8e9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7518
+}

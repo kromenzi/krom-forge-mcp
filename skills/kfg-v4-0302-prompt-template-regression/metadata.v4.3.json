@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0302-prompt-template-regression",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2674828b2bd134e5888ce3952cf96d72b84fa6935b9b4ad2a034288bfd77ad1a",
+  "rawFileHash": "2674828b2bd134e5888ce3952cf96d72b84fa6935b9b4ad2a034288bfd77ad1a",
+  "legacyInstructionHash": "f7742aa4bd917eefef940e7ef771c0fad1acf6b38cf991a2743abf1109ad449b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7306
+}

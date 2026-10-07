@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0265-model-card-completeness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9ef104e33662c68db61c894fbf25304bdec3e460eaf8f6b1946aafed8f46f73b",
+  "rawFileHash": "9ef104e33662c68db61c894fbf25304bdec3e460eaf8f6b1946aafed8f46f73b",
+  "legacyInstructionHash": "bb765f9f8a0c7c4d84b0930bbe966e3ff844679f9c6399fe776af3bbbce5968d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7203
+}

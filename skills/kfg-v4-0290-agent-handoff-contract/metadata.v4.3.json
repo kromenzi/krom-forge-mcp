@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0290-agent-handoff-contract",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3fe34a69ee057310cd7602025f0d826597eb82512bea72111ab32d11fdf6e854",
+  "rawFileHash": "3fe34a69ee057310cd7602025f0d826597eb82512bea72111ab32d11fdf6e854",
+  "legacyInstructionHash": "51d11303fb7043dc90f75749c4f2298511c1fff03f1916adfb9da0282eca6030",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7365
+}

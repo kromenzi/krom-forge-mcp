@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0183-revert-safety-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "26525dea1f0d1a1681cc45bc324c5b8f76cb1ec873e081722fedea0cdc65ccb2",
+  "rawFileHash": "26525dea1f0d1a1681cc45bc324c5b8f76cb1ec873e081722fedea0cdc65ccb2",
+  "legacyInstructionHash": "64e8ec42ec80c3e744087d902b5d21fad0c98adc21cb2da4155bf03511fc3af3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7358
+}

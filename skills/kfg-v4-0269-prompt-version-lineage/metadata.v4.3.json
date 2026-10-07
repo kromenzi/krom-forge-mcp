@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0269-prompt-version-lineage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "52cfbf4d37d1c9599f9534f2d6f2e85918ab6e055e10f74122e5839a7507914b",
+  "rawFileHash": "52cfbf4d37d1c9599f9534f2d6f2e85918ab6e055e10f74122e5839a7507914b",
+  "legacyInstructionHash": "8e8da4e63b3e126f6c7560aa6244ad846a69b9a3b78f0367c820afb20c48dd6d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7202
+}

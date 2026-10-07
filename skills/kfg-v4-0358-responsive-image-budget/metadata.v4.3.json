@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0358-responsive-image-budget",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b272f870b46a1075451bf27377f163d58f30aae63d768378f3f6509dc657dbf2",
+  "rawFileHash": "b272f870b46a1075451bf27377f163d58f30aae63d768378f3f6509dc657dbf2",
+  "legacyInstructionHash": "722aeb9aa1bda4d2117e70b1c0305330397f617b64900fd843ff2c55462058a8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7271
+}

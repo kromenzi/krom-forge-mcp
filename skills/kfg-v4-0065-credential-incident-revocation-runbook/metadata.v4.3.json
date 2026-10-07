@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0065-credential-incident-revocation-runbook",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d5fddc7f41a461ef353c63c81c461273a2b003235bac0958da6644feb61526ae",
+  "rawFileHash": "d5fddc7f41a461ef353c63c81c461273a2b003235bac0958da6644feb61526ae",
+  "legacyInstructionHash": "824885585c5ca3ba43d1b46470e9fe128179dd4dc901cb5af95c41c7741dd7b3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7466
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0035-dead-letter-replay-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "219c33749d5c732eda9f9cf09bb7df04f2bdb91d7c04753a8a25d2cf3f107793",
+  "rawFileHash": "219c33749d5c732eda9f9cf09bb7df04f2bdb91d7c04753a8a25d2cf3f107793",
+  "legacyInstructionHash": "0709bf71039b9f96a173825eee18e560057a24ca9786fc16afc5a0612c506db6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7297
+}

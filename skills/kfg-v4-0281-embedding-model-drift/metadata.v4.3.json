@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0281-embedding-model-drift",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "554759eb28cf2a3784a7cc4392071dd27d343d478efe019f88a8d0aba2fd8658",
+  "rawFileHash": "554759eb28cf2a3784a7cc4392071dd27d343d478efe019f88a8d0aba2fd8658",
+  "legacyInstructionHash": "6d7f87a5b9d1b97af1409e4d6a40cfdefba081ba6647cae1ea5c5eec6f05b695",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7277
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0248-duplicate-entity-resolution",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "bcecfd7d2867d965d5199267605dea071217aebd2cc987cc2526a7cbf385b52b",
+  "rawFileHash": "bcecfd7d2867d965d5199267605dea071217aebd2cc987cc2526a7cbf385b52b",
+  "legacyInstructionHash": "2a04259f0998cf090b9b36d35add59fd959e2b53a49d970263284253a29b083e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7332
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0499-recovery-dependency-map",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6da38e233d489d84f42c7ae2b16e5c32c9a8a635036d38844ca54babe1d957e8",
+  "rawFileHash": "6da38e233d489d84f42c7ae2b16e5c32c9a8a635036d38844ca54babe1d957e8",
+  "legacyInstructionHash": "a64e96abd9cd5fee8f37ee6774119b88f3528e5129e55bbef631aa9fe5bbae41",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7344
+}

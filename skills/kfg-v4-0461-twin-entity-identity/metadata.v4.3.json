@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0461-twin-entity-identity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3b613b24fbcca477c386d6fcf7150b143bc806ce915861841d5badf34b07a109",
+  "rawFileHash": "3b613b24fbcca477c386d6fcf7150b143bc806ce915861841d5badf34b07a109",
+  "legacyInstructionHash": "b1544f03b5fc34418ccc8b4d73903381f10648ec1864a28fcf0496d87db5d0cd",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7664
+}

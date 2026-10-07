@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0006-idempotency-key-ledger",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4584200b337baea963eb4ccb1119922a1a40099f05fc8e400c9ea1cfd888afe8",
+  "rawFileHash": "4584200b337baea963eb4ccb1119922a1a40099f05fc8e400c9ea1cfd888afe8",
+  "legacyInstructionHash": "7aa5c690012ea61371c22c2ad8a6e5643af98c48144105c3f21b034754e3a921",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7199
+}

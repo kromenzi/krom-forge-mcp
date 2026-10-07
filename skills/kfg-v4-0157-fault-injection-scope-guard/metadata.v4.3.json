@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0157-fault-injection-scope-guard",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "098ee17a3eea116093b0264d6b4456ed09f6925193a042a8c3c44fe4cf4b6c6d",
+  "rawFileHash": "098ee17a3eea116093b0264d6b4456ed09f6925193a042a8c3c44fe4cf4b6c6d",
+  "legacyInstructionHash": "7eb7f672ec4b357e4eb5c0840a65c0cdb2e0571464515f003a8c7b529311d52e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7228
+}

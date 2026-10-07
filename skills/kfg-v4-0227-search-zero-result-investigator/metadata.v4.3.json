@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0227-search-zero-result-investigator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5433b784fea56a719dc9a7492cb71c95b96ededed77603ae7cdfa089ced5a76a",
+  "rawFileHash": "5433b784fea56a719dc9a7492cb71c95b96ededed77603ae7cdfa089ced5a76a",
+  "legacyInstructionHash": "ee9039a30d15f7a7b420a04d03b1065fcd55c22a799f88670a796dc338f2d662",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7232
+}

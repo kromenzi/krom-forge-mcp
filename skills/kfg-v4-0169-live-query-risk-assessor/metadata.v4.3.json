@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0169-live-query-risk-assessor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2e97e59f5d4aa3506dd87a849630ba11f1d73990646041ba2831b83628baf21a",
+  "rawFileHash": "2e97e59f5d4aa3506dd87a849630ba11f1d73990646041ba2831b83628baf21a",
+  "legacyInstructionHash": "b8e4fb1b7175f0513c47c0f631f1a6c73a2aeac8245c2c5f831a33a67e8b06b6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7262
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0466-device-identity-provisioning",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b97441076ed8af48fd0ba179840b4e2d1a6650401d9e84b148454e6c2ebb3475",
+  "rawFileHash": "b97441076ed8af48fd0ba179840b4e2d1a6650401d9e84b148454e6c2ebb3475",
+  "legacyInstructionHash": "deb531a4b5c2b9c9762d337c38047ce95a603e81d0bf9245f4d8e87118d6e6e1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7315
+}

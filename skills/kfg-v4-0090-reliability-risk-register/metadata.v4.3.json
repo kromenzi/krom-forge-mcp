@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0090-reliability-risk-register",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "66b54457d32e0da7ce8384f63f7c95a2a0d47141c4682196a6b1335c7f443884",
+  "rawFileHash": "66b54457d32e0da7ce8384f63f7c95a2a0d47141c4682196a6b1335c7f443884",
+  "legacyInstructionHash": "d701068bf5582d529dc508f2ca1e7e9ec7da84f45cce3e989b0f2ae83844a210",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7212
+}

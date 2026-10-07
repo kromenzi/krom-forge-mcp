@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0472-plc-change-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a8c4882270b015779b219916d5a330a5798200ac1426e2eace6fd7fbceb4a4a1",
+  "rawFileHash": "a8c4882270b015779b219916d5a330a5798200ac1426e2eace6fd7fbceb4a4a1",
+  "legacyInstructionHash": "8d6ddfa160f0d4baa4608b710d7ad8353749081a2b50880ec5d4b0dc3c62aff3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7212
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0106-queue-visibility-timeout-tuner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8ad240f3881aea5875106e37a40602f6dda49089d41ae984c8c2b0eb74bb5ae2",
+  "rawFileHash": "8ad240f3881aea5875106e37a40602f6dda49089d41ae984c8c2b0eb74bb5ae2",
+  "legacyInstructionHash": "08b77ae283290f5c9ca56bb694587ace550e9e662dcf551a3b56ad81e81baa75",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7261
+}

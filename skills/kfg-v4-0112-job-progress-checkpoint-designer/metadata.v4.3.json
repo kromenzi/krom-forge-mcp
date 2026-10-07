@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0112-job-progress-checkpoint-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "012f5aaf8b969b1e6bbe6bd9417a4ff6c84df2e1bc0b1465007aaa6a4f81aae4",
+  "rawFileHash": "012f5aaf8b969b1e6bbe6bd9417a4ff6c84df2e1bc0b1465007aaa6a4f81aae4",
+  "legacyInstructionHash": "14119b6c3ab5392e9711ada55945dcba32d3af027aa3b678e0ae9155b66192a0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7293
+}

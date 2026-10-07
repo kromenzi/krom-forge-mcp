@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0459-construction-safety-permit",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9987f40bc4548e7090b1c4a3117dfa35efc41549101e52d3f8b944e55ac8aea9",
+  "rawFileHash": "9987f40bc4548e7090b1c4a3117dfa35efc41549101e52d3f8b944e55ac8aea9",
+  "legacyInstructionHash": "255aa050ce3963b86cd93dbe221022ea164becc47e71d67921195e641421b924",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7353
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0462-twin-state-freshness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d50d10034d68c4e45a0bc8bf13363714ddbd203f6b796be081d5002b7fdb435c",
+  "rawFileHash": "d50d10034d68c4e45a0bc8bf13363714ddbd203f6b796be081d5002b7fdb435c",
+  "legacyInstructionHash": "01eafba7153ba099a97409b0adb1bb40b13f29c99acb4fba709bacd9007d9768",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7762
+}

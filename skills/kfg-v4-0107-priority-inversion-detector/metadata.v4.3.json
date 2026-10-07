@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0107-priority-inversion-detector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e6fc6134eac9c09fd9c45031df0d0072055dc1d2ff99e4c4a2d1dba968f09b29",
+  "rawFileHash": "e6fc6134eac9c09fd9c45031df0d0072055dc1d2ff99e4c4a2d1dba968f09b29",
+  "legacyInstructionHash": "8f76bbd0331c2e45fd8ff351c3b64d1af1d8b3725a6d5487cc7d0ce6abdeb871",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7320
+}

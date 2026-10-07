@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0046-rls-policy-shadow-tester",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "009568147ca4b53447a5887e1e551e252486b7b48436f310c7c08d63e9fd5c6d",
+  "rawFileHash": "009568147ca4b53447a5887e1e551e252486b7b48436f310c7c08d63e9fd5c6d",
+  "legacyInstructionHash": "7dc9accf49b6764e2e027c6705bd9b3713bb011b0b884bdee278312f6d0c997d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7079
+}

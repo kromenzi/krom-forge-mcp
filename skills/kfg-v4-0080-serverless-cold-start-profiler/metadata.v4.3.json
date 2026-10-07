@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0080-serverless-cold-start-profiler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "efb73eccc54a8519cb595f236ad35276b992867df60e43abec2a06e5986e81aa",
+  "rawFileHash": "efb73eccc54a8519cb595f236ad35276b992867df60e43abec2a06e5986e81aa",
+  "legacyInstructionHash": "f3229a687d151def3dec53840057a86cacbc6b2d83bc47149f9fa414f9930b19",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7341
+}

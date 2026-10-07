@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0213-serverless-timeout-chain",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "263bff0b82af039e7b312a5c0c324cbc6454589b032876632916c505f3bf08b1",
+  "rawFileHash": "263bff0b82af039e7b312a5c0c324cbc6454589b032876632916c505f3bf08b1",
+  "legacyInstructionHash": "7d0511faa6d23471959f788aefca6ccd43d87294cc21ef971e6875a2d6edc2df",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7318
+}

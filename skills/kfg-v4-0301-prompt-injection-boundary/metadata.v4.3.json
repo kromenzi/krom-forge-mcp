@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0301-prompt-injection-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "bb43cdd7bf5f1da078c9aa24d4e9b44ce56f4837caf8b9f24e300d11f06fbf8f",
+  "rawFileHash": "bb43cdd7bf5f1da078c9aa24d4e9b44ce56f4837caf8b9f24e300d11f06fbf8f",
+  "legacyInstructionHash": "54865b6d03a686da0e7fd8dfbec2aebec2b268c1f49d687bf0ae97bb725e0777",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7439
+}

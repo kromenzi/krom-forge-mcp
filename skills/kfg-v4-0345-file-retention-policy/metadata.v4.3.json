@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0345-file-retention-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ec71b35c11c55a00a5d4db3259d14d34cbd6f58e0a772c420e9053649bbc15b3",
+  "rawFileHash": "ec71b35c11c55a00a5d4db3259d14d34cbd6f58e0a772c420e9053649bbc15b3",
+  "legacyInstructionHash": "14ed763f19ae48d6e6f805f5dc5c051e8c63b37336faee475c2fab9bc8ddd6ab",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7151
+}

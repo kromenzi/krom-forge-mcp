@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0160-chaos-experiment-rollback",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "723f838910a21c42794beed065ad97bd75335fc5ea9986041289ae13cc67e52c",
+  "rawFileHash": "723f838910a21c42794beed065ad97bd75335fc5ea9986041289ae13cc67e52c",
+  "legacyInstructionHash": "b8be01f28ab11f75b87ec6b890641e41e1b7123da0edbdff5dc66001569528ef",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7276
+}

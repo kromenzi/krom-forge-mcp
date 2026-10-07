@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0030-subscription-backpressure-guard",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4477899cc257ba0fa41c707ec70e76fd644b9c8105e2434f54cbe6ab36f8a4c9",
+  "rawFileHash": "4477899cc257ba0fa41c707ec70e76fd644b9c8105e2434f54cbe6ab36f8a4c9",
+  "legacyInstructionHash": "6c51bb17e850c09a5b482a6be32696b2857cf16656e47835a7552d28e7ea4dbc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7350
+}

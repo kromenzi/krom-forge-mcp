@@ -533,7 +533,8 @@ export function auditV42RealBenchmarkCampaignOrchestratorV80(){
     semanticSimilarity:0.55,
     proceduralSimilarity:0.62,
     specializationDistinct:true,
-    hostAttestation:'phase10-audit-host-attestation'
+    hostAttestation:'phase10-audit-host-attestation',
+    instructionHashContract:'krom-instruction-raw-utf8-v1'
   }));
 
   const status=buildV42RealBenchmarkCampaignStatusV80({

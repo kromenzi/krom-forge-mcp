@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0285-embedding-cache-integrity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e6e6f9ef7f6d05ec99845956f60effa7953aa54142c77f754d96cc4ccd515855",
+  "rawFileHash": "e6e6f9ef7f6d05ec99845956f60effa7953aa54142c77f754d96cc4ccd515855",
+  "legacyInstructionHash": "fc55cc0a58cfeddf022e869f5def0569571e6d2178f220ec643c045a2af46fda",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7317
+}

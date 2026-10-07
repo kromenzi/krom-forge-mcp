@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0113-worker-pool-autoscale-calibrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c20fef90d5807a62c0ef05f06ef45613d7c1a5353c867faaae110ece8c383070",
+  "rawFileHash": "c20fef90d5807a62c0ef05f06ef45613d7c1a5353c867faaae110ece8c383070",
+  "legacyInstructionHash": "b96d14b2176e695ffbc9d3765df011b2b512d23de0423f72398630ee95da845b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7252
+}

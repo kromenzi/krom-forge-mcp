@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0020-mobile-crash-symbolication-triager",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "917d2226f5e3e1291d4c1b4f0b2ee5ae4fea9190621a19da7de2ff028bf29613",
+  "rawFileHash": "917d2226f5e3e1291d4c1b4f0b2ee5ae4fea9190621a19da7de2ff028bf29613",
+  "legacyInstructionHash": "2be006929dc07197838973a53fcd8515116b525160ec41846d8547e16dd71d32",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7337
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0179-rollback-readiness-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "bdde373c016eb909927f33217d3b9e8f335b3d4571156125bf93635fc54f3319",
+  "rawFileHash": "bdde373c016eb909927f33217d3b9e8f335b3d4571156125bf93635fc54f3319",
+  "legacyInstructionHash": "6d644da386f93a5d5e4d974bb0d4ef4b3ad4165e30c957dc1953a526ac5e7cec",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7519
+}

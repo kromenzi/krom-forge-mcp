@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0186-dependency-upgrade-impact-map",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "941afb566842af8ba8c62f6cd514084fb12af3e58207bcc943314e60d2bc64dd",
+  "rawFileHash": "941afb566842af8ba8c62f6cd514084fb12af3e58207bcc943314e60d2bc64dd",
+  "legacyInstructionHash": "7cd8b11ba63d51b92e085e187fe497656a1c1356b158a5baa77dbf9d4df129bc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7308
+}

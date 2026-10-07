@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0262-feature-store-freshness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "67cb84b72d645c3055deded76851bb8040061cbc291566522b77b46afeded59a",
+  "rawFileHash": "67cb84b72d645c3055deded76851bb8040061cbc291566522b77b46afeded59a",
+  "legacyInstructionHash": "554113fa02bebee21396ce1cff255d8c97bd9fbdf7443d9e77a7e05f62b94bce",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7207
+}

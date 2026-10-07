@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0369-audio-segment-index",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "78cb5929c460b3df44c74da44395666afba6e3137b84fe945ce98380929e7e82",
+  "rawFileHash": "78cb5929c460b3df44c74da44395666afba6e3137b84fe945ce98380929e7e82",
+  "legacyInstructionHash": "1fc6ec3c0ee5b3f15c31a9378eeeabc1f01d128d67bb42d71e6e937a0578e3b4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7201
+}

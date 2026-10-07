@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0051-threat-model-change-diff",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d3059fa2bc87efb83ecbfd65fedeb3da8483632e9c37570aa152dfa827f1768e",
+  "rawFileHash": "d3059fa2bc87efb83ecbfd65fedeb3da8483632e9c37570aa152dfa827f1768e",
+  "legacyInstructionHash": "58bb160a6dce201d73b7000ee78f6a34284eedaf59f00aba2f355e464ff1415d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7222
+}

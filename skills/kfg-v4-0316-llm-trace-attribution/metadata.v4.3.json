@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0316-llm-trace-attribution",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "aa844aacc4bccf22f2ebbbb1fb8d5cb2abe3a35c338a1dec29c2f87738f30049",
+  "rawFileHash": "aa844aacc4bccf22f2ebbbb1fb8d5cb2abe3a35c338a1dec29c2f87738f30049",
+  "legacyInstructionHash": "9b3f1680798b42a6d212ae14d21c5295e4e1ade041856a7dc466d8fb26df08f0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7277
+}

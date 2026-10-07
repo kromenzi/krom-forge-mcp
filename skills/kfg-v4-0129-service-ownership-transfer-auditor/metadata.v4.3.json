@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0129-service-ownership-transfer-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "678cf4e2b8693bf4ea0128bd7608d650f3c77df0d8108a9bd9fc5c5c448eb671",
+  "rawFileHash": "678cf4e2b8693bf4ea0128bd7608d650f3c77df0d8108a9bd9fc5c5c448eb671",
+  "legacyInstructionHash": "1e1ef43dc7736289839a1aa9ad2f11dd0d18f240cc3d3beb755803ee8a157a1b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7536
+}

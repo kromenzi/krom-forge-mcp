@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0398-capa-effectiveness-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2859587f650459946544c0e3f70da99b3cdb67a115c954e80414024992728c62",
+  "rawFileHash": "2859587f650459946544c0e3f70da99b3cdb67a115c954e80414024992728c62",
+  "legacyInstructionHash": "856c24e1affad71320798bcc565d7975239b5da462434f0ac97ed4c47ab300dc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7388
+}

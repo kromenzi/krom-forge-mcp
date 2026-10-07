@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0431-asset-register-reconciliation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ac52243680913d663a2962f255b7dc990a4b7bf891108ade885af88a4782ac15",
+  "rawFileHash": "ac52243680913d663a2962f255b7dc990a4b7bf891108ade885af88a4782ac15",
+  "legacyInstructionHash": "802b04dc5cd514ae172343af63fc6b9b5584616461f0775519cb9d8f0fa38a97",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7319
+}

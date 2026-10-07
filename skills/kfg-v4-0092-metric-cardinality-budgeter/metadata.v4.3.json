@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0092-metric-cardinality-budgeter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9c8d497f0b34c3353e70e7c3f95c54683e85992b3d5029f061a28db3ce461cb5",
+  "rawFileHash": "9c8d497f0b34c3353e70e7c3f95c54683e85992b3d5029f061a28db3ce461cb5",
+  "legacyInstructionHash": "e09d80f7aa96e2277d97b8e4ba019d3cc31f3fe0a8a382a1024ff79c3caae85f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7342
+}

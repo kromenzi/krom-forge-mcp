@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0256-executive-kpi-lineage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0ba13b487e64df92e2cfe6175cd863e21f58eaf545c7ee386f34ab71e21d8a71",
+  "rawFileHash": "0ba13b487e64df92e2cfe6175cd863e21f58eaf545c7ee386f34ab71e21d8a71",
+  "legacyInstructionHash": "f181a18799edb552d96ce1c6b480cca35a25118455c83de203afbbd163e63e5e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7183
+}

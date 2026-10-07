@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0313-human-escalation-threshold",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ea389a3b02f5cdd89a83fa91146adf12b21fa22b59a12bee33aac99a432f7dea",
+  "rawFileHash": "ea389a3b02f5cdd89a83fa91146adf12b21fa22b59a12bee33aac99a432f7dea",
+  "legacyInstructionHash": "6410df30f45a3790a5b76d387e243308153d05c06ef8e182ee0cdc265ec728ac",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7282
+}

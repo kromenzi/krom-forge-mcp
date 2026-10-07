@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0357-image-transform-quality",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b8b8e2df278d5f656dd398a24614282b4286c5ef2b6af22195238949f8fbd523",
+  "rawFileHash": "b8b8e2df278d5f656dd398a24614282b4286c5ef2b6af22195238949f8fbd523",
+  "legacyInstructionHash": "1a4544b851ea6bd9780514ce4e602c744f81b60a7be7c9b482406328faa183d8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7242
+}

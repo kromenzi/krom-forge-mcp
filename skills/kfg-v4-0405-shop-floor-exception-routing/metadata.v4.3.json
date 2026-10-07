@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0405-shop-floor-exception-routing",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ffed6ee1539a89bcecc6feba6ab25cfbe8069d6d27178608700bd773e58ac5f4",
+  "rawFileHash": "ffed6ee1539a89bcecc6feba6ab25cfbe8069d6d27178608700bd773e58ac5f4",
+  "legacyInstructionHash": "4dbeb1798ef06db2ebee4fad378b1110adcd7053fc8b9834b6a7e298a830edce",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7347
+}

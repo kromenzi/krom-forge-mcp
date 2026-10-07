@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0468-firmware-rollout-safety",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c0dd550eef6825f40f845403dd3f86121c9de130082e3889ca65c67846691e2a",
+  "rawFileHash": "c0dd550eef6825f40f845403dd3f86121c9de130082e3889ca65c67846691e2a",
+  "legacyInstructionHash": "6e6cfce0813e00eb8c049c60441926f79c643b42baf2240f5055fd55e4eb677e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7275
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0404-process-parameter-control",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1f11bc0badb6a3c3ad163a60f0eebaef5fd80ceea518161a6433b242bba3c44e",
+  "rawFileHash": "1f11bc0badb6a3c3ad163a60f0eebaef5fd80ceea518161a6433b242bba3c44e",
+  "legacyInstructionHash": "5ceb7a47ada252becd040e591346eb3cd6a04507f69f0b5c79ad9b9d00d6732b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7335
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0289-agent-memory-provenance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "868bc0d83a3e29ae5a47a74398c84d85c4092f0ae0f75faf2cfedaf939ed1cb5",
+  "rawFileHash": "868bc0d83a3e29ae5a47a74398c84d85c4092f0ae0f75faf2cfedaf939ed1cb5",
+  "legacyInstructionHash": "be13d9450250cfffad646d0201a614e0051dbe38a90b7a5b83d18555658b329c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7272
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0168-log-correlation-investigator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6c5ea27fc3835b223cd96518e84aeb4badc578ae070d1762f32da6d5b6f1a089",
+  "rawFileHash": "6c5ea27fc3835b223cd96518e84aeb4badc578ae070d1762f32da6d5b6f1a089",
+  "legacyInstructionHash": "e43d3b6d5799735571b26a20df678b2fa3e18ff1bddcde4bf06d1c2b08d46609",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7335
+}

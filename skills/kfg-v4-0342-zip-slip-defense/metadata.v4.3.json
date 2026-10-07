@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0342-zip-slip-defense",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "aad05afd05de99d84f492176f8085b017876c99f258f6c124047e051bfce0e75",
+  "rawFileHash": "aad05afd05de99d84f492176f8085b017876c99f258f6c124047e051bfce0e75",
+  "legacyInstructionHash": "679e6efcda50d7971c2c3828113adb554fa02041cda11579f5813e9bc0d4558f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7143
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0064-kms-key-usage-reconciler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6429002e2816f97a2eeacdd0aede5aab0e8ddff01c37c169b2f6e415d9905323",
+  "rawFileHash": "6429002e2816f97a2eeacdd0aede5aab0e8ddff01c37c169b2f6e415d9905323",
+  "legacyInstructionHash": "42e335005704d5336d398e8d6790da20b105d41b5c6b9e02200833e1d58b7cd9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7227
+}

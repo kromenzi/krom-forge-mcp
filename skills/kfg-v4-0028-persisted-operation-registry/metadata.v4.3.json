@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0028-persisted-operation-registry",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6d5b52986329ec554c260b686e8921e746ccd4e59ea51031e61af6ebe5b195a6",
+  "rawFileHash": "6d5b52986329ec554c260b686e8921e746ccd4e59ea51031e61af6ebe5b195a6",
+  "legacyInstructionHash": "60ea55ac932577ad25288ad75016e4a1f8d245279f0186d8a20cea8da1abe9ae",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7299
+}

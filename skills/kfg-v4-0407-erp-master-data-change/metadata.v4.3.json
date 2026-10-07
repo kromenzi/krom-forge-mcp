@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0407-erp-master-data-change",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "978772ec6047a8134804ced37add73a902696413fd2d09b07373eb2f3cef3d11",
+  "rawFileHash": "978772ec6047a8134804ced37add73a902696413fd2d09b07373eb2f3cef3d11",
+  "legacyInstructionHash": "51f3ca65fd00463e00eb31b1187f969a56ee1522d25b7f66e3c91f280cbea2bc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7117
+}

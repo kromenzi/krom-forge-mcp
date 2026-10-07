@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0393-saudi-data-residency-map",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2a9be29207e23156a2cbef92ed3bbc6551a88f69bc81aecf825ef252d034643f",
+  "rawFileHash": "2a9be29207e23156a2cbef92ed3bbc6551a88f69bc81aecf825ef252d034643f",
+  "legacyInstructionHash": "4ebd061691b3cf33726c80f058ab7fd8e73196405510e06f0bb0ec617946ab9a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7228
+}

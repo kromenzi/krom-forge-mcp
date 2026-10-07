@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0364-video-retention-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "25991b605a15c8862bbd1c5d402e0d7aeaa2439b8f1a4a3dd18aebfa9d24b7cf",
+  "rawFileHash": "25991b605a15c8862bbd1c5d402e0d7aeaa2439b8f1a4a3dd18aebfa9d24b7cf",
+  "legacyInstructionHash": "3e0b049a058fb87e17b2f4b70be10c735528bdbb78d899d357b4189db2e867c3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7211
+}

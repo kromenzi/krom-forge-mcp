@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0052-sast-triage-prioritizer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "98964bdb04aa163346e042f19a467eff6c8f632760fd379519df16afa4a8dc8d",
+  "rawFileHash": "98964bdb04aa163346e042f19a467eff6c8f632760fd379519df16afa4a8dc8d",
+  "legacyInstructionHash": "576bfe6480bb30d0c77296df6235381a93a9570e45b33c0654f1ef41aedbff75",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7255
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0417-revenue-recognition-traceability",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d86c7345e9314506e33fe9d06ea8dfee35557376c31ba7245bf53242d702e915",
+  "rawFileHash": "d86c7345e9314506e33fe9d06ea8dfee35557376c31ba7245bf53242d702e915",
+  "legacyInstructionHash": "f46f6d60986c87f293e448ecee2b8b5ad0ac6129a5464255771c1a1af9c3d271",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7352
+}

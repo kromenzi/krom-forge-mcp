@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0378-rtl-table-column-order",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2067da095b723528f31597b037a2f4f5fda56f58e7e84639d294b95be686cfc5",
+  "rawFileHash": "2067da095b723528f31597b037a2f4f5fda56f58e7e84639d294b95be686cfc5",
+  "legacyInstructionHash": "0d05f0d5824812379a59bf954b25b2ca0344392837e4a1dad86784e150dfd7b9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7160
+}

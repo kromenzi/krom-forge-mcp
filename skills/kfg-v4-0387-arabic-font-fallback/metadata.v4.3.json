@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0387-arabic-font-fallback",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8cbce7cad264d2d1a818eb9fc0e3de7917f3d266b4b8ce1e753e379058d2a3b3",
+  "rawFileHash": "8cbce7cad264d2d1a818eb9fc0e3de7917f3d266b4b8ce1e753e379058d2a3b3",
+  "legacyInstructionHash": "adcc315e1f857deeb5e1a55ce5b422507901cb2dd46349e9f41a3b216478c8a1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7194
+}

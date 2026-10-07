@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0044-attribute-freshness-enforcer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "55fe103c812f679cbbc4f66fcfaf84a0e9fb8d4c26be209518ccf3e849117b98",
+  "rawFileHash": "55fe103c812f679cbbc4f66fcfaf84a0e9fb8d4c26be209518ccf3e849117b98",
+  "legacyInstructionHash": "9d2db05b4090ca79e0bfd331309b6312402bd67bfae8b16571f573c71639b3ba",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7346
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0117-consumer-replay-safety-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8a891b145964791210abca24b5d1d851e1c491889f408605f5b71e0cb5c02e8d",
+  "rawFileHash": "8a891b145964791210abca24b5d1d851e1c491889f408605f5b71e0cb5c02e8d",
+  "legacyInstructionHash": "7f79203eb32c235dd852d457963cb411d44b51594710038b9017d9af18ab9243",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7448
+}

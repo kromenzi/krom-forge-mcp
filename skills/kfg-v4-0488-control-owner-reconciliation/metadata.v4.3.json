@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0488-control-owner-reconciliation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f37ebfae99f86db248b2da90b37df9985a6e7fd90f3b196e276c943a21f5e19b",
+  "rawFileHash": "f37ebfae99f86db248b2da90b37df9985a6e7fd90f3b196e276c943a21f5e19b",
+  "legacyInstructionHash": "3ae192667df8c361a7232cc8d67081562f8141493a672b0db5fd6ae158a8a6ea",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7400
+}

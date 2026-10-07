@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0406-erp-posting-period-control",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3edb14eb6c6ae4e12e0cf5b3bb1c0b5e8d6fe9995812158eb83cffec658f82c1",
+  "rawFileHash": "3edb14eb6c6ae4e12e0cf5b3bb1c0b5e8d6fe9995812158eb83cffec658f82c1",
+  "legacyInstructionHash": "b350462143fa93d5514c9ca17b799f4ac636a9e37709dd58b00937efec03423a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7204
+}

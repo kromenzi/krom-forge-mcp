@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0412-workforce-authorization-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "07848b3f6da8a3d621e6ee09f0a02b0fbee43879255db287c638e309bca3544f",
+  "rawFileHash": "07848b3f6da8a3d621e6ee09f0a02b0fbee43879255db287c638e309bca3544f",
+  "legacyInstructionHash": "283315b80202b139f1e4da36b784d1094657fa5831226e2a42ac8098b3ccae2f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7498
+}

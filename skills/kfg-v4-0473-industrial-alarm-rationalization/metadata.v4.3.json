@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0473-industrial-alarm-rationalization",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "bfefd6176ce1832ee5317a95405062c7751a4ea15128c35ef3339ecf6edf4b60",
+  "rawFileHash": "bfefd6176ce1832ee5317a95405062c7751a4ea15128c35ef3339ecf6edf4b60",
+  "legacyInstructionHash": "416727ecbb7e8cf47bd79ab6260ec9331fc0a60c634ec9df72ee801a4e9b49ac",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7413
+}

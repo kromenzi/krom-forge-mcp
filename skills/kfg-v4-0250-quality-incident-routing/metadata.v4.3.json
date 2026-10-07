@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0250-quality-incident-routing",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9462b3e0638cfd8477d1291fec9fe1563d0056f8725bfe17233d298ad8753492",
+  "rawFileHash": "9462b3e0638cfd8477d1291fec9fe1563d0056f8725bfe17233d298ad8753492",
+  "legacyInstructionHash": "50d6fb7d635c405e83df0bd21a0ed17b93c07eddabbd93a30a0954b3a65264c4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7317
+}

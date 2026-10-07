@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0465-twin-access-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fb8bfacd4e303149005d5d96779341a9cb81734815982d8cbb2c828116ffe49a",
+  "rawFileHash": "fb8bfacd4e303149005d5d96779341a9cb81734815982d8cbb2c828116ffe49a",
+  "legacyInstructionHash": "e622cdad0646f7c1bb4d601c1f5a966b46228c3351d55a125c0675e192b66b82",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7410
+}

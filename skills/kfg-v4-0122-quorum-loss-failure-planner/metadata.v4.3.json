@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0122-quorum-loss-failure-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ddeaeb6f6fcc5425ef9daca83a7ec8cd8d2753604ee9c83755fdda6309472fa6",
+  "rawFileHash": "ddeaeb6f6fcc5425ef9daca83a7ec8cd8d2753604ee9c83755fdda6309472fa6",
+  "legacyInstructionHash": "f5b3ed68c714db831ba620b3834dcf47f97702f78320c3793b7b237022ad0c8b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7346
+}

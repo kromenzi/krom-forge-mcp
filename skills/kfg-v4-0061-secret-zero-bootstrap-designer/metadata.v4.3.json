@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0061-secret-zero-bootstrap-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8a86b9de0b4125690a34d91126291d994b5f98fd4b8cdc304664888e14a2fc4d",
+  "rawFileHash": "8a86b9de0b4125690a34d91126291d994b5f98fd4b8cdc304664888e14a2fc4d",
+  "legacyInstructionHash": "803347a6fda577c346397d269c62a3b235ca4e4724dc2eaa22fd1f0aec523037",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7383
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0317-token-usage-anomaly",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ac8083b47584330a28591d461a40321d9a0b8e111299fd1b8cb28ae688eed107",
+  "rawFileHash": "ac8083b47584330a28591d461a40321d9a0b8e111299fd1b8cb28ae688eed107",
+  "legacyInstructionHash": "f2d919a517c170afe7f8d5569d6abc7d2dfa3311396d0bab8bcf339e7833d159",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7288
+}

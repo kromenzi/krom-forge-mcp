@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0322-latency-cost-frontier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e11b085b8c365959d2bfab10acef9fbb2b55859fb08069b3564559a3b8393846",
+  "rawFileHash": "e11b085b8c365959d2bfab10acef9fbb2b55859fb08069b3564559a3b8393846",
+  "legacyInstructionHash": "f9b9bc0e9005d6e1a6be8ba5e6fe957dbb51e672f855c42c8577bd8b52b4d30c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7290
+}

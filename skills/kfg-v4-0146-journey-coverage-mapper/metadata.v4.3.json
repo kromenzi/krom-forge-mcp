@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0146-journey-coverage-mapper",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "732e1744e79838dc2d947512b68bd7c731e559558f0c99b05066cf1b976309c1",
+  "rawFileHash": "732e1744e79838dc2d947512b68bd7c731e559558f0c99b05066cf1b976309c1",
+  "legacyInstructionHash": "6f3a225cb53e2324819964b37e4f08d52fa38ea1076d41ab634f32fcdaa3cdac",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7205
+}

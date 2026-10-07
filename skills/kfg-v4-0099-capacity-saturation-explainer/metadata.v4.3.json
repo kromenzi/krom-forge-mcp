@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0099-capacity-saturation-explainer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "15be07323e9f0a6381ed86d52a7079fb3efc7f9da416d6183a9dd8f54b517717",
+  "rawFileHash": "15be07323e9f0a6381ed86d52a7079fb3efc7f9da416d6183a9dd8f54b517717",
+  "legacyInstructionHash": "a357219349eb7cea8a3d35214141822ec50c430cb25c0c78b1ca5abea4defddb",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7359
+}

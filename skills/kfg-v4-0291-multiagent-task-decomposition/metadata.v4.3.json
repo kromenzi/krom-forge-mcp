@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0291-multiagent-task-decomposition",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a64b51dde43bfe22d6c8936beca5909cf2df850f47c12759e5bb6852fd0941c1",
+  "rawFileHash": "a64b51dde43bfe22d6c8936beca5909cf2df850f47c12759e5bb6852fd0941c1",
+  "legacyInstructionHash": "63138219c76b07dbeb51811ebda186599644eb1525c5aa624e3999930c2a0716",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7347
+}

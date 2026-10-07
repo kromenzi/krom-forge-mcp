@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0053-dast-authenticated-surface-mapper",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3fa5a99e6b7fe9adaf34eebd250a8fb9501e67fc2eea0cddae69fb57330e2629",
+  "rawFileHash": "3fa5a99e6b7fe9adaf34eebd250a8fb9501e67fc2eea0cddae69fb57330e2629",
+  "legacyInstructionHash": "a59549646adfb42b48d35105fd4cff230397025df691782462c5d24869a5205b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7291
+}

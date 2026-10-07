@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0072-oidc-trust-policy-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a49cdc50f6b00f7001199ff2141f86db9b4e1390e9d61fa87d458b6a471eebc6",
+  "rawFileHash": "a49cdc50f6b00f7001199ff2141f86db9b4e1390e9d61fa87d458b6a471eebc6",
+  "legacyInstructionHash": "f0bec8d595be1ab01b0864908bbb6aa5c33870b8dc11f98f2047b5c1ca79db89",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7432
+}

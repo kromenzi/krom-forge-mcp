@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0338-document-duplicate-detection",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6d49d392ad0773cd79d3fa7fee95842319d879c3348d95b0f756672bc32a7057",
+  "rawFileHash": "6d49d392ad0773cd79d3fa7fee95842319d879c3348d95b0f756672bc32a7057",
+  "legacyInstructionHash": "23b32cca0b78c6b5ba1204a140a5110a17f94aca486ec401e12d2e4edcc38fe1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7379
+}

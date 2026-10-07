@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0437-maintenance-backlog-risk",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "504e0253624aa9877e45334de9fa15bbfc16bea5a63ebdbae32fc5705ffbd220",
+  "rawFileHash": "504e0253624aa9877e45334de9fa15bbfc16bea5a63ebdbae32fc5705ffbd220",
+  "legacyInstructionHash": "ae2d657803fb81c3618287b9bcb50b6a1a443369912e5929cf8c58d6ecfcaa36",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7346
+}

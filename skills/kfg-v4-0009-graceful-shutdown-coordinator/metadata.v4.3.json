@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0009-graceful-shutdown-coordinator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5e9a393f56868049b12fbcf0a4c34b01e399d225ffd08e703d7200785e878cbf",
+  "rawFileHash": "5e9a393f56868049b12fbcf0a4c34b01e399d225ffd08e703d7200785e878cbf",
+  "legacyInstructionHash": "91504a86ad8a8f7f29c32a5f589f3ae8ff6b18df53aa9ad6f1d9a9b2d5569ef1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7288
+}

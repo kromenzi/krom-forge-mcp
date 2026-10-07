@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0159-blast-radius-budgeter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "343f845ee8312b94b0746159a8c105cc6fac5cce9e3b7e282a5633d65c1a7703",
+  "rawFileHash": "343f845ee8312b94b0746159a8c105cc6fac5cce9e3b7e282a5633d65c1a7703",
+  "legacyInstructionHash": "cbed8c4e4b06dc67be5ae0731590b90b82b01c23c9cd09cd3ce826a6cac4ba95",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7216
+}

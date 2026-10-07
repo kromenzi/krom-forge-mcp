@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0453-project-baseline-change",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "40cee70245dd4d8554dd43ac78768d97190dbb7e7b6a240c122c0fa3906f34b3",
+  "rawFileHash": "40cee70245dd4d8554dd43ac78768d97190dbb7e7b6a240c122c0fa3906f34b3",
+  "legacyInstructionHash": "6705091ce74ecd042b679ff927e48fe5a40155b937980ef256bad731b56ce912",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7333
+}

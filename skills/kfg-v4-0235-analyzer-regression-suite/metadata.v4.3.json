@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0235-analyzer-regression-suite",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0d1fc70a7eb435e7c36c3f5ef4531b54f9d47a0450efafa1004e5cbccf8ed140",
+  "rawFileHash": "0d1fc70a7eb435e7c36c3f5ef4531b54f9d47a0450efafa1004e5cbccf8ed140",
+  "legacyInstructionHash": "bdd33d7b00567b82a8adc107d648a80e1e47e90a2a203552c09534a966776757",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7441
+}

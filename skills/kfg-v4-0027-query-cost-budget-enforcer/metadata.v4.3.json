@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0027-query-cost-budget-enforcer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "853c982da13df0ccc3564ec30bee63d57a6f164dd6f9b00ba52ebac3c1be87ae",
+  "rawFileHash": "853c982da13df0ccc3564ec30bee63d57a6f164dd6f9b00ba52ebac3c1be87ae",
+  "legacyInstructionHash": "c30ceb6c8416a1fb2dd81e5dc21960b09aa98197708ccd70176015e1b03130a4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7243
+}

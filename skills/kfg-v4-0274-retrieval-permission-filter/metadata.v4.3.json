@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0274-retrieval-permission-filter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "46d63b442f284d6c7f981041d9d124074993870f5bb34fcf24e4ca24e8d2d7b7",
+  "rawFileHash": "46d63b442f284d6c7f981041d9d124074993870f5bb34fcf24e4ca24e8d2d7b7",
+  "legacyInstructionHash": "d668fbec3399ce2739619fa61f26a0afc596676f39beb4ed314a7b5d1228ff3f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7284
+}

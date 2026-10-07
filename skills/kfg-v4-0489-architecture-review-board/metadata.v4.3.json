@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0489-architecture-review-board",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "da20614fbf93c5c2298adba504a1b69a2dbdd504ae4ee321548730b954b0077f",
+  "rawFileHash": "da20614fbf93c5c2298adba504a1b69a2dbdd504ae4ee321548730b954b0077f",
+  "legacyInstructionHash": "85619b01114c8b82879c95b93edfc6e8e5974429ad2a447bfd7ad812f1198f05",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7345
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0272-citation-grounding-evaluator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2dd1324f8884d0fc8db85e591a677c63a8fc8d29beab1d1bc3048ff1b1937842",
+  "rawFileHash": "2dd1324f8884d0fc8db85e591a677c63a8fc8d29beab1d1bc3048ff1b1937842",
+  "legacyInstructionHash": "11faaa887e1ce9656a956030b0128b888e721505e4d6c07f51488685664d1b72",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7284
+}

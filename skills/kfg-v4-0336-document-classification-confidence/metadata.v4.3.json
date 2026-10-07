@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0336-document-classification-confidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b075174f18ffeaa9201df1c4d7396e1b5d278cc9f5096e7aedf8cbff3e077f82",
+  "rawFileHash": "b075174f18ffeaa9201df1c4d7396e1b5d278cc9f5096e7aedf8cbff3e077f82",
+  "legacyInstructionHash": "0770c614a0ba169b5de603d294f5a13eddd8b9efd52e1f8bba24159b9bc34326",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7479
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0325-routing-policy-experiment",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "dd5cce658b1b7b481ccaf9529db367a17fa77d851958b1431e9ebcbcc41c1b41",
+  "rawFileHash": "dd5cce658b1b7b481ccaf9529db367a17fa77d851958b1431e9ebcbcc41c1b41",
+  "legacyInstructionHash": "667d3b7cf44c130f8d6d45efd7ada157dac2a974d9993fb004daa641c8fb8e1e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7315
+}

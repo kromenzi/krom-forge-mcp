@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0352-workbook-external-link-audit",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "12855a12fe6d5fa4f921b5a0fcfdb333f35d282d638403a336d04108902c1c3a",
+  "rawFileHash": "12855a12fe6d5fa4f921b5a0fcfdb333f35d282d638403a336d04108902c1c3a",
+  "legacyInstructionHash": "5a92c25ce8e905f44bc7183854b521539a87217386d47662eb4c3111840b45a5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7258
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0486-decision-rights-matrix",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a473184f17148e5b0adfe345a5188eb539a776097c75f5faeb3fdd6c0ed099e6",
+  "rawFileHash": "a473184f17148e5b0adfe345a5188eb539a776097c75f5faeb3fdd6c0ed099e6",
+  "legacyInstructionHash": "55948e0d552e4b852aac151ced54a39658eb57554e71033f8ad4175f8e5ca1ad",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7343
+}

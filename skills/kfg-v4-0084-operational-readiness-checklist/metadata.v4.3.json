@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0084-operational-readiness-checklist",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1c7ee76e195a9e995cdc6e2ff80ddd8a3f4974fe78338c330af3a5092f013810",
+  "rawFileHash": "1c7ee76e195a9e995cdc6e2ff80ddd8a3f4974fe78338c330af3a5092f013810",
+  "legacyInstructionHash": "b9015e652e9b5c1491a25e179cf01e1a34b7c7b188f7717c077094e8dfe81a8e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7439
+}

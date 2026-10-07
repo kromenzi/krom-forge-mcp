@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0293-agent-role-conflict-resolver",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "55bf6f2ee35ceef45e240227e9124f914a3edf093c879dbf93225cdf388ab886",
+  "rawFileHash": "55bf6f2ee35ceef45e240227e9124f914a3edf093c879dbf93225cdf388ab886",
+  "legacyInstructionHash": "8faac140b3904d7c23f290eff75d6c9d7a6ec92a99d7f0531d6b743b9a63c66c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7274
+}

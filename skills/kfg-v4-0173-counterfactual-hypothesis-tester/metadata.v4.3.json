@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0173-counterfactual-hypothesis-tester",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fa3dcc34f78c7f374d789a5abf4434fc2af6bee1ac709f385a151697f2367e84",
+  "rawFileHash": "fa3dcc34f78c7f374d789a5abf4434fc2af6bee1ac709f385a151697f2367e84",
+  "legacyInstructionHash": "64e081277392d04e2e097b64ce2366df6e55454fd9718daa8367cc702b371b26",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7410
+}

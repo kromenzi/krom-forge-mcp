@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0485-cyber-risk-quantification",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "beae59fecf2549e2cc8003c0e032419a5fa4960eb88d8c410ce749928300be01",
+  "rawFileHash": "beae59fecf2549e2cc8003c0e032419a5fa4960eb88d8c410ce749928300be01",
+  "legacyInstructionHash": "232ec3e2824408f15b4f88739d9530f7a8b9c41e4e73cc9818fd5f9a5e8322db",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7366
+}

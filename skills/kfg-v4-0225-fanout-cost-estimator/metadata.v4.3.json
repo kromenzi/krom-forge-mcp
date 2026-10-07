@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0225-fanout-cost-estimator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "846580b6c9ae8f2acd4f7d14ba4d9763d06239336fdf4deff2b23c495b1b59f5",
+  "rawFileHash": "846580b6c9ae8f2acd4f7d14ba4d9763d06239336fdf4deff2b23c495b1b59f5",
+  "legacyInstructionHash": "36275d5be3ec52a504dbdcd8c0823dc6400513ed70778882b91097ec4367ceb1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7274
+}

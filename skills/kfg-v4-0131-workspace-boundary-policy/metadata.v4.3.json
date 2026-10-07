@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0131-workspace-boundary-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e638f4fdb5d74d2ba8b8f8759b15684eda0c04738a601e31c85050ddc1e51bcf",
+  "rawFileHash": "e638f4fdb5d74d2ba8b8f8759b15684eda0c04738a601e31c85050ddc1e51bcf",
+  "legacyInstructionHash": "d9c2ea00e292950f24b2c9b04c34c780f945c6c1094757c270844584cf04c7ba",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7276
+}

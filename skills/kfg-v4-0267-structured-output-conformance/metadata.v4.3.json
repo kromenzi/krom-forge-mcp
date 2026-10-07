@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0267-structured-output-conformance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "20f7460c759e96f69f77da3825bb3219ef5156819281a6e22928a2b4ee64fefd",
+  "rawFileHash": "20f7460c759e96f69f77da3825bb3219ef5156819281a6e22928a2b4ee64fefd",
+  "legacyInstructionHash": "29a3eb50ba3952823e53b3c8414524eafe80585bdf90daf3abf5ec79064a912e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7286
+}

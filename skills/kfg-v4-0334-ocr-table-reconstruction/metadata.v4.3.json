@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0334-ocr-table-reconstruction",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d644bbfc5ee66cd0aa0839a04a4235383aaa2d035f3450cbdf6f77c6790bc5f5",
+  "rawFileHash": "d644bbfc5ee66cd0aa0839a04a4235383aaa2d035f3450cbdf6f77c6790bc5f5",
+  "legacyInstructionHash": "d028995b9c2eecb44fd71430970949a7f31bccda076c87c69e5e133401732302",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7226
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0237-pipeline-lineage-reconstruction",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "db80c77278f1fe325fbaa7b1c697209e147727a7c6160b784bae836dc1536a7c",
+  "rawFileHash": "db80c77278f1fe325fbaa7b1c697209e147727a7c6160b784bae836dc1536a7c",
+  "legacyInstructionHash": "64146da6ef01d2ead9828b57cfeb0c078dc0dd92cbc6f6b196ef4fb41ea9c046",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7335
+}

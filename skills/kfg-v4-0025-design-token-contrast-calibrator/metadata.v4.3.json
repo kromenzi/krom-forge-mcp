@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0025-design-token-contrast-calibrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1e54be25045379e65f6f01190cbbbd6c66e5ed80cf3397a7e5732437a645ec04",
+  "rawFileHash": "1e54be25045379e65f6f01190cbbbd6c66e5ed80cf3397a7e5732437a645ec04",
+  "legacyInstructionHash": "2a2f76ef87178a77b5e3168ca17a474a276762bff3273837ea9e50c6ca10a8c4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7351
+}

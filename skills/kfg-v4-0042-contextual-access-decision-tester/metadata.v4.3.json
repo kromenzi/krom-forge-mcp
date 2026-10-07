@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0042-contextual-access-decision-tester",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c726ae1aeeef4e73bd8786268802b63d0ebef15a9f21f0e9cbb954952f11c773",
+  "rawFileHash": "c726ae1aeeef4e73bd8786268802b63d0ebef15a9f21f0e9cbb954952f11c773",
+  "legacyInstructionHash": "cd9afc77bad2dffa0660497d30ea683450b42accee24e09c58fb49cba940553e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7325
+}

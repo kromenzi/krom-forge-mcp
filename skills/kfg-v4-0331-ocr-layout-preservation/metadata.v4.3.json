@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0331-ocr-layout-preservation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8b3eed4f04634f60eefb8565c2801ccdbe298a29a146abce8a6fb2ba645a4dd0",
+  "rawFileHash": "8b3eed4f04634f60eefb8565c2801ccdbe298a29a146abce8a6fb2ba645a4dd0",
+  "legacyInstructionHash": "7413a0d630b94a36c64ccc07b41176f2b7c8cc626240721fc60084d7a04abfc1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7204
+}

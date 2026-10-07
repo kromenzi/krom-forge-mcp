@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0070-rollback-artifact-attestor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "16d020bc86f8dbad03a6d9fad89e7aecb9ed17f7871f1f07de8f3db69e22991f",
+  "rawFileHash": "16d020bc86f8dbad03a6d9fad89e7aecb9ed17f7871f1f07de8f3db69e22991f",
+  "legacyInstructionHash": "ecf853cfb73c6cb75848f31df2c90d750083133e7931233269d12abc9d63500c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7267
+}

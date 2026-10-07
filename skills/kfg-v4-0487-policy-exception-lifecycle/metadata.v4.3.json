@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0487-policy-exception-lifecycle",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "795069aa39f5a4ef3142201d3e271a0087cac1355fb269c61cbe29acd434febb",
+  "rawFileHash": "795069aa39f5a4ef3142201d3e271a0087cac1355fb269c61cbe29acd434febb",
+  "legacyInstructionHash": "2d815f4416ed7cc4ebb9f89e6233b0fdb64c5b4f803c1f7779d1e914c1c000c8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7290
+}

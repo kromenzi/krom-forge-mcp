@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0394-arabic-regulatory-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1a70402e36fe4fcd7645689dd2094d013f2b8f75cf32bde7beb21c4bd22400c3",
+  "rawFileHash": "1a70402e36fe4fcd7645689dd2094d013f2b8f75cf32bde7beb21c4bd22400c3",
+  "legacyInstructionHash": "7663daa23d71cb13f6935bbfb16f41d23acd1a99889c7b33244a33f914aa408b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7255
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0298-mcp-output-sanitization",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b14b67936f278a2a50d7a3abb960746ed63f16c8334dfde9f1cef58c948ec0e0",
+  "rawFileHash": "b14b67936f278a2a50d7a3abb960746ed63f16c8334dfde9f1cef58c948ec0e0",
+  "legacyInstructionHash": "1a3966995219240c00e8c9d2cce12572d103f255bec970bc15505c6d5e5cca65",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7261
+}

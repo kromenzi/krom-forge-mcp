@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0017-mobile-release-train-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fc4c4a179367eb25fa4b3eef91c3e8c94090476063e0a3bd5188615255521465",
+  "rawFileHash": "fc4c4a179367eb25fa4b3eef91c3e8c94090476063e0a3bd5188615255521465",
+  "legacyInstructionHash": "99e81c288cf7ab48aec858cd83d2b7a6bb83d6eec33142ec8d964d43dbe06eda",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7461
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0408-erp-intercompany-reconciliation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "51846db47351c9f7a9c1f3c6f93a663e5067113dd0dc34a4ca6caf94940879b1",
+  "rawFileHash": "51846db47351c9f7a9c1f3c6f93a663e5067113dd0dc34a4ca6caf94940879b1",
+  "legacyInstructionHash": "66aeb11082b3adf21b3b2ee5d7d9c82646f76e47aefbeb467cdd7981792b7a6e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7335
+}

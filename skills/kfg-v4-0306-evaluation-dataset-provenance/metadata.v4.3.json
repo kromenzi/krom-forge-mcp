@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0306-evaluation-dataset-provenance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ebad4cc724a7f1658bb86d6bd2ff356e6b5f9d9e8ff662b61e612d6d5207e7a6",
+  "rawFileHash": "ebad4cc724a7f1658bb86d6bd2ff356e6b5f9d9e8ff662b61e612d6d5207e7a6",
+  "legacyInstructionHash": "35bc177e845cbe698f57c421b74c14b602dec2540c420bf7c3d71c91e683e594",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7307
+}

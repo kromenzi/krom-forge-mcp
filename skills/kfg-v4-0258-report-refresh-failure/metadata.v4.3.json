@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0258-report-refresh-failure",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c8709f6eaa0bbf77e9cbcc07fd53b501c9fe2e488f20ef4be741dcecf27bec29",
+  "rawFileHash": "c8709f6eaa0bbf77e9cbcc07fd53b501c9fe2e488f20ef4be741dcecf27bec29",
+  "legacyInstructionHash": "0a6a6244fdb70ce08fd317bebebfc0305aaf61886e73c1e92c7991f5848129be",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7200
+}

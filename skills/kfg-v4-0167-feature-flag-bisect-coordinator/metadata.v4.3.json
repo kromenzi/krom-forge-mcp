@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0167-feature-flag-bisect-coordinator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2138eaab7bb1779d38630045250ae28df4113c2bb3d38de1ed08396309174130",
+  "rawFileHash": "2138eaab7bb1779d38630045250ae28df4113c2bb3d38de1ed08396309174130",
+  "legacyInstructionHash": "eebe672de6dc8c0fd8006779031533561f3959777be9bb43b151b438bbcd2a24",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7335
+}

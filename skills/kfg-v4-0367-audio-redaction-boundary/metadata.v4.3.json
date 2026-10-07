@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0367-audio-redaction-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2e03c0c0d3354196378cf34b54521b2ac1e6b3eafe26b68df9db661871fbbe75",
+  "rawFileHash": "2e03c0c0d3354196378cf34b54521b2ac1e6b3eafe26b68df9db661871fbbe75",
+  "legacyInstructionHash": "28ae12a08b98c3fa23c50cb14ea519db4c4a9e0c4d2a28b7186a6cf2ccfdce70",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7411
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0138-test-fixture-isolation-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c5bfb0bea6a5a131711f2f3106dd39b736bcbb581f56de146e6d9231ad044c80",
+  "rawFileHash": "c5bfb0bea6a5a131711f2f3106dd39b736bcbb581f56de146e6d9231ad044c80",
+  "legacyInstructionHash": "90cfde721e51016bc24375ad3c95ed8efc1ab22b5dee0d77c8272ef74049ad83",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7455
+}

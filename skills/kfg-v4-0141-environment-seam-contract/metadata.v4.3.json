@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0141-environment-seam-contract",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d99628ef553d97f17aacaa2e65d7a8e566aca2bdb15be6166fe1c773c7d761f3",
+  "rawFileHash": "d99628ef553d97f17aacaa2e65d7a8e566aca2bdb15be6166fe1c773c7d761f3",
+  "legacyInstructionHash": "4b8d2f89a433b5a52d6021c47dc4a340815e3acf7486b0e5717c19e99705c093",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7530
+}

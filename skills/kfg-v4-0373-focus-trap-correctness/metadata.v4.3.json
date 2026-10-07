@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0373-focus-trap-correctness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "647b0725fa619d01ae94552f43a6554ec96fe02a4379313a1069a59f59fcc619",
+  "rawFileHash": "647b0725fa619d01ae94552f43a6554ec96fe02a4379313a1069a59f59fcc619",
+  "legacyInstructionHash": "92021d9029f4f3f46b4fe488008ab8236d184aad95253821148c99819e9d04dd",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7274
+}

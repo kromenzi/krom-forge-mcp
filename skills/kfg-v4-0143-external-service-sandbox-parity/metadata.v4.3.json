@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0143-external-service-sandbox-parity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "083dce02bdafb5a638f727539b9c675163329370b692581d354f5a464eed9563",
+  "rawFileHash": "083dce02bdafb5a638f727539b9c675163329370b692581d354f5a464eed9563",
+  "legacyInstructionHash": "ae41c9f37def7273eae4840aed0cc0bb3c8d1b6e7d12d4c59efd8264bfc3f354",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7511
+}

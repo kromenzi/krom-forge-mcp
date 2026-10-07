@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0041-policy-attribute-lineage-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "60994233b897d2e2342f0eb847de50d5e33009796ab80e5984e1731059fe5ab9",
+  "rawFileHash": "60994233b897d2e2342f0eb847de50d5e33009796ab80e5984e1731059fe5ab9",
+  "legacyInstructionHash": "f615f9d52a01718c5211a0239f291b1d37b79c6bc3164d82cee02adaf347790d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7541
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0467-telemetry-gap-detection",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6c3a3e59f8efe060900a6e0c96458381c6b58831784e348cc32245a6f3735e97",
+  "rawFileHash": "6c3a3e59f8efe060900a6e0c96458381c6b58831784e348cc32245a6f3735e97",
+  "legacyInstructionHash": "414a334c82764efde1c4b16e5befeb104459906f23b875eaf0d293bf9b8c97a8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7218
+}

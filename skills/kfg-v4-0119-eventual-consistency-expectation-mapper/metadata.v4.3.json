@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0119-eventual-consistency-expectation-mapper",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "dbe22a9b10a19ad208059f2a217a2b7cae0ec091c0afd9274d67affd397f9b4f",
+  "rawFileHash": "dbe22a9b10a19ad208059f2a217a2b7cae0ec091c0afd9274d67affd397f9b4f",
+  "legacyInstructionHash": "d244c9732081d7aa95e4c203dca7cf7f96d76bd5f846eabed78a5ace1451001c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7431
+}

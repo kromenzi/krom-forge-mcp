@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0162-severity-calibration-matrix",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "edc5d0e7862435120df24d38e77dc56158352a24ed532f39b6a113a62fb6b429",
+  "rawFileHash": "edc5d0e7862435120df24d38e77dc56158352a24ed532f39b6a113a62fb6b429",
+  "legacyInstructionHash": "d8e08c41ba7505c5728e4e06cf9cb32d9261cf4c70faddbe438007c03b6a4463",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7391
+}

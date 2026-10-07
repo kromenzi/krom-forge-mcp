@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0233-mapping-evolution-guard",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "605494db1a93d5bda8b9e18f830cd30101a73a90cde43042a07b2038b72bd3a0",
+  "rawFileHash": "605494db1a93d5bda8b9e18f830cd30101a73a90cde43042a07b2038b72bd3a0",
+  "legacyInstructionHash": "320c2d922ad41e6a66223c15853e58a21bc82570a4ea5143abcd25476f48d47f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7260
+}

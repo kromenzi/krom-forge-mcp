@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0024-empty-state-recovery-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "581ca51d7204436b8c37ae4023dc13eb0a17369a2381351f9341c0057779a3ed",
+  "rawFileHash": "581ca51d7204436b8c37ae4023dc13eb0a17369a2381351f9341c0057779a3ed",
+  "legacyInstructionHash": "98d0f1c2b5e3d8f4ee8d4741b6c3a0c1589730edc38049475cf0da18bc0f9f50",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7372
+}

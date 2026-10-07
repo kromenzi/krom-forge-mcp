@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0240-schema-on-read-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "008b3d217381a7061b49a61bb15deea524d43835552760e18a0f745a1d1c1f80",
+  "rawFileHash": "008b3d217381a7061b49a61bb15deea524d43835552760e18a0f745a1d1c1f80",
+  "legacyInstructionHash": "4f83960ca4ff90cbe2051664748acd865cc27c84373457ab674120eda9ec1c22",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7319
+}

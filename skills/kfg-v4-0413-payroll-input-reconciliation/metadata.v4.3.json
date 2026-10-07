@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0413-payroll-input-reconciliation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "eeded974ecd5ce479f427fa9183c973d642b0699fad333416e507de7f3c67378",
+  "rawFileHash": "eeded974ecd5ce479f427fa9183c973d642b0699fad333416e507de7f3c67378",
+  "legacyInstructionHash": "2b64f53bf6bf46965b0178fcf0e4f4cd7f2dcb950d45c2c6b994dd07f6d9102f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7287
+}

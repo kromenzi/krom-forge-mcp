@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0055-secure-defaults-baseline-builder",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "82169c3d79646d54093874852faf1f684cb607c63c6538d0845a6b0e29d1414f",
+  "rawFileHash": "82169c3d79646d54093874852faf1f684cb607c63c6538d0845a6b0e29d1414f",
+  "legacyInstructionHash": "d5d104e528d625c70d128cc30038662031839110eb05eedd0eb988a4ee948f04",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7292
+}

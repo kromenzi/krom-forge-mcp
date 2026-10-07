@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0377-rtl-number-formatting",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "048cdfb67c983599a2733e6eda8d7f76d917cdf9ae411c6712f599a079e1df02",
+  "rawFileHash": "048cdfb67c983599a2733e6eda8d7f76d917cdf9ae411c6712f599a079e1df02",
+  "legacyInstructionHash": "ea9028b33021febd54ec55681fac513166bef87890ce5985be3030a83151cc34",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7182
+}

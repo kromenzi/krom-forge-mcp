@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0273-index-refresh-coordinator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "34d59edae63adbf89eed7d4989e8890705accd8a231bc73f1044cf65c6e08dd7",
+  "rawFileHash": "34d59edae63adbf89eed7d4989e8890705accd8a231bc73f1044cf65c6e08dd7",
+  "legacyInstructionHash": "61e068bb3db02b490f4e9f2d277121003a598eaa55d7f2ce3327d2129b4a6fa4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7250
+}
