@@ -28,9 +28,18 @@ export async function executeV43HostBenchmarkV80(input:{manifest:Manifest;source
     for(const benchmarkCase of manifest.cases){
       if(signal.aborted){blockers.push('HOST_EXECUTION_ABORTED');break;}
       try {
+        const runWithCaseBudget=async <T>(operation:Promise<T>,label:string):Promise<T>=>{
+          let timer:ReturnType<typeof setTimeout>|undefined;
+          const controller=new AbortController();
+          const onAbort=()=>controller.abort(signal.reason); signal.addEventListener('abort',onAbort,{once:true});
+          const timeout=new Promise<never>((_,reject)=>{timer=setTimeout(()=>{controller.abort(new Error(label));reject(new Error(label));},benchmarkCase.latencyBudgetMs);});
+          const aborted=new Promise<never>((_,reject)=>{if(signal.aborted) reject(new Error('HOST_EXECUTION_ABORTED')); else controller.signal.addEventListener('abort',()=>reject(new Error(signal.aborted?'HOST_EXECUTION_ABORTED':label)),{once:true});});
+          try {return await Promise.race([operation,timeout,aborted]);}
+          finally {if(timer) clearTimeout(timer);signal.removeEventListener('abort',onAbort);}
+        };
         let instruction:string;
         if(input.adapter!.loadInstructionBundle){
-          const bundle=bundleSchema.parse(await input.adapter!.loadInstructionBundle(benchmarkCase.skillName));
+          const bundle=bundleSchema.parse(await runWithCaseBudget(input.adapter!.loadInstructionBundle(benchmarkCase.skillName),'HOST_INSTRUCTION_LOAD_TIMEOUT'));
           const trusted=getV43InstructionManifestEntryV80(benchmarkCase.skillName);
           if(bundle.skillName!==benchmarkCase.skillName || bundle.trustedRawFileHash!==trusted.rawFileHash || bundle.trustedInstructionHash!==trusted.instructionHash || bundle.legacyInstructionHash!==trusted.legacyInstructionHash || bundle.legacyInstructionHashStatus!=='LEGACY_UNPROVEN'){failures.push({caseId:benchmarkCase.caseId,reason:'TRUSTED_INSTRUCTION_REFERENCE_MISMATCH'});continue;}
           instruction=bundle.instruction;
@@ -40,7 +49,7 @@ export async function executeV43HostBenchmarkV80(input:{manifest:Manifest;source
           if(bundle.hashContract!==V80_V43_HASH_CONTRACT || actualRawHash!==trusted.instructionHash || benchmarkCase.skillInstructionHash!==trusted.instructionHash){blockers.push('V43_HASH_CONTRACT_OR_MANIFEST_MISMATCH');break;}
         } else {
           // Legacy/fixture seam: still hash the exact text returned by loadInstruction; no adapter integrity claim is read.
-          instruction=await input.adapter!.loadInstruction(benchmarkCase.skillName);
+          instruction=await runWithCaseBudget(input.adapter!.loadInstruction(benchmarkCase.skillName),'HOST_INSTRUCTION_LOAD_TIMEOUT');
           const encoded=Buffer.from(instruction,'utf8');
           if(hashOriginalInstructionBytes(encoded,benchmarkCase.skillName)!==benchmarkCase.skillInstructionHash){failures.push({caseId:benchmarkCase.caseId,reason:'INSTRUCTION_BYTES_HASH_MISMATCH'});continue;}
         }
