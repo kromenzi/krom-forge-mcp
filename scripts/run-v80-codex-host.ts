@@ -7,23 +7,34 @@ import { createV43PackHostAdapterV80 } from '../src/v80-v43-pack-host-adapter';
 import { createCodexHostExecutorV80 } from '../src/v80-codex-host-bridge';
 
 async function main(){
- const [scenarioFile,outputDirectory]=process.argv.slice(2);
- if(!scenarioFile||!outputDirectory) throw Error('Usage: node --import tsx scripts/run-v80-codex-host.ts scenarios.json /absolute/new/output-directory');
+ const [scenarioFile,outputDirectory,...flags]=process.argv.slice(2);
+ if(!scenarioFile||!outputDirectory) throw Error('Usage: node --import tsx scripts/run-v80-codex-host.ts scenarios.json /absolute/new/output-directory [--max-cases=N] [--resume-from=result.json]');
+ const maxCasesFlag=flags.find(item=>item.startsWith('--max-cases='));
+ const resumeFlag=flags.find(item=>item.startsWith('--resume-from='));
+ const maxCases=Math.min(100,Math.max(1,Number(maxCasesFlag?.split('=')[1]??100)));
+ if(!Number.isInteger(maxCases)) throw Error('INVALID_MAX_CASES');
  const sourceCommit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
  if(execFileSync('git',['status','--porcelain','--untracked-files=normal'],{encoding:'utf8'}).trim()) throw Error('CLEAN_SOURCE_COMMIT_REQUIRED');
  const directory=path.resolve(outputDirectory);
  await fs.mkdir(directory,{recursive:false,mode:0o700});
  const scenario=JSON.parse(await fs.readFile(scenarioFile,'utf8'));
- const manifest=buildV42RealBenchmarkManifestV80(scenario);
+ const completedCaseIds=new Set<string>();
+ if(resumeFlag){
+  const previous=JSON.parse(await fs.readFile(resumeFlag.slice('--resume-from='.length),'utf8'));
+  for(const receipt of previous.receipts??[]) if(receipt?.caseId&&receipt?.outcome==='PASS'&&receipt?.validatorPass&&receipt?.securityPass) completedCaseIds.add(receipt.caseId);
+ }
+ const pendingScenario={...scenario,cases:(scenario.cases??[]).filter((item:{caseId:string})=>!completedCaseIds.has(item.caseId)).slice(0,maxCases)};
+ if(!pendingScenario.cases.length){console.log(JSON.stringify({status:'NO_WORK',completedCases:completedCaseIds.size,promotionApplied:false},null,2));return;}
+ const manifest=buildV42RealBenchmarkManifestV80(pendingScenario);
  await fs.writeFile(path.join(directory,'manifest.json'),JSON.stringify(manifest,null,2));
  const controller=new AbortController(); const abort=()=>controller.abort();process.once('SIGINT',abort);process.once('SIGTERM',abort);
  try {
-  const output=await executeV43HostBenchmarkV80({manifest,sourceCommit,maxCases:100,signal:controller.signal,
+  const output=await executeV43HostBenchmarkV80({manifest,sourceCommit,maxCases,signal:controller.signal,
    adapter:createV43PackHostAdapterV80(createCodexHostExecutorV80({directory:path.join(directory,'requests'),sourceCommit}))});
   await fs.writeFile(path.join(directory,'result.json'),JSON.stringify(output,null,2));
   console.log(JSON.stringify({bindingValidationStatus:output.status,executedCases:output.executedCases,
    outcomes:output.receipts.map(item=>({caseId:item.caseId,outcome:item.outcome,validatorPass:item.validatorPass})),
-   failures:output.failures,blockers:output.blockers,promotionApplied:false},null,2));
+   failures:output.failures,blockers:output.blockers,resumedCompletedCases:completedCaseIds.size,promotionApplied:false},null,2));
   if(output.status!=='PASS'||output.receipts.some(item=>item.outcome!=='PASS'||!item.validatorPass||!item.securityPass)) process.exitCode=1;
  } finally {process.removeListener('SIGINT',abort);process.removeListener('SIGTERM',abort);}
 }
