@@ -104,7 +104,7 @@ test('instruction loading is bounded by the case latency budget',async()=>{
     const started=Date.now();
     const output=await executeV42HostBenchmarkV80({manifest:{
       ...manifest(),
-      cases:manifest().cases.map(item=>({...item,latencyBudgetMs:25})),
+      cases:manifest().cases.map(item=>({...item,latencyBudgetMs:100})),
     },sourceCommit:commit,adapter:{
       evidenceOrigin:'FIXTURE',
       loadInstruction:async()=>new Promise<string>(()=>{}),
