@@ -1,0 +1,29 @@
+{
+ "status":"PASS",
+ "scope":"Current-request/commit/instruction binding within the trusted local operator boundary only",
+ "executionClaim":false,
+ "repository":"kromenzi/krom-forge-mcp",
+ "branch":"feat/v43-codex-host-bridge",
+ "sourceCommit":"e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+ "environment":"local Node; interactive Codex host; not deployed MCP",
+ "owner":"Codex / orchestrator acting under user instruction",
+ "facts":["Live request read after runner created it; exact instruction supplied in request","Fresh tests on the clean source: 19/19 passed","Negative tests reject request ID, digest, commit and instruction hash mismatch","Runner recomputes hash from atomic loaded instruction bundle and rejects modified text","Fixture-origin receipts remain ineligible; timeout/cancellation tests are tests, not proof of skill execution"],
+ "assumptions":["Only trusted local operator writes the private request directory","No malicious concurrent edits to loaded source after clean-commit check"],
+ "findings":[
+  {"priority":"P2","riskScore":4,"boundary":"operator authenticity","verdict":"not evidenced cryptographically","detail":"An authorized local writer can fabricate results; the protocol binds content but cannot prove honesty or identify an external model. No remote attestation is claimed."},
+  {"priority":"P2","riskScore":3,"boundary":"deadline","verdict":"limited","detail":"Instruction loading precedes executor deadline; arbitrary third-party side effects cannot be forcibly stopped by Promise.race."},
+  {"priority":"P3","riskScore":2,"boundary":"KROM external review","verdict":"unavailable","detail":"Automatic approval review rejected transmission of private repository summaries; no KROM review PASS is claimed."}
+ ],
+ "decisionTable":[
+  {"input":"matching live response","decision":"accept only schema-valid result with current request/commit/hash"},
+  {"input":"stale or cross-scope binding","decision":"reject; test witnessed"},
+  {"input":"adapter supplies modified instruction","decision":"reject before execution; test witnessed"},
+  {"input":"FIXTURE receipt","decision":"not eligible for HOST_EXECUTION; test witnessed"},
+  {"input":"honest operator identity","decision":"trusted locally, not independently authenticated"}
+ ],
+ "rejectedHypotheses":["Hash correctness proves 500 skills executed","File mailbox authenticates an external Codex service","Receipt verification PASS alone proves audit content correctness"],
+ "evidenceReferences":["live request 5584e220-668d-4092-9274-4660dc48ba47","live-audit-tests.log","src/v80-codex-host-bridge.ts","src/v80-host-benchmark-executor.ts","benchmarks/codex-host/scenarios.md"],
+ "verificationChecks":["All 19 focused tests passed with zero rejected negative cases accepted","Independent QA/security code review required before response submission"],
+ "rollback":"Revert additive host bridge source commit; no production/catalog mutation occurred",
+ "openItems":["Full 500-skill campaign not run","Similarity metrics not measured; worst-case placeholders block promotion","External KROM verification remains unavailable"]
+}

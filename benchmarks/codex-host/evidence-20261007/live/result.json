@@ -1,0 +1,256 @@
+{
+  "status": "PASS",
+  "blockers": [],
+  "failures": [],
+  "sourceCommit": "e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+  "executedCases": 2,
+  "receipts": [
+    {
+      "benchmarkId": "v43-codex-interactive-sample-20261007",
+      "caseId": "repair-claims",
+      "skillName": "kfg-v4-0180-repair-claim-evidence-auditor",
+      "manifestCaseDigest": "795504cb8ca965ae2070ae09c7a413c5d885e4c0a3340371a36e16d2b35767e4",
+      "hostExecutionId": "872aa8c4-50d3-44b3-bdd7-a375a61d4d74",
+      "evidenceOrigin": "HOST_EXECUTION",
+      "executionPerformed": true,
+      "sourceRef": "git:e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+      "evidenceRefs": [
+        "sha256:728f0442e1bf28aa4ff11f403744ee997a5bcec58d2fefde4bbb7e8d9872a806",
+        "sha256:a286e71c45430a6bc514f5c1d210925c2fa650513e186fd19a738fe873ca82b4",
+        "sha256:a286e71c45430a6bc514f5c1d210925c2fa650513e186fd19a738fe873ca82b4",
+        "sha256:17f9177d7c99c87b07bac2055452681610e25b1cb9e78e1c9ed5607fdf8d62b3",
+        "sha256:bb79807671188d55a0c592eaca022038c3284778a88d000cbde8f1490098a561"
+      ],
+      "evidenceKinds": [
+        "result",
+        "validator",
+        "security",
+        "tool-log",
+        "host-transport"
+      ],
+      "outcome": "PASS",
+      "validatorPass": true,
+      "securityPass": true,
+      "unsupportedClaim": false,
+      "regressionDetected": false,
+      "latencyMs": 152782.590208,
+      "semanticSimilarity": 1,
+      "proceduralSimilarity": 1,
+      "specializationDistinct": false,
+      "hostAttestation": "host-adapter:872aa8c4-50d3-44b3-bdd7-a375a61d4d74",
+      "instructionHashContract": "krom-instruction-raw-utf8-v1"
+    },
+    {
+      "benchmarkId": "v43-codex-interactive-sample-20261007",
+      "caseId": "timeout-policy",
+      "skillName": "kfg-v4-0297-mcp-tool-timeout-policy",
+      "manifestCaseDigest": "2bec396e3856312ae98cc9e66f4ca8f487c3b853e725f1e58244f7aef3fd7110",
+      "hostExecutionId": "b6d39da6-5f29-4371-a189-9f4aa467c6ef",
+      "evidenceOrigin": "HOST_EXECUTION",
+      "executionPerformed": true,
+      "sourceRef": "git:e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+      "evidenceRefs": [
+        "sha256:38e42103f9ddbefd581c1b1e5529cea403975818e24e7f2da17f275d0d7355e2",
+        "sha256:c437e9951d0e95fcafec1cf3d6d0d72734260fae81b4fe8aa720cbef66cf1fa4",
+        "sha256:c437e9951d0e95fcafec1cf3d6d0d72734260fae81b4fe8aa720cbef66cf1fa4",
+        "sha256:67c41245e38c605065408aa63cb66c1fe5686b8584ef0b3a86977f5abb2511c5",
+        "sha256:35f47e7b2383b15488d06aa403eda2c965500d87fa279a36bafa91d409a15327"
+      ],
+      "evidenceKinds": [
+        "result",
+        "validator",
+        "security",
+        "tool-log",
+        "host-transport"
+      ],
+      "outcome": "PASS",
+      "validatorPass": true,
+      "securityPass": true,
+      "unsupportedClaim": false,
+      "regressionDetected": false,
+      "latencyMs": 199652.319827,
+      "semanticSimilarity": 1,
+      "proceduralSimilarity": 1,
+      "specializationDistinct": false,
+      "hostAttestation": "host-adapter:b6d39da6-5f29-4371-a189-9f4aa467c6ef",
+      "instructionHashContract": "krom-instruction-raw-utf8-v1"
+    }
+  ],
+  "artifacts": [
+    {
+      "caseId": "repair-claims",
+      "kind": "result",
+      "content": "{\n \"status\":\"PASS\",\n \"scope\":\"Current-request/commit/instruction binding within the trusted local operator boundary only\",\n \"executionClaim\":false,\n \"repository\":\"kromenzi/krom-forge-mcp\",\n \"branch\":\"feat/v43-codex-host-bridge\",\n \"sourceCommit\":\"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\n \"environment\":\"local Node; interactive Codex host; not deployed MCP\",\n \"owner\":\"Codex / orchestrator acting under user instruction\",\n \"facts\":[\"Live request read after runner created it; exact instruction supplied in request\",\"Fresh tests on the clean source: 19/19 passed\",\"Negative tests reject request ID, digest, commit and instruction hash mismatch\",\"Runner recomputes hash from atomic loaded instruction bundle and rejects modified text\",\"Fixture-origin receipts remain ineligible; timeout/cancellation tests are tests, not proof of skill execution\"],\n \"assumptions\":[\"Only trusted local operator writes the private request directory\",\"No malicious concurrent edits to loaded source after clean-commit check\"],\n \"findings\":[\n  {\"priority\":\"P2\",\"riskScore\":4,\"boundary\":\"operator authenticity\",\"verdict\":\"not evidenced cryptographically\",\"detail\":\"An authorized local writer can fabricate results; the protocol binds content but cannot prove honesty or identify an external model. No remote attestation is claimed.\"},\n  {\"priority\":\"P2\",\"riskScore\":3,\"boundary\":\"deadline\",\"verdict\":\"limited\",\"detail\":\"Instruction loading precedes executor deadline; arbitrary third-party side effects cannot be forcibly stopped by Promise.race.\"},\n  {\"priority\":\"P3\",\"riskScore\":2,\"boundary\":\"KROM external review\",\"verdict\":\"unavailable\",\"detail\":\"Automatic approval review rejected transmission of private repository summaries; no KROM review PASS is claimed.\"}\n ],\n \"decisionTable\":[\n  {\"input\":\"matching live response\",\"decision\":\"accept only schema-valid result with current request/commit/hash\"},\n  {\"input\":\"stale or cross-scope binding\",\"decision\":\"reject; test witnessed\"},\n  {\"input\":\"adapter supplies modified instruction\",\"decision\":\"reject before execution; test witnessed\"},\n  {\"input\":\"FIXTURE receipt\",\"decision\":\"not eligible for HOST_EXECUTION; test witnessed\"},\n  {\"input\":\"honest operator identity\",\"decision\":\"trusted locally, not independently authenticated\"}\n ],\n \"rejectedHypotheses\":[\"Hash correctness proves 500 skills executed\",\"File mailbox authenticates an external Codex service\",\"Receipt verification PASS alone proves audit content correctness\"],\n \"evidenceReferences\":[\"live request 5584e220-668d-4092-9274-4660dc48ba47\",\"live-audit-tests.log\",\"src/v80-codex-host-bridge.ts\",\"src/v80-host-benchmark-executor.ts\",\"benchmarks/codex-host/scenarios.md\"],\n \"verificationChecks\":[\"All 19 focused tests passed with zero rejected negative cases accepted\",\"Independent QA/security code review required before response submission\"],\n \"rollback\":\"Revert additive host bridge source commit; no production/catalog mutation occurred\",\n \"openItems\":[\"Full 500-skill campaign not run\",\"Similarity metrics not measured; worst-case placeholders block promotion\",\"External KROM verification remains unavailable\"]\n}",
+      "sha256": "728f0442e1bf28aa4ff11f403744ee997a5bcec58d2fefde4bbb7e8d9872a806"
+    },
+    {
+      "caseId": "repair-claims",
+      "kind": "validator",
+      "content": "{\n  \"status\": \"PASS\",\n  \"validatorRole\": \"independent QA/security reviewer\",\n  \"sourceCommit\": \"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\n  \"requestId\": \"5584e220-668d-4092-9274-4660dc48ba47\",\n  \"requestDigest\": \"9290272abdda511da24a100f9ec0492d182e9f9502944b7504ee971a762a6377\",\n  \"reviewedAuditSha256\": \"2df7a0f79e2f8bad7ec0609c756ae44288195f2123d2b64b1654178b7a246843\",\n  \"reviewedAt\": \"2026-10-07T19:08:38.920198+00:00\",\n  \"scope\": \"Faithful bounded repair-claim audit and current-request/commit/instruction binding within a trusted local operator boundary\",\n  \"validatorPass\": true,\n  \"securityPass\": true,\n  \"executionClaim\": false,\n  \"facts\": [\n    \"Read live request and full supplied instruction after request creation.\",\n    \"Verified source HEAD and clean working tree match request commit.\",\n    \"Independently inspected bridge, runner, schema, scenario and focused test suites.\",\n    \"Independently reran bridge/runner suites: 13/13 PASS. Reviewed supplied fresh three-suite log: 19/19 PASS.\",\n    \"Negative requestId, requestDigest, sourceCommit and instructionHash tests reject mismatches; modified instruction and fixture-origin eligibility are tested.\",\n    \"Abort-listener cleanup and bounded response read address identified concrete review findings.\"\n  ],\n  \"assumptions\": [\n    \"Authorized local writers are trusted; source does not maliciously change after initial clean check.\"\n  ],\n  \"findings\": [\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"authenticity\",\n      \"verdict\": \"limited\",\n      \"detail\": \"Mailbox binds supplied content; it does not independently authenticate a model or establish operator honesty. Artifact booleans are assertions.\"\n    },\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"deadline\",\n      \"verdict\": \"limited\",\n      \"detail\": \"Instruction loading is outside execution timeout; abort cannot forcibly stop arbitrary external work or undo side effects.\"\n    },\n    {\n      \"priority\": \"P3\",\n      \"boundary\": \"coverage\",\n      \"verdict\": \"not evidenced\",\n      \"detail\": \"No full 500-skill campaign or similarity analysis. Fixture test success is not skill execution.\"\n    },\n    {\n      \"priority\": \"P3\",\n      \"boundary\": \"external KROM review\",\n      \"verdict\": \"unavailable\",\n      \"detail\": \"Audit reports automatic approval rejection; reviewer did not independently repeat KROM request and makes no KROM verification claim.\"\n    }\n  ],\n  \"decisionTable\": [\n    {\n      \"boundary\": \"current response binding\",\n      \"verdict\": \"effective within stated trust boundary\"\n    },\n    {\n      \"boundary\": \"independent runtime identity\",\n      \"verdict\": \"not evidenced\"\n    },\n    {\n      \"boundary\": \"fixture eligibility\",\n      \"verdict\": \"correctly excluded in reviewed regression\"\n    },\n    {\n      \"boundary\": \"production readiness and promotion\",\n      \"verdict\": \"outside scope\"\n    }\n  ],\n  \"verificationChecks\": [\n    \"No material inconsistency between reviewed audit and inspected code/tests.\",\n    \"PASS applies only to stated bounded audit; receipt integrity alone is not proof of audit correctness.\"\n  ],\n  \"openItems\": [\n    \"Retain local-writer, loading-deadline, forced-cancellation and similarity limitations.\",\n    \"No merge, deployment or promotion approval follows from this review.\"\n  ],\n  \"rollback\": \"No reviewer source mutation; additive bridge commit can be reverted through ordinary review.\"\n}",
+      "sha256": "a286e71c45430a6bc514f5c1d210925c2fa650513e186fd19a738fe873ca82b4"
+    },
+    {
+      "caseId": "repair-claims",
+      "kind": "security",
+      "content": "{\n  \"status\": \"PASS\",\n  \"validatorRole\": \"independent QA/security reviewer\",\n  \"sourceCommit\": \"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\n  \"requestId\": \"5584e220-668d-4092-9274-4660dc48ba47\",\n  \"requestDigest\": \"9290272abdda511da24a100f9ec0492d182e9f9502944b7504ee971a762a6377\",\n  \"reviewedAuditSha256\": \"2df7a0f79e2f8bad7ec0609c756ae44288195f2123d2b64b1654178b7a246843\",\n  \"reviewedAt\": \"2026-10-07T19:08:38.920198+00:00\",\n  \"scope\": \"Faithful bounded repair-claim audit and current-request/commit/instruction binding within a trusted local operator boundary\",\n  \"validatorPass\": true,\n  \"securityPass\": true,\n  \"executionClaim\": false,\n  \"facts\": [\n    \"Read live request and full supplied instruction after request creation.\",\n    \"Verified source HEAD and clean working tree match request commit.\",\n    \"Independently inspected bridge, runner, schema, scenario and focused test suites.\",\n    \"Independently reran bridge/runner suites: 13/13 PASS. Reviewed supplied fresh three-suite log: 19/19 PASS.\",\n    \"Negative requestId, requestDigest, sourceCommit and instructionHash tests reject mismatches; modified instruction and fixture-origin eligibility are tested.\",\n    \"Abort-listener cleanup and bounded response read address identified concrete review findings.\"\n  ],\n  \"assumptions\": [\n    \"Authorized local writers are trusted; source does not maliciously change after initial clean check.\"\n  ],\n  \"findings\": [\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"authenticity\",\n      \"verdict\": \"limited\",\n      \"detail\": \"Mailbox binds supplied content; it does not independently authenticate a model or establish operator honesty. Artifact booleans are assertions.\"\n    },\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"deadline\",\n      \"verdict\": \"limited\",\n      \"detail\": \"Instruction loading is outside execution timeout; abort cannot forcibly stop arbitrary external work or undo side effects.\"\n    },\n    {\n      \"priority\": \"P3\",\n      \"boundary\": \"coverage\",\n      \"verdict\": \"not evidenced\",\n      \"detail\": \"No full 500-skill campaign or similarity analysis. Fixture test success is not skill execution.\"\n    },\n    {\n      \"priority\": \"P3\",\n      \"boundary\": \"external KROM review\",\n      \"verdict\": \"unavailable\",\n      \"detail\": \"Audit reports automatic approval rejection; reviewer did not independently repeat KROM request and makes no KROM verification claim.\"\n    }\n  ],\n  \"decisionTable\": [\n    {\n      \"boundary\": \"current response binding\",\n      \"verdict\": \"effective within stated trust boundary\"\n    },\n    {\n      \"boundary\": \"independent runtime identity\",\n      \"verdict\": \"not evidenced\"\n    },\n    {\n      \"boundary\": \"fixture eligibility\",\n      \"verdict\": \"correctly excluded in reviewed regression\"\n    },\n    {\n      \"boundary\": \"production readiness and promotion\",\n      \"verdict\": \"outside scope\"\n    }\n  ],\n  \"verificationChecks\": [\n    \"No material inconsistency between reviewed audit and inspected code/tests.\",\n    \"PASS applies only to stated bounded audit; receipt integrity alone is not proof of audit correctness.\"\n  ],\n  \"openItems\": [\n    \"Retain local-writer, loading-deadline, forced-cancellation and similarity limitations.\",\n    \"No merge, deployment or promotion approval follows from this review.\"\n  ],\n  \"rollback\": \"No reviewer source mutation; additive bridge commit can be reverted through ordinary review.\"\n}",
+      "sha256": "a286e71c45430a6bc514f5c1d210925c2fa650513e186fd19a738fe873ca82b4"
+    },
+    {
+      "caseId": "repair-claims",
+      "kind": "tool-log",
+      "content": "✔ bridge binds response: valid (91.308764ms)\n✔ bridge binds response: requestId (61.316162ms)\n✔ bridge binds response: requestDigest (56.309194ms)\n✔ bridge binds response: sourceCommit (57.500963ms)\n✔ bridge binds response: instructionHash (66.324254ms)\n✔ bridge times out without a host (56.521524ms)\n✔ bridge cancellation prevents late evidence (15.961099ms)\n✔ host execution blocks when adapter is absent (9.517699ms)\n✔ metadata alone cannot execute a skill with incorrect instruction bytes (1.028577ms)\n✔ tampered manifest blocks before calling the host (0.867185ms)\n✔ aborted host execution produces no receipt (0.731183ms)\n✔ host receipts bind artifact bytes and fixtures stay ineligible (10.732363ms)\n✔ runner removes abort listeners after a completed case (18.372866ms)\n✔ v4.3 loader preserves exact bytes, new hash, and legacy unproven value (9.130716ms)\n✔ v4.3 rejects invalid UTF-8 and preserves newline bytes (1.040113ms)\n✔ v4.3 preserves a UTF-8 BOM as content and hashes it (0.277733ms)\n✔ runner rejects modified text even when adapter reports trusted hashes (14.286494ms)\n✔ runner rejects version or contract mismatch before execution (5.115565ms)\n✔ timeout and cancellation stop an executor that ignores AbortSignal (35.850853ms)\nℹ tests 19\nℹ suites 0\nℹ pass 19\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 781.581863",
+      "sha256": "17f9177d7c99c87b07bac2055452681610e25b1cb9e78e1c9ed5607fdf8d62b3"
+    },
+    {
+      "caseId": "repair-claims",
+      "kind": "host-transport",
+      "content": "{\"requestId\":\"5584e220-668d-4092-9274-4660dc48ba47\",\"requestDigest\":\"9290272abdda511da24a100f9ec0492d182e9f9502944b7504ee971a762a6377\",\"sourceCommit\":\"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\"instructionHash\":\"3e1982929cf3878575cb093d0490a521d6e90423cb2e34c8734fcfd9149c2463\",\"responseHash\":\"46b87b7bd020c603a001a1313daddfecc17776888abb213a5ceb5afcae97ad40\",\"executor\":\"codex-interactive\",\"trustBoundary\":\"local trusted operator; not signed remote attestation\"}",
+      "sha256": "bb79807671188d55a0c592eaca022038c3284778a88d000cbde8f1490098a561"
+    },
+    {
+      "caseId": "timeout-policy",
+      "kind": "result",
+      "content": "{\n \"status\":\"PASS\",\n \"scope\":\"Executor wait cancellation and schema binding in the local host path; not deployed MCP, not total loader-to-side-effect cancellation\",\n \"executionClaim\":false,\n \"sourceCommit\":\"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\n \"repository\":\"kromenzi/krom-forge-mcp\",\n \"branch\":\"feat/v43-codex-host-bridge\",\n \"owner\":\"Codex / architect; independent security validator\",\n \"environment\":\"local Node process with actual interactive host request\",\n \"invariant\":\"An unresponsive execute callback must not produce a successful receipt and must stop blocking the runner within 30ms budget plus 1000ms scheduling overhead. Cancellation must stop waiting within 1000ms. Response binding schema remains required.\",\n \"facts\":[\"Actual request b7d9275c-ad94-49a7-bb87-7b3786e4e1ad read with exact skill instruction\",\"Fresh negative timeout measurement 45.42ms with HOST_CASE_TIMEOUT; zero receipts\",\"Fresh active cancellation measurement 12.35ms with HOST_EXECUTION_ABORTED; zero receipts\",\"13 focused transport/loader tests passed; nonresponsive callbacks and altered contracts exercised\",\"Outer runner and inner mailbox both enforce waiting deadlines; the outer budget wins when shorter\",\"Abort listeners cleaned on completion by source fix and regression test\"],\n \"assumptions\":[\"Node event loop remains schedulable; synchronous CPU blockage is not bounded by timers\",\"Mailbox directory is private to trusted local operators\"],\n \"findings\":[\n  {\"priority\":\"P2\",\"verdict\":\"not covered\",\"boundary\":\"instruction loading\",\"detail\":\"loadInstructionBundle/loadInstruction awaits precede the per-case race. A stuck loader is outside the proven deadline.\"},\n  {\"priority\":\"P2\",\"verdict\":\"not guaranteed\",\"boundary\":\"third-party executor side effects\",\"detail\":\"Promise.race stops waiting and aborts the signal but cannot forcibly terminate a callback that ignores cancellation.\"},\n  {\"priority\":\"P3\",\"verdict\":\"bounded\",\"boundary\":\"retry and replay\",\"detail\":\"Each invocation generates a unique nonce/directory; mismatched nonce/digest/commit/hash rejected. Late response files are not read after cancellation. No remote anti-replay attestation claimed.\"}\n ],\n \"decisionTable\":[\n  {\"condition\":\"executor never resolves\",\"result\":\"HOST_CASE_TIMEOUT; no receipt; witnessed\"},\n  {\"condition\":\"active external abort\",\"result\":\"HOST_EXECUTION_ABORTED; no receipt; witnessed\"},\n  {\"condition\":\"stale request/commit/contract\",\"result\":\"reject binding/contract before evidence acceptance; tests witnessed\"},\n  {\"condition\":\"conflicting inner/outer wait budgets\",\"result\":\"earliest wait deadline rejects; no relaxation of schema\"},\n  {\"condition\":\"loader never resolves or event loop blocked\",\"result\":\"UNVERIFIED; outside measured execution boundary\"}\n ],\n \"rejectedHypotheses\":[\"Abort signal forcibly terminates third-party code\",\"A timeout proves remote production MCP unhealthy\",\"Integrity/fixture tests count as live 500-skill campaign\"],\n \"evidenceReferences\":[\"timeout-measurements.json\",\"timeout-audit-tests.log\",\"src/v80-host-benchmark-executor.ts\",\"src/v80-codex-host-bridge.ts\",\"tests/v80-v42-instruction-loader.test.ts\"],\n \"verificationChecks\":[\"No successful receipt for timeout/abort negatives\",\"Schema rejection remains active\",\"Independent security review required before submitting response\"],\n \"rollback\":\"No production mutation. Revert additive bridge commit if necessary; mailbox output is disposable evidence, not catalog state.\",\n \"openItems\":[\"No full loader deadline guarantee\",\"No forced termination guarantee\",\"KROM external verification blocked by automatic approval review\",\"Similarity metrics unmeasured; conservative placeholders must not support promotion\"],\n \"exceptionOwner\":\"repository maintainer / backend\",\n \"exceptionExpiry\":\"Before any untrusted remote host or production-wide timeout guarantee is claimed\"\n}",
+      "sha256": "38e42103f9ddbefd581c1b1e5529cea403975818e24e7f2da17f275d0d7355e2"
+    },
+    {
+      "caseId": "timeout-policy",
+      "kind": "validator",
+      "content": "{\n  \"status\": \"PASS\",\n  \"validatorRole\": \"independent security/QA reviewer\",\n  \"sourceCommit\": \"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\n  \"requestId\": \"b7d9275c-ad94-49a7-bb87-7b3786e4e1ad\",\n  \"requestDigest\": \"97b974fbc5dc5c1dfc990f36b6db5609a06e3cb52625f90fd18f3db8258eb23f\",\n  \"reviewedAuditSha256\": \"78e076b22ac82f41a18ede87471713d0d3cb05129ddd96f777bca2fb5e06264f\",\n  \"reviewedAt\": \"2026-10-07T19:11:56.299391+00:00\",\n  \"scope\": \"Accurate local executor-wait timeout/cancellation audit and schema binding only\",\n  \"validatorPass\": true,\n  \"securityPass\": true,\n  \"executionClaim\": false,\n  \"facts\": [\n    \"Read full second live request and its exact skill instruction.\",\n    \"Verified current HEAD e1774d5ef8eefc8063d60c4012e674d6083a95f0 and clean source tree.\",\n    \"Reviewed fresh supplied 13-test log and timeout measurements with explicit FIXTURE origin.\",\n    \"Independently reran six loader/runner tests, including unresponsive execute callback timeout and active abort: 6/6 PASS.\",\n    \"Measured evidence reports 45.42ms for 30ms timeout budget plus 1000ms tolerance, 12.35ms abort wait, zero receipts for both negatives.\",\n    \"Reviewed source corroborates deadline race, signal propagation, post-return abort check, binding comparison and abort-listener cleanup.\"\n  ],\n  \"assumptions\": [\n    \"Event loop remains schedulable.\",\n    \"Local mailbox writer and filesystem are trusted.\",\n    \"Source stays unchanged after clean identity check.\"\n  ],\n  \"findings\": [\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"loader deadline\",\n      \"verdict\": \"not guaranteed\",\n      \"detail\": \"Instruction loading occurs before execution race, and cannot inherit this bounded PASS.\"\n    },\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"external side effects\",\n      \"verdict\": \"not guaranteed\",\n      \"detail\": \"Abort stops waiting, not arbitrary third-party execution; no rollback or forced termination proven.\"\n    },\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"authenticity\",\n      \"verdict\": \"trusted only\",\n      \"detail\": \"Binding prevents accidental cross-request reuse but cannot detect fabricated replies from trusted local writers.\"\n    },\n    {\n      \"priority\": \"P3\",\n      \"boundary\": \"test scope\",\n      \"verdict\": \"bounded\",\n      \"detail\": \"Fixture measurements exercise control logic; they are not independent actual skill executions or evidence about deployed MCP.\"\n    }\n  ],\n  \"decisionTable\": [\n    {\n      \"boundary\": \"nonresponsive executor wait\",\n      \"verdict\": \"effective within measured budget and scheduling tolerance\"\n    },\n    {\n      \"boundary\": \"active abort receipt exclusion\",\n      \"verdict\": \"effective in source and regression\"\n    },\n    {\n      \"boundary\": \"schema/nonce/digest/source binding\",\n      \"verdict\": \"effective within trusted mailbox boundary\"\n    },\n    {\n      \"boundary\": \"500-skill readiness or promotion\",\n      \"verdict\": \"not evaluated\"\n    }\n  ],\n  \"evidenceReferences\": [\n    \"timeout-audit.json\",\n    \"timeout-audit-tests.log\",\n    \"timeout-measurements.json\",\n    \"src/v80-host-benchmark-executor.ts\",\n    \"src/v80-codex-host-bridge.ts\",\n    \"tests/v80-v42-instruction-loader.test.ts\"\n  ],\n  \"verificationChecks\": [\n    \"Audit reflects evidence without claiming forced-stop or loader deadline guarantees.\",\n    \"Independent six-test rerun passed.\"\n  ],\n  \"openItems\": [\n    \"No full 500-skill campaign.\",\n    \"Similarity unmeasured; placeholders cannot support promotion.\",\n    \"KROM review reported blocked by automatic approval; no independent KROM PASS claim.\",\n    \"No deployment or production conclusion.\"\n  ],\n  \"rollback\": \"No source mutation by reviewer. Retain existing code revert and disposable mailbox cleanup plan.\"\n}",
+      "sha256": "c437e9951d0e95fcafec1cf3d6d0d72734260fae81b4fe8aa720cbef66cf1fa4"
+    },
+    {
+      "caseId": "timeout-policy",
+      "kind": "security",
+      "content": "{\n  \"status\": \"PASS\",\n  \"validatorRole\": \"independent security/QA reviewer\",\n  \"sourceCommit\": \"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\n  \"requestId\": \"b7d9275c-ad94-49a7-bb87-7b3786e4e1ad\",\n  \"requestDigest\": \"97b974fbc5dc5c1dfc990f36b6db5609a06e3cb52625f90fd18f3db8258eb23f\",\n  \"reviewedAuditSha256\": \"78e076b22ac82f41a18ede87471713d0d3cb05129ddd96f777bca2fb5e06264f\",\n  \"reviewedAt\": \"2026-10-07T19:11:56.299391+00:00\",\n  \"scope\": \"Accurate local executor-wait timeout/cancellation audit and schema binding only\",\n  \"validatorPass\": true,\n  \"securityPass\": true,\n  \"executionClaim\": false,\n  \"facts\": [\n    \"Read full second live request and its exact skill instruction.\",\n    \"Verified current HEAD e1774d5ef8eefc8063d60c4012e674d6083a95f0 and clean source tree.\",\n    \"Reviewed fresh supplied 13-test log and timeout measurements with explicit FIXTURE origin.\",\n    \"Independently reran six loader/runner tests, including unresponsive execute callback timeout and active abort: 6/6 PASS.\",\n    \"Measured evidence reports 45.42ms for 30ms timeout budget plus 1000ms tolerance, 12.35ms abort wait, zero receipts for both negatives.\",\n    \"Reviewed source corroborates deadline race, signal propagation, post-return abort check, binding comparison and abort-listener cleanup.\"\n  ],\n  \"assumptions\": [\n    \"Event loop remains schedulable.\",\n    \"Local mailbox writer and filesystem are trusted.\",\n    \"Source stays unchanged after clean identity check.\"\n  ],\n  \"findings\": [\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"loader deadline\",\n      \"verdict\": \"not guaranteed\",\n      \"detail\": \"Instruction loading occurs before execution race, and cannot inherit this bounded PASS.\"\n    },\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"external side effects\",\n      \"verdict\": \"not guaranteed\",\n      \"detail\": \"Abort stops waiting, not arbitrary third-party execution; no rollback or forced termination proven.\"\n    },\n    {\n      \"priority\": \"P2\",\n      \"boundary\": \"authenticity\",\n      \"verdict\": \"trusted only\",\n      \"detail\": \"Binding prevents accidental cross-request reuse but cannot detect fabricated replies from trusted local writers.\"\n    },\n    {\n      \"priority\": \"P3\",\n      \"boundary\": \"test scope\",\n      \"verdict\": \"bounded\",\n      \"detail\": \"Fixture measurements exercise control logic; they are not independent actual skill executions or evidence about deployed MCP.\"\n    }\n  ],\n  \"decisionTable\": [\n    {\n      \"boundary\": \"nonresponsive executor wait\",\n      \"verdict\": \"effective within measured budget and scheduling tolerance\"\n    },\n    {\n      \"boundary\": \"active abort receipt exclusion\",\n      \"verdict\": \"effective in source and regression\"\n    },\n    {\n      \"boundary\": \"schema/nonce/digest/source binding\",\n      \"verdict\": \"effective within trusted mailbox boundary\"\n    },\n    {\n      \"boundary\": \"500-skill readiness or promotion\",\n      \"verdict\": \"not evaluated\"\n    }\n  ],\n  \"evidenceReferences\": [\n    \"timeout-audit.json\",\n    \"timeout-audit-tests.log\",\n    \"timeout-measurements.json\",\n    \"src/v80-host-benchmark-executor.ts\",\n    \"src/v80-codex-host-bridge.ts\",\n    \"tests/v80-v42-instruction-loader.test.ts\"\n  ],\n  \"verificationChecks\": [\n    \"Audit reflects evidence without claiming forced-stop or loader deadline guarantees.\",\n    \"Independent six-test rerun passed.\"\n  ],\n  \"openItems\": [\n    \"No full 500-skill campaign.\",\n    \"Similarity unmeasured; placeholders cannot support promotion.\",\n    \"KROM review reported blocked by automatic approval; no independent KROM PASS claim.\",\n    \"No deployment or production conclusion.\"\n  ],\n  \"rollback\": \"No source mutation by reviewer. Retain existing code revert and disposable mailbox cleanup plan.\"\n}",
+      "sha256": "c437e9951d0e95fcafec1cf3d6d0d72734260fae81b4fe8aa720cbef66cf1fa4"
+    },
+    {
+      "caseId": "timeout-policy",
+      "kind": "tool-log",
+      "content": "✔ bridge binds response: valid (72.953448ms)\n✔ bridge binds response: requestId (64.968316ms)\n✔ bridge binds response: requestDigest (58.228978ms)\n✔ bridge binds response: sourceCommit (56.346994ms)\n✔ bridge binds response: instructionHash (78.565996ms)\n✔ bridge times out without a host (57.485564ms)\n✔ bridge cancellation prevents late evidence (16.521589ms)\n✔ v4.3 loader preserves exact bytes, new hash, and legacy unproven value (9.888338ms)\n✔ v4.3 rejects invalid UTF-8 and preserves newline bytes (0.954749ms)\n✔ v4.3 preserves a UTF-8 BOM as content and hashes it (0.41917ms)\n✔ runner rejects modified text even when adapter reports trusted hashes (11.996456ms)\n✔ runner rejects version or contract mismatch before execution (4.311798ms)\n✔ timeout and cancellation stop an executor that ignores AbortSignal (33.234645ms)\nℹ tests 13\nℹ suites 0\nℹ pass 13\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 782.267786\n\n{\n  \"sourceCommit\": \"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\n  \"testEvidenceOrigin\": \"FIXTURE\",\n  \"timeoutElapsedMs\": 45.42180199999996,\n  \"abortElapsedMs\": 12.346383999999944,\n  \"timeoutFailures\": [\n    {\n      \"caseId\": \"nonresponsive\",\n      \"reason\": \"HOST_CASE_TIMEOUT\"\n    }\n  ],\n  \"abortBlockers\": [\n    \"HOST_EXECUTION_ABORTED\"\n  ],\n  \"receipts\": [\n    0,\n    0\n  ],\n  \"pass\": true\n}",
+      "sha256": "67c41245e38c605065408aa63cb66c1fe5686b8584ef0b3a86977f5abb2511c5"
+    },
+    {
+      "caseId": "timeout-policy",
+      "kind": "host-transport",
+      "content": "{\"requestId\":\"b7d9275c-ad94-49a7-bb87-7b3786e4e1ad\",\"requestDigest\":\"97b974fbc5dc5c1dfc990f36b6db5609a06e3cb52625f90fd18f3db8258eb23f\",\"sourceCommit\":\"e1774d5ef8eefc8063d60c4012e674d6083a95f0\",\"instructionHash\":\"3297f0bdf3723a2c1a6a8944233f1dca0b70de9c0232f93f359be743816563c8\",\"responseHash\":\"d4ac88a0f41155f02c04f1924b56491b24951c819ee8f6cebd7025d759a79029\",\"executor\":\"codex-interactive\",\"trustBoundary\":\"local trusted operator; not signed remote attestation\"}",
+      "sha256": "35f47e7b2383b15488d06aa403eda2c965500d87fa279a36bafa91d409a15327"
+    }
+  ],
+  "verification": {
+    "release": "v80",
+    "phase": "real-benchmark-evidence-pipeline",
+    "status": "PASS",
+    "benchmarkId": "v43-codex-interactive-sample-20261007",
+    "manifestDigest": "627998e75c14533141fc4f18b82b4aacd893a155cdb06dfaa6fb914ca1030d30",
+    "manifestFailures": [],
+    "submittedReceipts": 2,
+    "verifiedReceipts": 2,
+    "rejectedReceipts": 0,
+    "duplicateReceiptCaseIds": [],
+    "missingManifestCases": [],
+    "evaluations": [
+      {
+        "caseId": "repair-claims",
+        "skillName": "kfg-v4-0180-repair-claim-evidence-auditor",
+        "verified": true,
+        "failures": [],
+        "missingEvidenceKinds": [],
+        "receiptDigest": "b27364cc8b16d0df81b0e23feb779e4ab0e93fa494c3f01f2293991275042f66",
+        "receipt": {
+          "benchmarkId": "v43-codex-interactive-sample-20261007",
+          "caseId": "repair-claims",
+          "skillName": "kfg-v4-0180-repair-claim-evidence-auditor",
+          "manifestCaseDigest": "795504cb8ca965ae2070ae09c7a413c5d885e4c0a3340371a36e16d2b35767e4",
+          "hostExecutionId": "872aa8c4-50d3-44b3-bdd7-a375a61d4d74",
+          "evidenceOrigin": "HOST_EXECUTION",
+          "executionPerformed": true,
+          "sourceRef": "git:e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+          "evidenceRefs": [
+            "sha256:728f0442e1bf28aa4ff11f403744ee997a5bcec58d2fefde4bbb7e8d9872a806",
+            "sha256:a286e71c45430a6bc514f5c1d210925c2fa650513e186fd19a738fe873ca82b4",
+            "sha256:a286e71c45430a6bc514f5c1d210925c2fa650513e186fd19a738fe873ca82b4",
+            "sha256:17f9177d7c99c87b07bac2055452681610e25b1cb9e78e1c9ed5607fdf8d62b3",
+            "sha256:bb79807671188d55a0c592eaca022038c3284778a88d000cbde8f1490098a561"
+          ],
+          "evidenceKinds": [
+            "result",
+            "validator",
+            "security",
+            "tool-log",
+            "host-transport"
+          ],
+          "outcome": "PASS",
+          "validatorPass": true,
+          "securityPass": true,
+          "unsupportedClaim": false,
+          "regressionDetected": false,
+          "latencyMs": 152782.590208,
+          "semanticSimilarity": 1,
+          "proceduralSimilarity": 1,
+          "specializationDistinct": false,
+          "hostAttestation": "host-adapter:872aa8c4-50d3-44b3-bdd7-a375a61d4d74",
+          "instructionHashContract": "krom-instruction-raw-utf8-v1"
+        }
+      },
+      {
+        "caseId": "timeout-policy",
+        "skillName": "kfg-v4-0297-mcp-tool-timeout-policy",
+        "verified": true,
+        "failures": [],
+        "missingEvidenceKinds": [],
+        "receiptDigest": "6d1be4d53e452e07ae0099411a7eb6a1ac9f8921edd6da9cf5149d1b81030030",
+        "receipt": {
+          "benchmarkId": "v43-codex-interactive-sample-20261007",
+          "caseId": "timeout-policy",
+          "skillName": "kfg-v4-0297-mcp-tool-timeout-policy",
+          "manifestCaseDigest": "2bec396e3856312ae98cc9e66f4ca8f487c3b853e725f1e58244f7aef3fd7110",
+          "hostExecutionId": "b6d39da6-5f29-4371-a189-9f4aa467c6ef",
+          "evidenceOrigin": "HOST_EXECUTION",
+          "executionPerformed": true,
+          "sourceRef": "git:e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+          "evidenceRefs": [
+            "sha256:38e42103f9ddbefd581c1b1e5529cea403975818e24e7f2da17f275d0d7355e2",
+            "sha256:c437e9951d0e95fcafec1cf3d6d0d72734260fae81b4fe8aa720cbef66cf1fa4",
+            "sha256:c437e9951d0e95fcafec1cf3d6d0d72734260fae81b4fe8aa720cbef66cf1fa4",
+            "sha256:67c41245e38c605065408aa63cb66c1fe5686b8584ef0b3a86977f5abb2511c5",
+            "sha256:35f47e7b2383b15488d06aa403eda2c965500d87fa279a36bafa91d409a15327"
+          ],
+          "evidenceKinds": [
+            "result",
+            "validator",
+            "security",
+            "tool-log",
+            "host-transport"
+          ],
+          "outcome": "PASS",
+          "validatorPass": true,
+          "securityPass": true,
+          "unsupportedClaim": false,
+          "regressionDetected": false,
+          "latencyMs": 199652.319827,
+          "semanticSimilarity": 1,
+          "proceduralSimilarity": 1,
+          "specializationDistinct": false,
+          "hostAttestation": "host-adapter:b6d39da6-5f29-4371-a189-9f4aa467c6ef",
+          "instructionHashContract": "krom-instruction-raw-utf8-v1"
+        }
+      }
+    ],
+    "verifiedReceiptDigests": [
+      "b27364cc8b16d0df81b0e23feb779e4ab0e93fa494c3f01f2293991275042f66",
+      "6d1be4d53e452e07ae0099411a7eb6a1ac9f8921edd6da9cf5149d1b81030030"
+    ],
+    "realHostExecutionEvidencePresent": true,
+    "externalExecutionPerformedByPipeline": false,
+    "repositoryMutationApplied": false,
+    "runtimeCatalogMutationApplied": false,
+    "deploymentMutationApplied": false,
+    "executionClaim": false
+  },
+  "evidenceOrigin": "HOST_EXECUTION",
+  "promotionApplied": false,
+  "repositoryMutationApplied": false,
+  "deploymentMutationApplied": false
+}

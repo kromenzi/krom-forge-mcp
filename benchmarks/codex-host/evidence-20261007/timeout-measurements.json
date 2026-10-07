@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+  "testEvidenceOrigin": "FIXTURE",
+  "timeoutElapsedMs": 45.42180199999996,
+  "abortElapsedMs": 12.346383999999944,
+  "timeoutFailures": [
+    {
+      "caseId": "nonresponsive",
+      "reason": "HOST_CASE_TIMEOUT"
+    }
+  ],
+  "abortBlockers": [
+    "HOST_EXECUTION_ABORTED"
+  ],
+  "receipts": [
+    0,
+    0
+  ],
+  "pass": true
+}

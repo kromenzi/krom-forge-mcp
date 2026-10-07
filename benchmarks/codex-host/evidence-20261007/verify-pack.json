@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "count": 500,
+  "manifestSkillFiles": 500,
+  "actualSkillFiles": 500,
+  "rawHashMatches": 500,
+  "utf8Valid": 500,
+  "legacyPreserved": 500,
+  "vectorMatches": 500,
+  "excludedSupabase": true,
+  "adapterExecutionAvailable": null,
+  "hostExecutionEvidenceEvaluated": false,
+  "decision": "CONDITIONAL",
+  "blockers": [
+    "HOST_EXECUTION_EVIDENCE_NOT_EVALUATED_BY_PACK_CHECK"
+  ],
+  "note": "PASS proves package/loader integrity only; it is not execution evidence for the 500 skills."
+}
