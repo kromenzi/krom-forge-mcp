@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0047-tenant-key-propagation-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4429a0081838be8719e338a417a928fb5fb69bf9fbdaa97f861e41600db642b7",
+  "rawFileHash": "4429a0081838be8719e338a417a928fb5fb69bf9fbdaa97f861e41600db642b7",
+  "legacyInstructionHash": "aa3f5ffdbf6e5dc9c74b035cbf2221d7464222e9d2ff2126bb9317cc177d79c4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7398
+}

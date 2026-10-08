@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0245-source-to-target-control-total",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "39df0c7e3eb40346b292f9ca0867e451721b97e1122b70c259126c000a303b06",
+  "rawFileHash": "39df0c7e3eb40346b292f9ca0867e451721b97e1122b70c259126c000a303b06",
+  "legacyInstructionHash": "3d20e757434c751be97d1ba6af9a926cee7a7c24f5364ee08f7d24eb0f6f23e3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7274
+}

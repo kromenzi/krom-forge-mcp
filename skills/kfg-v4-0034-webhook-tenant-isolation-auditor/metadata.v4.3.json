@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0034-webhook-tenant-isolation-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6185b6d72d2136cc2eac88a34922caf7e05ed44c71b713f74f66749e16312035",
+  "rawFileHash": "6185b6d72d2136cc2eac88a34922caf7e05ed44c71b713f74f66749e16312035",
+  "legacyInstructionHash": "e6df2d768f06ecf0073378c812cc28db9e8308bdd24264f7f85b66543c824756",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7443
+}

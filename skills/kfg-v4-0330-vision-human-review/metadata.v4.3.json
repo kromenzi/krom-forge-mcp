@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0330-vision-human-review",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "30cefebfb6b70ab398793de886f4e6db04da7876ac6c1db51ce89849dde8ddf2",
+  "rawFileHash": "30cefebfb6b70ab398793de886f4e6db04da7876ac6c1db51ce89849dde8ddf2",
+  "legacyInstructionHash": "76db6d4075963f4b98b574203b099e173ab06defd5550e7205a4eb0038eebb84",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7188
+}

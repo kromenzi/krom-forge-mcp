@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0221-presence-state-reconciliation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fd94796edce2bf85919708cbc011650bb4f14cff0e6fbb5704cf3f39dfaee650",
+  "rawFileHash": "fd94796edce2bf85919708cbc011650bb4f14cff0e6fbb5704cf3f39dfaee650",
+  "legacyInstructionHash": "d6d64f9728d82ef1233e35e9321cb36d3c270c0fccd96b6b2daca041629a6eb1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7390
+}

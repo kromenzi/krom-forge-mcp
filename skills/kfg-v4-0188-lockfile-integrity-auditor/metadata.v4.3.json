@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0188-lockfile-integrity-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "00640b27608b3ce94c495cfcf5669919971a531e30ac6ee0788e0b72e7265a87",
+  "rawFileHash": "00640b27608b3ce94c495cfcf5669919971a531e30ac6ee0788e0b72e7265a87",
+  "legacyInstructionHash": "f416cf1741c157c39ac2c33ee713318ac67d086c9988b5aa392e18c7e237c74d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7508
+}

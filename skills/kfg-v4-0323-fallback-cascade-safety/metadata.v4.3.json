@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0323-fallback-cascade-safety",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e3ee6381300ee948a8d21cfcd90d99f2ce5317cd143588f04ce551709df4ae72",
+  "rawFileHash": "e3ee6381300ee948a8d21cfcd90d99f2ce5317cd143588f04ce551709df4ae72",
+  "legacyInstructionHash": "9b4fdf669bcb20ddea2fe6fa9e3f59490e6004022e0acc136b8c51cc7a951370",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7321
+}

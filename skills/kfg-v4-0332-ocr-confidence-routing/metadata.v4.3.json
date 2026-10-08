@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0332-ocr-confidence-routing",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4a4b624c22d0521077246364dac25b1bba29264a3c613303c6b65a4441f42685",
+  "rawFileHash": "4a4b624c22d0521077246364dac25b1bba29264a3c613303c6b65a4441f42685",
+  "legacyInstructionHash": "2411e64dad7929c6e4dbc5401e24cfbff70301a8f339370e28a51c4438ebcb17",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7178
+}

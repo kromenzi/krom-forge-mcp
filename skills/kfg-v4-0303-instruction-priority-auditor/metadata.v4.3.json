@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0303-instruction-priority-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "da61522ee1c0207f9d7b168e9ce106055516b277ad98ea7c5a466074dd0c151c",
+  "rawFileHash": "da61522ee1c0207f9d7b168e9ce106055516b277ad98ea7c5a466074dd0c151c",
+  "legacyInstructionHash": "c204fb7416619299c2155a73b0915c567860ac1b1c456dcb2dfef80da5ddae39",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7528
+}

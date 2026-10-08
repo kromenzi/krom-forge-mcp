@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0402-work-order-genealogy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ef3f00367cacda1e3b7d86ff4aaae23aafb839a7aa52f88e509717bdb0891cad",
+  "rawFileHash": "ef3f00367cacda1e3b7d86ff4aaae23aafb839a7aa52f88e509717bdb0891cad",
+  "legacyInstructionHash": "2f98bfccb44e80b2cad7eb83d045b04ede98d77faaf2718675d9473cb2986484",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7294
+}

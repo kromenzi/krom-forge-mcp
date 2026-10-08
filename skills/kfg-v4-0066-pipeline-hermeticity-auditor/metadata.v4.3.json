@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0066-pipeline-hermeticity-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a4295d723db62388329d654934d786335e24efc0422d8c3b6d1efadfa17ee10b",
+  "rawFileHash": "a4295d723db62388329d654934d786335e24efc0422d8c3b6d1efadfa17ee10b",
+  "legacyInstructionHash": "9ee6aba2436f7ec1aa7d1ac61eacd300949c7dfc89a717a7d5c056d7dac4badb",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7459
+}

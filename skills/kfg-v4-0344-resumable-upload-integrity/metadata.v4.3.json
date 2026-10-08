@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0344-resumable-upload-integrity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "680ef904cd1369d283f4c38e2bd51ed3a8e1ea5fa7ffe66655b6b403fe44f008",
+  "rawFileHash": "680ef904cd1369d283f4c38e2bd51ed3a8e1ea5fa7ffe66655b6b403fe44f008",
+  "legacyInstructionHash": "32f2179413dcef20898e9a4233c5bb8b89d24a70c8303c561eb08af5c58b8350",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7257
+}

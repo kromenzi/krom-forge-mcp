@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0032-delivery-ordering-reconciler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "00e72f6f98ce2d28f6bfeaa5a148310ecbde76a68b7332ccb1d6f5fd85c943b0",
+  "rawFileHash": "00e72f6f98ce2d28f6bfeaa5a148310ecbde76a68b7332ccb1d6f5fd85c943b0",
+  "legacyInstructionHash": "d085c74715ea808546b8efda201e561f7bac4f9321475d6125854c29d3c9864c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7341
+}

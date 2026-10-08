@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0476-otit-data-diode-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4aa6bd8602c1571dc8c323fe1de74a2f1df3ceb920ed10082cbe016055bb142f",
+  "rawFileHash": "4aa6bd8602c1571dc8c323fe1de74a2f1df3ceb920ed10082cbe016055bb142f",
+  "legacyInstructionHash": "71204d4905bfb7ec316074fab520a815bc1751b420e00f889a1052aa7906b19b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7116
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0197-image-layer-secret-scanner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "935b384f5d2924401a62b054710e657aaaa975d260c9e0adb5ca00b94db1aa10",
+  "rawFileHash": "935b384f5d2924401a62b054710e657aaaa975d260c9e0adb5ca00b94db1aa10",
+  "legacyInstructionHash": "11da66d9d7dddaa21413dd27a498bbc095ca1796a8276f527fb54ce745f91b6b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7252
+}

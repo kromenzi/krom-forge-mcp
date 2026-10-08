@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0498-regional-failover-drill",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ac7bd8e8ceeac4993bfdc13c6d6926000713236ac789cecd61b6c78fb1c1fd5d",
+  "rawFileHash": "ac7bd8e8ceeac4993bfdc13c6d6926000713236ac789cecd61b6c78fb1c1fd5d",
+  "legacyInstructionHash": "4b284969fb9e7054e9becba1cc4abe10eddae847b7f566368a73b4a7e3ccee9b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7340
+}

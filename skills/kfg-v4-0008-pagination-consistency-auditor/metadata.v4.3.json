@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0008-pagination-consistency-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d2d1f573ab3597a742c25ac1766ca1f0836ee66e55c1c74089f7ee8461072152",
+  "rawFileHash": "d2d1f573ab3597a742c25ac1766ca1f0836ee66e55c1c74089f7ee8461072152",
+  "legacyInstructionHash": "7517fa4168f612cb64b07b4f0c07d047a8ed081d163417174817c3220c1e7304",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7440
+}

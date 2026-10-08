@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0389-arabic-mixed-script-security",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0dea641dec45450320959b3098e5ba9b6b124e44b0b122be5df9a985def1ee16",
+  "rawFileHash": "0dea641dec45450320959b3098e5ba9b6b124e44b0b122be5df9a985def1ee16",
+  "legacyInstructionHash": "c9c872c33808afa08712323f25cf1869385193e4422b5bc280aa2754f4f70fc5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7278
+}

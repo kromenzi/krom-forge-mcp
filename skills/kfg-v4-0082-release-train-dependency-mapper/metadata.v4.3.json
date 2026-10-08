@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0082-release-train-dependency-mapper",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3fd59995c879fe663375237dad54c9a8201ab9861c23eb79209a003d3ecaac6a",
+  "rawFileHash": "3fd59995c879fe663375237dad54c9a8201ab9861c23eb79209a003d3ecaac6a",
+  "legacyInstructionHash": "4092decac2a106688c1efb2bcc6db71780e9cd1c8a7570716b18ef52bf9742ca",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7353
+}

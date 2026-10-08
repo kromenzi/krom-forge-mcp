@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0427-supply-plan-constraint",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b302b022ee2926d936dd7289848b7d50b96fc25c4e47a2610c62302da6e69f2d",
+  "rawFileHash": "b302b022ee2926d936dd7289848b7d50b96fc25c4e47a2610c62302da6e69f2d",
+  "legacyInstructionHash": "dba2666ef1f227ae411fccf537967623d45b6c2d2aa54683f6839de86fc0472b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7254
+}

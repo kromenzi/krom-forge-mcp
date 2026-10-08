@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0040-step-up-authentication-orchestrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "79f969194a48c2ee3b8c8f83d6297ea15b2ef57b346404342da63d7b1582ad63",
+  "rawFileHash": "79f969194a48c2ee3b8c8f83d6297ea15b2ef57b346404342da63d7b1582ad63",
+  "legacyInstructionHash": "3f65bdd16a0f1cba2685800ab34663d0b49d46ecf0525dc6baed1567d1aa9397",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7410
+}

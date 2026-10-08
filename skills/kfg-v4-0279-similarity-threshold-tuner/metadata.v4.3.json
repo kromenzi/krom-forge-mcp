@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0279-similarity-threshold-tuner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5c794d364226a2828031ab3718aa62cb67aa33a401cd3d5a20b6120a4ee5e1b2",
+  "rawFileHash": "5c794d364226a2828031ab3718aa62cb67aa33a401cd3d5a20b6120a4ee5e1b2",
+  "legacyInstructionHash": "71b54958ed20eb05c6dbdb752331e1761cf02b652d2c71030667f8caf6357324",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7280
+}

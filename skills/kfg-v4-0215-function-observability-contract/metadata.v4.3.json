@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0215-function-observability-contract",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "05ff889076dcc40de63076d4805088657d982b9fcc010dc3a10420568413fe84",
+  "rawFileHash": "05ff889076dcc40de63076d4805088657d982b9fcc010dc3a10420568413fe84",
+  "legacyInstructionHash": "fefcf128fb1148077b38edc9f59068fa69b6f1ef9d7983979592168db3ad28eb",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7505
+}

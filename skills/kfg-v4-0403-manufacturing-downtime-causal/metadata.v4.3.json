@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0403-manufacturing-downtime-causal",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7292a550cb06984302504acbc88c1faab5161a9d8a27be6a43e54a8281d77c48",
+  "rawFileHash": "7292a550cb06984302504acbc88c1faab5161a9d8a27be6a43e54a8281d77c48",
+  "legacyInstructionHash": "ed105bc3efd2f9064020cd71e75c2e3b55b88d35f26f012070056159a037677a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7435
+}

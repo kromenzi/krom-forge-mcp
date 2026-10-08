@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0321-model-capability-router",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cd101cc3b2a0516729ef3fb3f156f32f303d67ad591333069fb489e0a44df3f5",
+  "rawFileHash": "cd101cc3b2a0516729ef3fb3f156f32f303d67ad591333069fb489e0a44df3f5",
+  "legacyInstructionHash": "f06d447dd3f01c76e3a45d169963b5f5b976071cff95e4744c79e10ac3916ff3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7356
+}

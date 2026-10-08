@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0036-passkey-enrollment-recovery",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "bdd5b155d50b16bce4a9349bfa6830357b62f677c9251ec530bb0621735e73b5",
+  "rawFileHash": "bdd5b155d50b16bce4a9349bfa6830357b62f677c9251ec530bb0621735e73b5",
+  "legacyInstructionHash": "ad9629c36ea67da714ee2c02bd2f9b6a550060f0250e468836dbd863234d0363",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7295
+}

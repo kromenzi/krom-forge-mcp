@@ -1,0 +1,38 @@
+{
+  "release": "v4.3",
+  "contract": "krom-instruction-raw-utf8-v1",
+  "skills": 500,
+  "supabaseSeparateExcluded": true,
+  "legacyInstructionHash": {
+    "retained": 500,
+    "status": "LEGACY_UNPROVEN",
+    "source": "KROM Forge v4.2 supplied manifest.json; retained without revalidation"
+  },
+  "independentVerification": {
+    "rawHashMatches": 500,
+    "utf8Valid": 500,
+    "testVectors": 500
+  },
+  "tests": {
+    "regression": 333,
+    "typescript": "PASS",
+    "verifyV80": "PASS",
+    "productionBuild": "PASS",
+    "bomPreservation": "PASS",
+    "invalidUtf8Rejection": "PASS",
+    "manifestActualSkillFileComparison": "PASS"
+  },
+  "hostBenchmarkDecision": "CONDITIONAL",
+  "hostBenchmarkBlocker": "NO_REGISTERED_REAL_V80_TRUSTED_HOST_EXECUTOR; KROM_FORGE_OAUTH_LEGACY_SSE_INITIALIZE_4XX",
+  "hostExecutionClaim": false,
+  "merge": false,
+  "deploy": false,
+  "canaryOrStablePromotion": false,
+  "verifiedAt": "2026-10-07T01:20:06.592842Z",
+  "hostAdapterFactoryPresentButUnbound": true,
+  "sourceCommit": "8da4a02653cd4562c52344862da934f4d68f566f",
+  "changesCommit": null,
+  "changesCommitStatus": "UNCOMMITTED_WORKTREE",
+  "changesetStatusDigest": "d83da53f1a4da2f6f0a2cf7b25e12eb8a20357bd5a0f133746d760f467cedf93",
+  "packageSkillFiles": 500
+}

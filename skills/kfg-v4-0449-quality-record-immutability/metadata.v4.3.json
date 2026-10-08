@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0449-quality-record-immutability",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "caf6b3b827089a40107582e990176ca240bbed9cfdd49b299497882fc3533ca6",
+  "rawFileHash": "caf6b3b827089a40107582e990176ca240bbed9cfdd49b299497882fc3533ca6",
+  "legacyInstructionHash": "b419e0439a3448e726d00e0337d1f8ba8a0a70290a1d3a0eaa06d0451e41e1c1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7350
+}

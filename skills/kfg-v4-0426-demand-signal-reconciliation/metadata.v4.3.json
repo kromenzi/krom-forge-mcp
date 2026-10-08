@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0426-demand-signal-reconciliation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cdae07eb48d1d64e42371b353878ed3440a39aed72d83be0b6e7316b7fb804cc",
+  "rawFileHash": "cdae07eb48d1d64e42371b353878ed3440a39aed72d83be0b6e7316b7fb804cc",
+  "legacyInstructionHash": "2898c663c73329e542354a7caf089e50cdca1e3730add2e255ccf25e480b69b8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7289
+}

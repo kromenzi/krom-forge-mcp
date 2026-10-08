@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0076-preview-production-parity-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "02b5afa74f8ca51bad8ac76c5414cc19ebf65fde69e9581b858a1b5dc91dd9a1",
+  "rawFileHash": "02b5afa74f8ca51bad8ac76c5414cc19ebf65fde69e9581b858a1b5dc91dd9a1",
+  "legacyInstructionHash": "431dd89f8e7c2700a07651db1de23b423cc4716b868e892341a25978661c39bf",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7469
+}

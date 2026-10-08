@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0252-cohort-definition-reconciler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "83cbb0adde9bee6ed21b22ffc5a60f5a541ca336c59a7c495add78be40cab737",
+  "rawFileHash": "83cbb0adde9bee6ed21b22ffc5a60f5a541ca336c59a7c495add78be40cab737",
+  "legacyInstructionHash": "6c28aabcddaa095128579273202d4e6b53e32183936246c05a022cb83f499dd0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7406
+}

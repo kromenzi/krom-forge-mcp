@@ -1,0 +1,21 @@
+✔ bridge binds response: valid (72.953448ms)
+✔ bridge binds response: requestId (64.968316ms)
+✔ bridge binds response: requestDigest (58.228978ms)
+✔ bridge binds response: sourceCommit (56.346994ms)
+✔ bridge binds response: instructionHash (78.565996ms)
+✔ bridge times out without a host (57.485564ms)
+✔ bridge cancellation prevents late evidence (16.521589ms)
+✔ v4.3 loader preserves exact bytes, new hash, and legacy unproven value (9.888338ms)
+✔ v4.3 rejects invalid UTF-8 and preserves newline bytes (0.954749ms)
+✔ v4.3 preserves a UTF-8 BOM as content and hashes it (0.41917ms)
+✔ runner rejects modified text even when adapter reports trusted hashes (11.996456ms)
+✔ runner rejects version or contract mismatch before execution (4.311798ms)
+✔ timeout and cancellation stop an executor that ignores AbortSignal (33.234645ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 782.267786

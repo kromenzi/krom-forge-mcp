@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0264-ml-experiment-reproducibility",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "76fcdfcf9081bd822e8d95c76884e89c88673d751fcd47b56fd0c410c7c4fb71",
+  "rawFileHash": "76fcdfcf9081bd822e8d95c76884e89c88673d751fcd47b56fd0c410c7c4fb71",
+  "legacyInstructionHash": "e1cc5cf00bbdb15910b30ab0c11858190dc4e847efe8b0cb5ae4a668868dcf29",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7320
+}

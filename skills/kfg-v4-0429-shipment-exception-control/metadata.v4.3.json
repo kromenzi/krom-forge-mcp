@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0429-shipment-exception-control",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "85d74d718c5996cbb69ac4804b6fd436dc4e06e0f8445eac5ac5bdb6ef77d5ca",
+  "rawFileHash": "85d74d718c5996cbb69ac4804b6fd436dc4e06e0f8445eac5ac5bdb6ef77d5ca",
+  "legacyInstructionHash": "c26b8e2e7dff02be17a0bbc700305d7f0f7bb0aca9afebb3980071a8f3455a68",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7315
+}

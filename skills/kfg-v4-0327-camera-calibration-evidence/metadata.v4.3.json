@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0327-camera-calibration-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d0c25d3d2350c9a4b7f2caceab279fc3ad217e336d58eb626657858e22af1908",
+  "rawFileHash": "d0c25d3d2350c9a4b7f2caceab279fc3ad217e336d58eb626657858e22af1908",
+  "legacyInstructionHash": "26a12f86eca45110395149e407124a5ab85e8562b1be94d250e552b88a8e33ca",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7311
+}

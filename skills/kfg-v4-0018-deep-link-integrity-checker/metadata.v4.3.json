@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0018-deep-link-integrity-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "360c136059ffead7a798358ae20a51d33a36bf2557419a1c35ac202b6ed82048",
+  "rawFileHash": "360c136059ffead7a798358ae20a51d33a36bf2557419a1c35ac202b6ed82048",
+  "legacyInstructionHash": "8fbf85395a4ce5ba6f920bdf69a09f165cb70c2aeb378f863c43d6d571593bd0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7384
+}

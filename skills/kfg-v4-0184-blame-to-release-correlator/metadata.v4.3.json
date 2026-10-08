@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0184-blame-to-release-correlator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5e43cd276805ee285561e597feee2a10d50093d4980dfd92384ba8358d9e9687",
+  "rawFileHash": "5e43cd276805ee285561e597feee2a10d50093d4980dfd92384ba8358d9e9687",
+  "legacyInstructionHash": "aae89c481c0f96daa3a4334d2b70969de8a69f827642f17cb0f75c4de9cc6842",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7265
+}

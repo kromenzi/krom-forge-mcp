@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0259-semantic-model-change-impact",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d0aaab8e689b41db238bcd5fc82afca453b3f4c7b13aa679eb350369b708d64e",
+  "rawFileHash": "d0aaab8e689b41db238bcd5fc82afca453b3f4c7b13aa679eb350369b708d64e",
+  "legacyInstructionHash": "bceb20750c9b80f209f550f28693a8fd90fde1cb6f1f45dc26d5791dfcf9d652",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7298
+}

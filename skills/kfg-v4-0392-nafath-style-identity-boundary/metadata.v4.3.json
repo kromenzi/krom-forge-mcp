@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0392-nafath-style-identity-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8def58137e03c23e26c796f7cfcb1fc244d2f41155cdd5626743ff4b8d2631c1",
+  "rawFileHash": "8def58137e03c23e26c796f7cfcb1fc244d2f41155cdd5626743ff4b8d2631c1",
+  "legacyInstructionHash": "78ded14a7ec9c765d1c34aeeba564db702f9be5654b8878d293544118c236f36",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7441
+}

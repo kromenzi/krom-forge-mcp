@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0145-cross-boundary-failure-injection",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "010c25fca76dab5a77963dae75e9aebcb56abd371b1040a0f2411b8cdb7f6957",
+  "rawFileHash": "010c25fca76dab5a77963dae75e9aebcb56abd371b1040a0f2411b8cdb7f6957",
+  "legacyInstructionHash": "8906c217baf7e11918be3c35f40a8924e25551088e242a792d39da67060d0500",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7618
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0095-telemetry-retention-cost-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2c0b3ac85b2628fc287d9372ceff0bddd6c98ca6cc1701d5857e3460f12b0da2",
+  "rawFileHash": "2c0b3ac85b2628fc287d9372ceff0bddd6c98ca6cc1701d5857e3460f12b0da2",
+  "legacyInstructionHash": "927846906a403c2ad503b8cabbe8b697e92d67925b1764ac0b51da12c7c888b9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7434
+}

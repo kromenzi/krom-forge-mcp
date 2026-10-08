@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0292-consensus-disagreement-handler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8a42346aa2be38e03b38f822fdc31f181f792bb868bf39f3b55cd212380f3348",
+  "rawFileHash": "8a42346aa2be38e03b38f822fdc31f181f792bb868bf39f3b55cd212380f3348",
+  "legacyInstructionHash": "7c8a91bb004fcad615f6a25e4321b7c8c7ac3ae3ca7faee62dd0890f4576785a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7345
+}

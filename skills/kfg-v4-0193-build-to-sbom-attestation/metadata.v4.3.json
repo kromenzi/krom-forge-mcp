@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0193-build-to-sbom-attestation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "23106bf249e8b79e64ce3a9c49fc3cf34b1ff5789aa439248bc6745e093d08c3",
+  "rawFileHash": "23106bf249e8b79e64ce3a9c49fc3cf34b1ff5789aa439248bc6745e093d08c3",
+  "legacyInstructionHash": "2fca1e85b5042186b27dbaee997d702b96b17a01886bc735ac0bceb2a507afb8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7204
+}

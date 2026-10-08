@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0073-artifact-attestation-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a04bab2beeb64d5602724ccc1112e9a924468cf1fb5f3f552d930bcf15fb721f",
+  "rawFileHash": "a04bab2beeb64d5602724ccc1112e9a924468cf1fb5f3f552d930bcf15fb721f",
+  "legacyInstructionHash": "f3f92e0f22b3d2838bc10eab608d319c6bb3653f4804676201bba3b5c851b511",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7491
+}

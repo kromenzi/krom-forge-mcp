@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0341-path-traversal-boundary",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c5e4d9f18fe23bfa9744da86cd332e22aaf272db6edefc4cfe4ebc1fc515b11c",
+  "rawFileHash": "c5e4d9f18fe23bfa9744da86cd332e22aaf272db6edefc4cfe4ebc1fc515b11c",
+  "legacyInstructionHash": "47303cda3a8880ea61aa7ff7778ae8aca2266a818edeb1a8cbd3f67bfe8a3daf",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7341
+}

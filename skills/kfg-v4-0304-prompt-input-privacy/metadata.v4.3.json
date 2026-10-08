@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0304-prompt-input-privacy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e3f593965f1d949deaf2f286ee915b1dd9bff8f1f874faa650ea36f55e2bf13a",
+  "rawFileHash": "e3f593965f1d949deaf2f286ee915b1dd9bff8f1f874faa650ea36f55e2bf13a",
+  "legacyInstructionHash": "e5b46fdaa8a6b335003d6dc2f26fbcba9162303d8529d3fae93a768dc41bd54f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7254
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0180-repair-claim-evidence-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3e1982929cf3878575cb093d0490a521d6e90423cb2e34c8734fcfd9149c2463",
+  "rawFileHash": "3e1982929cf3878575cb093d0490a521d6e90423cb2e34c8734fcfd9149c2463",
+  "legacyInstructionHash": "29146d4291f3812a2316333c2885a0010d6eee0b8ca2f917c5ba601221e942dd",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7451
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0418-financial-close-control",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b7cee3bad16546418ad04d59503b9b0bd5799d092ef13d736d843df1a8ebb79c",
+  "rawFileHash": "b7cee3bad16546418ad04d59503b9b0bd5799d092ef13d736d843df1a8ebb79c",
+  "legacyInstructionHash": "a4e6a64473dab99d105fa244f16c6e5ede4237965970d2b35cdb38734453adb5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7250
+}

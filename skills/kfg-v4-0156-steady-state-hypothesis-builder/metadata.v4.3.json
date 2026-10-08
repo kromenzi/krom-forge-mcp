@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0156-steady-state-hypothesis-builder",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f7105b113ed05ecabefb5b1c42ee00b394dc6fd6b98edfd23139cf59bf98e94e",
+  "rawFileHash": "f7105b113ed05ecabefb5b1c42ee00b394dc6fd6b98edfd23139cf59bf98e94e",
+  "legacyInstructionHash": "cc59db4898cf9ad85db53440b57718aad57fefee938f2aa2652fb8476f5bc66f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7256
+}

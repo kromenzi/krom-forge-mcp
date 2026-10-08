@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0139-deterministic-clock-test-harness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "84215a5a3f1cbc93c07b30b2a51c6e084c9559da07e567e815b9058664ab4d1d",
+  "rawFileHash": "84215a5a3f1cbc93c07b30b2a51c6e084c9559da07e567e815b9058664ab4d1d",
+  "legacyInstructionHash": "592c5a98451b42abe12bfb2817db911791d15a690fdca06766a9eb62d22b26bb",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7337
+}

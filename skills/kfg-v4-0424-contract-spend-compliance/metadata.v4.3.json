@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0424-contract-spend-compliance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b52efc2716b1e9f0bdabf8e3732fc8c85f1e31405bc94c6423f4b19b6f835e6d",
+  "rawFileHash": "b52efc2716b1e9f0bdabf8e3732fc8c85f1e31405bc94c6423f4b19b6f835e6d",
+  "legacyInstructionHash": "f3cfb5b0ccc8ace12efb89226afc26616e50d87e0e38cebdea45fcf09c01348e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7392
+}

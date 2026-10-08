@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0354-spreadsheet-protected-range",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3e23e4302980e9bca5630ae5c984a145f11ef70bfed121b259cc3429493527d1",
+  "rawFileHash": "3e23e4302980e9bca5630ae5c984a145f11ef70bfed121b259cc3429493527d1",
+  "legacyInstructionHash": "0aec75fdf4e4fc80df507e93e4a9e27604e602ac144a183f44cda57b8816dea1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7313
+}

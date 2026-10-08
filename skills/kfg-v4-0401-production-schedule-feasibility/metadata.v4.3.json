@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0401-production-schedule-feasibility",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "661e926162123ff5ae9d38e8397461274df5aa4fbd78bf84dc80ab57695e7f81",
+  "rawFileHash": "661e926162123ff5ae9d38e8397461274df5aa4fbd78bf84dc80ab57695e7f81",
+  "legacyInstructionHash": "d3d2e6ff14bc663bf61fe34294e8c4fb202099584b5585ed2fa33d69226417c6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7464
+}

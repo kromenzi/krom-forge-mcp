@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0315-safety-incident-replay",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4c92ad33ba935fc17d2c01392cbee5b6dcb51b7917fc33ac432c0ba348678a7f",
+  "rawFileHash": "4c92ad33ba935fc17d2c01392cbee5b6dcb51b7917fc33ac432c0ba348678a7f",
+  "legacyInstructionHash": "ce835182bcfb03fd88c109ca8ef2b10f97f252f9c0e6efc8ef205dc57c44211e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7240
+}

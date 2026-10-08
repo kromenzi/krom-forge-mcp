@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0460-asbuilt-document-control",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cf1823b9b52fc7c581b12cf4e48f4c16d5228577573ffb57aa2993c1a3ee2329",
+  "rawFileHash": "cf1823b9b52fc7c581b12cf4e48f4c16d5228577573ffb57aa2993c1a3ee2329",
+  "legacyInstructionHash": "85d973bcc46ead979987b8c882c1579f64d76e9b32668e2f43698ac2a8bcb474",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7338
+}

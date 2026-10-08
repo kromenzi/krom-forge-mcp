@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0251-metric-semantic-layer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c3360b901bbb5001f9ddd753fa06471562021e8f4fb8564d051c8dcbc3611748",
+  "rawFileHash": "c3360b901bbb5001f9ddd753fa06471562021e8f4fb8564d051c8dcbc3611748",
+  "legacyInstructionHash": "45a6265c217df5f5a4902129c197b20b42c024534f339dbcb148752b6a2736cf",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7300
+}

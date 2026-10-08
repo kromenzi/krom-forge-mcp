@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0013-optimistic-ui-conflict-resolver",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9b36d72dc387200b39c2fda1e5096ebe5b9cc09a188cb95bdd9544529674c489",
+  "rawFileHash": "9b36d72dc387200b39c2fda1e5096ebe5b9cc09a188cb95bdd9544529674c489",
+  "legacyInstructionHash": "a2c75e3c60ecc058852c29014eec98c8e8162596851c631f46ae73690d2b2670",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7319
+}

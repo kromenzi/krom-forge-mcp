@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0142-database-transaction-test-isolation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "37ea0918dfd3414c96c6268a20315f679ed1aab45b58c6865dbd602aedc049d2",
+  "rawFileHash": "37ea0918dfd3414c96c6268a20315f679ed1aab45b58c6865dbd602aedc049d2",
+  "legacyInstructionHash": "f41a389d5b997085376a17f2b7fd61b6210741b4a2aa73a540dc04c98286f33e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7580
+}

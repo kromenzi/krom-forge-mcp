@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "baseUrl": "http://127.0.0.1:3000",
+  "health": {
+    "version": "79.0.0",
+    "environment": "production",
+    "gitSha": null,
+    "region": null
+  },
+  "authNegativeVerified": false,
+  "mcpGetStatus": 405,
+  "protocolVersion": "2025-06-18",
+  "toolsListCount": 15,
+  "toolsCallSuccessCount": 4,
+  "toolsCallUnknownToolRejected": true,
+  "tools": [
+    "krom_audit_ui",
+    "krom_decide_release",
+    "krom_describe_capability",
+    "krom_dispatch_capability",
+    "krom_evaluate_production_readiness",
+    "krom_evaluate_security_assessment",
+    "krom_get_capabilities",
+    "krom_inspect_project",
+    "krom_plan_code_change",
+    "krom_route_workflow",
+    "krom_search_capabilities",
+    "krom_v77_build_native_mission_plan",
+    "krom_v77_mission_control",
+    "krom_v78_autonomous_governance",
+    "krom_verify_evidence"
+  ]
+}

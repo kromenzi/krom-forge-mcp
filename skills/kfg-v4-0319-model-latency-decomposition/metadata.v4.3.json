@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0319-model-latency-decomposition",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a68a12f830b98ced179b945d82305377b8e1d4a953541f0229cb07e4de5ca341",
+  "rawFileHash": "a68a12f830b98ced179b945d82305377b8e1d4a953541f0229cb07e4de5ca341",
+  "legacyInstructionHash": "8e400ae5edcaa394ea92e197b0d651bd766af80a7a9cd58920bc42ac50200fa5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7400
+}

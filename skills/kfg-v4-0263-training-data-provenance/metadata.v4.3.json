@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0263-training-data-provenance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e548864ad47c68864a2542c50290a4242b6dc77053ba9128c264b38c07a1477b",
+  "rawFileHash": "e548864ad47c68864a2542c50290a4242b6dc77053ba9128c264b38c07a1477b",
+  "legacyInstructionHash": "c87892a39a59f0dc72ce39593bd51069f92f2b28c3beaa11bdcca4e03a3696a9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7244
+}

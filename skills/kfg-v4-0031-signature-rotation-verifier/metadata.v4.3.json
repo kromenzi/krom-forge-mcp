@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0031-signature-rotation-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "487b6756e9398cba788136af67d3e50ec6491fe5f3e3f6f2885bc5eba9491d16",
+  "rawFileHash": "487b6756e9398cba788136af67d3e50ec6491fe5f3e3f6f2885bc5eba9491d16",
+  "legacyInstructionHash": "c0e0496e38c8ec6b134334f32bb545aee0df1515f43105b0d172292378855f9c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7371
+}

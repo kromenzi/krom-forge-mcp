@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0007-backpressure-contract-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fdb975751baa88c1d0e7921d1717b575ce90439f1d9a6dd5a03da25db0554a6c",
+  "rawFileHash": "fdb975751baa88c1d0e7921d1717b575ce90439f1d9a6dd5a03da25db0554a6c",
+  "legacyInstructionHash": "69bd9bdc8e64391f2b8bfca6732a0e8be8e56c11fab6ee0ef6cf353f32db1d83",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7355
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0204-resource-request-calibrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "161932c4dd661ae3e96c817b5a9bcc9941128f8ab77028bbe5992085f132f6c1",
+  "rawFileHash": "161932c4dd661ae3e96c817b5a9bcc9941128f8ab77028bbe5992085f132f6c1",
+  "legacyInstructionHash": "7d9d3b41e680e6007becf411bea1d7754aa6335a1940f3df44cb273c5f74e881",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7344
+}

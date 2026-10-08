@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0109-consumer-lag-causal-analyzer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e0c0a10a2b5969b6205dbb66cbeac00d2e313cb25c0b93263aa6e5913aa92b7e",
+  "rawFileHash": "e0c0a10a2b5969b6205dbb66cbeac00d2e313cb25c0b93263aa6e5913aa92b7e",
+  "legacyInstructionHash": "91061e92da14d18c241ae5aa59d0f9bca84fce09bbdef2d58f7b024e77ab0970",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7196
+}

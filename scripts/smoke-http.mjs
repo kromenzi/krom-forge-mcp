@@ -139,6 +139,29 @@ async function main() {
     if (!names.has(required)) throw new Error(`Required v79 public tool missing from tools/list: ${required}`);
   }
 
+  const toolCalls = [
+    ['krom_get_capabilities', {}],
+    ['krom_search_capabilities', { query: 'project snapshot', limit: 3 }],
+    ['krom_describe_capability', { tool: 'krom_inspect_project' }],
+    ['krom_dispatch_capability', { tool: 'krom_get_capabilities', input: {} }]
+  ];
+  for (const [index, [name, args]] of toolCalls.entries()) {
+    const response = await postMcp({ jsonrpc: '2.0', id: 10 + index, method: 'tools/call', params: { name, arguments: args } }, sessionId);
+    const body = await readJson(response);
+    if (!response.ok || body?.error || body?.result?.isError) {
+      throw new Error(`MCP tools/call failed for ${name}: HTTP ${response.status} ${JSON.stringify(body)}`);
+    }
+  }
+
+  const unknownToolResponse = await postMcp({
+    jsonrpc: '2.0', id: 20, method: 'tools/call',
+    params: { name: 'krom_nonexistent_smoke_test', arguments: {} }
+  }, sessionId);
+  const unknownTool = await readJson(unknownToolResponse);
+  if (!unknownToolResponse.ok || unknownTool?.error?.code !== -32602) {
+    throw new Error(`MCP tools/call unknown-tool rejection failed: ${JSON.stringify(unknownTool)}`);
+  }
+
   console.log(JSON.stringify({
     ok: true,
     baseUrl,
@@ -152,6 +175,8 @@ async function main() {
     mcpGetStatus: mcpGetResponse.status,
     protocolVersion: initialize?.result?.protocolVersion ?? null,
     toolsListCount: tools.length,
+    toolsCallSuccessCount: toolCalls.length,
+    toolsCallUnknownToolRejected: true,
     tools: [...names].sort()
   }, null, 2));
 }

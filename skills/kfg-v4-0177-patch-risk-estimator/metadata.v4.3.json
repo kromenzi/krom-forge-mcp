@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0177-patch-risk-estimator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ab07b4ced8436a28190af825a6a11d7e3b76bc88ca30fd6342accc137a06acc2",
+  "rawFileHash": "ab07b4ced8436a28190af825a6a11d7e3b76bc88ca30fd6342accc137a06acc2",
+  "legacyInstructionHash": "fdcfd6a6283c7ca83b93c7768a5d991106b4e2b48ef1d404ce94c1a22cdcce45",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7297
+}

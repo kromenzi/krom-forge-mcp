@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0433-asset-criticality-model",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3ff5c9c5875079172ccb2d540818e2b2be83e870109b2424dc420a9f0fe82b4e",
+  "rawFileHash": "3ff5c9c5875079172ccb2d540818e2b2be83e870109b2424dc420a9f0fe82b4e",
+  "legacyInstructionHash": "c9019d11132bf1a71305dd0c1e73b465fdd873895af4102109977366817abb27",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7214
+}

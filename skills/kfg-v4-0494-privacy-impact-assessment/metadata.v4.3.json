@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0494-privacy-impact-assessment",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2ddb1f61604a72250dd9134e32850ba2d883b906a9db776eaf791f0f2daf699a",
+  "rawFileHash": "2ddb1f61604a72250dd9134e32850ba2d883b906a9db776eaf791f0f2daf699a",
+  "legacyInstructionHash": "8933ba4f89bc9a9fc6e6876844d2e469534caa4d8906ed8e0d5d344fecae3278",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7274
+}

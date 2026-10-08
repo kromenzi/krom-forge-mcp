@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0260-decision-log-dashboard-linker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ed45285d461fcde6c134a508b585119f3336223abc02a0fe8dbe22c68fdbbf23",
+  "rawFileHash": "ed45285d461fcde6c134a508b585119f3336223abc02a0fe8dbe22c68fdbbf23",
+  "legacyInstructionHash": "6f4576145c17fc5b93a2a60818ed6fdbc38b134142014da7405646157ebb5e83",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7250
+}

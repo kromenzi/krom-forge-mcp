@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0098-p99-regression-gate",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c428a9be5a8d55d85b90787680d40c0d1ddcd98198dd63001bd5bc3d7b30a892",
+  "rawFileHash": "c428a9be5a8d55d85b90787680d40c0d1ddcd98198dd63001bd5bc3d7b30a892",
+  "legacyInstructionHash": "208cc33950a500e84d6c2e650789a03aaef9894ddbde22d94adf8a6ab4eedfd8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7256
+}

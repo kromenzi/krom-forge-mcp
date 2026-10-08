@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0337-document-field-lineage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "67d27938a70c3ed49ef116886a71eb69b3669fc653c24d044f4f77f6a15d7b5c",
+  "rawFileHash": "67d27938a70c3ed49ef116886a71eb69b3669fc653c24d044f4f77f6a15d7b5c",
+  "legacyInstructionHash": "3c9c7f85b58b482a25eff950b7c81a6fd523aa80cf210a4c0bef138288201fc5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7295
+}

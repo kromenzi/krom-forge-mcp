@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0333-arabic-ocr-normalization",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "212fe268235fc72ca6c8e3ca5967cc08f4402ae1281ada48a50432c37a9fe25f",
+  "rawFileHash": "212fe268235fc72ca6c8e3ca5967cc08f4402ae1281ada48a50432c37a9fe25f",
+  "legacyInstructionHash": "ecde2075bfd3e9ac8af26cd1e71be805d16a49352b36ca9b7d1632d276792a6e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7202
+}

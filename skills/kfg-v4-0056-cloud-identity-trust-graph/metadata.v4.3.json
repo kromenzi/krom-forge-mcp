@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0056-cloud-identity-trust-graph",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5a6fc70fabe31689ad8e8998abbb6fca19e15e1fa52673fb023ad1a91cfc6a40",
+  "rawFileHash": "5a6fc70fabe31689ad8e8998abbb6fca19e15e1fa52673fb023ad1a91cfc6a40",
+  "legacyInstructionHash": "fc36634b86d4565b9f00cc9facafa17fb479de0a4726e388339d29feca9c7c8f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7241
+}

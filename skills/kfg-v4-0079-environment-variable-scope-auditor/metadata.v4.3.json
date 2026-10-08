@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0079-environment-variable-scope-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1fcc147375a0d82a428373891fbeb70c334d44dc96af5cfb1772ae917619034c",
+  "rawFileHash": "1fcc147375a0d82a428373891fbeb70c334d44dc96af5cfb1772ae917619034c",
+  "legacyInstructionHash": "8e77b0afb0b4b17eea9812eb3846e8a7da48fa309b063bc4812f2448f8278e4a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7470
+}

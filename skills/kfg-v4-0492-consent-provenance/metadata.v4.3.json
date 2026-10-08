@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0492-consent-provenance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b9359957e161efea57d4510f478655b83a695d02216ddab62190c753c00d891c",
+  "rawFileHash": "b9359957e161efea57d4510f478655b83a695d02216ddab62190c753c00d891c",
+  "legacyInstructionHash": "9b0ef45f5c42f0a40b47128b6e0b38281bc71f1031957a97ed4491696965af0b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7187
+}

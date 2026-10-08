@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0396-permit-to-work-state-model",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4f4716452226d6780625febc04a73cc93c2568c6b96d69a81643c9f4e99e2809",
+  "rawFileHash": "4f4716452226d6780625febc04a73cc93c2568c6b96d69a81643c9f4e99e2809",
+  "legacyInstructionHash": "a43450144e8d86155113e7fb34675465ae2d1f64d84e95dc6c8336eb421bfe6f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7224
+}

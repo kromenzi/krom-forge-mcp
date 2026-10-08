@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0383-pluralization-rule-audit",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "52b21044c4b60925dd4a42f83fef33a34ad5dc87bf1bd7609faeccf81734879e",
+  "rawFileHash": "52b21044c4b60925dd4a42f83fef33a34ad5dc87bf1bd7609faeccf81734879e",
+  "legacyInstructionHash": "ab59320c44700d435ab262970b35fb1435e22bf8548ddcd4900d384e0341d11c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7273
+}

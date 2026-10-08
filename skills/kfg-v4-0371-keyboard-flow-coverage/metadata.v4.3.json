@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0371-keyboard-flow-coverage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "dee98d960909e55dc6d68281e8db1f3f165cbb0efc8e406dad573314db63c441",
+  "rawFileHash": "dee98d960909e55dc6d68281e8db1f3f165cbb0efc8e406dad573314db63c441",
+  "legacyInstructionHash": "84ed73c883f82c4a2649551fe79c297474575a6ed882383ff99203498e8156d6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7255
+}

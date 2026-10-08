@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0224-realtime-authorization-recheck",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "80acd888a289496f52e0650eb2a0a8ada21b947c715f4396bb48f3c666058ef4",
+  "rawFileHash": "80acd888a289496f52e0650eb2a0a8ada21b947c715f4396bb48f3c666058ef4",
+  "legacyInstructionHash": "9b0514186b4a4dd8fbdec4afff4cc79f7f7138a5902afcbbaf490dc26f67c803",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7440
+}

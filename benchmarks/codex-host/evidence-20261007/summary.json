@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-10-07T19:13:52.015144+00:00",
+  "sourceCommit": "e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+  "sampleExecutedSkills": 2,
+  "totalSkills": 500,
+  "verifiedReceipts": 2,
+  "artifactHashesVerified": 10,
+  "remainingSkillsNotExecuted": 498,
+  "fullCampaignStatus": "NOT_RUN",
+  "promotionApplied": false,
+  "deploymentApplied": false,
+  "githubUpload": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "kromExternalReview": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "tests": 341,
+  "build": "PASS_WEBPACK",
+  "packHashMatches": 500,
+  "similarity": "UNMEASURED_CONSERVATIVE_PLACEHOLDERS",
+  "trust": "Interactive Codex session, trusted local operator; no remote signed attestation"
+}

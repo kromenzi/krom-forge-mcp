@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0348-pdf-signature-validation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "403588a85cc01fa12fddf5256b5eaa2f38c54bbb7548b717ccdd56da1f9d4d40",
+  "rawFileHash": "403588a85cc01fa12fddf5256b5eaa2f38c54bbb7548b717ccdd56da1f9d4d40",
+  "legacyInstructionHash": "3d6b5ddc88222458a10aa4f0d172fa1c77c6e652d0c4eb6c80cdbd55f10fd38d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7153
+}

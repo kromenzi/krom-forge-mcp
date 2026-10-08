@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0365-streaming-startup-budget",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9df22fab832f5e44f8e88985599c97ea6c46b63d41ff1db34b2f69e7edc52a64",
+  "rawFileHash": "9df22fab832f5e44f8e88985599c97ea6c46b63d41ff1db34b2f69e7edc52a64",
+  "legacyInstructionHash": "10132efa709661dad1a64e46ceced185590d5038658ed1cc2852e2be003e5f71",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7257
+}

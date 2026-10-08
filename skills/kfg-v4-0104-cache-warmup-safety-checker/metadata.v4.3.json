@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0104-cache-warmup-safety-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a5dbe2e6a003744bfd965cf3610101fea4168e9a7ed0b4de2024443d83e96bf1",
+  "rawFileHash": "a5dbe2e6a003744bfd965cf3610101fea4168e9a7ed0b4de2024443d83e96bf1",
+  "legacyInstructionHash": "c7433bb24f5265eb652a1d2f958b7f168b33824496a0dde8c86ee5b8e9e2b88f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7262
+}

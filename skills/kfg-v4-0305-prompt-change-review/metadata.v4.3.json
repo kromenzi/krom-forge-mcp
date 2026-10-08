@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0305-prompt-change-review",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d9d820e7554abbfd277bc11a2b83ef896b8e54e6500fb5145cf129f4979f3ebc",
+  "rawFileHash": "d9d820e7554abbfd277bc11a2b83ef896b8e54e6500fb5145cf129f4979f3ebc",
+  "legacyInstructionHash": "df0a79bb1343391b090a70f2070e4e100794674ea4c90e57e8a6ed62d063d878",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7253
+}

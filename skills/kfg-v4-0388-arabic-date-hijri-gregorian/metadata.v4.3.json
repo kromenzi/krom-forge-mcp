@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0388-arabic-date-hijri-gregorian",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6ba09e9064504b8e42ae51f34e8b2ff51e59dfdf88407920e8e6cc4018d1d1b6",
+  "rawFileHash": "6ba09e9064504b8e42ae51f34e8b2ff51e59dfdf88407920e8e6cc4018d1d1b6",
+  "legacyInstructionHash": "db039c04827771e666df11bfa1457e52d6bc25382ed428ba59c36f26e1c4d350",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7271
+}

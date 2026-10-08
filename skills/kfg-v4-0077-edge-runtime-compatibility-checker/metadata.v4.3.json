@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0077-edge-runtime-compatibility-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "68baf0a2dec2f0d65d0ffcee50c7a651e4dc566aaba619e8896bf4583b02d11e",
+  "rawFileHash": "68baf0a2dec2f0d65d0ffcee50c7a651e4dc566aaba619e8896bf4583b02d11e",
+  "legacyInstructionHash": "1f6d084a4d78aee472a878ae32cc23c5bb9f4be929b52b40e9df9f624fcbe19f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7429
+}

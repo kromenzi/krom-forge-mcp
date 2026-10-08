@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0320-ai-quality-slo",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9118f1be3f248ed136d6b70b459d611ceebfea27e76d9b94bce9dac3c4c7cd00",
+  "rawFileHash": "9118f1be3f248ed136d6b70b459d611ceebfea27e76d9b94bce9dac3c4c7cd00",
+  "legacyInstructionHash": "4f46860f2ac5e76427be7f9b8127b4e6cfd6000901d88010e1bf1bc97a561177",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7187
+}

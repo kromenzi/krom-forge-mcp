@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0195-unknown-component-quarantine",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "83b464fdab6a635136cc3e9576dfd09e2724b97cdc00ff28811e93e4d04d793a",
+  "rawFileHash": "83b464fdab6a635136cc3e9576dfd09e2724b97cdc00ff28811e93e4d04d793a",
+  "legacyInstructionHash": "71c40c3bb0e0a933907243aa35ee119a6be8b2a6336f91f7f206bdfe6bc744f3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7356
+}

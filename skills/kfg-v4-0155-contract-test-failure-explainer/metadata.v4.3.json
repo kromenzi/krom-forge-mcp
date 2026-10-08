@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0155-contract-test-failure-explainer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1f7030084a6a9cf8b75ec3e59a25e163cfe0459ed31ffc6424e686e567b167e0",
+  "rawFileHash": "1f7030084a6a9cf8b75ec3e59a25e163cfe0459ed31ffc6424e686e567b167e0",
+  "legacyInstructionHash": "81b5d2bd6f09ef84d292770ece513a603cf409b730ae2716267dfcb1f1a00912",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7409
+}

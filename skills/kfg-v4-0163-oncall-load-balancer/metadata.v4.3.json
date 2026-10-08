@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0163-oncall-load-balancer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6e02c2a65e056e076820383ccb08216baee9aca89bd45a94f8afa120b56c145e",
+  "rawFileHash": "6e02c2a65e056e076820383ccb08216baee9aca89bd45a94f8afa120b56c145e",
+  "legacyInstructionHash": "f9ed1ed4537494b8787db69f007c473e15b2873bbc3ce9c67bc11b8b5b776882",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7248
+}

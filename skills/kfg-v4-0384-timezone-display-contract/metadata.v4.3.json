@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0384-timezone-display-contract",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3912af8236e2e89088efe2ac380cae68c616a9b187056ecdb966dd0e8ce1d08b",
+  "rawFileHash": "3912af8236e2e89088efe2ac380cae68c616a9b187056ecdb966dd0e8ce1d08b",
+  "legacyInstructionHash": "77e273011e215290644ece80c8c8328a85d813420f09042f1179afd23d1b74f7",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7311
+}

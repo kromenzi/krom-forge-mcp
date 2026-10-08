@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0091-trace-context-propagation-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "00491c031ebfd3e75fbe91af0c9ec9d213237286794f95fdeff1f93a5765ddb5",
+  "rawFileHash": "00491c031ebfd3e75fbe91af0c9ec9d213237286794f95fdeff1f93a5765ddb5",
+  "legacyInstructionHash": "88a6704657577b65be8437c874e9ac0ea496d38d84e5fd5a90e0f71be18af2b5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7531
+}

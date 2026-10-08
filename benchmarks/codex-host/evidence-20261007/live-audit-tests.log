@@ -1,0 +1,27 @@
+✔ bridge binds response: valid (91.308764ms)
+✔ bridge binds response: requestId (61.316162ms)
+✔ bridge binds response: requestDigest (56.309194ms)
+✔ bridge binds response: sourceCommit (57.500963ms)
+✔ bridge binds response: instructionHash (66.324254ms)
+✔ bridge times out without a host (56.521524ms)
+✔ bridge cancellation prevents late evidence (15.961099ms)
+✔ host execution blocks when adapter is absent (9.517699ms)
+✔ metadata alone cannot execute a skill with incorrect instruction bytes (1.028577ms)
+✔ tampered manifest blocks before calling the host (0.867185ms)
+✔ aborted host execution produces no receipt (0.731183ms)
+✔ host receipts bind artifact bytes and fixtures stay ineligible (10.732363ms)
+✔ runner removes abort listeners after a completed case (18.372866ms)
+✔ v4.3 loader preserves exact bytes, new hash, and legacy unproven value (9.130716ms)
+✔ v4.3 rejects invalid UTF-8 and preserves newline bytes (1.040113ms)
+✔ v4.3 preserves a UTF-8 BOM as content and hashes it (0.277733ms)
+✔ runner rejects modified text even when adapter reports trusted hashes (14.286494ms)
+✔ runner rejects version or contract mismatch before execution (5.115565ms)
+✔ timeout and cancellation stop an executor that ignores AbortSignal (35.850853ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 781.581863

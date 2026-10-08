@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0121-clock-skew-impact-analyzer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0cd22369b6485aadc0371e16d87bb1b2346e63d80ea2ca49ce3dc492ad7449a9",
+  "rawFileHash": "0cd22369b6485aadc0371e16d87bb1b2346e63d80ea2ca49ce3dc492ad7449a9",
+  "legacyInstructionHash": "f06450b04102aef7a98f0daabbbf08fc7cfa8a5a6cb4eeedda2cf53c77d061fe",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7241
+}

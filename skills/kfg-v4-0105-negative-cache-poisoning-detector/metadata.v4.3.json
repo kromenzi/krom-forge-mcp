@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0105-negative-cache-poisoning-detector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "636ee4596f86e488f5f99c6db0114d2822a8b77bc3d899ec2d64a5ca0dd50fa5",
+  "rawFileHash": "636ee4596f86e488f5f99c6db0114d2822a8b77bc3d899ec2d64a5ca0dd50fa5",
+  "legacyInstructionHash": "1e7a77d0056841adcccdbadf3526f214bbcf820739d6c1df8a486de40bd7d32c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7330
+}

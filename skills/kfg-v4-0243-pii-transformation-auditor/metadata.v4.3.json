@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0243-pii-transformation-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2962e74923766e066012f36480882dee06e0cc7271ccf190463c8228f13026ed",
+  "rawFileHash": "2962e74923766e066012f36480882dee06e0cc7271ccf190463c8228f13026ed",
+  "legacyInstructionHash": "8bf809220f1e2874ebfc72ce12e85dc8f68dabcc897bfb2b9c0be17dfd40397d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7402
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0278-vector-tenant-isolation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8062b513947dc8ac9c96d314870399903c25be83c37652450128d0b245c2794b",
+  "rawFileHash": "8062b513947dc8ac9c96d314870399903c25be83c37652450128d0b245c2794b",
+  "legacyInstructionHash": "78faf4abd9cf9137d410bf38dfd1fb677f2020fa541638f5b1c22cac65e0ee28",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7186
+}

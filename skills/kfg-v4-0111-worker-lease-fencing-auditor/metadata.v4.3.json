@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0111-worker-lease-fencing-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a8a40a8ff24f5ca3904e5339f16d9981291589c35bee5d4ef8fb045ece01d2ab",
+  "rawFileHash": "a8a40a8ff24f5ca3904e5339f16d9981291589c35bee5d4ef8fb045ece01d2ab",
+  "legacyInstructionHash": "d45dbb75cb04de1c0510a3943eac87e243f59fb110d2ec8bfe8e22273f44a704",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7327
+}

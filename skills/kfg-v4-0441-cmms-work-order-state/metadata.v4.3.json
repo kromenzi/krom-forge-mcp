@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0441-cmms-work-order-state",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "80b9a2bd5778a8e9ed1861f31841ade2b6b9d86f7939186bd17fad12d67eea8a",
+  "rawFileHash": "80b9a2bd5778a8e9ed1861f31841ade2b6b9d86f7939186bd17fad12d67eea8a",
+  "legacyInstructionHash": "5ad92c792d919ea9f925a6b81ce43353c994b4b013b33998a8d8332671391249",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7205
+}

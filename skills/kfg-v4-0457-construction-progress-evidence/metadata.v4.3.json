@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0457-construction-progress-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f52619b8290de22ed57fbb23f031793ec1fafa52c56ef633151ffa1dac1a5596",
+  "rawFileHash": "f52619b8290de22ed57fbb23f031793ec1fafa52c56ef633151ffa1dac1a5596",
+  "legacyInstructionHash": "f69487eded6deb4793e7062ceffa4fb497131c8ae897825c9ab87d2e0c50c97d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7447
+}

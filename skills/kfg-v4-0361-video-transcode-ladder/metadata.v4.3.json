@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0361-video-transcode-ladder",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "34d2c743af3ed6bfda9291b7b17dc1d9a9ef23b9d1f9e9fe8c8181e16da58d8d",
+  "rawFileHash": "34d2c743af3ed6bfda9291b7b17dc1d9a9ef23b9d1f9e9fe8c8181e16da58d8d",
+  "legacyInstructionHash": "954f9ebb2b9b77f1bad1a26318bff165568d046bd0a179014bd265a072e0ce51",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7656
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0309-adversarial-prompt-suite",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8e73f36094aed17c01d331b775afd73ca90122078cb9d51ae050a79eb31a071d",
+  "rawFileHash": "8e73f36094aed17c01d331b775afd73ca90122078cb9d51ae050a79eb31a071d",
+  "legacyInstructionHash": "e7f4d332a051e32dcde20d0513cdec9c23095c1d2f6727b1d41e7631f84eecfc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7378
+}

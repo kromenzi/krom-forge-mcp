@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0161-incident-timeline-reconstructor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b3491b240f3d0e8a254f3ed8382c0d9d5cccd193ed72819936f6a9018d1175ed",
+  "rawFileHash": "b3491b240f3d0e8a254f3ed8382c0d9d5cccd193ed72819936f6a9018d1175ed",
+  "legacyInstructionHash": "1688c773ea348acb621164e32db52fde9837ed60c33d0305e603980f86d7b7ce",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7431
+}

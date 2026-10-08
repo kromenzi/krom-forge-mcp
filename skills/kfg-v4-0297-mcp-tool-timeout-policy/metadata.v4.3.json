@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0297-mcp-tool-timeout-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3297f0bdf3723a2c1a6a8944233f1dca0b70de9c0232f93f359be743816563c8",
+  "rawFileHash": "3297f0bdf3723a2c1a6a8944233f1dca0b70de9c0232f93f359be743816563c8",
+  "legacyInstructionHash": "f4b2e93f6895c14a8f4d1088917ffb3563e2609ac188ffb377fa3d68b7978af3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7149
+}

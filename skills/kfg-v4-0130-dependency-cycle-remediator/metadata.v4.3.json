@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0130-dependency-cycle-remediator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "14468c47ca37034299c4c8cdf3790eb13e1805486e52c928ceb6a3f19a85f205",
+  "rawFileHash": "14468c47ca37034299c4c8cdf3790eb13e1805486e52c928ceb6a3f19a85f205",
+  "legacyInstructionHash": "190bed11e66bb3790c596e9ab5d637f2f95f15fe06c77b8bf13a2a53950a4874",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7343
+}

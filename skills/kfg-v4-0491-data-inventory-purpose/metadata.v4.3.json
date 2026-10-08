@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0491-data-inventory-purpose",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "34c65ee826a8a87c130d7e19b136bdc76f40706226b8f7058e57ff4cf4b81a4a",
+  "rawFileHash": "34c65ee826a8a87c130d7e19b136bdc76f40706226b8f7058e57ff4cf4b81a4a",
+  "legacyInstructionHash": "2f8e071480f1557cfa9427b9a876984657e8e187e7ce924144926e220d7ec8ce",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7219
+}

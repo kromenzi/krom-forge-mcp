@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0211-function-concurrency-budgeter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0f81cb7151ec255c52ca19818c9585c50ae7b19c6090538dbb8c9bab6aeb69cb",
+  "rawFileHash": "0f81cb7151ec255c52ca19818c9585c50ae7b19c6090538dbb8c9bab6aeb69cb",
+  "legacyInstructionHash": "614df1474db088eaae734d4029668cc0a840911c8d473c32779d0e4bf6c793e4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7383
+}

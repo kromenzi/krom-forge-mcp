@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0234-snapshot-restore-drill",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "84357df2858e5c09be97d337e0432e553541f730162298f53589660c0d80f244",
+  "rawFileHash": "84357df2858e5c09be97d337e0432e553541f730162298f53589660c0d80f244",
+  "legacyInstructionHash": "dca4bf14edbcfb5bf16d311999d696ddc82bd9511da3d96c495ea69204f7cb3e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7247
+}

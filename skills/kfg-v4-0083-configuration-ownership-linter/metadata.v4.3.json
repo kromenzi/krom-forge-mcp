@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0083-configuration-ownership-linter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5ee3cfba9c46a9d2097700a450d78bc65ddd22521a52d627ab381bbf77df8760",
+  "rawFileHash": "5ee3cfba9c46a9d2097700a450d78bc65ddd22521a52d627ab381bbf77df8760",
+  "legacyInstructionHash": "f4dcd3678c97b998078fab6236583cea34b9ceb0e0856d4ab9bce63bc7116982",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7535
+}

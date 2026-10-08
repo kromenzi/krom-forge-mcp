@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0116-event-schema-compatibility-linter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "094cdb8300d36870b8948acb87a2c5257c95f38ea61ec0632b4674e23ff78a39",
+  "rawFileHash": "094cdb8300d36870b8948acb87a2c5257c95f38ea61ec0632b4674e23ff78a39",
+  "legacyInstructionHash": "09eb2d99255032f168bc6251ae33d41bc1fe9f06d36bffabb91ef1338677cccb",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7398
+}

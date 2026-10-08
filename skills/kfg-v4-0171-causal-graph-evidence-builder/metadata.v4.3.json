@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0171-causal-graph-evidence-builder",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ef3cd5206d8ff7dd5761f9a4e8312feb41edd1955b8db497acf855974595be8d",
+  "rawFileHash": "ef3cd5206d8ff7dd5761f9a4e8312feb41edd1955b8db497acf855974595be8d",
+  "legacyInstructionHash": "9d72247ceb8503c137ff627b8969f0ea61ced0e6bf6e2e110e1a15c379b6a221",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7263
+}

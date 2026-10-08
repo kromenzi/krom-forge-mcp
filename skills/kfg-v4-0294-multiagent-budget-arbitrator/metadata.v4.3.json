@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0294-multiagent-budget-arbitrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d13d74e67c7c69fac3fb007a7daead65cca6a809949b1bb33e306a7e5ec4f17c",
+  "rawFileHash": "d13d74e67c7c69fac3fb007a7daead65cca6a809949b1bb33e306a7e5ec4f17c",
+  "legacyInstructionHash": "9fa1cb19105ca3b5ff57ce1836c7f20ff5f3610869e86c1d4b6ff5633b3bef0a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7364
+}

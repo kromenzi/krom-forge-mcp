@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0475-industrial-network-segmentation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4f5dd2c40cf60afc880cb39eabcaccd48e85133a0234091f61f21d754f5ddfe8",
+  "rawFileHash": "4f5dd2c40cf60afc880cb39eabcaccd48e85133a0234091f61f21d754f5ddfe8",
+  "legacyInstructionHash": "1046022462aeb08480c885b239cffd3b88617c8fb1e624ecf1b6e89a79c765bc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7397
+}

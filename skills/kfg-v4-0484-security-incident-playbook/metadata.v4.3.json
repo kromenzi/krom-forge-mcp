@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0484-security-incident-playbook",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ff522c9850b3c2623eabf20c7c56ff8e6abc264525c1e33487c68c1eccf1de34",
+  "rawFileHash": "ff522c9850b3c2623eabf20c7c56ff8e6abc264525c1e33487c68c1eccf1de34",
+  "legacyInstructionHash": "4199d1e7fafca8345d96eb1024a8689f9cfdcdf484f34055b0214e49462dae76",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7397
+}

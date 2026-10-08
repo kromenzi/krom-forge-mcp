@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0451-critical-path-confidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6d57e85cca11d7c1e66a599dad2ad0ffd0f090d8cd3eb7ef3d7e28203e2e98aa",
+  "rawFileHash": "6d57e85cca11d7c1e66a599dad2ad0ffd0f090d8cd3eb7ef3d7e28203e2e98aa",
+  "legacyInstructionHash": "0cc473296d45211acb0847108ff12d54bd46b0110cfe2f24eee1d8e332a55641",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7348
+}

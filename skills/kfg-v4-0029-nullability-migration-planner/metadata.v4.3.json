@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0029-nullability-migration-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0c8670a57d1c7607050ff71514ddb9373d0f254163b94cc3a77de4aba1d49281",
+  "rawFileHash": "0c8670a57d1c7607050ff71514ddb9373d0f254163b94cc3a77de4aba1d49281",
+  "legacyInstructionHash": "a4afbba3e5fbc07bfb8a13b8760d6eb931cab28f851b205b07996deeda8ddf8b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7422
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0340-document-review-queue",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ed9c0e6e68308961093234a96ec5ce10325dd004ab86f887a4c6c391b5c73e7f",
+  "rawFileHash": "ed9c0e6e68308961093234a96ec5ce10325dd004ab86f887a4c6c391b5c73e7f",
+  "legacyInstructionHash": "262004c31eb7b66640cf2809218a703f220dde17ca5b8716bb25d644e4fb04d5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7238
+}

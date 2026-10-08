@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0217-edge-region-failover-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "849aacc60d789c92fe81f0edb8d210956710f9d50b80b7077b0c45640620285c",
+  "rawFileHash": "849aacc60d789c92fe81f0edb8d210956710f9d50b80b7077b0c45640620285c",
+  "legacyInstructionHash": "3f539218638c0a66a1835fcdb7b4293469f4de51a239de9890c85863dc0843e8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7362
+}

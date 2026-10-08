@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0284-batch-embedding-backfill",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "15875a6fab2d07360e3500cb1a8aece35f0b17aa29c1f8c7af48679e403757c3",
+  "rawFileHash": "15875a6fab2d07360e3500cb1a8aece35f0b17aa29c1f8c7af48679e403757c3",
+  "legacyInstructionHash": "0656a705d43451ac1f21cb9b51a200baa2bb41eaf97d5ef9793b1a8b9ee727e3",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7282
+}

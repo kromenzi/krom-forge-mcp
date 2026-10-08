@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0103-distributed-invalidation-protocol",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "90ade2c4783137cc9f2d53a8346ed4c43c73f2ee6363e90737ed7df9bf034ea2",
+  "rawFileHash": "90ade2c4783137cc9f2d53a8346ed4c43c73f2ee6363e90737ed7df9bf034ea2",
+  "legacyInstructionHash": "16ac908459f6e19ba9b53907ca425066d9699cc1b78442e8251d47d21bf5443c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7287
+}

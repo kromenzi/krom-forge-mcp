@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0439-maintenance-window-optimizer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e54beae00974c0c4d51ee86d7217c82a348f780be6afddbf65cbcee6d0b387c9",
+  "rawFileHash": "e54beae00974c0c4d51ee86d7217c82a348f780be6afddbf65cbcee6d0b387c9",
+  "legacyInstructionHash": "4c5cf65aa66f89a9fc322342d0b902eb77549a198593e714fcaf05e89d80a58b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7384
+}

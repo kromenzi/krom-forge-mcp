@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0004-nfr-budget-negotiator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cf81f862f9405ad7868d6f0d36cca5c28cb41c542a37720fa5e1afbf760ad0ec",
+  "rawFileHash": "cf81f862f9405ad7868d6f0d36cca5c28cb41c542a37720fa5e1afbf760ad0ec",
+  "legacyInstructionHash": "0767a7d48b5e8c2932f420520831d2b9fdf3770fba64dcdb5e1be4b39f910709",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7330
+}

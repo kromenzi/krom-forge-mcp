@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0241-incremental-extract-watermark",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6cc22538b85f0357adae5ca154779bc0ff45b4d13dba9eda8df8874ae0bd231b",
+  "rawFileHash": "6cc22538b85f0357adae5ca154779bc0ff45b4d13dba9eda8df8874ae0bd231b",
+  "legacyInstructionHash": "9823c8c14871d3bd91ee7dd0bfcaa8142854236d884c2100f740d233fb8ebcb0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7358
+}

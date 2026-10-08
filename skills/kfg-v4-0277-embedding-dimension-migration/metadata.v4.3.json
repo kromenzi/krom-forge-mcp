@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0277-embedding-dimension-migration",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "12591e212fd85ce12de92218aa4b04510ae8c19603450c19e59633a33389b3cd",
+  "rawFileHash": "12591e212fd85ce12de92218aa4b04510ae8c19603450c19e59633a33389b3cd",
+  "legacyInstructionHash": "58c511983098b23b52624b137e68faac80fabd2f6071eebf59176dd1646ed333",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7312
+}

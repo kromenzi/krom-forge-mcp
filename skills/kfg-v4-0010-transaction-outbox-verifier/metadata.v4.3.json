@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0010-transaction-outbox-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2eaa642f33e7e886b682cc000bf4af20f01218e584dc6796371e777eeedf3642",
+  "rawFileHash": "2eaa642f33e7e886b682cc000bf4af20f01218e584dc6796371e777eeedf3642",
+  "legacyInstructionHash": "7ccd337bf940f2c054c184cb1852fe08c7e8007376f35c1d6277418d9ce686ba",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7400
+}

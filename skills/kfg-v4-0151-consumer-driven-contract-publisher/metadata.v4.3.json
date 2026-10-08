@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0151-consumer-driven-contract-publisher",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b4dd28d33fd4e3c0ba99e8391acd56baf08a12cf181f004aa4cd40992a7111a9",
+  "rawFileHash": "b4dd28d33fd4e3c0ba99e8391acd56baf08a12cf181f004aa4cd40992a7111a9",
+  "legacyInstructionHash": "f1b616ebd0c73bbee226e5aee86ac56726ec6be4037a92938f3d9983a6299eb8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7542
+}

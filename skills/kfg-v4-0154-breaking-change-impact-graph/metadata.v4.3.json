@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0154-breaking-change-impact-graph",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d8e17837e03480ae75bfaadd7d6e2af6323d9718eb49f788e1df3812e9ccd412",
+  "rawFileHash": "d8e17837e03480ae75bfaadd7d6e2af6323d9718eb49f788e1df3812e9ccd412",
+  "legacyInstructionHash": "818656b7809dd2a44ed4d31bad2d113d3957b1e3704b48a20a5c7a88ca5ed9b5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7438
+}

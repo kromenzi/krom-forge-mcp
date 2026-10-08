@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0249-nullability-drift-detector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "173235b4a0e009950ebc8838470b972001f3e134258de5b5bd47ac375c0c5b1a",
+  "rawFileHash": "173235b4a0e009950ebc8838470b972001f3e134258de5b5bd47ac375c0c5b1a",
+  "legacyInstructionHash": "9d797df4e76f0d0505409cf56d5113e2947dcf7579656277f7c470eedef1a53e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7389
+}

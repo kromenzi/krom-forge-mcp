@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0282-multilingual-embedding-benchmark",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1524f471ab94e27fbccf7db850c4ea4fcb75dfe79cfe47fa72eaf97a689d9200",
+  "rawFileHash": "1524f471ab94e27fbccf7db850c4ea4fcb75dfe79cfe47fa72eaf97a689d9200",
+  "legacyInstructionHash": "a4d642697d9ed64b4cd46ca9fdd7d6584945e7909a0a8f10af07683931639055",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7458
+}

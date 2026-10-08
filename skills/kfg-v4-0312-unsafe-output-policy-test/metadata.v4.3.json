@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0312-unsafe-output-policy-test",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7d5863ac980f06d3be7052d3ee6410f11ebcf32e2926e7eaab227bbde90d5c6a",
+  "rawFileHash": "7d5863ac980f06d3be7052d3ee6410f11ebcf32e2926e7eaab227bbde90d5c6a",
+  "legacyInstructionHash": "dbb2db2d068760ef0797ec7ce0f2d842098a3c0cf219661cf00974e4eadd6f16",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7181
+}

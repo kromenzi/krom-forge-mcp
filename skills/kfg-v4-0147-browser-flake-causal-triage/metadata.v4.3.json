@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0147-browser-flake-causal-triage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9b8fa6e762f6d0f3851acac79f4b2e6c607b29261fbca44a6824bd011c36ba6a",
+  "rawFileHash": "9b8fa6e762f6d0f3851acac79f4b2e6c607b29261fbca44a6824bd011c36ba6a",
+  "legacyInstructionHash": "f51ad3fb14769a768bad24d6c693e9fb7b53c95776c6d950aaab907ce6115453",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7261
+}

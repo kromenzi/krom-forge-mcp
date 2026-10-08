@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0474-ot-asset-inventory",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a48d49469fc1133bcb30e4bf46f5191fecdc1ef9d30230fe0b7d3cf537af5375",
+  "rawFileHash": "a48d49469fc1133bcb30e4bf46f5191fecdc1ef9d30230fe0b7d3cf537af5375",
+  "legacyInstructionHash": "85a3cb0ef01d4ad9c7603e601a533d1032b6bf37603382cba4b2a49420f351ac",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7186
+}

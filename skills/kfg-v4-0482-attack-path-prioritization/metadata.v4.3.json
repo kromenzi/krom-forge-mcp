@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0482-attack-path-prioritization",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "276b7653a575ec9d499e9088677fbe72d2a44d3e441bd6198c5f2d0c92a5bd8b",
+  "rawFileHash": "276b7653a575ec9d499e9088677fbe72d2a44d3e441bd6198c5f2d0c92a5bd8b",
+  "legacyInstructionHash": "7aaf58e1dbeaebfc5e1c04a9b04ecc355ddf067e24f6a797170a5b585818a074",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7379
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0101-cache-key-collision-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "60bd1b4b911f468d63dd4017e9891a761eda24da91a86006efbbf3ef76fd38b1",
+  "rawFileHash": "60bd1b4b911f468d63dd4017e9891a761eda24da91a86006efbbf3ef76fd38b1",
+  "legacyInstructionHash": "65fcbbb0c9b4fddb7dfd3014c750984e02f70b3c7c53ce1681a6691c88a8ba5e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7363
+}

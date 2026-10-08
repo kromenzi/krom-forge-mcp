@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0074-runner-isolation-reviewer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1cac7bbf38b6db1ebf1b609e662fa1f8e2383f77ba0efc80e0ac00255fbe7d0a",
+  "rawFileHash": "1cac7bbf38b6db1ebf1b609e662fa1f8e2383f77ba0efc80e0ac00255fbe7d0a",
+  "legacyInstructionHash": "7dd15765dfe5826d657693ab9791ed7ae3ca3042cb9966c5ccb3b0daf90b3951",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7568
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0135-cross-package-test-selection",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b353cacc847942c1f11889bcbdd01810bfb17543d2740b7559b2f8539c028b43",
+  "rawFileHash": "b353cacc847942c1f11889bcbdd01810bfb17543d2740b7559b2f8539c028b43",
+  "legacyInstructionHash": "8138a9a10d97dfc83de930ab96c8d7e0fb3f1edb1fb8890a07d47f0a1867eef7",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7269
+}

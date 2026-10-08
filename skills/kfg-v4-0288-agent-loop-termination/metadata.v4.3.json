@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0288-agent-loop-termination",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "916fd2663ab4fa788abde38fde622dc72fef18a7d59554aa4ae51a45ad846d58",
+  "rawFileHash": "916fd2663ab4fa788abde38fde622dc72fef18a7d59554aa4ae51a45ad846d58",
+  "legacyInstructionHash": "7c928aeea46ea221d7eccb8a791992350f29ea6926aabbba59f98d983b2efbee",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7275
+}

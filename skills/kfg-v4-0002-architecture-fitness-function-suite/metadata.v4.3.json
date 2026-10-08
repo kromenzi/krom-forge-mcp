@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0002-architecture-fitness-function-suite",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3b50f4ee19ae6fb558d0f5f7bdc3e436ad47a22a083f93f25ce9542440cd1dec",
+  "rawFileHash": "3b50f4ee19ae6fb558d0f5f7bdc3e436ad47a22a083f93f25ce9542440cd1dec",
+  "legacyInstructionHash": "b21ab80e0bc823d8ac4d5c348f608e551857db245bc8e22f9f7ccc4ab98f440f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7576
+}

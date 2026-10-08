@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0386-arabic-search-normalization",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "6468d1a2732ef22733197716fa02d080dea2f7352261ed1b5a390152c938f67c",
+  "rawFileHash": "6468d1a2732ef22733197716fa02d080dea2f7352261ed1b5a390152c938f67c",
+  "legacyInstructionHash": "d26b30b96d21b3f380ff8f05e9cfc1e4a6abd5cb58a481026e761541293cb70c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7333
+}

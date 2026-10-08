@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0038-oauth-consent-drift-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f5b9981653d42fb604e450bb73c88fc8e348005cce82356fb504eb8893cc5029",
+  "rawFileHash": "f5b9981653d42fb604e450bb73c88fc8e348005cce82356fb504eb8893cc5029",
+  "legacyInstructionHash": "677912432ac0fbb00d311154a4699e74b0ea78146b9a3654cf1dae5f17f81e36",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7442
+}

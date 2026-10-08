@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0087-toil-source-classifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d9ade7da756c4b0d7567cd9dd97c98c3ce09d73d654ceada38ada1cb5a749874",
+  "rawFileHash": "d9ade7da756c4b0d7567cd9dd97c98c3ce09d73d654ceada38ada1cb5a749874",
+  "legacyInstructionHash": "83314066bc088b1df92f921adc118ea803bcaaaf4077f2a3ca54cced2298da65",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7189
+}

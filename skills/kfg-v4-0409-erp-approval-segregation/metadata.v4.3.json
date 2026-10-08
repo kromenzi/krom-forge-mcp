@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0409-erp-approval-segregation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7167de0019703e49c00f326066fbe7bdb52a1b0cf775ea33a504619aea2504d7",
+  "rawFileHash": "7167de0019703e49c00f326066fbe7bdb52a1b0cf775ea33a504619aea2504d7",
+  "legacyInstructionHash": "eabb61f81abd7a6cac7bc1f21e45c52fecab855a1e9558f940631c47420d8f4f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7204
+}

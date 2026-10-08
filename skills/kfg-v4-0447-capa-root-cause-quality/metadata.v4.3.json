@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0447-capa-root-cause-quality",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e859122c301653883e77c93fe392821200af5ed286a93ab13989695e0592294f",
+  "rawFileHash": "e859122c301653883e77c93fe392821200af5ed286a93ab13989695e0592294f",
+  "legacyInstructionHash": "af1457f2c27c7f88fde06f2004fda2d971e169230e57b7226b0c5d4f6d91dd64",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7256
+}

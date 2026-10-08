@@ -1,0 +1,53 @@
+{
+  "release": "v80",
+  "phase": "real-benchmark-evidence-pipeline",
+  "benchmarkId": "v43-codex-interactive-sample-20261007",
+  "status": "READY_FOR_HOST_EXECUTION",
+  "createdFrom": "V42_SHADOW_CANDIDATES",
+  "stableCatalogCount": 1465,
+  "promotedV42Count": 0,
+  "caseCount": 2,
+  "cases": [
+    {
+      "benchmarkId": "v43-codex-interactive-sample-20261007",
+      "caseId": "repair-claims",
+      "skillName": "kfg-v4-0180-repair-claim-evidence-auditor",
+      "skillInstructionHash": "3e1982929cf3878575cb093d0490a521d6e90423cb2e34c8734fcfd9149c2463",
+      "primaryAgent": "orchestrator",
+      "validatorAgent": "qa",
+      "scenarioId": "audit-host-bridge-evidence",
+      "scenarioRef": "repo:benchmarks/codex-host/scenarios.md#repair-claims",
+      "expectedEvidenceKinds": [
+        "result",
+        "security",
+        "tool-log",
+        "validator"
+      ],
+      "latencyBudgetMs": 600000,
+      "caseDigest": "795504cb8ca965ae2070ae09c7a413c5d885e4c0a3340371a36e16d2b35767e4"
+    },
+    {
+      "benchmarkId": "v43-codex-interactive-sample-20261007",
+      "caseId": "timeout-policy",
+      "skillName": "kfg-v4-0297-mcp-tool-timeout-policy",
+      "skillInstructionHash": "3297f0bdf3723a2c1a6a8944233f1dca0b70de9c0232f93f359be743816563c8",
+      "primaryAgent": "architect",
+      "validatorAgent": "security",
+      "scenarioId": "audit-host-timeout-boundary",
+      "scenarioRef": "repo:benchmarks/codex-host/scenarios.md#timeout-policy",
+      "expectedEvidenceKinds": [
+        "result",
+        "security",
+        "tool-log",
+        "validator"
+      ],
+      "latencyBudgetMs": 600000,
+      "caseDigest": "2bec396e3856312ae98cc9e66f4ca8f487c3b853e725f1e58244f7aef3fd7110"
+    }
+  ],
+  "manifestDigest": "627998e75c14533141fc4f18b82b4aacd893a155cdb06dfaa6fb914ca1030d30",
+  "executionPerformed": false,
+  "repositoryMutationApplied": false,
+  "runtimeCatalogMutationApplied": false,
+  "deploymentMutationApplied": false
+}

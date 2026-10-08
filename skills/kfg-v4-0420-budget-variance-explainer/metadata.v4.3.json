@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0420-budget-variance-explainer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7f1b66330ea5eb6aafbe512e53b69ea56c76048335f281b91934cb7fd1d567ac",
+  "rawFileHash": "7f1b66330ea5eb6aafbe512e53b69ea56c76048335f281b91934cb7fd1d567ac",
+  "legacyInstructionHash": "b435514c2280dd7f5514a0ff87dd8551e7dc8d5107dfc42929efd7754128a877",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7171
+}

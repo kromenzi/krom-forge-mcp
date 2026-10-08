@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0011-server-component-boundary-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5c485d25ce2b2612a6c2e9d302fd137d0024263889d848c91f0eb4debf10ac6b",
+  "rawFileHash": "5c485d25ce2b2612a6c2e9d302fd137d0024263889d848c91f0eb4debf10ac6b",
+  "legacyInstructionHash": "b53c0076a394f7b6409f35dfbe63dfc212feb0be6144a662368c2138f1f4eda9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7519
+}

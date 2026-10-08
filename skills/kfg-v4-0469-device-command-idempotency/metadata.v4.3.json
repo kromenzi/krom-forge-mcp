@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0469-device-command-idempotency",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7c0d3827ef815b59be30daef8bf774906eaa78aea0403c71b9d1caebac755fb3",
+  "rawFileHash": "7c0d3827ef815b59be30daef8bf774906eaa78aea0403c71b9d1caebac755fb3",
+  "legacyInstructionHash": "907f95de3c933b3db638a40ae55538ccd5c82e1e6d5e0462186fbaea8885a2d6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7284
+}

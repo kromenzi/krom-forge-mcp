@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0395-ksa-workweek-calendar",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "50accaec872888450ec5390b79cfb744d32098fdd8e71bda6c38ebf74419b8bd",
+  "rawFileHash": "50accaec872888450ec5390b79cfb744d32098fdd8e71bda6c38ebf74419b8bd",
+  "legacyInstructionHash": "7983a40869491de7b88b16927995bb518703285bf5fe86b99f0789c224900121",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7249
+}

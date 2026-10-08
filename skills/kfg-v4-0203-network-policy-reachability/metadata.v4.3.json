@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0203-network-policy-reachability",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d02b7481707eaf8ac52eaf38d5914fcd3ee6d119e740008117e04bae5d49c091",
+  "rawFileHash": "d02b7481707eaf8ac52eaf38d5914fcd3ee6d119e740008117e04bae5d49c091",
+  "legacyInstructionHash": "4d672a63df4a8798162e133c3697296c1ecf2f0d0a54bad246401a499e0b3470",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7314
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0351-spreadsheet-formula-lineage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "25328f997ccd60fdface7186e113d874899fd7c7c723da4c131a2eaaf1feb74a",
+  "rawFileHash": "25328f997ccd60fdface7186e113d874899fd7c7c723da4c131a2eaaf1feb74a",
+  "legacyInstructionHash": "cc456c7a50e8c7d68a8685d6d95418d9957b4f7eadce5b09940eaf33b4df1513",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7323
+}

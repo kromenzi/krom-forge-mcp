@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0391-saudi-einvoice-integration",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "29127738aa8fb6d6cc657a169637296c5cf693966c297c1e26952c2eda115fac",
+  "rawFileHash": "29127738aa8fb6d6cc657a169637296c5cf693966c297c1e26952c2eda115fac",
+  "legacyInstructionHash": "f47e27323acdf2377a6a87d6f5b9235f07d13c07ee9451fb0028432b4c66a4b1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7326
+}

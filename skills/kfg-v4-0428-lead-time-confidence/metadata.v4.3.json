@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0428-lead-time-confidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1c9aa066573e66d2dff98efc4cc81d28c37ab3e5a7e204bc870cc805808d914d",
+  "rawFileHash": "1c9aa066573e66d2dff98efc4cc81d28c37ab3e5a7e204bc870cc805808d914d",
+  "legacyInstructionHash": "4537c2c20636ca8ef40715523ff310657ed4c1937af658b732ae00991ab8d1d1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7203
+}

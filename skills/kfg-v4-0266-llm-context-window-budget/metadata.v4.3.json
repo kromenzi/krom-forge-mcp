@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0266-llm-context-window-budget",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c9e14b55dc7e4eba0d457f3cae8fc650c770bda2ef488955d07b65ec1d432d14",
+  "rawFileHash": "c9e14b55dc7e4eba0d457f3cae8fc650c770bda2ef488955d07b65ec1d432d14",
+  "legacyInstructionHash": "7e3eeed3dfeed1045eeb62da398ded24fe2f9ca96886f039bf69ffff8bbd0887",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7176
+}

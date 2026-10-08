@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0060-cloud-control-evidence-packager",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "941ad7fb5e90828cc2862272c2c6a92240f2918d17d5db8d0224c2fe95b10b89",
+  "rawFileHash": "941ad7fb5e90828cc2862272c2c6a92240f2918d17d5db8d0224c2fe95b10b89",
+  "legacyInstructionHash": "f075fae384e994770133c501b432fa1eea5891f872e9349732c312fd44b5b20d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7312
+}

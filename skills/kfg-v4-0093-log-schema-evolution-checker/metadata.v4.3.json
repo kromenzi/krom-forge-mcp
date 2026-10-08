@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0093-log-schema-evolution-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "594f906b1c19b91545f80811aa2f638531178452c99f56d88c59a9bf651e647e",
+  "rawFileHash": "594f906b1c19b91545f80811aa2f638531178452c99f56d88c59a9bf651e647e",
+  "legacyInstructionHash": "f78968496e518b7377cefd7570a42cb5ad06b1376fc2443d82837fb6265aca4e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7393
+}

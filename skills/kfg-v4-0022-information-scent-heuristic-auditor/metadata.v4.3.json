@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0022-information-scent-heuristic-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "861b3623a35b64fe5781aa383dc9e6c939a0028385cdf1503649edaee494db64",
+  "rawFileHash": "861b3623a35b64fe5781aa383dc9e6c939a0028385cdf1503649edaee494db64",
+  "legacyInstructionHash": "efc78922968c6efd92009432af3c1a3e40880557d81d6bfad328717e2ae1bfc9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7567
+}

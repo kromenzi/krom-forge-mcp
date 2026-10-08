@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0349-pdf-rendering-diff",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "da5e284e08792b66686b77788e84e526195337abe9ac956ed89db16e4f4f3de1",
+  "rawFileHash": "da5e284e08792b66686b77788e84e526195337abe9ac956ed89db16e4f4f3de1",
+  "legacyInstructionHash": "684c1e650f3c71cd3c82c8ca4a5058c49b5a997b6b5c0698057657d8ab73f08e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7114
+}

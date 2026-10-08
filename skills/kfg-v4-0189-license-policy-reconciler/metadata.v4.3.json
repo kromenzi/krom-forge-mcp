@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0189-license-policy-reconciler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "42e42bf1cfd08bc7a6b4610e698534e5c0cf9e4d802eb7eec534926201a5d1be",
+  "rawFileHash": "42e42bf1cfd08bc7a6b4610e698534e5c0cf9e4d802eb7eec534926201a5d1be",
+  "legacyInstructionHash": "2da56cea13acd62674bff7f2861395f1824d49a019b8229e25f309db93b9fed6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7333
+}

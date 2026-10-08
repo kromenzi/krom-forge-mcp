@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0039-token-exchange-boundary-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b2382de7e7e47398166f94be7b1b132ab1264a9d3c1565068d4a97afd573b7ca",
+  "rawFileHash": "b2382de7e7e47398166f94be7b1b132ab1264a9d3c1565068d4a97afd573b7ca",
+  "legacyInstructionHash": "e2346a05df6c5b115731ce8d1ce4906c7ce0a6c4a2368c5bb83d8b4f8f1d9d05",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7380
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0021-task-flow-friction-analyzer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4d81e1187f3d7654e51b72403224a01e5d2f306f94e4de17359d00bfbd25f159",
+  "rawFileHash": "4d81e1187f3d7654e51b72403224a01e5d2f306f94e4de17359d00bfbd25f159",
+  "legacyInstructionHash": "a73d6108d944c360dceaa7305b350854102c7b72beaec8e44783580ccda1d193",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7281
+}

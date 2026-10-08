@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0495-retention-deletion-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "288a3abb5498de779ebd4c97d48ab470a8f047f38663540adf781b5639fa7ac1",
+  "rawFileHash": "288a3abb5498de779ebd4c97d48ab470a8f047f38663540adf781b5639fa7ac1",
+  "legacyInstructionHash": "3ee515e50de874f25a7256137accfe456c026c227e516fa2c450ec7f0ec91dd2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7378
+}

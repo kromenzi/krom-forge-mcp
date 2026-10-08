@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0355-excel-calculation-reproducibility",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ad47ce8f8b892d94fcc69227dbf872f91441d2bcd33f29f5185e2fc7108ca738",
+  "rawFileHash": "ad47ce8f8b892d94fcc69227dbf872f91441d2bcd33f29f5185e2fc7108ca738",
+  "legacyInstructionHash": "018d13d6ac72085c786bd7480ee7ed53f37819dd58e6e96474d78961b88e0ae0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7364
+}

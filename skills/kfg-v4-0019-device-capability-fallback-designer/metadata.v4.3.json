@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0019-device-capability-fallback-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9f78418d4304b488d8928084d38fe15ae36e88646db4f659b751da2e87912cfe",
+  "rawFileHash": "9f78418d4304b488d8928084d38fe15ae36e88646db4f659b751da2e87912cfe",
+  "legacyInstructionHash": "f21d54a21c275b362bf05c042294b806e3ded4d6a07b9785b860dda9b6a17479",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7459
+}

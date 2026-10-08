@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0205-kubernetes-rollout-safety",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "106e740b97c8eeb4ec36449b4e37691be63c366db247660e90efd7924c2ce5f2",
+  "rawFileHash": "106e740b97c8eeb4ec36449b4e37691be63c366db247660e90efd7924c2ce5f2",
+  "legacyInstructionHash": "e143d8a2e672771ca4d2916d7311fc0c7df6ce64c05e72c7a7b5569db3ac3646",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7334
+}

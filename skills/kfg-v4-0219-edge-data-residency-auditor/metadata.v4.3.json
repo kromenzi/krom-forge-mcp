@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0219-edge-data-residency-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d927eb401426bfc29c75eb545834e987453aed808cbe6f3bb9d35767b728afaf",
+  "rawFileHash": "d927eb401426bfc29c75eb545834e987453aed808cbe6f3bb9d35767b728afaf",
+  "legacyInstructionHash": "86f7534ca4f9cfe74505e3c6f82724e5a809934eed5777b42cfa9f682ec14248",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7358
+}

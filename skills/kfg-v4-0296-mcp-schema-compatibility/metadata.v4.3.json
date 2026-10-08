@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0296-mcp-schema-compatibility",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "15e24e1d6a6eb36cbb87ff6465a3e1a374f8c3cac61ee1a24b09ed177a2b9780",
+  "rawFileHash": "15e24e1d6a6eb36cbb87ff6465a3e1a374f8c3cac61ee1a24b09ed177a2b9780",
+  "legacyInstructionHash": "e3cffdf7ef13ad897b22f32961d750d2976e44fc169626bb7cbba824ccacd19e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7244
+}

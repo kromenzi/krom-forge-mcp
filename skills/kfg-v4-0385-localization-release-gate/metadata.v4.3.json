@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0385-localization-release-gate",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5209e3297ed6629db20eb7995da5d0ca38808efffbd9bc2fef572563ad090ed2",
+  "rawFileHash": "5209e3297ed6629db20eb7995da5d0ca38808efffbd9bc2fef572563ad090ed2",
+  "legacyInstructionHash": "8e3518a815a126c5b0d1c3d4471e48632450d578e7a2b2c897eb1400250cc8d2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7274
+}

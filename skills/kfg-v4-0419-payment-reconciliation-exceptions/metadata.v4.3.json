@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0419-payment-reconciliation-exceptions",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "761400cb1ab714a5c238a480deb0b4b43399eaa719e979c5eabf253fd217e517",
+  "rawFileHash": "761400cb1ab714a5c238a480deb0b4b43399eaa719e979c5eabf253fd217e517",
+  "legacyInstructionHash": "689e6fa5988d5bd5bfba35823c6fd861151a75d068ca979610cf49d9ee1b7bf8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7366
+}

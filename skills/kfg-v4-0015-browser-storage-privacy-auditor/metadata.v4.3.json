@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0015-browser-storage-privacy-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0d3a5695c11305492fe4812c1fd348d1e486b0d1b0c4a2684343e78db70082fe",
+  "rawFileHash": "0d3a5695c11305492fe4812c1fd348d1e486b0d1b0c4a2684343e78db70082fe",
+  "legacyInstructionHash": "de7084c12e6d775671840d1de40306c96d5f2dab48c680b0e70386fd9ed572d8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7478
+}

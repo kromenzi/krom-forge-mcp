@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0059-workload-identity-rotation-planner",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "68cd2a7d477978cd83005e20dbaf634062cc050bd5d4b3f09577478ef0ee6dab",
+  "rawFileHash": "68cd2a7d477978cd83005e20dbaf634062cc050bd5d4b3f09577478ef0ee6dab",
+  "legacyInstructionHash": "c893b669deb0c613587b7ed70fd06705b8fe06571862515bc1a1a750d7d51d5b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7442
+}

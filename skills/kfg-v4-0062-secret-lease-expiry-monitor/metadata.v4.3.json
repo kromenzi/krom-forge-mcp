@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0062-secret-lease-expiry-monitor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8805b871b37164a2d24ad3b3bf4d14948e1d29510479d40cad246525661cc890",
+  "rawFileHash": "8805b871b37164a2d24ad3b3bf4d14948e1d29510479d40cad246525661cc890",
+  "legacyInstructionHash": "c514ef65a816313f81ea89bd16c0ae72ce2eec7fec32bc83971620a55c608f62",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7296
+}

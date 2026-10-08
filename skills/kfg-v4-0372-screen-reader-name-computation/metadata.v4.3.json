@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0372-screen-reader-name-computation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "30166677535ef7d656b6de7801a8d3f3b820fafba6fe76181718bb418325ab46",
+  "rawFileHash": "30166677535ef7d656b6de7801a8d3f3b820fafba6fe76181718bb418325ab46",
+  "legacyInstructionHash": "bc159e243e5e1e5c21366c6d4c60c6fd137f4f60fe185582b7f841085382ecde",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7297
+}

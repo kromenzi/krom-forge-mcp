@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0390-arabic-content-quality",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b2ab67195f534b6380faee790d8d5cca2937489024edda7502f9bd9b53b7f377",
+  "rawFileHash": "b2ab67195f534b6380faee790d8d5cca2937489024edda7502f9bd9b53b7f377",
+  "legacyInstructionHash": "a249cbb21aa27fb4c332e357f7492111d3f4cdb9e1981cc2679a64778981a1e1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7246
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0023-data-dense-table-interaction-designer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d841d66ace4c41d551258055f97dfb7c4f20c08ff53195433bda92d7b15925c5",
+  "rawFileHash": "d841d66ace4c41d551258055f97dfb7c4f20c08ff53195433bda92d7b15925c5",
+  "legacyInstructionHash": "54400039684803c19f265cacd7a7e311c14e400a976eafe230f282f486c010a0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7408
+}

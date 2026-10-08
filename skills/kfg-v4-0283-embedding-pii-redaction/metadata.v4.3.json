@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0283-embedding-pii-redaction",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b4e00a92cb0c1b9d8f6fdb0fc07e6eb17c16e0bcee15b0b962be5cb237b75694",
+  "rawFileHash": "b4e00a92cb0c1b9d8f6fdb0fc07e6eb17c16e0bcee15b0b962be5cb237b75694",
+  "legacyInstructionHash": "0d7b74c3b5dce7e10af3f2ea523450f01ecdbde2486561068d8d4bcdecc173cd",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7280
+}

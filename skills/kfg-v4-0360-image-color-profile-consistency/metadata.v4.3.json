@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0360-image-color-profile-consistency",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ecad07e39792a08c8f4c0d265fd2a8765e004bbeb34832e05b1b2c08a5bc3538",
+  "rawFileHash": "ecad07e39792a08c8f4c0d265fd2a8765e004bbeb34832e05b1b2c08a5bc3538",
+  "legacyInstructionHash": "88d35502dbae09060522c48665be3324b47c204d3a2aa0571a57ab7d51eb3e91",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7287
+}

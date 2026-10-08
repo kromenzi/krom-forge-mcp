@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0397-near-miss-leading-indicator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1237d1c68f7a8d0d0078ab484f48e0f2c70ba14f73eb23d8085efe2fca19f48d",
+  "rawFileHash": "1237d1c68f7a8d0d0078ab484f48e0f2c70ba14f73eb23d8085efe2fca19f48d",
+  "legacyInstructionHash": "605ce0b5ff666ca46797887d6d1b44b3e5d37910eea8ef7ffcb6a1f37490deb2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7221
+}

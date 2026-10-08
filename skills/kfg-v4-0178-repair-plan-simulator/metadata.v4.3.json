@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0178-repair-plan-simulator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "97c2114fd449d87952db0097847e81d9000e21d23224d1fd1cf9dacc8d13270c",
+  "rawFileHash": "97c2114fd449d87952db0097847e81d9000e21d23224d1fd1cf9dacc8d13270c",
+  "legacyInstructionHash": "4f5f4e47dd2e687cbd18645aeaa678bbf5d4d03f745eb86b4b9fb1c55360523e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7255
+}

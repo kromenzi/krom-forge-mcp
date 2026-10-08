@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0202-pod-disruption-budget-review",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "94fd7cdd6c59d31c4c73cb3e48b8e9a7a4ff8270e8812875481a6c464b579b45",
+  "rawFileHash": "94fd7cdd6c59d31c4c73cb3e48b8e9a7a4ff8270e8812875481a6c464b579b45",
+  "legacyInstructionHash": "cc26acfc5ef4fb7a6b458f35ea1700b8afab45eee1d0616ae83a812c628c7e76",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7303
+}

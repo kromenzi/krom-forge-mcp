@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0455-project-closeout-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "65a07ade701fe140c6125a58431e1dddad7fc282b3fedcba6ea1d6aa7463e275",
+  "rawFileHash": "65a07ade701fe140c6125a58431e1dddad7fc282b3fedcba6ea1d6aa7463e275",
+  "legacyInstructionHash": "c046d93198783199020ceab2446194bb933dbd11afba86bfba3ef83809702770",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7294
+}

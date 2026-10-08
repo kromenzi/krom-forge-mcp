@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0430-inventory-allocation-policy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7af3012286239edf3425ef57f2a8913a7bbcb8fe977d1af59ea205eb285d3c3b",
+  "rawFileHash": "7af3012286239edf3425ef57f2a8913a7bbcb8fe977d1af59ea205eb285d3c3b",
+  "legacyInstructionHash": "fa83d48c4637f7403d87dd97c3fac620ba6ec75d6f31fa8ac617f00cb5b4bf7d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7247
+}

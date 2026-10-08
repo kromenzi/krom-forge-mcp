@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0255-analytics-access-segmentation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ac2b567cd4373bbb1eed7abab71609568cf3d0a33e9209fa7235d4de0350c08c",
+  "rawFileHash": "ac2b567cd4373bbb1eed7abab71609568cf3d0a33e9209fa7235d4de0350c08c",
+  "legacyInstructionHash": "31bb246ba3b6e4892be30d0595015425ebd5fb7e8ccd80a36b7ada33ece26487",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7410
+}

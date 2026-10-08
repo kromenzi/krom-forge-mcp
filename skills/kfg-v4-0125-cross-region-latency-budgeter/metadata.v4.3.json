@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0125-cross-region-latency-budgeter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "aa0b7282ca70593252954d0a41784aef0c6864e5d01f80a57b0c9876258304fe",
+  "rawFileHash": "aa0b7282ca70593252954d0a41784aef0c6864e5d01f80a57b0c9876258304fe",
+  "legacyInstructionHash": "7e7e7125ab746608bb6409645299bcfac1f5d5098d16f86b3fecc5519c295ed8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7282
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0311-model-abuse-case-register",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b5785e19d62bd149988090a9c4a1cbc15e54049c3414b50773ffaeef7a679e8f",
+  "rawFileHash": "b5785e19d62bd149988090a9c4a1cbc15e54049c3414b50773ffaeef7a679e8f",
+  "legacyInstructionHash": "9d9c6f9050221f60f133461778d4a5ff4acfe8e035d670115f1343dc82fc3a3f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7208
+}

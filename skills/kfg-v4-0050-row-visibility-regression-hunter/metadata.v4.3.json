@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0050-row-visibility-regression-hunter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2dabad06200e3ce1ee3d880f1dacf6427ffd7ae90889385ef6d17377b9b3f0b1",
+  "rawFileHash": "2dabad06200e3ce1ee3d880f1dacf6427ffd7ae90889385ef6d17377b9b3f0b1",
+  "legacyInstructionHash": "4ead88f549c3ab8f2568f1b4d95264c77bbfa3e97e98e1023b1ec87adf3c719a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7276
+}

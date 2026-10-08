@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0182-branch-divergence-analyzer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9fad6e383229ce1de11b023bf3328ad046e4ba287808c71ce60c35ef51e4ec49",
+  "rawFileHash": "9fad6e383229ce1de11b023bf3328ad046e4ba287808c71ce60c35ef51e4ec49",
+  "legacyInstructionHash": "60805b2448c5640c553ccc341dca029682b18c3984b5c839e20669f100bb3632",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7388
+}

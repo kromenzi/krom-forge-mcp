@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0454-portfolio-dependency-risk",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b5b806af71e9ecdc144e06ef99eb4489739214dd105e9aa9f19a81d30ca69715",
+  "rawFileHash": "b5b806af71e9ecdc144e06ef99eb4489739214dd105e9aa9f19a81d30ca69715",
+  "legacyInstructionHash": "11e3f0bc6835871d3e6ea7bf82795bacca32969a2c04a00713edd35dcf5dc56c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7345
+}

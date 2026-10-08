@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0140-assertion-quality-reviewer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "8b3877e67f7c46b19d46999bb946b4a70b5fa082af4f7f5083fea0a980633a06",
+  "rawFileHash": "8b3877e67f7c46b19d46999bb946b4a70b5fa082af4f7f5083fea0a980633a06",
+  "legacyInstructionHash": "3440e86d55c30bf7306b782392006cc15146e61493db7115f43e035aa5e3817a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7476
+}

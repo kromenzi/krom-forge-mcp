@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0176-repair-scope-bounding",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cc3f58f70c404bc25738fe12a127345c364712c4a0bab293494ff87a8ffcedc4",
+  "rawFileHash": "cc3f58f70c404bc25738fe12a127345c364712c4a0bab293494ff87a8ffcedc4",
+  "legacyInstructionHash": "8019ccd9283c9ea2ae9fdabac025255185e3abfffeda811616c89d0b1e84fa01",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7241
+}

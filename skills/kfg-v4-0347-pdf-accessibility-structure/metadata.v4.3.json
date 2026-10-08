@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0347-pdf-accessibility-structure",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b44e1102f580a5dc545e24a17b2b62595f95835821983da9fad301a182462d94",
+  "rawFileHash": "b44e1102f580a5dc545e24a17b2b62595f95835821983da9fad301a182462d94",
+  "legacyInstructionHash": "f42385a2ca3a41ec8c9c4081218d7b90087a194e2a2b6765cbdb263e728c3d8d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7268
+}

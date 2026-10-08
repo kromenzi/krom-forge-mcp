@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0198-runtime-capability-minimizer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f97b20eddb93128b65ffbec446f65d46ac34dc698b3b95a2d58a07a9f0f3d798",
+  "rawFileHash": "f97b20eddb93128b65ffbec446f65d46ac34dc698b3b95a2d58a07a9f0f3d798",
+  "legacyInstructionHash": "f77ea056b9e7f80bb9ae66b16760b9ecfc4eeb05bffeae7e2413b4a18f6c8e41",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7387
+}

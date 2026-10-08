@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0366-audio-transcription-confidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0abd7e797b4f088bc150cc40634542b064706485fa812ae669f7c27fce397ca3",
+  "rawFileHash": "0abd7e797b4f088bc150cc40634542b064706485fa812ae669f7c27fce397ca3",
+  "legacyInstructionHash": "109ada1a2c7b38c1fe6140395cb442a60ee5214d0575c3be3f30ed2612fe89e9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7429
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0353-excel-import-type-safety",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "03b36b74812d47fda8e2a690819c5704765b776c2451381d8a0541b449f04f75",
+  "rawFileHash": "03b36b74812d47fda8e2a690819c5704765b776c2451381d8a0541b449f04f75",
+  "legacyInstructionHash": "1c8d7a3b01ee8046dcd7cd39390c13af4435f920d12d43405855d0d8975a2451",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7180
+}

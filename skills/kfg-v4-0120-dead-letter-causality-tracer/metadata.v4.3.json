@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0120-dead-letter-causality-tracer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7e0411bd99ca04f5bcd9b8651daf04ad3a440a74c1714b3689ea57afefb79518",
+  "rawFileHash": "7e0411bd99ca04f5bcd9b8651daf04ad3a440a74c1714b3689ea57afefb79518",
+  "legacyInstructionHash": "c1d2cf1cbb3c7242bc2037d73606c55fccddffc512ba85d4b7aaa1fa22967bde",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7315
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0126-service-boundary-conway-review",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "20209ad96b39413e16b39e17158716c14316cacdcc2758a040e81a75bb7c746d",
+  "rawFileHash": "20209ad96b39413e16b39e17158716c14316cacdcc2758a040e81a75bb7c746d",
+  "legacyInstructionHash": "67fb1e0debf219a11b1116bc753d8dcb2167dad8108c2ddc1752d5e0207201e8",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7494
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0350-pdf-long-document-pagination",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0f3f5582eb1f77496b8914cf942c9a6b0ece19dc8df6a6e0a6900ddc3be0fcc7",
+  "rawFileHash": "0f3f5582eb1f77496b8914cf942c9a6b0ece19dc8df6a6e0a6900ddc3be0fcc7",
+  "legacyInstructionHash": "e1f837687b4fa094caa18e4924681930cbb004260ea2c5d5b84ec0e4a5f356df",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7183
+}

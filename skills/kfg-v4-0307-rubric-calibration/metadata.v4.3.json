@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0307-rubric-calibration",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5b1758e917fa5bc7b229ca18f1fa4f92c0bb2cf80e4c6731eba693e06f307a6e",
+  "rawFileHash": "5b1758e917fa5bc7b229ca18f1fa4f92c0bb2cf80e4c6731eba693e06f307a6e",
+  "legacyInstructionHash": "bc42181ee7e95c8706016f6b2c3bdaf3d413386e1aab6b1d259f27cc3ab18032",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7213
+}

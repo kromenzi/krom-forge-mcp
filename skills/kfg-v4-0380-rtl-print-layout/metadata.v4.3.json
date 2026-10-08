@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0380-rtl-print-layout",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "22688cee0c033ed3bdd2e027f600516a414e6a833d8473ec756aabface00ce12",
+  "rawFileHash": "22688cee0c033ed3bdd2e027f600516a414e6a833d8473ec756aabface00ce12",
+  "legacyInstructionHash": "f50e77bf7c4963a7e6b3c8b9652a53e160d6cfd63eda77a89f20a47c21b7c197",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7089
+}

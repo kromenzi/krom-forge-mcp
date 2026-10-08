@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0218-wasm-runtime-compatibility",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f33be54f5f4405b84df807182fe2e6816020ecbef89c40d90b7aa1d6c393bad2",
+  "rawFileHash": "f33be54f5f4405b84df807182fe2e6816020ecbef89c40d90b7aa1d6c393bad2",
+  "legacyInstructionHash": "c770e2f8e85c141754c84fdd64255dd3e9754fd001b9b295a4681f5be5593503",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7283
+}

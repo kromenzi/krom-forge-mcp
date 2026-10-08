@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0181-commit-provenance-reconstructor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "54d23bc9265f85dd1faa49f16c99a5b324cc0e2e0b9bb6b18b02e862fe9bde93",
+  "rawFileHash": "54d23bc9265f85dd1faa49f16c99a5b324cc0e2e0b9bb6b18b02e862fe9bde93",
+  "legacyInstructionHash": "168c1f14e013aab4464d0c7faf7cf197ebb0927fee650bba68ded5fe27de943a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7407
+}

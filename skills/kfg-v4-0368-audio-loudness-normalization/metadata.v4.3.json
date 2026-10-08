@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0368-audio-loudness-normalization",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "932e9ec5d4a2ec3bf318320fb45f8d557f248c69cad2dd23b49a8b8d62435c64",
+  "rawFileHash": "932e9ec5d4a2ec3bf318320fb45f8d557f248c69cad2dd23b49a8b8d62435c64",
+  "legacyInstructionHash": "dd574abbc391361f1980375e2b5cd6c9782aa2dca3647a91d594de422fd7a2a9",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7360
+}

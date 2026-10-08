@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0114-graceful-drain-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4bf14fc237111ba73149f4fa76d584e0920a38b8cad80f60237af5c529eb8d0e",
+  "rawFileHash": "4bf14fc237111ba73149f4fa76d584e0920a38b8cad80f60237af5c529eb8d0e",
+  "legacyInstructionHash": "7e1b306c624e16261d1ab4fc5223d7a5dad2e5db1e73087ecc865bcc3550111c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7301
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0164-customer-impact-estimator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "50c37f06e2d0d6372b9d6d2490aae3c60182454f84fd117db3e3a9674d18aba5",
+  "rawFileHash": "50c37f06e2d0d6372b9d6d2490aae3c60182454f84fd117db3e3a9674d18aba5",
+  "legacyInstructionHash": "d4b19d80c7155ef14e8f9c8e2058ea9c5bbd33eaaf93b4ea098574a06d6d2484",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7365
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0479-industrial-api-gateway",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e19c4544c0a6f49f09c6d2e654034cbe14117e0cd3a0b6501963e07f6e37ce23",
+  "rawFileHash": "e19c4544c0a6f49f09c6d2e654034cbe14117e0cd3a0b6501963e07f6e37ce23",
+  "legacyInstructionHash": "12ad6c9eeeec38fadc9a92418f3d1125427b50fb21b0c6decef1622b315e69aa",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7220
+}

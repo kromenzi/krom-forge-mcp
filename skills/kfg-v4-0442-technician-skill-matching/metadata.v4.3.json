@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0442-technician-skill-matching",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7a4ed9764ad4f69590204e2059cc6c86e673cef308f09ed65b819a71f62fb25a",
+  "rawFileHash": "7a4ed9764ad4f69590204e2059cc6c86e673cef308f09ed65b819a71f62fb25a",
+  "legacyInstructionHash": "b18ce614e5383a018ff7935ba935fec1f444ee59b84bbdad592faa6cf0936c8c",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7322
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0410-erp-close-readiness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4e5f1841e746e96317a1d8fc569f2bfdc6429f1340d5ce59ec42b63fa1fe1c1c",
+  "rawFileHash": "4e5f1841e746e96317a1d8fc569f2bfdc6429f1340d5ce59ec42b63fa1fe1c1c",
+  "legacyInstructionHash": "1b2c2cf306db9e147b347e3af10f59ac28cc761178b7c45aecabdea2780022cc",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7192
+}

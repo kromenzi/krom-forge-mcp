@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0226-relevance-evaluation-dataset",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "2f5365588848bd61c5741873aa07c2849bd11e61c49fb5f6f0919c99446622c9",
+  "rawFileHash": "2f5365588848bd61c5741873aa07c2849bd11e61c49fb5f6f0919c99446622c9",
+  "legacyInstructionHash": "703fd77a3136f2b655ef3017df41cbdf0020e66b4c7999e17068b1bfe7a9c4e2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7318
+}

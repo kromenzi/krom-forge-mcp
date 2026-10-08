@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0257-self-service-bi-governance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "98ed5bd742739d273875780d489d83a4f8c38bd61df8a6696971104d6f4703f9",
+  "rawFileHash": "98ed5bd742739d273875780d489d83a4f8c38bd61df8a6696971104d6f4703f9",
+  "legacyInstructionHash": "f969bacdc18f8f8538c3514875f3fece162233ae01f685ede4f7dd815f52cc32",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7266
+}

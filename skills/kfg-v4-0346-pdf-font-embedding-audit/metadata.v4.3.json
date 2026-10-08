@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0346-pdf-font-embedding-audit",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0c8566e487aa2d5324fd3aa06fea993fb544551e7a477c532a847d1e48e00119",
+  "rawFileHash": "0c8566e487aa2d5324fd3aa06fea993fb544551e7a477c532a847d1e48e00119",
+  "legacyInstructionHash": "013a3f2aaf3a3b6eec1a565728561e436e2f764a080f017d0278f90bf99ad4f0",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7115
+}

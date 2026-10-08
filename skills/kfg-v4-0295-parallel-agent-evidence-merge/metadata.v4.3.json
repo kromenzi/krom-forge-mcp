@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0295-parallel-agent-evidence-merge",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d9faeaad2698e91e1ff4ed66d3f53ed9f7d5b039a2792b19393ead7efe0656fb",
+  "rawFileHash": "d9faeaad2698e91e1ff4ed66d3f53ed9f7d5b039a2792b19393ead7efe0656fb",
+  "legacyInstructionHash": "961fea1a077124b74ad97d23bfba85a82dc72805aea95ff542b9ee3368d58ad1",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7285
+}

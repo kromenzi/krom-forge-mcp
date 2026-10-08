@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0280-vector-delete-completeness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1760cb22a34bc45fe4ca479680f8230749c26c22f9f69750a5e4f6186c8f9b64",
+  "rawFileHash": "1760cb22a34bc45fe4ca479680f8230749c26c22f9f69750a5e4f6186c8f9b64",
+  "legacyInstructionHash": "b29bc868b6b10cae1187698ddc1cce99273b6c9480167b6552ba385b3d3a8f89",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7283
+}

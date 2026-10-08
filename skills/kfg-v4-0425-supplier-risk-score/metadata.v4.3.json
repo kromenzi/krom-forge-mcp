@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0425-supplier-risk-score",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "69e90a918f829da46a13ba94f37b2157ccec3f8270bd8b11af1ba0d43e85fefb",
+  "rawFileHash": "69e90a918f829da46a13ba94f37b2157ccec3f8270bd8b11af1ba0d43e85fefb",
+  "legacyInstructionHash": "015a6721c518b0dc9ea42630c8c6a8a17a405f0ae83be9159190a24aa26e7860",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7165
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0300-mcp-capability-discovery-cache",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9048d904f4b6db2fdcf132469f80189efdfdb3ea075deed8a158ccfbb2d5a576",
+  "rawFileHash": "9048d904f4b6db2fdcf132469f80189efdfdb3ea075deed8a158ccfbb2d5a576",
+  "legacyInstructionHash": "aaa092827c0055a99fb2783ce220e85fe694709ae4299de214a4fdf03bf79af5",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7319
+}

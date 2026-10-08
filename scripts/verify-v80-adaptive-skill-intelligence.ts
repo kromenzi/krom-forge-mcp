@@ -875,7 +875,8 @@ const realHostReceipt={
   semanticSimilarity:0.55,
   proceduralSimilarity:0.62,
   specializationDistinct:true,
-  hostAttestation:'host-verified'
+  hostAttestation:'host-verified',
+  instructionHashContract:'krom-instruction-raw-utf8-v1'
 };
 
 const verifiedRealReceipts=verifyV42RealBenchmarkReceiptsV80({

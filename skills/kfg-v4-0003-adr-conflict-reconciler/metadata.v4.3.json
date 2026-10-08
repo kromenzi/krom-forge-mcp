@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0003-adr-conflict-reconciler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fcc19ba092cfb396d2f1f40551851651b33b5d8e27278eda1c2dc4395fe5b3e2",
+  "rawFileHash": "fcc19ba092cfb396d2f1f40551851651b33b5d8e27278eda1c2dc4395fe5b3e2",
+  "legacyInstructionHash": "487cc3f6301c0740f43df6da1b44b94e288c52907ec3b24c94e3a7232159223d",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7383
+}

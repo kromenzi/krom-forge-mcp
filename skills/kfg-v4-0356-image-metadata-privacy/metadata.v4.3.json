@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0356-image-metadata-privacy",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "050779dfe251f994a0a2bd2cd5f5cdd37f31d2d146b8332696b01c92d6381270",
+  "rawFileHash": "050779dfe251f994a0a2bd2cd5f5cdd37f31d2d146b8332696b01c92d6381270",
+  "legacyInstructionHash": "3196b214edc7cf09ed0ff9a7e0821f219014fdb033adea0d1994b57e5da42b60",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7231
+}

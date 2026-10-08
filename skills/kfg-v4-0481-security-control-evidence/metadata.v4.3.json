@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0481-security-control-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "b059f5d7b8a7f23bbafb418365c207f0a95cd26e98a2bb086e86bda5d4ca769a",
+  "rawFileHash": "b059f5d7b8a7f23bbafb418365c207f0a95cd26e98a2bb086e86bda5d4ca769a",
+  "legacyInstructionHash": "c63dcb05a8d39a6dd012546e67a907961d39b6c949dd451359aaa22c2eb7c5a6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7326
+}

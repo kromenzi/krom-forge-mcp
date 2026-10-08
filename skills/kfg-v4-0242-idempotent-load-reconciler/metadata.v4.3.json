@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0242-idempotent-load-reconciler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d0a4ba1288ca3a3f5a39ee7fa611a3363b69332aa1bd1d4505ef8c3a3c8175c6",
+  "rawFileHash": "d0a4ba1288ca3a3f5a39ee7fa611a3363b69332aa1bd1d4505ef8c3a3c8175c6",
+  "legacyInstructionHash": "1756fde4466762a834488237dca6932e06477c385f50205fd1fd7420ad6d5e6b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7237
+}

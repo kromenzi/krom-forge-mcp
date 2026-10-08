@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0196-container-base-image-hardening",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "183a327f3dc38346a5c606c5ee2ceaa41632ef97a62aa13d5e645df9caa6effb",
+  "rawFileHash": "183a327f3dc38346a5c606c5ee2ceaa41632ef97a62aa13d5e645df9caa6effb",
+  "legacyInstructionHash": "e6b8b892e7ccd6f87f0e6432e2ffed85ba2e1b124a8187d485aee85474129c12",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7347
+}

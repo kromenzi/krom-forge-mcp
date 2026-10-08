@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0443-maintenance-kpi-lineage",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "eae9fcf759dcd7d1eb77afe337e6912047ef8a8ac9d0c60726d65b179b8285fe",
+  "rawFileHash": "eae9fcf759dcd7d1eb77afe337e6912047ef8a8ac9d0c60726d65b179b8285fe",
+  "legacyInstructionHash": "5e2c8e2a6068ade68b34a7b3ca864f7e354dc5bf97177392f451e67b64b8943f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7284
+}

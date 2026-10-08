@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0086-error-budget-policy-calibrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fe0947c67233565c62f72a4d922cbc3bbf4b24db9392593982380ee4928ac099",
+  "rawFileHash": "fe0947c67233565c62f72a4d922cbc3bbf4b24db9392593982380ee4928ac099",
+  "legacyInstructionHash": "ddbea89c835ecc3fcd20bd45463746329df747ede36c9ec6a1bb9ece9326023e",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7218
+}

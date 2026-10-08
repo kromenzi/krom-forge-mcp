@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0496-rto-rpo-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cbeaade54e343874ff11f893ad158b8247b7d89fb98a09c7cce194b3c5439fcf",
+  "rawFileHash": "cbeaade54e343874ff11f893ad158b8247b7d89fb98a09c7cce194b3c5439fcf",
+  "legacyInstructionHash": "ba09be6b0f7c0604d49315cdc2175e01449d81ba39a8660af7c9a781b8f39e56",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7162
+}

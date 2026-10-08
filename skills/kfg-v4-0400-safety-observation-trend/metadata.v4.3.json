@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0400-safety-observation-trend",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "07f0eec556e572b402e76671cce3c655dad6a41c519d9b31d5ae39db4abc2ff5",
+  "rawFileHash": "07f0eec556e572b402e76671cce3c655dad6a41c519d9b31d5ae39db4abc2ff5",
+  "legacyInstructionHash": "776ae5a6c9580c9ca6aeff05220d0a237860717c9baef79bfa85e07020040286",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7262
+}

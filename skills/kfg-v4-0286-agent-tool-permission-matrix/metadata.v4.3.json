@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0286-agent-tool-permission-matrix",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "62da1c6534ec16c1286ccc09ec24ef32c25a79fa38b78c1363d90cc88b9ac7d5",
+  "rawFileHash": "62da1c6534ec16c1286ccc09ec24ef32c25a79fa38b78c1363d90cc88b9ac7d5",
+  "legacyInstructionHash": "1733ac387df9e3bb0b5b3e07f42395ee8296161dc40247410ca476b23e2b1a91",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7307
+}

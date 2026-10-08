@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0170-hotfix-verification-gate",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "db20228a5f472c27944a489418601fc18a026c948940d45626ff9a70e50f1d22",
+  "rawFileHash": "db20228a5f472c27944a489418601fc18a026c948940d45626ff9a70e50f1d22",
+  "legacyInstructionHash": "755474bcb1072b81271bc01df441eee25edad0c8436987804932ffe0f89b48c2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7308
+}

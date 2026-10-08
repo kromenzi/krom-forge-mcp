@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0118-event-ordering-invariant-checker",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "df360f1b6db7ea16bd59a0207d737b36320ccbb4149c769a8aefa499fa5a937d",
+  "rawFileHash": "df360f1b6db7ea16bd59a0207d737b36320ccbb4149c769a8aefa499fa5a937d",
+  "legacyInstructionHash": "a3c22ceca15e74fef3046ce7c6f3424ff1519e501878e904fe0686bcdc393427",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7400
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0456-rfisubmittal-traceability",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "134885d82972f0c6e5f75b433d0b31edac96abc0c46612500e0d5911fdc6133c",
+  "rawFileHash": "134885d82972f0c6e5f75b433d0b31edac96abc0c46612500e0d5911fdc6133c",
+  "legacyInstructionHash": "233ded05f6dba12e815cc3976b5cc4982a225359db9c72941b3ff0897e3189ab",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7391
+}

@@ -1,0 +1,8 @@
+{
+  "localExecutionCommit": "e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+  "uploadedSourceCommit": "fc6de48b9c32091ff317678975a5b94e540386e7",
+  "sourceTreeSha": "c195fa976f36056231151530f45c9320b6225c30",
+  "treeEqualityVerified": true,
+  "localCommitObject": "tree c195fa976f36056231151530f45c9320b6225c30\nparent 3aa2e099a94e20fde84988ad0d13d81b7da0a9fe\nauthor Codex <codex@openai.com> 1791399997 +0300\ncommitter Codex <codex@openai.com> 1791399997 +0300\n\nfeat(v80): connect interactive Codex host with hash-bound evidence\n",
+  "explanation": "The authenticated GitHub connector assigns new commit metadata. The uploaded source tree exactly equals the executed local source tree. Original receipts remain unchanged; the original local commit can be independently verified from this raw commit object. Historical upload-blocked fields describe the time evidence was captured, before renewed user authorization."
+}

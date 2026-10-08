@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0434-asset-depreciation-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e84eb1bb274e4dd0a66be24ebefbf377895ea941a34dfd26943a61d6b296f3c8",
+  "rawFileHash": "e84eb1bb274e4dd0a66be24ebefbf377895ea941a34dfd26943a61d6b296f3c8",
+  "legacyInstructionHash": "0ae14253f9fc4b297af73f683f83474cd8592a14fb851e66eb2e098c83c3c590",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7267
+}

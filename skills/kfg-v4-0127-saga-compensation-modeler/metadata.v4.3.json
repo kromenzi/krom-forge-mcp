@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0127-saga-compensation-modeler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4a0879c0d32e6b12ac1991703b4eadf2e2a97662d1ce7f926271098950326381",
+  "rawFileHash": "4a0879c0d32e6b12ac1991703b4eadf2e2a97662d1ce7f926271098950326381",
+  "legacyInstructionHash": "703b8d1e518791a0696f5ca7adc74d0d55a2b53229ef7292256773271d244c28",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7365
+}

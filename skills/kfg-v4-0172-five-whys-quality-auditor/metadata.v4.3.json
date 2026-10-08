@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0172-five-whys-quality-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9c26962ebe6601e194f08cf79f98bfcd30e74dba6a008b114bc9d891616a3c97",
+  "rawFileHash": "9c26962ebe6601e194f08cf79f98bfcd30e74dba6a008b114bc9d891616a3c97",
+  "legacyInstructionHash": "fb5f31ec99d4384ff22ce0a603231622b48046fb10cb3f91afccba8e13ca02d2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7397
+}

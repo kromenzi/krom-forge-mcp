@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0490-governance-metric-pack",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d662c71ea8ad3b449f23f8372eb1afea7dd6843fd52d27ee9de3bc984641919a",
+  "rawFileHash": "d662c71ea8ad3b449f23f8372eb1afea7dd6843fd52d27ee9de3bc984641919a",
+  "legacyInstructionHash": "8f29ba6227ced859d3e0d65165f8b8b644bc8e691bf0599bfe8cd7d528585b49",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7321
+}

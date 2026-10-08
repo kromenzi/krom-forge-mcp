@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0445-cmms-mobile-offline",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "4ec69b9e2cd7d1137b12389bf0837430bd8a45c1516893069d26999feacfab41",
+  "rawFileHash": "4ec69b9e2cd7d1137b12389bf0837430bd8a45c1516893069d26999feacfab41",
+  "legacyInstructionHash": "2d537a585243329c11951fd5072c3e186322525c9112ebcea9cb7a12ee44e1ea",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7217
+}

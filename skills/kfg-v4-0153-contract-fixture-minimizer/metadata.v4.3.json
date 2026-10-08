@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0153-contract-fixture-minimizer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "250cb84c62360aa2bfa3a09d3fcebcb10055d48137c1282755e3a2edfb6ddd57",
+  "rawFileHash": "250cb84c62360aa2bfa3a09d3fcebcb10055d48137c1282755e3a2edfb6ddd57",
+  "legacyInstructionHash": "8ce518694a2a418dbfb871d182f3d498e2254e16b4877c8dde166d160c827652",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7519
+}

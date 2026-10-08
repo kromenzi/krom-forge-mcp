@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0149-visual-regression-trust-calibrator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "cc3ca5802359164cd99c48cf63cdde9bf094d6de26bbac469e60cc0ab4c1e14a",
+  "rawFileHash": "cc3ca5802359164cd99c48cf63cdde9bf094d6de26bbac469e60cc0ab4c1e14a",
+  "legacyInstructionHash": "c8acae771051452d7648c6ceb87f3ef5da576089cbfe92ba117cd8675531cf15",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7289
+}

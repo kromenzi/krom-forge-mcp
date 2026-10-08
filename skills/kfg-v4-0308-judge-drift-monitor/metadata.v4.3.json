@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0308-judge-drift-monitor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a20cea57cb276cb9fc9587bef0650f0a6e47bb5b1819859c4b160f6b2b3a0901",
+  "rawFileHash": "a20cea57cb276cb9fc9587bef0650f0a6e47bb5b1819859c4b160f6b2b3a0901",
+  "legacyInstructionHash": "30cddb12ccf6a30186207956513c359256ac87ed190e7a969f9a72aa49d90126",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7172
+}

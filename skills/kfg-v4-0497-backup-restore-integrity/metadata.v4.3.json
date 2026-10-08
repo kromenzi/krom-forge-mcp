@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0497-backup-restore-integrity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "68406859b9b8388a9a84bb8cba4ed9fab14c78ca2386bb7e6b108c218d2007a7",
+  "rawFileHash": "68406859b9b8388a9a84bb8cba4ed9fab14c78ca2386bb7e6b108c218d2007a7",
+  "legacyInstructionHash": "d86462ed9c3af2e9574c306b725941881edb40631dc12b801232fdff317cce26",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7254
+}

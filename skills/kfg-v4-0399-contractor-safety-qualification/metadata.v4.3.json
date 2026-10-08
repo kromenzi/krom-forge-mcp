@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0399-contractor-safety-qualification",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "ebea101147a4f5561b4f629ff1b81b42081ddf15284ae921e4f04b9f4fa1a5d5",
+  "rawFileHash": "ebea101147a4f5561b4f629ff1b81b42081ddf15284ae921e4f04b9f4fa1a5d5",
+  "legacyInstructionHash": "14eda767c4029413cac6d9904a1ba6c59851ae6010d4ed6b2c8373ccabcebb14",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7430
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0230-search-privacy-filter",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "1ac9b88e096c1787ad7f06f8a5e06c001d7f043033d6e2f735125fdf35a51c01",
+  "rawFileHash": "1ac9b88e096c1787ad7f06f8a5e06c001d7f043033d6e2f735125fdf35a51c01",
+  "legacyInstructionHash": "bd89abd54f184ff4a72dbb51660cc357529a94d084c5eae30b5ab244a8fccde6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7212
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0075-matrix-failure-correlation",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "eb82a374e640ab07d40a6bc6f04ea83387f0e2b7682952d2588f5d7bb3bc482f",
+  "rawFileHash": "eb82a374e640ab07d40a6bc6f04ea83387f0e2b7682952d2588f5d7bb3bc482f",
+  "legacyInstructionHash": "5b0ce4999639b696c45423d4967e2c794d0b46479fa8b7213887f61cad41d446",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7417
+}

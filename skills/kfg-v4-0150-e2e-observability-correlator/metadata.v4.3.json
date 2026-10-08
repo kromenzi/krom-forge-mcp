@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0150-e2e-observability-correlator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "d67a32962d50689b41593c05a0b7284e1c243747bc79f52c15d7a5e603846806",
+  "rawFileHash": "d67a32962d50689b41593c05a0b7284e1c243747bc79f52c15d7a5e603846806",
+  "legacyInstructionHash": "4cb52cc703fa5649c8e20978d4733d3c4012a2b4649efdfb29edadff223da0e6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7289
+}

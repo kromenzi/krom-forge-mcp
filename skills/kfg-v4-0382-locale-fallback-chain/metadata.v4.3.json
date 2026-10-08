@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0382-locale-fallback-chain",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "5aa248001db86d1b98f2cef289e51fd3d682540426422fe3aab6b4f21c002f66",
+  "rawFileHash": "5aa248001db86d1b98f2cef289e51fd3d682540426422fe3aab6b4f21c002f66",
+  "legacyInstructionHash": "0418e82344bca4248630be55f460f4b271ae604cfc0cd28d719317ed88cbe3d6",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7183
+}

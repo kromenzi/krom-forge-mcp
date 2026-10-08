@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0232-segment-merge-capacity",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "bbce94df924b1a12117dade50d40ca8f8501cdb468287ae448926b8572eb4bfc",
+  "rawFileHash": "bbce94df924b1a12117dade50d40ca8f8501cdb468287ae448926b8572eb4bfc",
+  "legacyInstructionHash": "88f85ec9a77c6cd793b5a823d2037336b31b8eca5af60077a629283eee8d9a61",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7234
+}

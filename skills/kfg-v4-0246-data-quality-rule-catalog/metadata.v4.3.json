@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0246-data-quality-rule-catalog",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a22a38d956469d4089d4c1419a57036473d65356db372513bc5504428603763d",
+  "rawFileHash": "a22a38d956469d4089d4c1419a57036473d65356db372513bc5504428603763d",
+  "legacyInstructionHash": "2ff1d4869bb62e313957a0d65cdc26cf59df0a9011b0549f3587bcf1d6be6331",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7259
+}

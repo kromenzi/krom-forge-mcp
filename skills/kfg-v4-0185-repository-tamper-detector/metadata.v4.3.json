@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0185-repository-tamper-detector",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "7aceb0ae76e114fbcce9eb256eba7a260fb05c4f73705cc1736f5eddaf6e0824",
+  "rawFileHash": "7aceb0ae76e114fbcce9eb256eba7a260fb05c4f73705cc1736f5eddaf6e0824",
+  "legacyInstructionHash": "574833928a245c2f1fd48a199eb85d688f5e56ea4fe4384f548aedb7c6e58258",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7439
+}

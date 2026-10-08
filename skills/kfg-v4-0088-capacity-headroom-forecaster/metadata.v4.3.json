@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0088-capacity-headroom-forecaster",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "9d38220573e09e4ec97edf9348895842bf7e6390bacc9101d2ed855e1c861ce9",
+  "rawFileHash": "9d38220573e09e4ec97edf9348895842bf7e6390bacc9101d2ed855e1c861ce9",
+  "legacyInstructionHash": "23cf008c08b9a372e63d0e174a2baa2823a27f89270c8345e87d30a4ea456725",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7284
+}

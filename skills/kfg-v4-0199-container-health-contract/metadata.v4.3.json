@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0199-container-health-contract",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "924549d2e36165c8f0523426937080fa151ba7fa61cd223adf32523f7dfad1de",
+  "rawFileHash": "924549d2e36165c8f0523426937080fa151ba7fa61cd223adf32523f7dfad1de",
+  "legacyInstructionHash": "3c847d8a9d415eec1c40b79f31fd02fc35995e0572400f2dac8e663e13362eb2",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7399
+}

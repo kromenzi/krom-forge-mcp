@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0329-vision-inference-latency",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0fdc64dc9c6e0fba5dfec4679313585b589527bd1a5e04b787840987e6fd1553",
+  "rawFileHash": "0fdc64dc9c6e0fba5dfec4679313585b589527bd1a5e04b787840987e6fd1553",
+  "legacyInstructionHash": "0dcfd40519a2c35ec9b1ade27f2be0bbd4af37a5007ba4df5c0d00659f346875",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7268
+}

@@ -1,0 +1,3008 @@
+{
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "algorithm": "SHA-256",
+  "input": "exact original SKILL.md bytes",
+  "transformation": "none",
+  "vectors": [
+    {
+      "name": "kfg-v4-0001-bounded-context-migration-map",
+      "bytes": 7401,
+      "hexPrefix": "23206b66672d76342d303030312d626f",
+      "instructionHash": "beff31941a694ae3f15d98f1f9395586dfcca2413fc29f718188b58ba93b8bb9"
+    },
+    {
+      "name": "kfg-v4-0002-architecture-fitness-function-suite",
+      "bytes": 7576,
+      "hexPrefix": "23206b66672d76342d303030322d6172",
+      "instructionHash": "3b50f4ee19ae6fb558d0f5f7bdc3e436ad47a22a083f93f25ce9542440cd1dec"
+    },
+    {
+      "name": "kfg-v4-0003-adr-conflict-reconciler",
+      "bytes": 7383,
+      "hexPrefix": "23206b66672d76342d303030332d6164",
+      "instructionHash": "fcc19ba092cfb396d2f1f40551851651b33b5d8e27278eda1c2dc4395fe5b3e2"
+    },
+    {
+      "name": "kfg-v4-0004-nfr-budget-negotiator",
+      "bytes": 7330,
+      "hexPrefix": "23206b66672d76342d303030342d6e66",
+      "instructionHash": "cf81f862f9405ad7868d6f0d36cca5c28cb41c542a37720fa5e1afbf760ad0ec"
+    },
+    {
+      "name": "kfg-v4-0005-sociotechnical-boundary-modeler",
+      "bytes": 7517,
+      "hexPrefix": "23206b66672d76342d303030352d736f",
+      "instructionHash": "fc6baf0d8467defbf0d3880c3cfce16a5cc6a314c1d0e99ccc92350aef774f3a"
+    },
+    {
+      "name": "kfg-v4-0006-idempotency-key-ledger",
+      "bytes": 7199,
+      "hexPrefix": "23206b66672d76342d303030362d6964",
+      "instructionHash": "4584200b337baea963eb4ccb1119922a1a40099f05fc8e400c9ea1cfd888afe8"
+    },
+    {
+      "name": "kfg-v4-0007-backpressure-contract-designer",
+      "bytes": 7355,
+      "hexPrefix": "23206b66672d76342d303030372d6261",
+      "instructionHash": "fdb975751baa88c1d0e7921d1717b575ce90439f1d9a6dd5a03da25db0554a6c"
+    },
+    {
+      "name": "kfg-v4-0008-pagination-consistency-auditor",
+      "bytes": 7440,
+      "hexPrefix": "23206b66672d76342d303030382d7061",
+      "instructionHash": "d2d1f573ab3597a742c25ac1766ca1f0836ee66e55c1c74089f7ee8461072152"
+    },
+    {
+      "name": "kfg-v4-0009-graceful-shutdown-coordinator",
+      "bytes": 7288,
+      "hexPrefix": "23206b66672d76342d303030392d6772",
+      "instructionHash": "5e9a393f56868049b12fbcf0a4c34b01e399d225ffd08e703d7200785e878cbf"
+    },
+    {
+      "name": "kfg-v4-0010-transaction-outbox-verifier",
+      "bytes": 7400,
+      "hexPrefix": "23206b66672d76342d303031302d7472",
+      "instructionHash": "2eaa642f33e7e886b682cc000bf4af20f01218e584dc6796371e777eeedf3642"
+    },
+    {
+      "name": "kfg-v4-0011-server-component-boundary-auditor",
+      "bytes": 7519,
+      "hexPrefix": "23206b66672d76342d303031312d7365",
+      "instructionHash": "5c485d25ce2b2612a6c2e9d302fd137d0024263889d848c91f0eb4debf10ac6b"
+    },
+    {
+      "name": "kfg-v4-0012-design-token-drift-detector",
+      "bytes": 7346,
+      "hexPrefix": "23206b66672d76342d303031322d6465",
+      "instructionHash": "84094411fb97120c4c313e23f1651b8b487e3aa060a86ad8e565ca11a4e96ec6"
+    },
+    {
+      "name": "kfg-v4-0013-optimistic-ui-conflict-resolver",
+      "bytes": 7319,
+      "hexPrefix": "23206b66672d76342d303031332d6f70",
+      "instructionHash": "9b36d72dc387200b39c2fda1e5096ebe5b9cc09a188cb95bdd9544529674c489"
+    },
+    {
+      "name": "kfg-v4-0014-form-state-machine-designer",
+      "bytes": 7338,
+      "hexPrefix": "23206b66672d76342d303031342d666f",
+      "instructionHash": "a252683eed8b4e47db879eee2d6386a1be0230dce3d78a5675aad70b10d238b4"
+    },
+    {
+      "name": "kfg-v4-0015-browser-storage-privacy-auditor",
+      "bytes": 7478,
+      "hexPrefix": "23206b66672d76342d303031352d6272",
+      "instructionHash": "0d3a5695c11305492fe4812c1fd348d1e486b0d1b0c4a2684343e78db70082fe"
+    },
+    {
+      "name": "kfg-v4-0016-offline-first-sync-merkle-planner",
+      "bytes": 7366,
+      "hexPrefix": "23206b66672d76342d303031362d6f66",
+      "instructionHash": "35707b54c1776bd42d9a3707270fa723e1782cb463dd606c9e638ff932c0ad8e"
+    },
+    {
+      "name": "kfg-v4-0017-mobile-release-train-auditor",
+      "bytes": 7461,
+      "hexPrefix": "23206b66672d76342d303031372d6d6f",
+      "instructionHash": "fc4c4a179367eb25fa4b3eef91c3e8c94090476063e0a3bd5188615255521465"
+    },
+    {
+      "name": "kfg-v4-0018-deep-link-integrity-checker",
+      "bytes": 7384,
+      "hexPrefix": "23206b66672d76342d303031382d6465",
+      "instructionHash": "360c136059ffead7a798358ae20a51d33a36bf2557419a1c35ac202b6ed82048"
+    },
+    {
+      "name": "kfg-v4-0019-device-capability-fallback-designer",
+      "bytes": 7459,
+      "hexPrefix": "23206b66672d76342d303031392d6465",
+      "instructionHash": "9f78418d4304b488d8928084d38fe15ae36e88646db4f659b751da2e87912cfe"
+    },
+    {
+      "name": "kfg-v4-0020-mobile-crash-symbolication-triager",
+      "bytes": 7337,
+      "hexPrefix": "23206b66672d76342d303032302d6d6f",
+      "instructionHash": "917d2226f5e3e1291d4c1b4f0b2ee5ae4fea9190621a19da7de2ff028bf29613"
+    },
+    {
+      "name": "kfg-v4-0021-task-flow-friction-analyzer",
+      "bytes": 7281,
+      "hexPrefix": "23206b66672d76342d303032312d7461",
+      "instructionHash": "4d81e1187f3d7654e51b72403224a01e5d2f306f94e4de17359d00bfbd25f159"
+    },
+    {
+      "name": "kfg-v4-0022-information-scent-heuristic-auditor",
+      "bytes": 7567,
+      "hexPrefix": "23206b66672d76342d303032322d696e",
+      "instructionHash": "861b3623a35b64fe5781aa383dc9e6c939a0028385cdf1503649edaee494db64"
+    },
+    {
+      "name": "kfg-v4-0023-data-dense-table-interaction-designer",
+      "bytes": 7408,
+      "hexPrefix": "23206b66672d76342d303032332d6461",
+      "instructionHash": "d841d66ace4c41d551258055f97dfb7c4f20c08ff53195433bda92d7b15925c5"
+    },
+    {
+      "name": "kfg-v4-0024-empty-state-recovery-designer",
+      "bytes": 7372,
+      "hexPrefix": "23206b66672d76342d303032342d656d",
+      "instructionHash": "581ca51d7204436b8c37ae4023dc13eb0a17369a2381351f9341c0057779a3ed"
+    },
+    {
+      "name": "kfg-v4-0025-design-token-contrast-calibrator",
+      "bytes": 7351,
+      "hexPrefix": "23206b66672d76342d303032352d6465",
+      "instructionHash": "1e54be25045379e65f6f01190cbbbd6c66e5ed80cf3397a7e5732437a645ec04"
+    },
+    {
+      "name": "kfg-v4-0026-schema-federation-composition-auditor",
+      "bytes": 7537,
+      "hexPrefix": "23206b66672d76342d303032362d7363",
+      "instructionHash": "9419670e3aff9abfdb13e6bfb1a742d88a78cef3d520801ea7d7acf79b7643f3"
+    },
+    {
+      "name": "kfg-v4-0027-query-cost-budget-enforcer",
+      "bytes": 7243,
+      "hexPrefix": "23206b66672d76342d303032372d7175",
+      "instructionHash": "853c982da13df0ccc3564ec30bee63d57a6f164dd6f9b00ba52ebac3c1be87ae"
+    },
+    {
+      "name": "kfg-v4-0028-persisted-operation-registry",
+      "bytes": 7299,
+      "hexPrefix": "23206b66672d76342d303032382d7065",
+      "instructionHash": "6d5b52986329ec554c260b686e8921e746ccd4e59ea51031e61af6ebe5b195a6"
+    },
+    {
+      "name": "kfg-v4-0029-nullability-migration-planner",
+      "bytes": 7422,
+      "hexPrefix": "23206b66672d76342d303032392d6e75",
+      "instructionHash": "0c8670a57d1c7607050ff71514ddb9373d0f254163b94cc3a77de4aba1d49281"
+    },
+    {
+      "name": "kfg-v4-0030-subscription-backpressure-guard",
+      "bytes": 7350,
+      "hexPrefix": "23206b66672d76342d303033302d7375",
+      "instructionHash": "4477899cc257ba0fa41c707ec70e76fd644b9c8105e2434f54cbe6ab36f8a4c9"
+    },
+    {
+      "name": "kfg-v4-0031-signature-rotation-verifier",
+      "bytes": 7371,
+      "hexPrefix": "23206b66672d76342d303033312d7369",
+      "instructionHash": "487b6756e9398cba788136af67d3e50ec6491fe5f3e3f6f2885bc5eba9491d16"
+    },
+    {
+      "name": "kfg-v4-0032-delivery-ordering-reconciler",
+      "bytes": 7341,
+      "hexPrefix": "23206b66672d76342d303033322d6465",
+      "instructionHash": "00e72f6f98ce2d28f6bfeaa5a148310ecbde76a68b7332ccb1d6f5fd85c943b0"
+    },
+    {
+      "name": "kfg-v4-0033-replay-window-controller",
+      "bytes": 7205,
+      "hexPrefix": "23206b66672d76342d303033332d7265",
+      "instructionHash": "98effff140260779c8beb7eb416027ebd5133c6012cdd58c56ebe8cc79aaf6e1"
+    },
+    {
+      "name": "kfg-v4-0034-webhook-tenant-isolation-auditor",
+      "bytes": 7443,
+      "hexPrefix": "23206b66672d76342d303033342d7765",
+      "instructionHash": "6185b6d72d2136cc2eac88a34922caf7e05ed44c71b713f74f66749e16312035"
+    },
+    {
+      "name": "kfg-v4-0035-dead-letter-replay-planner",
+      "bytes": 7297,
+      "hexPrefix": "23206b66672d76342d303033352d6465",
+      "instructionHash": "219c33749d5c732eda9f9cf09bb7df04f2bdb91d7c04753a8a25d2cf3f107793"
+    },
+    {
+      "name": "kfg-v4-0036-passkey-enrollment-recovery",
+      "bytes": 7295,
+      "hexPrefix": "23206b66672d76342d303033362d7061",
+      "instructionHash": "bdd5b155d50b16bce4a9349bfa6830357b62f677c9251ec530bb0621735e73b5"
+    },
+    {
+      "name": "kfg-v4-0037-session-fixation-detector",
+      "bytes": 7283,
+      "hexPrefix": "23206b66672d76342d303033372d7365",
+      "instructionHash": "41f2f9d9199f65b876d518ed119764985b8d7a1316c0be2de112612b7467670c"
+    },
+    {
+      "name": "kfg-v4-0038-oauth-consent-drift-auditor",
+      "bytes": 7442,
+      "hexPrefix": "23206b66672d76342d303033382d6f61",
+      "instructionHash": "f5b9981653d42fb604e450bb73c88fc8e348005cce82356fb504eb8893cc5029"
+    },
+    {
+      "name": "kfg-v4-0039-token-exchange-boundary-designer",
+      "bytes": 7380,
+      "hexPrefix": "23206b66672d76342d303033392d746f",
+      "instructionHash": "b2382de7e7e47398166f94be7b1b132ab1264a9d3c1565068d4a97afd573b7ca"
+    },
+    {
+      "name": "kfg-v4-0040-step-up-authentication-orchestrator",
+      "bytes": 7410,
+      "hexPrefix": "23206b66672d76342d303034302d7374",
+      "instructionHash": "79f969194a48c2ee3b8c8f83d6297ea15b2ef57b346404342da63d7b1582ad63"
+    },
+    {
+      "name": "kfg-v4-0041-policy-attribute-lineage-auditor",
+      "bytes": 7541,
+      "hexPrefix": "23206b66672d76342d303034312d706f",
+      "instructionHash": "60994233b897d2e2342f0eb847de50d5e33009796ab80e5984e1731059fe5ab9"
+    },
+    {
+      "name": "kfg-v4-0042-contextual-access-decision-tester",
+      "bytes": 7325,
+      "hexPrefix": "23206b66672d76342d303034322d636f",
+      "instructionHash": "c726ae1aeeef4e73bd8786268802b63d0ebef15a9f21f0e9cbb954952f11c773"
+    },
+    {
+      "name": "kfg-v4-0043-policy-combining-algorithm-reviewer",
+      "bytes": 7518,
+      "hexPrefix": "23206b66672d76342d303034332d706f",
+      "instructionHash": "15dcc6c182ed9c93e7f2be4024981d3be99508becdc978d6c8554eaf1ac3b855"
+    },
+    {
+      "name": "kfg-v4-0044-attribute-freshness-enforcer",
+      "bytes": 7346,
+      "hexPrefix": "23206b66672d76342d303034342d6174",
+      "instructionHash": "55fe103c812f679cbbc4f66fcfaf84a0e9fb8d4c26be209518ccf3e849117b98"
+    },
+    {
+      "name": "kfg-v4-0045-abac-explainability-reporter",
+      "bytes": 7309,
+      "hexPrefix": "23206b66672d76342d303034352d6162",
+      "instructionHash": "2462e3b1bf1afb5c58cac3066078c88f05654237adaaa0ad6515f17b2df83ab8"
+    },
+    {
+      "name": "kfg-v4-0046-rls-policy-shadow-tester",
+      "bytes": 7079,
+      "hexPrefix": "23206b66672d76342d303034362d726c",
+      "instructionHash": "009568147ca4b53447a5887e1e551e252486b7b48436f310c7c08d63e9fd5c6d"
+    },
+    {
+      "name": "kfg-v4-0047-tenant-key-propagation-auditor",
+      "bytes": 7398,
+      "hexPrefix": "23206b66672d76342d303034372d7465",
+      "instructionHash": "4429a0081838be8719e338a417a928fb5fb69bf9fbdaa97f861e41600db642b7"
+    },
+    {
+      "name": "kfg-v4-0048-security-definer-call-chain-reviewer",
+      "bytes": 7476,
+      "hexPrefix": "23206b66672d76342d303034382d7365",
+      "instructionHash": "9123d4997d9644e92c4e863467197992667353e27d991e443a2c56bdf43cfb31"
+    },
+    {
+      "name": "kfg-v4-0049-rls-performance-plan-checker",
+      "bytes": 7322,
+      "hexPrefix": "23206b66672d76342d303034392d726c",
+      "instructionHash": "ca62ea61521f51407071f17e80f0033a548d0030dcff5bb906923096c3039352"
+    },
+    {
+      "name": "kfg-v4-0050-row-visibility-regression-hunter",
+      "bytes": 7276,
+      "hexPrefix": "23206b66672d76342d303035302d726f",
+      "instructionHash": "2dabad06200e3ce1ee3d880f1dacf6427ffd7ae90889385ef6d17377b9b3f0b1"
+    },
+    {
+      "name": "kfg-v4-0051-threat-model-change-diff",
+      "bytes": 7222,
+      "hexPrefix": "23206b66672d76342d303035312d7468",
+      "instructionHash": "d3059fa2bc87efb83ecbfd65fedeb3da8483632e9c37570aa152dfa827f1768e"
+    },
+    {
+      "name": "kfg-v4-0052-sast-triage-prioritizer",
+      "bytes": 7255,
+      "hexPrefix": "23206b66672d76342d303035322d7361",
+      "instructionHash": "98964bdb04aa163346e042f19a467eff6c8f632760fd379519df16afa4a8dc8d"
+    },
+    {
+      "name": "kfg-v4-0053-dast-authenticated-surface-mapper",
+      "bytes": 7291,
+      "hexPrefix": "23206b66672d76342d303035332d6461",
+      "instructionHash": "3fa5a99e6b7fe9adaf34eebd250a8fb9501e67fc2eea0cddae69fb57330e2629"
+    },
+    {
+      "name": "kfg-v4-0054-dependency-exploitability-contextualizer",
+      "bytes": 7480,
+      "hexPrefix": "23206b66672d76342d303035342d6465",
+      "instructionHash": "e63fda8517b3dcec54275e30a008fa85d3c93512194a60fb8a264e04491439f7"
+    },
+    {
+      "name": "kfg-v4-0055-secure-defaults-baseline-builder",
+      "bytes": 7292,
+      "hexPrefix": "23206b66672d76342d303035352d7365",
+      "instructionHash": "82169c3d79646d54093874852faf1f684cb607c63c6538d0845a6b0e29d1414f"
+    },
+    {
+      "name": "kfg-v4-0056-cloud-identity-trust-graph",
+      "bytes": 7241,
+      "hexPrefix": "23206b66672d76342d303035362d636c",
+      "instructionHash": "5a6fc70fabe31689ad8e8998abbb6fca19e15e1fa52673fb023ad1a91cfc6a40"
+    },
+    {
+      "name": "kfg-v4-0057-network-segment-intent-validator",
+      "bytes": 7290,
+      "hexPrefix": "23206b66672d76342d303035372d6e65",
+      "instructionHash": "9512f6776e96eec66f63ee62eceb7fbaa997047c76c72fdf4065de3d14fee6b1"
+    },
+    {
+      "name": "kfg-v4-0058-cloud-storage-publicness-sentinel",
+      "bytes": 7368,
+      "hexPrefix": "23206b66672d76342d303035382d636c",
+      "instructionHash": "c7f90a3dda47bf8bf5035f33113cda991983bbe2a2ad5d45f45021b9527c6787"
+    },
+    {
+      "name": "kfg-v4-0059-workload-identity-rotation-planner",
+      "bytes": 7442,
+      "hexPrefix": "23206b66672d76342d303035392d776f",
+      "instructionHash": "68cd2a7d477978cd83005e20dbaf634062cc050bd5d4b3f09577478ef0ee6dab"
+    },
+    {
+      "name": "kfg-v4-0060-cloud-control-evidence-packager",
+      "bytes": 7312,
+      "hexPrefix": "23206b66672d76342d303036302d636c",
+      "instructionHash": "941ad7fb5e90828cc2862272c2c6a92240f2918d17d5db8d0224c2fe95b10b89"
+    },
+    {
+      "name": "kfg-v4-0061-secret-zero-bootstrap-designer",
+      "bytes": 7383,
+      "hexPrefix": "23206b66672d76342d303036312d7365",
+      "instructionHash": "8a86b9de0b4125690a34d91126291d994b5f98fd4b8cdc304664888e14a2fc4d"
+    },
+    {
+      "name": "kfg-v4-0062-secret-lease-expiry-monitor",
+      "bytes": 7296,
+      "hexPrefix": "23206b66672d76342d303036322d7365",
+      "instructionHash": "8805b871b37164a2d24ad3b3bf4d14948e1d29510479d40cad246525661cc890"
+    },
+    {
+      "name": "kfg-v4-0063-redaction-boundary-tester",
+      "bytes": 7421,
+      "hexPrefix": "23206b66672d76342d303036332d7265",
+      "instructionHash": "865627e3fee8b9a058fbff0de3792785b9f9e14910c18c03e7d2c0b066c5304c"
+    },
+    {
+      "name": "kfg-v4-0064-kms-key-usage-reconciler",
+      "bytes": 7227,
+      "hexPrefix": "23206b66672d76342d303036342d6b6d",
+      "instructionHash": "6429002e2816f97a2eeacdd0aede5aab0e8ddff01c37c169b2f6e415d9905323"
+    },
+    {
+      "name": "kfg-v4-0065-credential-incident-revocation-runbook",
+      "bytes": 7466,
+      "hexPrefix": "23206b66672d76342d303036352d6372",
+      "instructionHash": "d5fddc7f41a461ef353c63c81c461273a2b003235bac0958da6644feb61526ae"
+    },
+    {
+      "name": "kfg-v4-0066-pipeline-hermeticity-auditor",
+      "bytes": 7459,
+      "hexPrefix": "23206b66672d76342d303036362d7069",
+      "instructionHash": "a4295d723db62388329d654934d786335e24efc0422d8c3b6d1efadfa17ee10b"
+    },
+    {
+      "name": "kfg-v4-0067-build-cache-poisoning-detector",
+      "bytes": 7397,
+      "hexPrefix": "23206b66672d76342d303036372d6275",
+      "instructionHash": "bfe7eeeae8ecbf0c89d04ef72d64dd53ac7456037b6ef13018bd64b922ff88fe"
+    },
+    {
+      "name": "kfg-v4-0068-promotion-evidence-gate",
+      "bytes": 7241,
+      "hexPrefix": "23206b66672d76342d303036382d7072",
+      "instructionHash": "f12cd23dd2b4647b653844916516843109073be4e67a72b179dd672d4bbcc4bb"
+    },
+    {
+      "name": "kfg-v4-0069-parallel-job-resource-planner",
+      "bytes": 7373,
+      "hexPrefix": "23206b66672d76342d303036392d7061",
+      "instructionHash": "81e0984d0aa3d8a167a353c0dc52912910fb8d756579519a6be090d37850b373"
+    },
+    {
+      "name": "kfg-v4-0070-rollback-artifact-attestor",
+      "bytes": 7267,
+      "hexPrefix": "23206b66672d76342d303037302d726f",
+      "instructionHash": "16d020bc86f8dbad03a6d9fad89e7aecb9ed17f7871f1f07de8f3db69e22991f"
+    },
+    {
+      "name": "kfg-v4-0071-workflow-permission-minimizer",
+      "bytes": 7400,
+      "hexPrefix": "23206b66672d76342d303037312d776f",
+      "instructionHash": "e5586c3b00c9428ff54ad55eceec72405a4d8c94585a9473bd486dd8dc4cf5e6"
+    },
+    {
+      "name": "kfg-v4-0072-oidc-trust-policy-auditor",
+      "bytes": 7432,
+      "hexPrefix": "23206b66672d76342d303037322d6f69",
+      "instructionHash": "a49cdc50f6b00f7001199ff2141f86db9b4e1390e9d61fa87d458b6a471eebc6"
+    },
+    {
+      "name": "kfg-v4-0073-artifact-attestation-verifier",
+      "bytes": 7491,
+      "hexPrefix": "23206b66672d76342d303037332d6172",
+      "instructionHash": "a04bab2beeb64d5602724ccc1112e9a924468cf1fb5f3f552d930bcf15fb721f"
+    },
+    {
+      "name": "kfg-v4-0074-runner-isolation-reviewer",
+      "bytes": 7568,
+      "hexPrefix": "23206b66672d76342d303037342d7275",
+      "instructionHash": "1cac7bbf38b6db1ebf1b609e662fa1f8e2383f77ba0efc80e0ac00255fbe7d0a"
+    },
+    {
+      "name": "kfg-v4-0075-matrix-failure-correlation",
+      "bytes": 7417,
+      "hexPrefix": "23206b66672d76342d303037352d6d61",
+      "instructionHash": "eb82a374e640ab07d40a6bc6f04ea83387f0e2b7682952d2588f5d7bb3bc482f"
+    },
+    {
+      "name": "kfg-v4-0076-preview-production-parity-auditor",
+      "bytes": 7469,
+      "hexPrefix": "23206b66672d76342d303037362d7072",
+      "instructionHash": "02b5afa74f8ca51bad8ac76c5414cc19ebf65fde69e9581b858a1b5dc91dd9a1"
+    },
+    {
+      "name": "kfg-v4-0077-edge-runtime-compatibility-checker",
+      "bytes": 7429,
+      "hexPrefix": "23206b66672d76342d303037372d6564",
+      "instructionHash": "68baf0a2dec2f0d65d0ffcee50c7a651e4dc566aaba619e8896bf4583b02d11e"
+    },
+    {
+      "name": "kfg-v4-0078-deployment-protection-policy",
+      "bytes": 7316,
+      "hexPrefix": "23206b66672d76342d303037382d6465",
+      "instructionHash": "5996f62570a0781a183f66a8c6be013cbea75bc2709afc007f1dd685f9e11c1d"
+    },
+    {
+      "name": "kfg-v4-0079-environment-variable-scope-auditor",
+      "bytes": 7470,
+      "hexPrefix": "23206b66672d76342d303037392d656e",
+      "instructionHash": "1fcc147375a0d82a428373891fbeb70c334d44dc96af5cfb1772ae917619034c"
+    },
+    {
+      "name": "kfg-v4-0080-serverless-cold-start-profiler",
+      "bytes": 7341,
+      "hexPrefix": "23206b66672d76342d303038302d7365",
+      "instructionHash": "efb73eccc54a8519cb595f236ad35276b992867df60e43abec2a06e5986e81aa"
+    },
+    {
+      "name": "kfg-v4-0081-environment-drift-reconciler",
+      "bytes": 7420,
+      "hexPrefix": "23206b66672d76342d303038312d656e",
+      "instructionHash": "4657b13a85483cf014c71614bcf2afb81183a6ef68e4a318106f3778eb774b96"
+    },
+    {
+      "name": "kfg-v4-0082-release-train-dependency-mapper",
+      "bytes": 7353,
+      "hexPrefix": "23206b66672d76342d303038322d7265",
+      "instructionHash": "3fd59995c879fe663375237dad54c9a8201ab9861c23eb79209a003d3ecaac6a"
+    },
+    {
+      "name": "kfg-v4-0083-configuration-ownership-linter",
+      "bytes": 7535,
+      "hexPrefix": "23206b66672d76342d303038332d636f",
+      "instructionHash": "5ee3cfba9c46a9d2097700a450d78bc65ddd22521a52d627ab381bbf77df8760"
+    },
+    {
+      "name": "kfg-v4-0084-operational-readiness-checklist",
+      "bytes": 7439,
+      "hexPrefix": "23206b66672d76342d303038342d6f70",
+      "instructionHash": "1c7ee76e195a9e995cdc6e2ff80ddd8a3f4974fe78338c330af3a5092f013810"
+    },
+    {
+      "name": "kfg-v4-0085-change-failure-rate-analyzer",
+      "bytes": 7367,
+      "hexPrefix": "23206b66672d76342d303038352d6368",
+      "instructionHash": "01ea693cf964a62d45c2fca2cd863a208cc81f441333a7ea80648d7b583ec7a1"
+    },
+    {
+      "name": "kfg-v4-0086-error-budget-policy-calibrator",
+      "bytes": 7218,
+      "hexPrefix": "23206b66672d76342d303038362d6572",
+      "instructionHash": "fe0947c67233565c62f72a4d922cbc3bbf4b24db9392593982380ee4928ac099"
+    },
+    {
+      "name": "kfg-v4-0087-toil-source-classifier",
+      "bytes": 7189,
+      "hexPrefix": "23206b66672d76342d303038372d746f",
+      "instructionHash": "d9ade7da756c4b0d7567cd9dd97c98c3ce09d73d654ceada38ada1cb5a749874"
+    },
+    {
+      "name": "kfg-v4-0088-capacity-headroom-forecaster",
+      "bytes": 7284,
+      "hexPrefix": "23206b66672d76342d303038382d6361",
+      "instructionHash": "9d38220573e09e4ec97edf9348895842bf7e6390bacc9101d2ed855e1c861ce9"
+    },
+    {
+      "name": "kfg-v4-0089-service-tiering-reviewer",
+      "bytes": 7314,
+      "hexPrefix": "23206b66672d76342d303038392d7365",
+      "instructionHash": "98114138b13e3db0763fd5fe2cb439f295712d6d2e8105b2661efc1566a3f6a7"
+    },
+    {
+      "name": "kfg-v4-0090-reliability-risk-register",
+      "bytes": 7212,
+      "hexPrefix": "23206b66672d76342d303039302d7265",
+      "instructionHash": "66b54457d32e0da7ce8384f63f7c95a2a0d47141c4682196a6b1335c7f443884"
+    },
+    {
+      "name": "kfg-v4-0091-trace-context-propagation-auditor",
+      "bytes": 7531,
+      "hexPrefix": "23206b66672d76342d303039312d7472",
+      "instructionHash": "00491c031ebfd3e75fbe91af0c9ec9d213237286794f95fdeff1f93a5765ddb5"
+    },
+    {
+      "name": "kfg-v4-0092-metric-cardinality-budgeter",
+      "bytes": 7342,
+      "hexPrefix": "23206b66672d76342d303039322d6d65",
+      "instructionHash": "9c8d497f0b34c3353e70e7c3f95c54683e85992b3d5029f061a28db3ce461cb5"
+    },
+    {
+      "name": "kfg-v4-0093-log-schema-evolution-checker",
+      "bytes": 7393,
+      "hexPrefix": "23206b66672d76342d303039332d6c6f",
+      "instructionHash": "594f906b1c19b91545f80811aa2f638531178452c99f56d88c59a9bf651e647e"
+    },
+    {
+      "name": "kfg-v4-0094-alert-noise-correlation-miner",
+      "bytes": 7345,
+      "hexPrefix": "23206b66672d76342d303039342d616c",
+      "instructionHash": "7718ea2f8c6caa98b99cb2df04f494e503c4ab16e9b890cd7acde898a5dedeba"
+    },
+    {
+      "name": "kfg-v4-0095-telemetry-retention-cost-planner",
+      "bytes": 7434,
+      "hexPrefix": "23206b66672d76342d303039352d7465",
+      "instructionHash": "2c0b3ac85b2628fc287d9372ceff0bddd6c98ca6cc1701d5857e3460f12b0da2"
+    },
+    {
+      "name": "kfg-v4-0096-tail-latency-causal-profiler",
+      "bytes": 7315,
+      "hexPrefix": "23206b66672d76342d303039362d7461",
+      "instructionHash": "f84e5621e5b98fde48ba3165b5773b259cead93eb3884b18c5967b93e1399a54"
+    },
+    {
+      "name": "kfg-v4-0097-load-model-calibration",
+      "bytes": 7290,
+      "hexPrefix": "23206b66672d76342d303039372d6c6f",
+      "instructionHash": "098f69be5a7f8b67b13f736345ab152e95ac957c2f73522e7a9897a76b671386"
+    },
+    {
+      "name": "kfg-v4-0098-p99-regression-gate",
+      "bytes": 7256,
+      "hexPrefix": "23206b66672d76342d303039382d7039",
+      "instructionHash": "c428a9be5a8d55d85b90787680d40c0d1ddcd98198dd63001bd5bc3d7b30a892"
+    },
+    {
+      "name": "kfg-v4-0099-capacity-saturation-explainer",
+      "bytes": 7359,
+      "hexPrefix": "23206b66672d76342d303039392d6361",
+      "instructionHash": "15be07323e9f0a6381ed86d52a7079fb3efc7f9da416d6183a9dd8f54b517717"
+    },
+    {
+      "name": "kfg-v4-0100-performance-budget-contract",
+      "bytes": 7395,
+      "hexPrefix": "23206b66672d76342d303130302d7065",
+      "instructionHash": "6050909fab9d69a175b60a3407a4000b5086901fc219afd5337ced29cd1b98e2"
+    },
+    {
+      "name": "kfg-v4-0101-cache-key-collision-auditor",
+      "bytes": 7363,
+      "hexPrefix": "23206b66672d76342d303130312d6361",
+      "instructionHash": "60bd1b4b911f468d63dd4017e9891a761eda24da91a86006efbbf3ef76fd38b1"
+    },
+    {
+      "name": "kfg-v4-0102-stale-while-revalidate-planner",
+      "bytes": 7275,
+      "hexPrefix": "23206b66672d76342d303130322d7374",
+      "instructionHash": "13f4cc7a69c14146707fd8848abe11f90db454c1c63efff902f083551ca54f6c"
+    },
+    {
+      "name": "kfg-v4-0103-distributed-invalidation-protocol",
+      "bytes": 7287,
+      "hexPrefix": "23206b66672d76342d303130332d6469",
+      "instructionHash": "90ade2c4783137cc9f2d53a8346ed4c43c73f2ee6363e90737ed7df9bf034ea2"
+    },
+    {
+      "name": "kfg-v4-0104-cache-warmup-safety-checker",
+      "bytes": 7262,
+      "hexPrefix": "23206b66672d76342d303130342d6361",
+      "instructionHash": "a5dbe2e6a003744bfd965cf3610101fea4168e9a7ed0b4de2024443d83e96bf1"
+    },
+    {
+      "name": "kfg-v4-0105-negative-cache-poisoning-detector",
+      "bytes": 7330,
+      "hexPrefix": "23206b66672d76342d303130352d6e65",
+      "instructionHash": "636ee4596f86e488f5f99c6db0114d2822a8b77bc3d899ec2d64a5ca0dd50fa5"
+    },
+    {
+      "name": "kfg-v4-0106-queue-visibility-timeout-tuner",
+      "bytes": 7261,
+      "hexPrefix": "23206b66672d76342d303130362d7175",
+      "instructionHash": "8ad240f3881aea5875106e37a40602f6dda49089d41ae984c8c2b0eb74bb5ae2"
+    },
+    {
+      "name": "kfg-v4-0107-priority-inversion-detector",
+      "bytes": 7320,
+      "hexPrefix": "23206b66672d76342d303130372d7072",
+      "instructionHash": "e6fc6134eac9c09fd9c45031df0d0072055dc1d2ff99e4c4a2d1dba968f09b29"
+    },
+    {
+      "name": "kfg-v4-0108-poison-message-quarantine",
+      "bytes": 7223,
+      "hexPrefix": "23206b66672d76342d303130382d706f",
+      "instructionHash": "13ce1e0c065c268f2f729b44d3ea5e51c96ade6d6dc9a093b4af9d8afd3cfe32"
+    },
+    {
+      "name": "kfg-v4-0109-consumer-lag-causal-analyzer",
+      "bytes": 7196,
+      "hexPrefix": "23206b66672d76342d303130392d636f",
+      "instructionHash": "e0c0a10a2b5969b6205dbb66cbeac00d2e313cb25c0b93263aa6e5913aa92b7e"
+    },
+    {
+      "name": "kfg-v4-0110-exactly-once-claim-boundary",
+      "bytes": 7338,
+      "hexPrefix": "23206b66672d76342d303131302d6578",
+      "instructionHash": "361f5295ceeaaa84fe75b46cb5826ef61c016e64aabd0a67fbb8eb3e771f60ba"
+    },
+    {
+      "name": "kfg-v4-0111-worker-lease-fencing-auditor",
+      "bytes": 7327,
+      "hexPrefix": "23206b66672d76342d303131312d776f",
+      "instructionHash": "a8a40a8ff24f5ca3904e5339f16d9981291589c35bee5d4ef8fb045ece01d2ab"
+    },
+    {
+      "name": "kfg-v4-0112-job-progress-checkpoint-designer",
+      "bytes": 7293,
+      "hexPrefix": "23206b66672d76342d303131322d6a6f",
+      "instructionHash": "012f5aaf8b969b1e6bbe6bd9417a4ff6c84df2e1bc0b1465007aaa6a4f81aae4"
+    },
+    {
+      "name": "kfg-v4-0113-worker-pool-autoscale-calibrator",
+      "bytes": 7252,
+      "hexPrefix": "23206b66672d76342d303131332d776f",
+      "instructionHash": "c20fef90d5807a62c0ef05f06ef45613d7c1a5353c867faaae110ece8c383070"
+    },
+    {
+      "name": "kfg-v4-0114-graceful-drain-verifier",
+      "bytes": 7301,
+      "hexPrefix": "23206b66672d76342d303131342d6772",
+      "instructionHash": "4bf14fc237111ba73149f4fa76d584e0920a38b8cad80f60237af5c529eb8d0e"
+    },
+    {
+      "name": "kfg-v4-0115-retry-storm-prevention",
+      "bytes": 7154,
+      "hexPrefix": "23206b66672d76342d303131352d7265",
+      "instructionHash": "a1e4800a0cd1b5f13f17ce9b56ed727e9c50c7bc442034617926e36eaa83e443"
+    },
+    {
+      "name": "kfg-v4-0116-event-schema-compatibility-linter",
+      "bytes": 7398,
+      "hexPrefix": "23206b66672d76342d303131362d6576",
+      "instructionHash": "094cdb8300d36870b8948acb87a2c5257c95f38ea61ec0632b4674e23ff78a39"
+    },
+    {
+      "name": "kfg-v4-0117-consumer-replay-safety-auditor",
+      "bytes": 7448,
+      "hexPrefix": "23206b66672d76342d303131372d636f",
+      "instructionHash": "8a891b145964791210abca24b5d1d851e1c491889f408605f5b71e0cb5c02e8d"
+    },
+    {
+      "name": "kfg-v4-0118-event-ordering-invariant-checker",
+      "bytes": 7400,
+      "hexPrefix": "23206b66672d76342d303131382d6576",
+      "instructionHash": "df360f1b6db7ea16bd59a0207d737b36320ccbb4149c769a8aefa499fa5a937d"
+    },
+    {
+      "name": "kfg-v4-0119-eventual-consistency-expectation-mapper",
+      "bytes": 7431,
+      "hexPrefix": "23206b66672d76342d303131392d6576",
+      "instructionHash": "dbe22a9b10a19ad208059f2a217a2b7cae0ec091c0afd9274d67affd397f9b4f"
+    },
+    {
+      "name": "kfg-v4-0120-dead-letter-causality-tracer",
+      "bytes": 7315,
+      "hexPrefix": "23206b66672d76342d303132302d6465",
+      "instructionHash": "7e0411bd99ca04f5bcd9b8651daf04ad3a440a74c1714b3689ea57afefb79518"
+    },
+    {
+      "name": "kfg-v4-0121-clock-skew-impact-analyzer",
+      "bytes": 7241,
+      "hexPrefix": "23206b66672d76342d303132312d636c",
+      "instructionHash": "0cd22369b6485aadc0371e16d87bb1b2346e63d80ea2ca49ce3dc492ad7449a9"
+    },
+    {
+      "name": "kfg-v4-0122-quorum-loss-failure-planner",
+      "bytes": 7346,
+      "hexPrefix": "23206b66672d76342d303132322d7175",
+      "instructionHash": "ddeaeb6f6fcc5425ef9daca83a7ec8cd8d2753604ee9c83755fdda6309472fa6"
+    },
+    {
+      "name": "kfg-v4-0123-distributed-lock-fencing-checker",
+      "bytes": 7424,
+      "hexPrefix": "23206b66672d76342d303132332d6469",
+      "instructionHash": "1930d7294fb270a819bdbac5fb12aafec10b9666876917d7ae4b9e80c3cae4eb"
+    },
+    {
+      "name": "kfg-v4-0124-split-brain-detection-designer",
+      "bytes": 7383,
+      "hexPrefix": "23206b66672d76342d303132342d7370",
+      "instructionHash": "a2d5ad01e281ca0b5e6de6d1e376ce6a00748e8cf02a654c8b63eef593af7cf6"
+    },
+    {
+      "name": "kfg-v4-0125-cross-region-latency-budgeter",
+      "bytes": 7282,
+      "hexPrefix": "23206b66672d76342d303132352d6372",
+      "instructionHash": "aa0b7282ca70593252954d0a41784aef0c6864e5d01f80a57b0c9876258304fe"
+    },
+    {
+      "name": "kfg-v4-0126-service-boundary-conway-review",
+      "bytes": 7494,
+      "hexPrefix": "23206b66672d76342d303132362d7365",
+      "instructionHash": "20209ad96b39413e16b39e17158716c14316cacdcc2758a040e81a75bb7c746d"
+    },
+    {
+      "name": "kfg-v4-0127-saga-compensation-modeler",
+      "bytes": 7365,
+      "hexPrefix": "23206b66672d76342d303132372d7361",
+      "instructionHash": "4a0879c0d32e6b12ac1991703b4eadf2e2a97662d1ce7f926271098950326381"
+    },
+    {
+      "name": "kfg-v4-0128-contract-version-support-matrix",
+      "bytes": 7388,
+      "hexPrefix": "23206b66672d76342d303132382d636f",
+      "instructionHash": "608177f300058d036b9338f2ac6dd0d95e05c9e1bdbd55721cc9d9367a626ad2"
+    },
+    {
+      "name": "kfg-v4-0129-service-ownership-transfer-auditor",
+      "bytes": 7536,
+      "hexPrefix": "23206b66672d76342d303132392d7365",
+      "instructionHash": "678cf4e2b8693bf4ea0128bd7608d650f3c77df0d8108a9bd9fc5c5c448eb671"
+    },
+    {
+      "name": "kfg-v4-0130-dependency-cycle-remediator",
+      "bytes": 7343,
+      "hexPrefix": "23206b66672d76342d303133302d6465",
+      "instructionHash": "14468c47ca37034299c4c8cdf3790eb13e1805486e52c928ceb6a3f19a85f205"
+    },
+    {
+      "name": "kfg-v4-0131-workspace-boundary-policy",
+      "bytes": 7276,
+      "hexPrefix": "23206b66672d76342d303133312d776f",
+      "instructionHash": "e638f4fdb5d74d2ba8b8f8759b15684eda0c04738a601e31c85050ddc1e51bcf"
+    },
+    {
+      "name": "kfg-v4-0132-incremental-build-correctness",
+      "bytes": 7403,
+      "hexPrefix": "23206b66672d76342d303133322d696e",
+      "instructionHash": "c1c7914c2d091fb8ddc010ecbc1488b0dd83f0dfa16c467fc4610cf8cc2e21ba"
+    },
+    {
+      "name": "kfg-v4-0133-package-graph-cycle-detector",
+      "bytes": 7356,
+      "hexPrefix": "23206b66672d76342d303133332d7061",
+      "instructionHash": "b8a3bf39497bdeb25612fc55431210b0c18433c283a1eb3fc1446f76e2122250"
+    },
+    {
+      "name": "kfg-v4-0134-changeset-release-integrity",
+      "bytes": 7373,
+      "hexPrefix": "23206b66672d76342d303133342d6368",
+      "instructionHash": "9278c50ac5273db490cf22936e480e63f419771d01d5cc26de580fa54b43064f"
+    },
+    {
+      "name": "kfg-v4-0135-cross-package-test-selection",
+      "bytes": 7269,
+      "hexPrefix": "23206b66672d76342d303133352d6372",
+      "instructionHash": "b353cacc847942c1f11889bcbdd01810bfb17543d2740b7559b2f8539c028b43"
+    },
+    {
+      "name": "kfg-v4-0136-property-based-test-seeder",
+      "bytes": 7262,
+      "hexPrefix": "23206b66672d76342d303133362d7072",
+      "instructionHash": "4afb71bdfa4fca0a43d67a9d48661086b9958c328dfa8a7c8e801c8148d83a30"
+    },
+    {
+      "name": "kfg-v4-0137-mutation-testing-signal-analyzer",
+      "bytes": 7379,
+      "hexPrefix": "23206b66672d76342d303133372d6d75",
+      "instructionHash": "1108ffd200efe43e692f7dbb0f3f5e9ae599a815eee101282bd9e8c635641e44"
+    },
+    {
+      "name": "kfg-v4-0138-test-fixture-isolation-auditor",
+      "bytes": 7455,
+      "hexPrefix": "23206b66672d76342d303133382d7465",
+      "instructionHash": "c5bfb0bea6a5a131711f2f3106dd39b736bcbb581f56de146e6d9231ad044c80"
+    },
+    {
+      "name": "kfg-v4-0139-deterministic-clock-test-harness",
+      "bytes": 7337,
+      "hexPrefix": "23206b66672d76342d303133392d6465",
+      "instructionHash": "84215a5a3f1cbc93c07b30b2a51c6e084c9559da07e567e815b9058664ab4d1d"
+    },
+    {
+      "name": "kfg-v4-0140-assertion-quality-reviewer",
+      "bytes": 7476,
+      "hexPrefix": "23206b66672d76342d303134302d6173",
+      "instructionHash": "8b3877e67f7c46b19d46999bb946b4a70b5fa082af4f7f5083fea0a980633a06"
+    },
+    {
+      "name": "kfg-v4-0141-environment-seam-contract",
+      "bytes": 7530,
+      "hexPrefix": "23206b66672d76342d303134312d656e",
+      "instructionHash": "d99628ef553d97f17aacaa2e65d7a8e566aca2bdb15be6166fe1c773c7d761f3"
+    },
+    {
+      "name": "kfg-v4-0142-database-transaction-test-isolation",
+      "bytes": 7580,
+      "hexPrefix": "23206b66672d76342d303134322d6461",
+      "instructionHash": "37ea0918dfd3414c96c6268a20315f679ed1aab45b58c6865dbd602aedc049d2"
+    },
+    {
+      "name": "kfg-v4-0143-external-service-sandbox-parity",
+      "bytes": 7511,
+      "hexPrefix": "23206b66672d76342d303134332d6578",
+      "instructionHash": "083dce02bdafb5a638f727539b9c675163329370b692581d354f5a464eed9563"
+    },
+    {
+      "name": "kfg-v4-0144-integration-fixture-lifecycle",
+      "bytes": 7529,
+      "hexPrefix": "23206b66672d76342d303134342d696e",
+      "instructionHash": "6839934009e97ddea1e1b052345475223a2c71ac1f1c99c1eec33e00e6c92e77"
+    },
+    {
+      "name": "kfg-v4-0145-cross-boundary-failure-injection",
+      "bytes": 7618,
+      "hexPrefix": "23206b66672d76342d303134352d6372",
+      "instructionHash": "010c25fca76dab5a77963dae75e9aebcb56abd371b1040a0f2411b8cdb7f6957"
+    },
+    {
+      "name": "kfg-v4-0146-journey-coverage-mapper",
+      "bytes": 7205,
+      "hexPrefix": "23206b66672d76342d303134362d6a6f",
+      "instructionHash": "732e1744e79838dc2d947512b68bd7c731e559558f0c99b05066cf1b976309c1"
+    },
+    {
+      "name": "kfg-v4-0147-browser-flake-causal-triage",
+      "bytes": 7261,
+      "hexPrefix": "23206b66672d76342d303134372d6272",
+      "instructionHash": "9b8fa6e762f6d0f3851acac79f4b2e6c607b29261fbca44a6824bd011c36ba6a"
+    },
+    {
+      "name": "kfg-v4-0148-parallel-test-data-isolation",
+      "bytes": 7204,
+      "hexPrefix": "23206b66672d76342d303134382d7061",
+      "instructionHash": "339e19e7953cac7a1dca5c5ad4abc5fa28d9154a7b8e0e2ed561c9fe66564ef6"
+    },
+    {
+      "name": "kfg-v4-0149-visual-regression-trust-calibrator",
+      "bytes": 7289,
+      "hexPrefix": "23206b66672d76342d303134392d7669",
+      "instructionHash": "cc3ca5802359164cd99c48cf63cdde9bf094d6de26bbac469e60cc0ab4c1e14a"
+    },
+    {
+      "name": "kfg-v4-0150-e2e-observability-correlator",
+      "bytes": 7289,
+      "hexPrefix": "23206b66672d76342d303135302d6532",
+      "instructionHash": "d67a32962d50689b41593c05a0b7284e1c243747bc79f52c15d7a5e603846806"
+    },
+    {
+      "name": "kfg-v4-0151-consumer-driven-contract-publisher",
+      "bytes": 7542,
+      "hexPrefix": "23206b66672d76342d303135312d636f",
+      "instructionHash": "b4dd28d33fd4e3c0ba99e8391acd56baf08a12cf181f004aa4cd40992a7111a9"
+    },
+    {
+      "name": "kfg-v4-0152-provider-compatibility-verifier",
+      "bytes": 7668,
+      "hexPrefix": "23206b66672d76342d303135322d7072",
+      "instructionHash": "08033899583949b8deea619980f23ffbc1ff1f18064bd44fd7f5278033447bbb"
+    },
+    {
+      "name": "kfg-v4-0153-contract-fixture-minimizer",
+      "bytes": 7519,
+      "hexPrefix": "23206b66672d76342d303135332d636f",
+      "instructionHash": "250cb84c62360aa2bfa3a09d3fcebcb10055d48137c1282755e3a2edfb6ddd57"
+    },
+    {
+      "name": "kfg-v4-0154-breaking-change-impact-graph",
+      "bytes": 7438,
+      "hexPrefix": "23206b66672d76342d303135342d6272",
+      "instructionHash": "d8e17837e03480ae75bfaadd7d6e2af6323d9718eb49f788e1df3812e9ccd412"
+    },
+    {
+      "name": "kfg-v4-0155-contract-test-failure-explainer",
+      "bytes": 7409,
+      "hexPrefix": "23206b66672d76342d303135352d636f",
+      "instructionHash": "1f7030084a6a9cf8b75ec3e59a25e163cfe0459ed31ffc6424e686e567b167e0"
+    },
+    {
+      "name": "kfg-v4-0156-steady-state-hypothesis-builder",
+      "bytes": 7256,
+      "hexPrefix": "23206b66672d76342d303135362d7374",
+      "instructionHash": "f7105b113ed05ecabefb5b1c42ee00b394dc6fd6b98edfd23139cf59bf98e94e"
+    },
+    {
+      "name": "kfg-v4-0157-fault-injection-scope-guard",
+      "bytes": 7228,
+      "hexPrefix": "23206b66672d76342d303135372d6661",
+      "instructionHash": "098ee17a3eea116093b0264d6b4456ed09f6925193a042a8c3c44fe4cf4b6c6d"
+    },
+    {
+      "name": "kfg-v4-0158-game-day-evidence-collector",
+      "bytes": 7216,
+      "hexPrefix": "23206b66672d76342d303135382d6761",
+      "instructionHash": "f97e9cdd32526eb50ab81a4f1638d62d84ea1b50e32842f8695c50685ceae969"
+    },
+    {
+      "name": "kfg-v4-0159-blast-radius-budgeter",
+      "bytes": 7216,
+      "hexPrefix": "23206b66672d76342d303135392d626c",
+      "instructionHash": "343f845ee8312b94b0746159a8c105cc6fac5cce9e3b7e282a5633d65c1a7703"
+    },
+    {
+      "name": "kfg-v4-0160-chaos-experiment-rollback",
+      "bytes": 7276,
+      "hexPrefix": "23206b66672d76342d303136302d6368",
+      "instructionHash": "723f838910a21c42794beed065ad97bd75335fc5ea9986041289ae13cc67e52c"
+    },
+    {
+      "name": "kfg-v4-0161-incident-timeline-reconstructor",
+      "bytes": 7431,
+      "hexPrefix": "23206b66672d76342d303136312d696e",
+      "instructionHash": "b3491b240f3d0e8a254f3ed8382c0d9d5cccd193ed72819936f6a9018d1175ed"
+    },
+    {
+      "name": "kfg-v4-0162-severity-calibration-matrix",
+      "bytes": 7391,
+      "hexPrefix": "23206b66672d76342d303136322d7365",
+      "instructionHash": "edc5d0e7862435120df24d38e77dc56158352a24ed532f39b6a113a62fb6b429"
+    },
+    {
+      "name": "kfg-v4-0163-oncall-load-balancer",
+      "bytes": 7248,
+      "hexPrefix": "23206b66672d76342d303136332d6f6e",
+      "instructionHash": "6e02c2a65e056e076820383ccb08216baee9aca89bd45a94f8afa120b56c145e"
+    },
+    {
+      "name": "kfg-v4-0164-customer-impact-estimator",
+      "bytes": 7365,
+      "hexPrefix": "23206b66672d76342d303136342d6375",
+      "instructionHash": "50c37f06e2d0d6372b9d6d2490aae3c60182454f84fd117db3e3a9674d18aba5"
+    },
+    {
+      "name": "kfg-v4-0165-postincident-action-verifier",
+      "bytes": 7497,
+      "hexPrefix": "23206b66672d76342d303136352d706f",
+      "instructionHash": "3533bbf40208b78479feac5fa1eb011d56c4b20bfde918473b4a339c44ef2934"
+    },
+    {
+      "name": "kfg-v4-0166-production-repro-safety-planner",
+      "bytes": 7431,
+      "hexPrefix": "23206b66672d76342d303136362d7072",
+      "instructionHash": "9160b40dfe43b1573f7b966d7c63e90a7bd14574a052b0124106d712514c324d"
+    },
+    {
+      "name": "kfg-v4-0167-feature-flag-bisect-coordinator",
+      "bytes": 7335,
+      "hexPrefix": "23206b66672d76342d303136372d6665",
+      "instructionHash": "2138eaab7bb1779d38630045250ae28df4113c2bb3d38de1ed08396309174130"
+    },
+    {
+      "name": "kfg-v4-0168-log-correlation-investigator",
+      "bytes": 7335,
+      "hexPrefix": "23206b66672d76342d303136382d6c6f",
+      "instructionHash": "6c5ea27fc3835b223cd96518e84aeb4badc578ae070d1762f32da6d5b6f1a089"
+    },
+    {
+      "name": "kfg-v4-0169-live-query-risk-assessor",
+      "bytes": 7262,
+      "hexPrefix": "23206b66672d76342d303136392d6c69",
+      "instructionHash": "2e97e59f5d4aa3506dd87a849630ba11f1d73990646041ba2831b83628baf21a"
+    },
+    {
+      "name": "kfg-v4-0170-hotfix-verification-gate",
+      "bytes": 7308,
+      "hexPrefix": "23206b66672d76342d303137302d686f",
+      "instructionHash": "db20228a5f472c27944a489418601fc18a026c948940d45626ff9a70e50f1d22"
+    },
+    {
+      "name": "kfg-v4-0171-causal-graph-evidence-builder",
+      "bytes": 7263,
+      "hexPrefix": "23206b66672d76342d303137312d6361",
+      "instructionHash": "ef3cd5206d8ff7dd5761f9a4e8312feb41edd1955b8db497acf855974595be8d"
+    },
+    {
+      "name": "kfg-v4-0172-five-whys-quality-auditor",
+      "bytes": 7397,
+      "hexPrefix": "23206b66672d76342d303137322d6669",
+      "instructionHash": "9c26962ebe6601e194f08cf79f98bfcd30e74dba6a008b114bc9d891616a3c97"
+    },
+    {
+      "name": "kfg-v4-0173-counterfactual-hypothesis-tester",
+      "bytes": 7410,
+      "hexPrefix": "23206b66672d76342d303137332d636f",
+      "instructionHash": "fa3dcc34f78c7f374d789a5abf4434fc2af6bee1ac709f385a151697f2367e84"
+    },
+    {
+      "name": "kfg-v4-0174-contributing-factor-classifier",
+      "bytes": 7360,
+      "hexPrefix": "23206b66672d76342d303137342d636f",
+      "instructionHash": "3f9b6b7fded7278e66272bff8f40201104e8e64b3933fc9fdbb81138ecc31acf"
+    },
+    {
+      "name": "kfg-v4-0175-root-cause-confidence-scorer",
+      "bytes": 7276,
+      "hexPrefix": "23206b66672d76342d303137352d726f",
+      "instructionHash": "b2cf63300d8a27466715101db8db1713dd9898ef129f28da001f04bbad2ce29b"
+    },
+    {
+      "name": "kfg-v4-0176-repair-scope-bounding",
+      "bytes": 7241,
+      "hexPrefix": "23206b66672d76342d303137362d7265",
+      "instructionHash": "cc3f58f70c404bc25738fe12a127345c364712c4a0bab293494ff87a8ffcedc4"
+    },
+    {
+      "name": "kfg-v4-0177-patch-risk-estimator",
+      "bytes": 7297,
+      "hexPrefix": "23206b66672d76342d303137372d7061",
+      "instructionHash": "ab07b4ced8436a28190af825a6a11d7e3b76bc88ca30fd6342accc137a06acc2"
+    },
+    {
+      "name": "kfg-v4-0178-repair-plan-simulator",
+      "bytes": 7255,
+      "hexPrefix": "23206b66672d76342d303137382d7265",
+      "instructionHash": "97c2114fd449d87952db0097847e81d9000e21d23224d1fd1cf9dacc8d13270c"
+    },
+    {
+      "name": "kfg-v4-0179-rollback-readiness-verifier",
+      "bytes": 7519,
+      "hexPrefix": "23206b66672d76342d303137392d726f",
+      "instructionHash": "bdde373c016eb909927f33217d3b9e8f335b3d4571156125bf93635fc54f3319"
+    },
+    {
+      "name": "kfg-v4-0180-repair-claim-evidence-auditor",
+      "bytes": 7451,
+      "hexPrefix": "23206b66672d76342d303138302d7265",
+      "instructionHash": "3e1982929cf3878575cb093d0490a521d6e90423cb2e34c8734fcfd9149c2463"
+    },
+    {
+      "name": "kfg-v4-0181-commit-provenance-reconstructor",
+      "bytes": 7407,
+      "hexPrefix": "23206b66672d76342d303138312d636f",
+      "instructionHash": "54d23bc9265f85dd1faa49f16c99a5b324cc0e2e0b9bb6b18b02e862fe9bde93"
+    },
+    {
+      "name": "kfg-v4-0182-branch-divergence-analyzer",
+      "bytes": 7388,
+      "hexPrefix": "23206b66672d76342d303138322d6272",
+      "instructionHash": "9fad6e383229ce1de11b023bf3328ad046e4ba287808c71ce60c35ef51e4ec49"
+    },
+    {
+      "name": "kfg-v4-0183-revert-safety-planner",
+      "bytes": 7358,
+      "hexPrefix": "23206b66672d76342d303138332d7265",
+      "instructionHash": "26525dea1f0d1a1681cc45bc324c5b8f76cb1ec873e081722fedea0cdc65ccb2"
+    },
+    {
+      "name": "kfg-v4-0184-blame-to-release-correlator",
+      "bytes": 7265,
+      "hexPrefix": "23206b66672d76342d303138342d626c",
+      "instructionHash": "5e43cd276805ee285561e597feee2a10d50093d4980dfd92384ba8358d9e9687"
+    },
+    {
+      "name": "kfg-v4-0185-repository-tamper-detector",
+      "bytes": 7439,
+      "hexPrefix": "23206b66672d76342d303138352d7265",
+      "instructionHash": "7aceb0ae76e114fbcce9eb256eba7a260fb05c4f73705cc1736f5eddaf6e0824"
+    },
+    {
+      "name": "kfg-v4-0186-dependency-upgrade-impact-map",
+      "bytes": 7308,
+      "hexPrefix": "23206b66672d76342d303138362d6465",
+      "instructionHash": "941afb566842af8ba8c62f6cd514084fb12af3e58207bcc943314e60d2bc64dd"
+    },
+    {
+      "name": "kfg-v4-0187-transitive-vulnerability-triager",
+      "bytes": 7414,
+      "hexPrefix": "23206b66672d76342d303138372d7472",
+      "instructionHash": "4c53376cc88f6777b2b5e1262a3805bf87ab5efb041404c2ccc1b0130d880b37"
+    },
+    {
+      "name": "kfg-v4-0188-lockfile-integrity-auditor",
+      "bytes": 7508,
+      "hexPrefix": "23206b66672d76342d303138382d6c6f",
+      "instructionHash": "00640b27608b3ce94c495cfcf5669919971a531e30ac6ee0788e0b72e7265a87"
+    },
+    {
+      "name": "kfg-v4-0189-license-policy-reconciler",
+      "bytes": 7333,
+      "hexPrefix": "23206b66672d76342d303138392d6c69",
+      "instructionHash": "42e42bf1cfd08bc7a6b4610e698534e5c0cf9e4d802eb7eec534926201a5d1be"
+    },
+    {
+      "name": "kfg-v4-0190-dependency-sunset-planner",
+      "bytes": 7356,
+      "hexPrefix": "23206b66672d76342d303139302d6465",
+      "instructionHash": "4406a36c32b00c0882ffcc9ebd447af4061ae999f0733b71d2f8ee7308c0bbe4"
+    },
+    {
+      "name": "kfg-v4-0191-sbom-component-provenance",
+      "bytes": 7251,
+      "hexPrefix": "23206b66672d76342d303139312d7362",
+      "instructionHash": "d7d5975e72b1e265abc2b67f6b28ec6a6d2aa820c66494b758155b22630ed465"
+    },
+    {
+      "name": "kfg-v4-0192-sbom-vulnerability-reconciliation",
+      "bytes": 7429,
+      "hexPrefix": "23206b66672d76342d303139322d7362",
+      "instructionHash": "9b57c768e9ecb4b578ce482c7ee2359fb6a277f325551da74a98751352beefc4"
+    },
+    {
+      "name": "kfg-v4-0193-build-to-sbom-attestation",
+      "bytes": 7204,
+      "hexPrefix": "23206b66672d76342d303139332d6275",
+      "instructionHash": "23106bf249e8b79e64ce3a9c49fc3cf34b1ff5789aa439248bc6745e093d08c3"
+    },
+    {
+      "name": "kfg-v4-0194-sbom-diff-release-gate",
+      "bytes": 7226,
+      "hexPrefix": "23206b66672d76342d303139342d7362",
+      "instructionHash": "8869dd24c8aec5ce9503547c0d4e09b8b9be1785049448ea6af91a2313b908ca"
+    },
+    {
+      "name": "kfg-v4-0195-unknown-component-quarantine",
+      "bytes": 7356,
+      "hexPrefix": "23206b66672d76342d303139352d756e",
+      "instructionHash": "83b464fdab6a635136cc3e9576dfd09e2724b97cdc00ff28811e93e4d04d793a"
+    },
+    {
+      "name": "kfg-v4-0196-container-base-image-hardening",
+      "bytes": 7347,
+      "hexPrefix": "23206b66672d76342d303139362d636f",
+      "instructionHash": "183a327f3dc38346a5c606c5ee2ceaa41632ef97a62aa13d5e645df9caa6effb"
+    },
+    {
+      "name": "kfg-v4-0197-image-layer-secret-scanner",
+      "bytes": 7252,
+      "hexPrefix": "23206b66672d76342d303139372d696d",
+      "instructionHash": "935b384f5d2924401a62b054710e657aaaa975d260c9e0adb5ca00b94db1aa10"
+    },
+    {
+      "name": "kfg-v4-0198-runtime-capability-minimizer",
+      "bytes": 7387,
+      "hexPrefix": "23206b66672d76342d303139382d7275",
+      "instructionHash": "f97b20eddb93128b65ffbec446f65d46ac34dc698b3b95a2d58a07a9f0f3d798"
+    },
+    {
+      "name": "kfg-v4-0199-container-health-contract",
+      "bytes": 7399,
+      "hexPrefix": "23206b66672d76342d303139392d636f",
+      "instructionHash": "924549d2e36165c8f0523426937080fa151ba7fa61cd223adf32523f7dfad1de"
+    },
+    {
+      "name": "kfg-v4-0200-registry-promotion-attestor",
+      "bytes": 7237,
+      "hexPrefix": "23206b66672d76342d303230302d7265",
+      "instructionHash": "9e7ccd7cbaf157b0208383cbb179a2ee05b463254b4e21671bb14425bc9104fe"
+    },
+    {
+      "name": "kfg-v4-0201-workload-identity-manifest",
+      "bytes": 7280,
+      "hexPrefix": "23206b66672d76342d303230312d776f",
+      "instructionHash": "b48812105e24aba4d9b4e9e85ca4aa522ce46a4530f285f04e59a63e61aeeeb1"
+    },
+    {
+      "name": "kfg-v4-0202-pod-disruption-budget-review",
+      "bytes": 7303,
+      "hexPrefix": "23206b66672d76342d303230322d706f",
+      "instructionHash": "94fd7cdd6c59d31c4c73cb3e48b8e9a7a4ff8270e8812875481a6c464b579b45"
+    },
+    {
+      "name": "kfg-v4-0203-network-policy-reachability",
+      "bytes": 7314,
+      "hexPrefix": "23206b66672d76342d303230332d6e65",
+      "instructionHash": "d02b7481707eaf8ac52eaf38d5914fcd3ee6d119e740008117e04bae5d49c091"
+    },
+    {
+      "name": "kfg-v4-0204-resource-request-calibrator",
+      "bytes": 7344,
+      "hexPrefix": "23206b66672d76342d303230342d7265",
+      "instructionHash": "161932c4dd661ae3e96c817b5a9bcc9941128f8ab77028bbe5992085f132f6c1"
+    },
+    {
+      "name": "kfg-v4-0205-kubernetes-rollout-safety",
+      "bytes": 7334,
+      "hexPrefix": "23206b66672d76342d303230352d6b75",
+      "instructionHash": "106e740b97c8eeb4ec36449b4e37691be63c366db247660e90efd7924c2ce5f2"
+    },
+    {
+      "name": "kfg-v4-0206-state-lock-contention-analyzer",
+      "bytes": 7340,
+      "hexPrefix": "23206b66672d76342d303230362d7374",
+      "instructionHash": "f7d7fd37a5fadc263feab21b5ba93211c99b80aaf5c26cebb56185bf8b2481ee"
+    },
+    {
+      "name": "kfg-v4-0207-module-interface-contract",
+      "bytes": 7408,
+      "hexPrefix": "23206b66672d76342d303230372d6d6f",
+      "instructionHash": "284b7f75541499cb169c8ab273025ef059a672446288d08a6599734eb9bb966a"
+    },
+    {
+      "name": "kfg-v4-0208-plan-policy-evaluator",
+      "bytes": 7235,
+      "hexPrefix": "23206b66672d76342d303230382d706c",
+      "instructionHash": "0d12d11c7a01811a9c4841873a724fe486508544ed26903e7839057687743b31"
+    },
+    {
+      "name": "kfg-v4-0209-drift-remediation-safety",
+      "bytes": 7338,
+      "hexPrefix": "23206b66672d76342d303230392d6472",
+      "instructionHash": "7ee37c4b869501368dfaef1a609a083938ff1055799473d58f2dc5658cb9eff5"
+    },
+    {
+      "name": "kfg-v4-0210-provider-version-upgrade-map",
+      "bytes": 7325,
+      "hexPrefix": "23206b66672d76342d303231302d7072",
+      "instructionHash": "7aea69612bcd3bc8f24648f1fe40d7886c58a1c47840b63d03c600ebebd28adc"
+    },
+    {
+      "name": "kfg-v4-0211-function-concurrency-budgeter",
+      "bytes": 7383,
+      "hexPrefix": "23206b66672d76342d303231312d6675",
+      "instructionHash": "0f81cb7151ec255c52ca19818c9585c50ae7b19c6090538dbb8c9bab6aeb69cb"
+    },
+    {
+      "name": "kfg-v4-0212-event-source-mapping-auditor",
+      "bytes": 7400,
+      "hexPrefix": "23206b66672d76342d303231322d6576",
+      "instructionHash": "d6e6c4eab730533c50c7bb0d6f82aeddff8700a443d75dbb1729dc67f1137a54"
+    },
+    {
+      "name": "kfg-v4-0213-serverless-timeout-chain",
+      "bytes": 7318,
+      "hexPrefix": "23206b66672d76342d303231332d7365",
+      "instructionHash": "263bff0b82af039e7b312a5c0c324cbc6454589b032876632916c505f3bf08b1"
+    },
+    {
+      "name": "kfg-v4-0214-ephemeral-storage-risk-checker",
+      "bytes": 7395,
+      "hexPrefix": "23206b66672d76342d303231342d6570",
+      "instructionHash": "c9dc204347445f97a590ba4dc324e2eb48b668d65ae2764d1a659d7433c08a9a"
+    },
+    {
+      "name": "kfg-v4-0215-function-observability-contract",
+      "bytes": 7505,
+      "hexPrefix": "23206b66672d76342d303231352d6675",
+      "instructionHash": "05ff889076dcc40de63076d4805088657d982b9fcc010dc3a10420568413fe84"
+    },
+    {
+      "name": "kfg-v4-0216-edge-cache-consistency",
+      "bytes": 7265,
+      "hexPrefix": "23206b66672d76342d303231362d6564",
+      "instructionHash": "cab3cd61074a652edc8a6ae4cc7a34c2538aecd2e9c6c6efccca9c8de23d3a83"
+    },
+    {
+      "name": "kfg-v4-0217-edge-region-failover-planner",
+      "bytes": 7362,
+      "hexPrefix": "23206b66672d76342d303231372d6564",
+      "instructionHash": "849aacc60d789c92fe81f0edb8d210956710f9d50b80b7077b0c45640620285c"
+    },
+    {
+      "name": "kfg-v4-0218-wasm-runtime-compatibility",
+      "bytes": 7283,
+      "hexPrefix": "23206b66672d76342d303231382d7761",
+      "instructionHash": "f33be54f5f4405b84df807182fe2e6816020ecbef89c40d90b7aa1d6c393bad2"
+    },
+    {
+      "name": "kfg-v4-0219-edge-data-residency-auditor",
+      "bytes": 7358,
+      "hexPrefix": "23206b66672d76342d303231392d6564",
+      "instructionHash": "d927eb401426bfc29c75eb545834e987453aed808cbe6f3bb9d35767b728afaf"
+    },
+    {
+      "name": "kfg-v4-0220-edge-origin-protection",
+      "bytes": 7248,
+      "hexPrefix": "23206b66672d76342d303232302d6564",
+      "instructionHash": "c94d734e343545a237d1b5ea55e2d95ab8318736adba7b73e4e1d4c5e2fbf08f"
+    },
+    {
+      "name": "kfg-v4-0221-presence-state-reconciliation",
+      "bytes": 7390,
+      "hexPrefix": "23206b66672d76342d303232312d7072",
+      "instructionHash": "fd94796edce2bf85919708cbc011650bb4f14cff0e6fbb5704cf3f39dfaee650"
+    },
+    {
+      "name": "kfg-v4-0222-websocket-backpressure-policy",
+      "bytes": 7355,
+      "hexPrefix": "23206b66672d76342d303232322d7765",
+      "instructionHash": "9f9aedd9a56d2370173bb7690a5cbbf92d1f59cbe930259de9da0ef78f27e664"
+    },
+    {
+      "name": "kfg-v4-0223-connection-resume-protocol",
+      "bytes": 7350,
+      "hexPrefix": "23206b66672d76342d303232332d636f",
+      "instructionHash": "32803ac5a8ad8405984f194928ef40df5b8fc39063c5395acb0c605b625a89d6"
+    },
+    {
+      "name": "kfg-v4-0224-realtime-authorization-recheck",
+      "bytes": 7440,
+      "hexPrefix": "23206b66672d76342d303232342d7265",
+      "instructionHash": "80acd888a289496f52e0650eb2a0a8ada21b947c715f4396bb48f3c666058ef4"
+    },
+    {
+      "name": "kfg-v4-0225-fanout-cost-estimator",
+      "bytes": 7274,
+      "hexPrefix": "23206b66672d76342d303232352d6661",
+      "instructionHash": "846580b6c9ae8f2acd4f7d14ba4d9763d06239336fdf4deff2b23c495b1b59f5"
+    },
+    {
+      "name": "kfg-v4-0226-relevance-evaluation-dataset",
+      "bytes": 7318,
+      "hexPrefix": "23206b66672d76342d303232362d7265",
+      "instructionHash": "2f5365588848bd61c5741873aa07c2849bd11e61c49fb5f6f0919c99446622c9"
+    },
+    {
+      "name": "kfg-v4-0227-search-zero-result-investigator",
+      "bytes": 7232,
+      "hexPrefix": "23206b66672d76342d303232372d7365",
+      "instructionHash": "5433b784fea56a719dc9a7492cb71c95b96ededed77603ae7cdfa089ced5a76a"
+    },
+    {
+      "name": "kfg-v4-0228-query-intent-routing",
+      "bytes": 7153,
+      "hexPrefix": "23206b66672d76342d303232382d7175",
+      "instructionHash": "a15635330c48b0d81554febdbd0c798f178ba0f1418007e6e076463da6751e7c"
+    },
+    {
+      "name": "kfg-v4-0229-index-alias-cutover-planner",
+      "bytes": 7255,
+      "hexPrefix": "23206b66672d76342d303232392d696e",
+      "instructionHash": "e3c119d41cd53dbeed508803f015c50b2cbc4e82b817996cd38e98bc2a7fd738"
+    },
+    {
+      "name": "kfg-v4-0230-search-privacy-filter",
+      "bytes": 7212,
+      "hexPrefix": "23206b66672d76342d303233302d7365",
+      "instructionHash": "1ac9b88e096c1787ad7f06f8a5e06c001d7f043033d6e2f735125fdf35a51c01"
+    },
+    {
+      "name": "kfg-v4-0231-shard-allocation-risk",
+      "bytes": 7227,
+      "hexPrefix": "23206b66672d76342d303233312d7368",
+      "instructionHash": "a3aa2e7cef6dec1ddee02aa3541c15790b3fafbb1f1a76a4cf37a43109d4fd4e"
+    },
+    {
+      "name": "kfg-v4-0232-segment-merge-capacity",
+      "bytes": 7234,
+      "hexPrefix": "23206b66672d76342d303233322d7365",
+      "instructionHash": "bbce94df924b1a12117dade50d40ca8f8501cdb468287ae448926b8572eb4bfc"
+    },
+    {
+      "name": "kfg-v4-0233-mapping-evolution-guard",
+      "bytes": 7260,
+      "hexPrefix": "23206b66672d76342d303233332d6d61",
+      "instructionHash": "605494db1a93d5bda8b9e18f830cd30101a73a90cde43042a07b2038b72bd3a0"
+    },
+    {
+      "name": "kfg-v4-0234-snapshot-restore-drill",
+      "bytes": 7247,
+      "hexPrefix": "23206b66672d76342d303233342d736e",
+      "instructionHash": "84357df2858e5c09be97d337e0432e553541f730162298f53589660c0d80f244"
+    },
+    {
+      "name": "kfg-v4-0235-analyzer-regression-suite",
+      "bytes": 7441,
+      "hexPrefix": "23206b66672d76342d303233352d616e",
+      "instructionHash": "0d1fc70a7eb435e7c36c3f5ef4531b54f9d47a0450efafa1004e5cbccf8ed140"
+    },
+    {
+      "name": "kfg-v4-0236-data-contract-versioning",
+      "bytes": 7280,
+      "hexPrefix": "23206b66672d76342d303233362d6461",
+      "instructionHash": "e9ad720aa09d2c3bfbd7e3d3d36a18c0f4839a4266b8b03d58e10a3457e291c7"
+    },
+    {
+      "name": "kfg-v4-0237-pipeline-lineage-reconstruction",
+      "bytes": 7335,
+      "hexPrefix": "23206b66672d76342d303233372d7069",
+      "instructionHash": "db80c77278f1fe325fbaa7b1c697209e147727a7c6160b784bae836dc1536a7c"
+    },
+    {
+      "name": "kfg-v4-0238-late-data-watermark-policy",
+      "bytes": 7180,
+      "hexPrefix": "23206b66672d76342d303233382d6c61",
+      "instructionHash": "d7d18e913857b6091a18b7a79891ec13a2fb3e5f4fa6fe02d17dd93387812146"
+    },
+    {
+      "name": "kfg-v4-0239-data-product-slo",
+      "bytes": 7141,
+      "hexPrefix": "23206b66672d76342d303233392d6461",
+      "instructionHash": "0434b75adde1e7b85e390d872353a7164656b933e4829c3d20eb8a24c67761ca"
+    },
+    {
+      "name": "kfg-v4-0240-schema-on-read-boundary",
+      "bytes": 7319,
+      "hexPrefix": "23206b66672d76342d303234302d7363",
+      "instructionHash": "008b3d217381a7061b49a61bb15deea524d43835552760e18a0f745a1d1c1f80"
+    },
+    {
+      "name": "kfg-v4-0241-incremental-extract-watermark",
+      "bytes": 7358,
+      "hexPrefix": "23206b66672d76342d303234312d696e",
+      "instructionHash": "6cc22538b85f0357adae5ca154779bc0ff45b4d13dba9eda8df8874ae0bd231b"
+    },
+    {
+      "name": "kfg-v4-0242-idempotent-load-reconciler",
+      "bytes": 7237,
+      "hexPrefix": "23206b66672d76342d303234322d6964",
+      "instructionHash": "d0a4ba1288ca3a3f5a39ee7fa611a3363b69332aa1bd1d4505ef8c3a3c8175c6"
+    },
+    {
+      "name": "kfg-v4-0243-pii-transformation-auditor",
+      "bytes": 7402,
+      "hexPrefix": "23206b66672d76342d303234332d7069",
+      "instructionHash": "2962e74923766e066012f36480882dee06e0cc7271ccf190463c8228f13026ed"
+    },
+    {
+      "name": "kfg-v4-0244-etl-replay-safety",
+      "bytes": 7138,
+      "hexPrefix": "23206b66672d76342d303234342d6574",
+      "instructionHash": "3e8c726efc060e250ad5e8fc84325deff5636132fad643ec77367d2d0f41fdbb"
+    },
+    {
+      "name": "kfg-v4-0245-source-to-target-control-total",
+      "bytes": 7274,
+      "hexPrefix": "23206b66672d76342d303234352d736f",
+      "instructionHash": "39df0c7e3eb40346b292f9ca0867e451721b97e1122b70c259126c000a303b06"
+    },
+    {
+      "name": "kfg-v4-0246-data-quality-rule-catalog",
+      "bytes": 7259,
+      "hexPrefix": "23206b66672d76342d303234362d6461",
+      "instructionHash": "a22a38d956469d4089d4c1419a57036473d65356db372513bc5504428603763d"
+    },
+    {
+      "name": "kfg-v4-0247-anomaly-threshold-calibrator",
+      "bytes": 7352,
+      "hexPrefix": "23206b66672d76342d303234372d616e",
+      "instructionHash": "085131ea6850a4d066e0dc304084f63a5972e75c6dc6c496900f79f95214aaa0"
+    },
+    {
+      "name": "kfg-v4-0248-duplicate-entity-resolution",
+      "bytes": 7332,
+      "hexPrefix": "23206b66672d76342d303234382d6475",
+      "instructionHash": "bcecfd7d2867d965d5199267605dea071217aebd2cc987cc2526a7cbf385b52b"
+    },
+    {
+      "name": "kfg-v4-0249-nullability-drift-detector",
+      "bytes": 7389,
+      "hexPrefix": "23206b66672d76342d303234392d6e75",
+      "instructionHash": "173235b4a0e009950ebc8838470b972001f3e134258de5b5bd47ac375c0c5b1a"
+    },
+    {
+      "name": "kfg-v4-0250-quality-incident-routing",
+      "bytes": 7317,
+      "hexPrefix": "23206b66672d76342d303235302d7175",
+      "instructionHash": "9462b3e0638cfd8477d1291fec9fe1563d0056f8725bfe17233d298ad8753492"
+    },
+    {
+      "name": "kfg-v4-0251-metric-semantic-layer",
+      "bytes": 7300,
+      "hexPrefix": "23206b66672d76342d303235312d6d65",
+      "instructionHash": "c3360b901bbb5001f9ddd753fa06471562021e8f4fb8564d051c8dcbc3611748"
+    },
+    {
+      "name": "kfg-v4-0252-cohort-definition-reconciler",
+      "bytes": 7406,
+      "hexPrefix": "23206b66672d76342d303235322d636f",
+      "instructionHash": "83cbb0adde9bee6ed21b22ffc5a60f5a541ca336c59a7c495add78be40cab737"
+    },
+    {
+      "name": "kfg-v4-0253-dashboard-trust-auditor",
+      "bytes": 7449,
+      "hexPrefix": "23206b66672d76342d303235332d6461",
+      "instructionHash": "275a04e13d155367dd05ae277c3d2239f3cd782ba7adf196749c4a0eed17c66c"
+    },
+    {
+      "name": "kfg-v4-0254-metric-reconciliation-pack",
+      "bytes": 7326,
+      "hexPrefix": "23206b66672d76342d303235342d6d65",
+      "instructionHash": "6cc906c8f55239f243303ec33260faf327a7bab59aeeb521f5735ffd1572fed9"
+    },
+    {
+      "name": "kfg-v4-0255-analytics-access-segmentation",
+      "bytes": 7410,
+      "hexPrefix": "23206b66672d76342d303235352d616e",
+      "instructionHash": "ac2b567cd4373bbb1eed7abab71609568cf3d0a33e9209fa7235d4de0350c08c"
+    },
+    {
+      "name": "kfg-v4-0256-executive-kpi-lineage",
+      "bytes": 7183,
+      "hexPrefix": "23206b66672d76342d303235362d6578",
+      "instructionHash": "0ba13b487e64df92e2cfe6175cd863e21f58eaf545c7ee386f34ab71e21d8a71"
+    },
+    {
+      "name": "kfg-v4-0257-self-service-bi-governance",
+      "bytes": 7266,
+      "hexPrefix": "23206b66672d76342d303235372d7365",
+      "instructionHash": "98ed5bd742739d273875780d489d83a4f8c38bd61df8a6696971104d6f4703f9"
+    },
+    {
+      "name": "kfg-v4-0258-report-refresh-failure",
+      "bytes": 7200,
+      "hexPrefix": "23206b66672d76342d303235382d7265",
+      "instructionHash": "c8709f6eaa0bbf77e9cbcc07fd53b501c9fe2e488f20ef4be741dcecf27bec29"
+    },
+    {
+      "name": "kfg-v4-0259-semantic-model-change-impact",
+      "bytes": 7298,
+      "hexPrefix": "23206b66672d76342d303235392d7365",
+      "instructionHash": "d0aaab8e689b41db238bcd5fc82afca453b3f4c7b13aa679eb350369b708d64e"
+    },
+    {
+      "name": "kfg-v4-0260-decision-log-dashboard-linker",
+      "bytes": 7250,
+      "hexPrefix": "23206b66672d76342d303236302d6465",
+      "instructionHash": "ed45285d461fcde6c134a508b585119f3336223abc02a0fe8dbe22c68fdbbf23"
+    },
+    {
+      "name": "kfg-v4-0261-model-serving-readiness",
+      "bytes": 7242,
+      "hexPrefix": "23206b66672d76342d303236312d6d6f",
+      "instructionHash": "250e0a7144233bfb1fe0f144961db51ae3c06f1142c12a31679253c7ddad7f0a"
+    },
+    {
+      "name": "kfg-v4-0262-feature-store-freshness",
+      "bytes": 7207,
+      "hexPrefix": "23206b66672d76342d303236322d6665",
+      "instructionHash": "67cb84b72d645c3055deded76851bb8040061cbc291566522b77b46afeded59a"
+    },
+    {
+      "name": "kfg-v4-0263-training-data-provenance",
+      "bytes": 7244,
+      "hexPrefix": "23206b66672d76342d303236332d7472",
+      "instructionHash": "e548864ad47c68864a2542c50290a4242b6dc77053ba9128c264b38c07a1477b"
+    },
+    {
+      "name": "kfg-v4-0264-ml-experiment-reproducibility",
+      "bytes": 7320,
+      "hexPrefix": "23206b66672d76342d303236342d6d6c",
+      "instructionHash": "76fcdfcf9081bd822e8d95c76884e89c88673d751fcd47b56fd0c410c7c4fb71"
+    },
+    {
+      "name": "kfg-v4-0265-model-card-completeness",
+      "bytes": 7203,
+      "hexPrefix": "23206b66672d76342d303236352d6d6f",
+      "instructionHash": "9ef104e33662c68db61c894fbf25304bdec3e460eaf8f6b1946aafed8f46f73b"
+    },
+    {
+      "name": "kfg-v4-0266-llm-context-window-budget",
+      "bytes": 7176,
+      "hexPrefix": "23206b66672d76342d303236362d6c6c",
+      "instructionHash": "c9e14b55dc7e4eba0d457f3cae8fc650c770bda2ef488955d07b65ec1d432d14"
+    },
+    {
+      "name": "kfg-v4-0267-structured-output-conformance",
+      "bytes": 7286,
+      "hexPrefix": "23206b66672d76342d303236372d7374",
+      "instructionHash": "20f7460c759e96f69f77da3825bb3219ef5156819281a6e22928a2b4ee64fefd"
+    },
+    {
+      "name": "kfg-v4-0268-model-fallback-policy",
+      "bytes": 7166,
+      "hexPrefix": "23206b66672d76342d303236382d6d6f",
+      "instructionHash": "d2a0bc808dacecd4cadcb8b85b869bb82313ddeceb8759d58a8cd9c7c8c6c609"
+    },
+    {
+      "name": "kfg-v4-0269-prompt-version-lineage",
+      "bytes": 7202,
+      "hexPrefix": "23206b66672d76342d303236392d7072",
+      "instructionHash": "52cfbf4d37d1c9599f9534f2d6f2e85918ab6e055e10f74122e5839a7507914b"
+    },
+    {
+      "name": "kfg-v4-0270-llm-cost-attribution",
+      "bytes": 7146,
+      "hexPrefix": "23206b66672d76342d303237302d6c6c",
+      "instructionHash": "2a298630b33d95f11ce811bc62b64a5714b4a3aec08342ca423b1d6174b4979a"
+    },
+    {
+      "name": "kfg-v4-0271-retrieval-chunk-boundary",
+      "bytes": 7305,
+      "hexPrefix": "23206b66672d76342d303237312d7265",
+      "instructionHash": "34accabd2c6ee70c98ff69ec60bda199b2d4dbcc5c8ac54d73c0672fcea38e97"
+    },
+    {
+      "name": "kfg-v4-0272-citation-grounding-evaluator",
+      "bytes": 7284,
+      "hexPrefix": "23206b66672d76342d303237322d6369",
+      "instructionHash": "2dd1324f8884d0fc8db85e591a677c63a8fc8d29beab1d1bc3048ff1b1937842"
+    },
+    {
+      "name": "kfg-v4-0273-index-refresh-coordinator",
+      "bytes": 7250,
+      "hexPrefix": "23206b66672d76342d303237332d696e",
+      "instructionHash": "34d59edae63adbf89eed7d4989e8890705accd8a231bc73f1044cf65c6e08dd7"
+    },
+    {
+      "name": "kfg-v4-0274-retrieval-permission-filter",
+      "bytes": 7284,
+      "hexPrefix": "23206b66672d76342d303237342d7265",
+      "instructionHash": "46d63b442f284d6c7f981041d9d124074993870f5bb34fcf24e4ca24e8d2d7b7"
+    },
+    {
+      "name": "kfg-v4-0275-rag-failure-taxonomy",
+      "bytes": 7144,
+      "hexPrefix": "23206b66672d76342d303237352d7261",
+      "instructionHash": "d561dbec64abad377388eff582f53d00c1b6b1304022afbd7f3dc725f8f0ad72"
+    },
+    {
+      "name": "kfg-v4-0276-vector-index-recall-calibrator",
+      "bytes": 7280,
+      "hexPrefix": "23206b66672d76342d303237362d7665",
+      "instructionHash": "6a8b3a1415aaaaab35b5c564dae5113881bbeb648cb765972a3a8c5fe7866c9d"
+    },
+    {
+      "name": "kfg-v4-0277-embedding-dimension-migration",
+      "bytes": 7312,
+      "hexPrefix": "23206b66672d76342d303237372d656d",
+      "instructionHash": "12591e212fd85ce12de92218aa4b04510ae8c19603450c19e59633a33389b3cd"
+    },
+    {
+      "name": "kfg-v4-0278-vector-tenant-isolation",
+      "bytes": 7186,
+      "hexPrefix": "23206b66672d76342d303237382d7665",
+      "instructionHash": "8062b513947dc8ac9c96d314870399903c25be83c37652450128d0b245c2794b"
+    },
+    {
+      "name": "kfg-v4-0279-similarity-threshold-tuner",
+      "bytes": 7280,
+      "hexPrefix": "23206b66672d76342d303237392d7369",
+      "instructionHash": "5c794d364226a2828031ab3718aa62cb67aa33a401cd3d5a20b6120a4ee5e1b2"
+    },
+    {
+      "name": "kfg-v4-0280-vector-delete-completeness",
+      "bytes": 7283,
+      "hexPrefix": "23206b66672d76342d303238302d7665",
+      "instructionHash": "1760cb22a34bc45fe4ca479680f8230749c26c22f9f69750a5e4f6186c8f9b64"
+    },
+    {
+      "name": "kfg-v4-0281-embedding-model-drift",
+      "bytes": 7277,
+      "hexPrefix": "23206b66672d76342d303238312d656d",
+      "instructionHash": "554759eb28cf2a3784a7cc4392071dd27d343d478efe019f88a8d0aba2fd8658"
+    },
+    {
+      "name": "kfg-v4-0282-multilingual-embedding-benchmark",
+      "bytes": 7458,
+      "hexPrefix": "23206b66672d76342d303238322d6d75",
+      "instructionHash": "1524f471ab94e27fbccf7db850c4ea4fcb75dfe79cfe47fa72eaf97a689d9200"
+    },
+    {
+      "name": "kfg-v4-0283-embedding-pii-redaction",
+      "bytes": 7280,
+      "hexPrefix": "23206b66672d76342d303238332d656d",
+      "instructionHash": "b4e00a92cb0c1b9d8f6fdb0fc07e6eb17c16e0bcee15b0b962be5cb237b75694"
+    },
+    {
+      "name": "kfg-v4-0284-batch-embedding-backfill",
+      "bytes": 7282,
+      "hexPrefix": "23206b66672d76342d303238342d6261",
+      "instructionHash": "15875a6fab2d07360e3500cb1a8aece35f0b17aa29c1f8c7af48679e403757c3"
+    },
+    {
+      "name": "kfg-v4-0285-embedding-cache-integrity",
+      "bytes": 7317,
+      "hexPrefix": "23206b66672d76342d303238352d656d",
+      "instructionHash": "e6e6f9ef7f6d05ec99845956f60effa7953aa54142c77f754d96cc4ccd515855"
+    },
+    {
+      "name": "kfg-v4-0286-agent-tool-permission-matrix",
+      "bytes": 7307,
+      "hexPrefix": "23206b66672d76342d303238362d6167",
+      "instructionHash": "62da1c6534ec16c1286ccc09ec24ef32c25a79fa38b78c1363d90cc88b9ac7d5"
+    },
+    {
+      "name": "kfg-v4-0287-agent-plan-execution-separator",
+      "bytes": 7313,
+      "hexPrefix": "23206b66672d76342d303238372d6167",
+      "instructionHash": "fa68d64be1919e862ca64b296ff2e2e76577d87737f3bcaf2ae22b7e916c07de"
+    },
+    {
+      "name": "kfg-v4-0288-agent-loop-termination",
+      "bytes": 7275,
+      "hexPrefix": "23206b66672d76342d303238382d6167",
+      "instructionHash": "916fd2663ab4fa788abde38fde622dc72fef18a7d59554aa4ae51a45ad846d58"
+    },
+    {
+      "name": "kfg-v4-0289-agent-memory-provenance",
+      "bytes": 7272,
+      "hexPrefix": "23206b66672d76342d303238392d6167",
+      "instructionHash": "868bc0d83a3e29ae5a47a74398c84d85c4092f0ae0f75faf2cfedaf939ed1cb5"
+    },
+    {
+      "name": "kfg-v4-0290-agent-handoff-contract",
+      "bytes": 7365,
+      "hexPrefix": "23206b66672d76342d303239302d6167",
+      "instructionHash": "3fe34a69ee057310cd7602025f0d826597eb82512bea72111ab32d11fdf6e854"
+    },
+    {
+      "name": "kfg-v4-0291-multiagent-task-decomposition",
+      "bytes": 7347,
+      "hexPrefix": "23206b66672d76342d303239312d6d75",
+      "instructionHash": "a64b51dde43bfe22d6c8936beca5909cf2df850f47c12759e5bb6852fd0941c1"
+    },
+    {
+      "name": "kfg-v4-0292-consensus-disagreement-handler",
+      "bytes": 7345,
+      "hexPrefix": "23206b66672d76342d303239322d636f",
+      "instructionHash": "8a42346aa2be38e03b38f822fdc31f181f792bb868bf39f3b55cd212380f3348"
+    },
+    {
+      "name": "kfg-v4-0293-agent-role-conflict-resolver",
+      "bytes": 7274,
+      "hexPrefix": "23206b66672d76342d303239332d6167",
+      "instructionHash": "55bf6f2ee35ceef45e240227e9124f914a3edf093c879dbf93225cdf388ab886"
+    },
+    {
+      "name": "kfg-v4-0294-multiagent-budget-arbitrator",
+      "bytes": 7364,
+      "hexPrefix": "23206b66672d76342d303239342d6d75",
+      "instructionHash": "d13d74e67c7c69fac3fb007a7daead65cca6a809949b1bb33e306a7e5ec4f17c"
+    },
+    {
+      "name": "kfg-v4-0295-parallel-agent-evidence-merge",
+      "bytes": 7285,
+      "hexPrefix": "23206b66672d76342d303239352d7061",
+      "instructionHash": "d9faeaad2698e91e1ff4ed66d3f53ed9f7d5b039a2792b19393ead7efe0656fb"
+    },
+    {
+      "name": "kfg-v4-0296-mcp-schema-compatibility",
+      "bytes": 7244,
+      "hexPrefix": "23206b66672d76342d303239362d6d63",
+      "instructionHash": "15e24e1d6a6eb36cbb87ff6465a3e1a374f8c3cac61ee1a24b09ed177a2b9780"
+    },
+    {
+      "name": "kfg-v4-0297-mcp-tool-timeout-policy",
+      "bytes": 7149,
+      "hexPrefix": "23206b66672d76342d303239372d6d63",
+      "instructionHash": "3297f0bdf3723a2c1a6a8944233f1dca0b70de9c0232f93f359be743816563c8"
+    },
+    {
+      "name": "kfg-v4-0298-mcp-output-sanitization",
+      "bytes": 7261,
+      "hexPrefix": "23206b66672d76342d303239382d6d63",
+      "instructionHash": "b14b67936f278a2a50d7a3abb960746ed63f16c8334dfde9f1cef58c948ec0e0"
+    },
+    {
+      "name": "kfg-v4-0299-mcp-session-boundary-audit",
+      "bytes": 7420,
+      "hexPrefix": "23206b66672d76342d303239392d6d63",
+      "instructionHash": "d83c1fd89ccb59536dc30a3b1810a6db581250389ce08952948d1238eda0b815"
+    },
+    {
+      "name": "kfg-v4-0300-mcp-capability-discovery-cache",
+      "bytes": 7319,
+      "hexPrefix": "23206b66672d76342d303330302d6d63",
+      "instructionHash": "9048d904f4b6db2fdcf132469f80189efdfdb3ea075deed8a158ccfbb2d5a576"
+    },
+    {
+      "name": "kfg-v4-0301-prompt-injection-boundary",
+      "bytes": 7439,
+      "hexPrefix": "23206b66672d76342d303330312d7072",
+      "instructionHash": "bb43cdd7bf5f1da078c9aa24d4e9b44ce56f4837caf8b9f24e300d11f06fbf8f"
+    },
+    {
+      "name": "kfg-v4-0302-prompt-template-regression",
+      "bytes": 7306,
+      "hexPrefix": "23206b66672d76342d303330322d7072",
+      "instructionHash": "2674828b2bd134e5888ce3952cf96d72b84fa6935b9b4ad2a034288bfd77ad1a"
+    },
+    {
+      "name": "kfg-v4-0303-instruction-priority-auditor",
+      "bytes": 7528,
+      "hexPrefix": "23206b66672d76342d303330332d696e",
+      "instructionHash": "da61522ee1c0207f9d7b168e9ce106055516b277ad98ea7c5a466074dd0c151c"
+    },
+    {
+      "name": "kfg-v4-0304-prompt-input-privacy",
+      "bytes": 7254,
+      "hexPrefix": "23206b66672d76342d303330342d7072",
+      "instructionHash": "e3f593965f1d949deaf2f286ee915b1dd9bff8f1f874faa650ea36f55e2bf13a"
+    },
+    {
+      "name": "kfg-v4-0305-prompt-change-review",
+      "bytes": 7253,
+      "hexPrefix": "23206b66672d76342d303330352d7072",
+      "instructionHash": "d9d820e7554abbfd277bc11a2b83ef896b8e54e6500fb5145cf129f4979f3ebc"
+    },
+    {
+      "name": "kfg-v4-0306-evaluation-dataset-provenance",
+      "bytes": 7307,
+      "hexPrefix": "23206b66672d76342d303330362d6576",
+      "instructionHash": "ebad4cc724a7f1658bb86d6bd2ff356e6b5f9d9e8ff662b61e612d6d5207e7a6"
+    },
+    {
+      "name": "kfg-v4-0307-rubric-calibration",
+      "bytes": 7213,
+      "hexPrefix": "23206b66672d76342d303330372d7275",
+      "instructionHash": "5b1758e917fa5bc7b229ca18f1fa4f92c0bb2cf80e4c6731eba693e06f307a6e"
+    },
+    {
+      "name": "kfg-v4-0308-judge-drift-monitor",
+      "bytes": 7172,
+      "hexPrefix": "23206b66672d76342d303330382d6a75",
+      "instructionHash": "a20cea57cb276cb9fc9587bef0650f0a6e47bb5b1819859c4b160f6b2b3a0901"
+    },
+    {
+      "name": "kfg-v4-0309-adversarial-prompt-suite",
+      "bytes": 7378,
+      "hexPrefix": "23206b66672d76342d303330392d6164",
+      "instructionHash": "8e73f36094aed17c01d331b775afd73ca90122078cb9d51ae050a79eb31a071d"
+    },
+    {
+      "name": "kfg-v4-0310-cost-quality-frontier",
+      "bytes": 7207,
+      "hexPrefix": "23206b66672d76342d303331302d636f",
+      "instructionHash": "88c5264bb000917a9522abd57531b316e050851b7d4b202fb8f7e155a4d5cd58"
+    },
+    {
+      "name": "kfg-v4-0311-model-abuse-case-register",
+      "bytes": 7208,
+      "hexPrefix": "23206b66672d76342d303331312d6d6f",
+      "instructionHash": "b5785e19d62bd149988090a9c4a1cbc15e54049c3414b50773ffaeef7a679e8f"
+    },
+    {
+      "name": "kfg-v4-0312-unsafe-output-policy-test",
+      "bytes": 7181,
+      "hexPrefix": "23206b66672d76342d303331322d756e",
+      "instructionHash": "7d5863ac980f06d3be7052d3ee6410f11ebcf32e2926e7eaab227bbde90d5c6a"
+    },
+    {
+      "name": "kfg-v4-0313-human-escalation-threshold",
+      "bytes": 7282,
+      "hexPrefix": "23206b66672d76342d303331332d6875",
+      "instructionHash": "ea389a3b02f5cdd89a83fa91146adf12b21fa22b59a12bee33aac99a432f7dea"
+    },
+    {
+      "name": "kfg-v4-0314-safety-control-coverage",
+      "bytes": 7214,
+      "hexPrefix": "23206b66672d76342d303331342d7361",
+      "instructionHash": "ecadf8e06f930036cf4613e67e29accdaa54e31b02498b172d9b5ea253b86ee6"
+    },
+    {
+      "name": "kfg-v4-0315-safety-incident-replay",
+      "bytes": 7240,
+      "hexPrefix": "23206b66672d76342d303331352d7361",
+      "instructionHash": "4c92ad33ba935fc17d2c01392cbee5b6dcb51b7917fc33ac432c0ba348678a7f"
+    },
+    {
+      "name": "kfg-v4-0316-llm-trace-attribution",
+      "bytes": 7277,
+      "hexPrefix": "23206b66672d76342d303331362d6c6c",
+      "instructionHash": "aa844aacc4bccf22f2ebbbb1fb8d5cb2abe3a35c338a1dec29c2f87738f30049"
+    },
+    {
+      "name": "kfg-v4-0317-token-usage-anomaly",
+      "bytes": 7288,
+      "hexPrefix": "23206b66672d76342d303331372d746f",
+      "instructionHash": "ac8083b47584330a28591d461a40321d9a0b8e111299fd1b8cb28ae688eed107"
+    },
+    {
+      "name": "kfg-v4-0318-retrieval-trace-completeness",
+      "bytes": 7410,
+      "hexPrefix": "23206b66672d76342d303331382d7265",
+      "instructionHash": "83b12b6ead2cffeb6a886d8a48d018d344d0373bb7d580d13f1a6196347b1766"
+    },
+    {
+      "name": "kfg-v4-0319-model-latency-decomposition",
+      "bytes": 7400,
+      "hexPrefix": "23206b66672d76342d303331392d6d6f",
+      "instructionHash": "a68a12f830b98ced179b945d82305377b8e1d4a953541f0229cb07e4de5ca341"
+    },
+    {
+      "name": "kfg-v4-0320-ai-quality-slo",
+      "bytes": 7187,
+      "hexPrefix": "23206b66672d76342d303332302d6169",
+      "instructionHash": "9118f1be3f248ed136d6b70b459d611ceebfea27e76d9b94bce9dac3c4c7cd00"
+    },
+    {
+      "name": "kfg-v4-0321-model-capability-router",
+      "bytes": 7356,
+      "hexPrefix": "23206b66672d76342d303332312d6d6f",
+      "instructionHash": "cd101cc3b2a0516729ef3fb3f156f32f303d67ad591333069fb489e0a44df3f5"
+    },
+    {
+      "name": "kfg-v4-0322-latency-cost-frontier",
+      "bytes": 7290,
+      "hexPrefix": "23206b66672d76342d303332322d6c61",
+      "instructionHash": "e11b085b8c365959d2bfab10acef9fbb2b55859fb08069b3564559a3b8393846"
+    },
+    {
+      "name": "kfg-v4-0323-fallback-cascade-safety",
+      "bytes": 7321,
+      "hexPrefix": "23206b66672d76342d303332332d6661",
+      "instructionHash": "e3ee6381300ee948a8d21cfcd90d99f2ce5317cd143588f04ce551709df4ae72"
+    },
+    {
+      "name": "kfg-v4-0324-model-version-compatibility",
+      "bytes": 7340,
+      "hexPrefix": "23206b66672d76342d303332342d6d6f",
+      "instructionHash": "08dbb56cd390260860405ea8fa59a9dad11432bfd0bc6902cc3243f5d23ea71f"
+    },
+    {
+      "name": "kfg-v4-0325-routing-policy-experiment",
+      "bytes": 7315,
+      "hexPrefix": "23206b66672d76342d303332352d726f",
+      "instructionHash": "dd5cce658b1b7b481ccaf9529db367a17fa77d851958b1431e9ebcbcc41c1b41"
+    },
+    {
+      "name": "kfg-v4-0326-vision-dataset-shift",
+      "bytes": 7213,
+      "hexPrefix": "23206b66672d76342d303332362d7669",
+      "instructionHash": "0ec19e34ad6138ecefa472f1eb01019cb3771d603315329e8a2edefac828ccb2"
+    },
+    {
+      "name": "kfg-v4-0327-camera-calibration-evidence",
+      "bytes": 7311,
+      "hexPrefix": "23206b66672d76342d303332372d6361",
+      "instructionHash": "d0c25d3d2350c9a4b7f2caceab279fc3ad217e336d58eb626657858e22af1908"
+    },
+    {
+      "name": "kfg-v4-0328-object-detection-threshold",
+      "bytes": 7321,
+      "hexPrefix": "23206b66672d76342d303332382d6f62",
+      "instructionHash": "7bf4b07b55d65a5ae7d28230c661125efe4d9ccd04bc5189adf38067533ff041"
+    },
+    {
+      "name": "kfg-v4-0329-vision-inference-latency",
+      "bytes": 7268,
+      "hexPrefix": "23206b66672d76342d303332392d7669",
+      "instructionHash": "0fdc64dc9c6e0fba5dfec4679313585b589527bd1a5e04b787840987e6fd1553"
+    },
+    {
+      "name": "kfg-v4-0330-vision-human-review",
+      "bytes": 7188,
+      "hexPrefix": "23206b66672d76342d303333302d7669",
+      "instructionHash": "30cefebfb6b70ab398793de886f4e6db04da7876ac6c1db51ce89849dde8ddf2"
+    },
+    {
+      "name": "kfg-v4-0331-ocr-layout-preservation",
+      "bytes": 7204,
+      "hexPrefix": "23206b66672d76342d303333312d6f63",
+      "instructionHash": "8b3eed4f04634f60eefb8565c2801ccdbe298a29a146abce8a6fb2ba645a4dd0"
+    },
+    {
+      "name": "kfg-v4-0332-ocr-confidence-routing",
+      "bytes": 7178,
+      "hexPrefix": "23206b66672d76342d303333322d6f63",
+      "instructionHash": "4a4b624c22d0521077246364dac25b1bba29264a3c613303c6b65a4441f42685"
+    },
+    {
+      "name": "kfg-v4-0333-arabic-ocr-normalization",
+      "bytes": 7202,
+      "hexPrefix": "23206b66672d76342d303333332d6172",
+      "instructionHash": "212fe268235fc72ca6c8e3ca5967cc08f4402ae1281ada48a50432c37a9fe25f"
+    },
+    {
+      "name": "kfg-v4-0334-ocr-table-reconstruction",
+      "bytes": 7226,
+      "hexPrefix": "23206b66672d76342d303333342d6f63",
+      "instructionHash": "d644bbfc5ee66cd0aa0839a04a4235383aaa2d035f3450cbdf6f77c6790bc5f5"
+    },
+    {
+      "name": "kfg-v4-0335-ocr-error-taxonomy",
+      "bytes": 7136,
+      "hexPrefix": "23206b66672d76342d303333352d6f63",
+      "instructionHash": "bcb9b95fd54a5d83fcf28173ae74c9c4e8203b615ebc5b4ada15129d529d3a3f"
+    },
+    {
+      "name": "kfg-v4-0336-document-classification-confidence",
+      "bytes": 7479,
+      "hexPrefix": "23206b66672d76342d303333362d646f",
+      "instructionHash": "b075174f18ffeaa9201df1c4d7396e1b5d278cc9f5096e7aedf8cbff3e077f82"
+    },
+    {
+      "name": "kfg-v4-0337-document-field-lineage",
+      "bytes": 7295,
+      "hexPrefix": "23206b66672d76342d303333372d646f",
+      "instructionHash": "67d27938a70c3ed49ef116886a71eb69b3669fc653c24d044f4f77f6a15d7b5c"
+    },
+    {
+      "name": "kfg-v4-0338-document-duplicate-detection",
+      "bytes": 7379,
+      "hexPrefix": "23206b66672d76342d303333382d646f",
+      "instructionHash": "6d49d392ad0773cd79d3fa7fee95842319d879c3348d95b0f756672bc32a7057"
+    },
+    {
+      "name": "kfg-v4-0339-document-redaction-verifier",
+      "bytes": 7466,
+      "hexPrefix": "23206b66672d76342d303333392d646f",
+      "instructionHash": "2b7eea5c6ef0d63e25682928c31f839b37a27ab87540b058c14f6048bd82218c"
+    },
+    {
+      "name": "kfg-v4-0340-document-review-queue",
+      "bytes": 7238,
+      "hexPrefix": "23206b66672d76342d303334302d646f",
+      "instructionHash": "ed9c0e6e68308961093234a96ec5ce10325dd004ab86f887a4c6c391b5c73e7f"
+    },
+    {
+      "name": "kfg-v4-0341-path-traversal-boundary",
+      "bytes": 7341,
+      "hexPrefix": "23206b66672d76342d303334312d7061",
+      "instructionHash": "c5e4d9f18fe23bfa9744da86cd332e22aaf272db6edefc4cfe4ebc1fc515b11c"
+    },
+    {
+      "name": "kfg-v4-0342-zip-slip-defense",
+      "bytes": 7143,
+      "hexPrefix": "23206b66672d76342d303334322d7a69",
+      "instructionHash": "aad05afd05de99d84f492176f8085b017876c99f258f6c124047e051bfce0e75"
+    },
+    {
+      "name": "kfg-v4-0343-file-type-content-sniffing",
+      "bytes": 7192,
+      "hexPrefix": "23206b66672d76342d303334332d6669",
+      "instructionHash": "e56317e7c84ff0fbb337d4a6ffe967211cd7416cc3f65575c57bacb8dba2a45a"
+    },
+    {
+      "name": "kfg-v4-0344-resumable-upload-integrity",
+      "bytes": 7257,
+      "hexPrefix": "23206b66672d76342d303334342d7265",
+      "instructionHash": "680ef904cd1369d283f4c38e2bd51ed3a8e1ea5fa7ffe66655b6b403fe44f008"
+    },
+    {
+      "name": "kfg-v4-0345-file-retention-policy",
+      "bytes": 7151,
+      "hexPrefix": "23206b66672d76342d303334352d6669",
+      "instructionHash": "ec71b35c11c55a00a5d4db3259d14d34cbd6f58e0a772c420e9053649bbc15b3"
+    },
+    {
+      "name": "kfg-v4-0346-pdf-font-embedding-audit",
+      "bytes": 7115,
+      "hexPrefix": "23206b66672d76342d303334362d7064",
+      "instructionHash": "0c8566e487aa2d5324fd3aa06fea993fb544551e7a477c532a847d1e48e00119"
+    },
+    {
+      "name": "kfg-v4-0347-pdf-accessibility-structure",
+      "bytes": 7268,
+      "hexPrefix": "23206b66672d76342d303334372d7064",
+      "instructionHash": "b44e1102f580a5dc545e24a17b2b62595f95835821983da9fad301a182462d94"
+    },
+    {
+      "name": "kfg-v4-0348-pdf-signature-validation",
+      "bytes": 7153,
+      "hexPrefix": "23206b66672d76342d303334382d7064",
+      "instructionHash": "403588a85cc01fa12fddf5256b5eaa2f38c54bbb7548b717ccdd56da1f9d4d40"
+    },
+    {
+      "name": "kfg-v4-0349-pdf-rendering-diff",
+      "bytes": 7114,
+      "hexPrefix": "23206b66672d76342d303334392d7064",
+      "instructionHash": "da5e284e08792b66686b77788e84e526195337abe9ac956ed89db16e4f4f3de1"
+    },
+    {
+      "name": "kfg-v4-0350-pdf-long-document-pagination",
+      "bytes": 7183,
+      "hexPrefix": "23206b66672d76342d303335302d7064",
+      "instructionHash": "0f3f5582eb1f77496b8914cf942c9a6b0ece19dc8df6a6e0a6900ddc3be0fcc7"
+    },
+    {
+      "name": "kfg-v4-0351-spreadsheet-formula-lineage",
+      "bytes": 7323,
+      "hexPrefix": "23206b66672d76342d303335312d7370",
+      "instructionHash": "25328f997ccd60fdface7186e113d874899fd7c7c723da4c131a2eaaf1feb74a"
+    },
+    {
+      "name": "kfg-v4-0352-workbook-external-link-audit",
+      "bytes": 7258,
+      "hexPrefix": "23206b66672d76342d303335322d776f",
+      "instructionHash": "12855a12fe6d5fa4f921b5a0fcfdb333f35d282d638403a336d04108902c1c3a"
+    },
+    {
+      "name": "kfg-v4-0353-excel-import-type-safety",
+      "bytes": 7180,
+      "hexPrefix": "23206b66672d76342d303335332d6578",
+      "instructionHash": "03b36b74812d47fda8e2a690819c5704765b776c2451381d8a0541b449f04f75"
+    },
+    {
+      "name": "kfg-v4-0354-spreadsheet-protected-range",
+      "bytes": 7313,
+      "hexPrefix": "23206b66672d76342d303335342d7370",
+      "instructionHash": "3e23e4302980e9bca5630ae5c984a145f11ef70bfed121b259cc3429493527d1"
+    },
+    {
+      "name": "kfg-v4-0355-excel-calculation-reproducibility",
+      "bytes": 7364,
+      "hexPrefix": "23206b66672d76342d303335352d6578",
+      "instructionHash": "ad47ce8f8b892d94fcc69227dbf872f91441d2bcd33f29f5185e2fc7108ca738"
+    },
+    {
+      "name": "kfg-v4-0356-image-metadata-privacy",
+      "bytes": 7231,
+      "hexPrefix": "23206b66672d76342d303335362d696d",
+      "instructionHash": "050779dfe251f994a0a2bd2cd5f5cdd37f31d2d146b8332696b01c92d6381270"
+    },
+    {
+      "name": "kfg-v4-0357-image-transform-quality",
+      "bytes": 7242,
+      "hexPrefix": "23206b66672d76342d303335372d696d",
+      "instructionHash": "b8b8e2df278d5f656dd398a24614282b4286c5ef2b6af22195238949f8fbd523"
+    },
+    {
+      "name": "kfg-v4-0358-responsive-image-budget",
+      "bytes": 7271,
+      "hexPrefix": "23206b66672d76342d303335382d7265",
+      "instructionHash": "b272f870b46a1075451bf27377f163d58f30aae63d768378f3f6509dc657dbf2"
+    },
+    {
+      "name": "kfg-v4-0359-image-upload-malware-boundary",
+      "bytes": 7415,
+      "hexPrefix": "23206b66672d76342d303335392d696d",
+      "instructionHash": "0ef6af862d78e6f36dbfee3a7a9e032f15506575d8bc7fa6f3ad4815f5dcb943"
+    },
+    {
+      "name": "kfg-v4-0360-image-color-profile-consistency",
+      "bytes": 7287,
+      "hexPrefix": "23206b66672d76342d303336302d696d",
+      "instructionHash": "ecad07e39792a08c8f4c0d265fd2a8765e004bbeb34832e05b1b2c08a5bc3538"
+    },
+    {
+      "name": "kfg-v4-0361-video-transcode-ladder",
+      "bytes": 7656,
+      "hexPrefix": "23206b66672d76342d303336312d7669",
+      "instructionHash": "34d2c743af3ed6bfda9291b7b17dc1d9a9ef23b9d1f9e9fe8c8181e16da58d8d"
+    },
+    {
+      "name": "kfg-v4-0362-video-segment-integrity",
+      "bytes": 7656,
+      "hexPrefix": "23206b66672d76342d303336322d7669",
+      "instructionHash": "dd18987a9a220f12be134b03b8986806264cd64689e8766c664b449058af8051"
+    },
+    {
+      "name": "kfg-v4-0363-subtitle-timing-validator",
+      "bytes": 7296,
+      "hexPrefix": "23206b66672d76342d303336332d7375",
+      "instructionHash": "7e49c16be405874a9360effe1caa7ba1385951a9c8c6bc84812e1e8a5b740f8c"
+    },
+    {
+      "name": "kfg-v4-0364-video-retention-policy",
+      "bytes": 7211,
+      "hexPrefix": "23206b66672d76342d303336342d7669",
+      "instructionHash": "25991b605a15c8862bbd1c5d402e0d7aeaa2439b8f1a4a3dd18aebfa9d24b7cf"
+    },
+    {
+      "name": "kfg-v4-0365-streaming-startup-budget",
+      "bytes": 7257,
+      "hexPrefix": "23206b66672d76342d303336352d7374",
+      "instructionHash": "9df22fab832f5e44f8e88985599c97ea6c46b63d41ff1db34b2f69e7edc52a64"
+    },
+    {
+      "name": "kfg-v4-0366-audio-transcription-confidence",
+      "bytes": 7429,
+      "hexPrefix": "23206b66672d76342d303336362d6175",
+      "instructionHash": "0abd7e797b4f088bc150cc40634542b064706485fa812ae669f7c27fce397ca3"
+    },
+    {
+      "name": "kfg-v4-0367-audio-redaction-boundary",
+      "bytes": 7411,
+      "hexPrefix": "23206b66672d76342d303336372d6175",
+      "instructionHash": "2e03c0c0d3354196378cf34b54521b2ac1e6b3eafe26b68df9db661871fbbe75"
+    },
+    {
+      "name": "kfg-v4-0368-audio-loudness-normalization",
+      "bytes": 7360,
+      "hexPrefix": "23206b66672d76342d303336382d6175",
+      "instructionHash": "932e9ec5d4a2ec3bf318320fb45f8d557f248c69cad2dd23b49a8b8d62435c64"
+    },
+    {
+      "name": "kfg-v4-0369-audio-segment-index",
+      "bytes": 7201,
+      "hexPrefix": "23206b66672d76342d303336392d6175",
+      "instructionHash": "78cb5929c460b3df44c74da44395666afba6e3137b84fe945ce98380929e7e82"
+    },
+    {
+      "name": "kfg-v4-0370-voice-consent-evidence",
+      "bytes": 7257,
+      "hexPrefix": "23206b66672d76342d303337302d766f",
+      "instructionHash": "257d954816b42ef4df8426b10f6723c1d76bda5205f21046a767d531bd46de5f"
+    },
+    {
+      "name": "kfg-v4-0371-keyboard-flow-coverage",
+      "bytes": 7255,
+      "hexPrefix": "23206b66672d76342d303337312d6b65",
+      "instructionHash": "dee98d960909e55dc6d68281e8db1f3f165cbb0efc8e406dad573314db63c441"
+    },
+    {
+      "name": "kfg-v4-0372-screen-reader-name-computation",
+      "bytes": 7297,
+      "hexPrefix": "23206b66672d76342d303337322d7363",
+      "instructionHash": "30166677535ef7d656b6de7801a8d3f3b820fafba6fe76181718bb418325ab46"
+    },
+    {
+      "name": "kfg-v4-0373-focus-trap-correctness",
+      "bytes": 7274,
+      "hexPrefix": "23206b66672d76342d303337332d666f",
+      "instructionHash": "647b0725fa619d01ae94552f43a6554ec96fe02a4379313a1069a59f59fcc619"
+    },
+    {
+      "name": "kfg-v4-0374-accessible-error-recovery",
+      "bytes": 7362,
+      "hexPrefix": "23206b66672d76342d303337342d6163",
+      "instructionHash": "9076cd20886239da0046f4ed94fdd32822d82ccb0a91f91365405812015209bb"
+    },
+    {
+      "name": "kfg-v4-0375-wcag-evidence-matrix",
+      "bytes": 7278,
+      "hexPrefix": "23206b66672d76342d303337352d7763",
+      "instructionHash": "9d7661a22783cc43cd2e0f5268410eeda27214eea97e0c2222df9aed83308232"
+    },
+    {
+      "name": "kfg-v4-0376-bidi-isolation-auditor",
+      "bytes": 7334,
+      "hexPrefix": "23206b66672d76342d303337362d6269",
+      "instructionHash": "074726befffe4ddf1b4c6cd9ac1d320371679e94183864e9e3bf5135714cea04"
+    },
+    {
+      "name": "kfg-v4-0377-rtl-number-formatting",
+      "bytes": 7182,
+      "hexPrefix": "23206b66672d76342d303337372d7274",
+      "instructionHash": "048cdfb67c983599a2733e6eda8d7f76d917cdf9ae411c6712f599a079e1df02"
+    },
+    {
+      "name": "kfg-v4-0378-rtl-table-column-order",
+      "bytes": 7160,
+      "hexPrefix": "23206b66672d76342d303337382d7274",
+      "instructionHash": "2067da095b723528f31597b037a2f4f5fda56f58e7e84639d294b95be686cfc5"
+    },
+    {
+      "name": "kfg-v4-0379-arabic-placeholder-quality",
+      "bytes": 7260,
+      "hexPrefix": "23206b66672d76342d303337392d6172",
+      "instructionHash": "f3b9d149949c6d79386138d4f909980bdbff12501bf499d810ae021323eca565"
+    },
+    {
+      "name": "kfg-v4-0380-rtl-print-layout",
+      "bytes": 7089,
+      "hexPrefix": "23206b66672d76342d303338302d7274",
+      "instructionHash": "22688cee0c033ed3bdd2e027f600516a414e6a833d8473ec756aabface00ce12"
+    },
+    {
+      "name": "kfg-v4-0381-translation-key-lifecycle",
+      "bytes": 7228,
+      "hexPrefix": "23206b66672d76342d303338312d7472",
+      "instructionHash": "38a317c20812fc2205dc8961cfb322db5619e91f327e806833849fa1e4f38d53"
+    },
+    {
+      "name": "kfg-v4-0382-locale-fallback-chain",
+      "bytes": 7183,
+      "hexPrefix": "23206b66672d76342d303338322d6c6f",
+      "instructionHash": "5aa248001db86d1b98f2cef289e51fd3d682540426422fe3aab6b4f21c002f66"
+    },
+    {
+      "name": "kfg-v4-0383-pluralization-rule-audit",
+      "bytes": 7273,
+      "hexPrefix": "23206b66672d76342d303338332d706c",
+      "instructionHash": "52b21044c4b60925dd4a42f83fef33a34ad5dc87bf1bd7609faeccf81734879e"
+    },
+    {
+      "name": "kfg-v4-0384-timezone-display-contract",
+      "bytes": 7311,
+      "hexPrefix": "23206b66672d76342d303338342d7469",
+      "instructionHash": "3912af8236e2e89088efe2ac380cae68c616a9b187056ecdb966dd0e8ce1d08b"
+    },
+    {
+      "name": "kfg-v4-0385-localization-release-gate",
+      "bytes": 7274,
+      "hexPrefix": "23206b66672d76342d303338352d6c6f",
+      "instructionHash": "5209e3297ed6629db20eb7995da5d0ca38808efffbd9bc2fef572563ad090ed2"
+    },
+    {
+      "name": "kfg-v4-0386-arabic-search-normalization",
+      "bytes": 7333,
+      "hexPrefix": "23206b66672d76342d303338362d6172",
+      "instructionHash": "6468d1a2732ef22733197716fa02d080dea2f7352261ed1b5a390152c938f67c"
+    },
+    {
+      "name": "kfg-v4-0387-arabic-font-fallback",
+      "bytes": 7194,
+      "hexPrefix": "23206b66672d76342d303338372d6172",
+      "instructionHash": "8cbce7cad264d2d1a818eb9fc0e3de7917f3d266b4b8ce1e753e379058d2a3b3"
+    },
+    {
+      "name": "kfg-v4-0388-arabic-date-hijri-gregorian",
+      "bytes": 7271,
+      "hexPrefix": "23206b66672d76342d303338382d6172",
+      "instructionHash": "6ba09e9064504b8e42ae51f34e8b2ff51e59dfdf88407920e8e6cc4018d1d1b6"
+    },
+    {
+      "name": "kfg-v4-0389-arabic-mixed-script-security",
+      "bytes": 7278,
+      "hexPrefix": "23206b66672d76342d303338392d6172",
+      "instructionHash": "0dea641dec45450320959b3098e5ba9b6b124e44b0b122be5df9a985def1ee16"
+    },
+    {
+      "name": "kfg-v4-0390-arabic-content-quality",
+      "bytes": 7246,
+      "hexPrefix": "23206b66672d76342d303339302d6172",
+      "instructionHash": "b2ab67195f534b6380faee790d8d5cca2937489024edda7502f9bd9b53b7f377"
+    },
+    {
+      "name": "kfg-v4-0391-saudi-einvoice-integration",
+      "bytes": 7326,
+      "hexPrefix": "23206b66672d76342d303339312d7361",
+      "instructionHash": "29127738aa8fb6d6cc657a169637296c5cf693966c297c1e26952c2eda115fac"
+    },
+    {
+      "name": "kfg-v4-0392-nafath-style-identity-boundary",
+      "bytes": 7441,
+      "hexPrefix": "23206b66672d76342d303339322d6e61",
+      "instructionHash": "8def58137e03c23e26c796f7cfcb1fc244d2f41155cdd5626743ff4b8d2631c1"
+    },
+    {
+      "name": "kfg-v4-0393-saudi-data-residency-map",
+      "bytes": 7228,
+      "hexPrefix": "23206b66672d76342d303339332d7361",
+      "instructionHash": "2a9be29207e23156a2cbef92ed3bbc6551a88f69bc81aecf825ef252d034643f"
+    },
+    {
+      "name": "kfg-v4-0394-arabic-regulatory-evidence",
+      "bytes": 7255,
+      "hexPrefix": "23206b66672d76342d303339342d6172",
+      "instructionHash": "1a70402e36fe4fcd7645689dd2094d013f2b8f75cf32bde7beb21c4bd22400c3"
+    },
+    {
+      "name": "kfg-v4-0395-ksa-workweek-calendar",
+      "bytes": 7249,
+      "hexPrefix": "23206b66672d76342d303339352d6b73",
+      "instructionHash": "50accaec872888450ec5390b79cfb744d32098fdd8e71bda6c38ebf74419b8bd"
+    },
+    {
+      "name": "kfg-v4-0396-permit-to-work-state-model",
+      "bytes": 7224,
+      "hexPrefix": "23206b66672d76342d303339362d7065",
+      "instructionHash": "4f4716452226d6780625febc04a73cc93c2568c6b96d69a81643c9f4e99e2809"
+    },
+    {
+      "name": "kfg-v4-0397-near-miss-leading-indicator",
+      "bytes": 7221,
+      "hexPrefix": "23206b66672d76342d303339372d6e65",
+      "instructionHash": "1237d1c68f7a8d0d0078ab484f48e0f2c70ba14f73eb23d8085efe2fca19f48d"
+    },
+    {
+      "name": "kfg-v4-0398-capa-effectiveness-verifier",
+      "bytes": 7388,
+      "hexPrefix": "23206b66672d76342d303339382d6361",
+      "instructionHash": "2859587f650459946544c0e3f70da99b3cdb67a115c954e80414024992728c62"
+    },
+    {
+      "name": "kfg-v4-0399-contractor-safety-qualification",
+      "bytes": 7430,
+      "hexPrefix": "23206b66672d76342d303339392d636f",
+      "instructionHash": "ebea101147a4f5561b4f629ff1b81b42081ddf15284ae921e4f04b9f4fa1a5d5"
+    },
+    {
+      "name": "kfg-v4-0400-safety-observation-trend",
+      "bytes": 7262,
+      "hexPrefix": "23206b66672d76342d303430302d7361",
+      "instructionHash": "07f0eec556e572b402e76671cce3c655dad6a41c519d9b31d5ae39db4abc2ff5"
+    },
+    {
+      "name": "kfg-v4-0401-production-schedule-feasibility",
+      "bytes": 7464,
+      "hexPrefix": "23206b66672d76342d303430312d7072",
+      "instructionHash": "661e926162123ff5ae9d38e8397461274df5aa4fbd78bf84dc80ab57695e7f81"
+    },
+    {
+      "name": "kfg-v4-0402-work-order-genealogy",
+      "bytes": 7294,
+      "hexPrefix": "23206b66672d76342d303430322d776f",
+      "instructionHash": "ef3f00367cacda1e3b7d86ff4aaae23aafb839a7aa52f88e509717bdb0891cad"
+    },
+    {
+      "name": "kfg-v4-0403-manufacturing-downtime-causal",
+      "bytes": 7435,
+      "hexPrefix": "23206b66672d76342d303430332d6d61",
+      "instructionHash": "7292a550cb06984302504acbc88c1faab5161a9d8a27be6a43e54a8281d77c48"
+    },
+    {
+      "name": "kfg-v4-0404-process-parameter-control",
+      "bytes": 7335,
+      "hexPrefix": "23206b66672d76342d303430342d7072",
+      "instructionHash": "1f11bc0badb6a3c3ad163a60f0eebaef5fd80ceea518161a6433b242bba3c44e"
+    },
+    {
+      "name": "kfg-v4-0405-shop-floor-exception-routing",
+      "bytes": 7347,
+      "hexPrefix": "23206b66672d76342d303430352d7368",
+      "instructionHash": "ffed6ee1539a89bcecc6feba6ab25cfbe8069d6d27178608700bd773e58ac5f4"
+    },
+    {
+      "name": "kfg-v4-0406-erp-posting-period-control",
+      "bytes": 7204,
+      "hexPrefix": "23206b66672d76342d303430362d6572",
+      "instructionHash": "3edb14eb6c6ae4e12e0cf5b3bb1c0b5e8d6fe9995812158eb83cffec658f82c1"
+    },
+    {
+      "name": "kfg-v4-0407-erp-master-data-change",
+      "bytes": 7117,
+      "hexPrefix": "23206b66672d76342d303430372d6572",
+      "instructionHash": "978772ec6047a8134804ced37add73a902696413fd2d09b07373eb2f3cef3d11"
+    },
+    {
+      "name": "kfg-v4-0408-erp-intercompany-reconciliation",
+      "bytes": 7335,
+      "hexPrefix": "23206b66672d76342d303430382d6572",
+      "instructionHash": "51846db47351c9f7a9c1f3c6f93a663e5067113dd0dc34a4ca6caf94940879b1"
+    },
+    {
+      "name": "kfg-v4-0409-erp-approval-segregation",
+      "bytes": 7204,
+      "hexPrefix": "23206b66672d76342d303430392d6572",
+      "instructionHash": "7167de0019703e49c00f326066fbe7bdb52a1b0cf775ea33a504619aea2504d7"
+    },
+    {
+      "name": "kfg-v4-0410-erp-close-readiness",
+      "bytes": 7192,
+      "hexPrefix": "23206b66672d76342d303431302d6572",
+      "instructionHash": "4e5f1841e746e96317a1d8fc569f2bfdc6429f1340d5ce59ec42b63fa1fe1c1c"
+    },
+    {
+      "name": "kfg-v4-0411-employee-lifecycle-integrity",
+      "bytes": 7294,
+      "hexPrefix": "23206b66672d76342d303431312d656d",
+      "instructionHash": "b59437d67293461b3fb1d9bb875edf3286a12ae383dcf2b49243a350c18dc05b"
+    },
+    {
+      "name": "kfg-v4-0412-workforce-authorization-boundary",
+      "bytes": 7498,
+      "hexPrefix": "23206b66672d76342d303431322d776f",
+      "instructionHash": "07848b3f6da8a3d621e6ee09f0a02b0fbee43879255db287c638e309bca3544f"
+    },
+    {
+      "name": "kfg-v4-0413-payroll-input-reconciliation",
+      "bytes": 7287,
+      "hexPrefix": "23206b66672d76342d303431332d7061",
+      "instructionHash": "eeded974ecd5ce479f427fa9183c973d642b0699fad333416e507de7f3c67378"
+    },
+    {
+      "name": "kfg-v4-0414-hr-document-retention",
+      "bytes": 7184,
+      "hexPrefix": "23206b66672d76342d303431342d6872",
+      "instructionHash": "855a098486c42679f887ea8abac60a47f4b4de9a5e93729a3d26734d522aa78b"
+    },
+    {
+      "name": "kfg-v4-0415-workforce-capacity-forecast",
+      "bytes": 7262,
+      "hexPrefix": "23206b66672d76342d303431352d776f",
+      "instructionHash": "25942bcfd01be69a083ec765b8c65d4e967bd2534f0b560353f5abfd3f502f35"
+    },
+    {
+      "name": "kfg-v4-0416-cash-forecast-evidence",
+      "bytes": 7229,
+      "hexPrefix": "23206b66672d76342d303431362d6361",
+      "instructionHash": "f1af9935331b091252534eceeeadf87d4068c7a3c6024345258d106091537b7d"
+    },
+    {
+      "name": "kfg-v4-0417-revenue-recognition-traceability",
+      "bytes": 7352,
+      "hexPrefix": "23206b66672d76342d303431372d7265",
+      "instructionHash": "d86c7345e9314506e33fe9d06ea8dfee35557376c31ba7245bf53242d702e915"
+    },
+    {
+      "name": "kfg-v4-0418-financial-close-control",
+      "bytes": 7250,
+      "hexPrefix": "23206b66672d76342d303431382d6669",
+      "instructionHash": "b7cee3bad16546418ad04d59503b9b0bd5799d092ef13d736d843df1a8ebb79c"
+    },
+    {
+      "name": "kfg-v4-0419-payment-reconciliation-exceptions",
+      "bytes": 7366,
+      "hexPrefix": "23206b66672d76342d303431392d7061",
+      "instructionHash": "761400cb1ab714a5c238a480deb0b4b43399eaa719e979c5eabf253fd217e517"
+    },
+    {
+      "name": "kfg-v4-0420-budget-variance-explainer",
+      "bytes": 7171,
+      "hexPrefix": "23206b66672d76342d303432302d6275",
+      "instructionHash": "7f1b66330ea5eb6aafbe512e53b69ea56c76048335f281b91934cb7fd1d567ac"
+    },
+    {
+      "name": "kfg-v4-0421-supplier-onboarding-controls",
+      "bytes": 7345,
+      "hexPrefix": "23206b66672d76342d303432312d7375",
+      "instructionHash": "9d6b08465ed9975f6ce658827e2e773102ceb424683ec8fd66f863267ccb83c1"
+    },
+    {
+      "name": "kfg-v4-0422-three-way-match-exception",
+      "bytes": 7191,
+      "hexPrefix": "23206b66672d76342d303432322d7468",
+      "instructionHash": "f6b6bb33c5abf0bfc79f3e4ed6ce366754dbffd520f495fb6c8534f757be6993"
+    },
+    {
+      "name": "kfg-v4-0423-purchase-approval-routing",
+      "bytes": 7255,
+      "hexPrefix": "23206b66672d76342d303432332d7075",
+      "instructionHash": "e1d86482ae8d2c5a44d4c3692158e7a15ac0c337981b41e7114f3cf50998b4a3"
+    },
+    {
+      "name": "kfg-v4-0424-contract-spend-compliance",
+      "bytes": 7392,
+      "hexPrefix": "23206b66672d76342d303432342d636f",
+      "instructionHash": "b52efc2716b1e9f0bdabf8e3732fc8c85f1e31405bc94c6423f4b19b6f835e6d"
+    },
+    {
+      "name": "kfg-v4-0425-supplier-risk-score",
+      "bytes": 7165,
+      "hexPrefix": "23206b66672d76342d303432352d7375",
+      "instructionHash": "69e90a918f829da46a13ba94f37b2157ccec3f8270bd8b11af1ba0d43e85fefb"
+    },
+    {
+      "name": "kfg-v4-0426-demand-signal-reconciliation",
+      "bytes": 7289,
+      "hexPrefix": "23206b66672d76342d303432362d6465",
+      "instructionHash": "cdae07eb48d1d64e42371b353878ed3440a39aed72d83be0b6e7316b7fb804cc"
+    },
+    {
+      "name": "kfg-v4-0427-supply-plan-constraint",
+      "bytes": 7254,
+      "hexPrefix": "23206b66672d76342d303432372d7375",
+      "instructionHash": "b302b022ee2926d936dd7289848b7d50b96fc25c4e47a2610c62302da6e69f2d"
+    },
+    {
+      "name": "kfg-v4-0428-lead-time-confidence",
+      "bytes": 7203,
+      "hexPrefix": "23206b66672d76342d303432382d6c65",
+      "instructionHash": "1c9aa066573e66d2dff98efc4cc81d28c37ab3e5a7e204bc870cc805808d914d"
+    },
+    {
+      "name": "kfg-v4-0429-shipment-exception-control",
+      "bytes": 7315,
+      "hexPrefix": "23206b66672d76342d303432392d7368",
+      "instructionHash": "85d74d718c5996cbb69ac4804b6fd436dc4e06e0f8445eac5ac5bdb6ef77d5ca"
+    },
+    {
+      "name": "kfg-v4-0430-inventory-allocation-policy",
+      "bytes": 7247,
+      "hexPrefix": "23206b66672d76342d303433302d696e",
+      "instructionHash": "7af3012286239edf3425ef57f2a8913a7bbcb8fe977d1af59ea205eb285d3c3b"
+    },
+    {
+      "name": "kfg-v4-0431-asset-register-reconciliation",
+      "bytes": 7319,
+      "hexPrefix": "23206b66672d76342d303433312d6173",
+      "instructionHash": "ac52243680913d663a2962f255b7dc990a4b7bf891108ade885af88a4782ac15"
+    },
+    {
+      "name": "kfg-v4-0432-asset-ownership-transfer",
+      "bytes": 7242,
+      "hexPrefix": "23206b66672d76342d303433322d6173",
+      "instructionHash": "df1d3d85136870ab2af6143e965a6f566fd92a6ac2d5ae231313f4b551bfb6de"
+    },
+    {
+      "name": "kfg-v4-0433-asset-criticality-model",
+      "bytes": 7214,
+      "hexPrefix": "23206b66672d76342d303433332d6173",
+      "instructionHash": "3ff5c9c5875079172ccb2d540818e2b2be83e870109b2424dc420a9f0fe82b4e"
+    },
+    {
+      "name": "kfg-v4-0434-asset-depreciation-evidence",
+      "bytes": 7267,
+      "hexPrefix": "23206b66672d76342d303433342d6173",
+      "instructionHash": "e84eb1bb274e4dd0a66be24ebefbf377895ea941a34dfd26943a61d6b296f3c8"
+    },
+    {
+      "name": "kfg-v4-0435-asset-location-integrity",
+      "bytes": 7265,
+      "hexPrefix": "23206b66672d76342d303433352d6173",
+      "instructionHash": "7011536009b2c7e2bba23a7d1297442aee223efaaa043656b6fcf40c8336e1e9"
+    },
+    {
+      "name": "kfg-v4-0436-predictive-maintenance-feature",
+      "bytes": 7422,
+      "hexPrefix": "23206b66672d76342d303433362d7072",
+      "instructionHash": "48d2969613596cc9550f65313a4ecaa857fb507ea5ccdeced72a69be07d81639"
+    },
+    {
+      "name": "kfg-v4-0437-maintenance-backlog-risk",
+      "bytes": 7346,
+      "hexPrefix": "23206b66672d76342d303433372d6d61",
+      "instructionHash": "504e0253624aa9877e45334de9fa15bbfc16bea5a63ebdbae32fc5705ffbd220"
+    },
+    {
+      "name": "kfg-v4-0438-failure-code-taxonomy",
+      "bytes": 7290,
+      "hexPrefix": "23206b66672d76342d303433382d6661",
+      "instructionHash": "10a641c8d07aa3fa6e3e1d69d38368d9c152d60ac4793bdb1ea94b2b807d367b"
+    },
+    {
+      "name": "kfg-v4-0439-maintenance-window-optimizer",
+      "bytes": 7384,
+      "hexPrefix": "23206b66672d76342d303433392d6d61",
+      "instructionHash": "e54beae00974c0c4d51ee86d7217c82a348f780be6afddbf65cbcee6d0b387c9"
+    },
+    {
+      "name": "kfg-v4-0440-spare-parts-availability",
+      "bytes": 7331,
+      "hexPrefix": "23206b66672d76342d303434302d7370",
+      "instructionHash": "171eba9fbbdecb75f5320b04231a8670daabf3e60d1d006d9063752a53c88335"
+    },
+    {
+      "name": "kfg-v4-0441-cmms-work-order-state",
+      "bytes": 7205,
+      "hexPrefix": "23206b66672d76342d303434312d636d",
+      "instructionHash": "80b9a2bd5778a8e9ed1861f31841ade2b6b9d86f7939186bd17fad12d67eea8a"
+    },
+    {
+      "name": "kfg-v4-0442-technician-skill-matching",
+      "bytes": 7322,
+      "hexPrefix": "23206b66672d76342d303434322d7465",
+      "instructionHash": "7a4ed9764ad4f69590204e2059cc6c86e673cef308f09ed65b819a71f62fb25a"
+    },
+    {
+      "name": "kfg-v4-0443-maintenance-kpi-lineage",
+      "bytes": 7284,
+      "hexPrefix": "23206b66672d76342d303434332d6d61",
+      "instructionHash": "eae9fcf759dcd7d1eb77afe337e6912047ef8a8ac9d0c60726d65b179b8285fe"
+    },
+    {
+      "name": "kfg-v4-0444-preventive-maintenance-compliance",
+      "bytes": 7466,
+      "hexPrefix": "23206b66672d76342d303434342d7072",
+      "instructionHash": "e77251554e385a46b8055bcda61cecd02f835cc2cd122e6d85c313f87b81c692"
+    },
+    {
+      "name": "kfg-v4-0445-cmms-mobile-offline",
+      "bytes": 7217,
+      "hexPrefix": "23206b66672d76342d303434352d636d",
+      "instructionHash": "4ec69b9e2cd7d1137b12389bf0837430bd8a45c1516893069d26999feacfab41"
+    },
+    {
+      "name": "kfg-v4-0446-nonconformance-causal-chain",
+      "bytes": 7386,
+      "hexPrefix": "23206b66672d76342d303434362d6e6f",
+      "instructionHash": "38bd2acecae3f21c1e7bd43b802069d8b27f711247f34e8d1ac12e81aa4a87d5"
+    },
+    {
+      "name": "kfg-v4-0447-capa-root-cause-quality",
+      "bytes": 7256,
+      "hexPrefix": "23206b66672d76342d303434372d6361",
+      "instructionHash": "e859122c301653883e77c93fe392821200af5ed286a93ab13989695e0592294f"
+    },
+    {
+      "name": "kfg-v4-0448-inspection-sampling-plan",
+      "bytes": 7343,
+      "hexPrefix": "23206b66672d76342d303434382d696e",
+      "instructionHash": "27a546ee8269c710ed2ebe75bd4b784bd1f62ecc29d8e75a1b57b347d394e351"
+    },
+    {
+      "name": "kfg-v4-0449-quality-record-immutability",
+      "bytes": 7350,
+      "hexPrefix": "23206b66672d76342d303434392d7175",
+      "instructionHash": "caf6b3b827089a40107582e990176ca240bbed9cfdd49b299497882fc3533ca6"
+    },
+    {
+      "name": "kfg-v4-0450-supplier-quality-escalation",
+      "bytes": 7354,
+      "hexPrefix": "23206b66672d76342d303435302d7375",
+      "instructionHash": "49f8604f1b6e0ea3643d3325af3ea84be736d24e161e747e165081b1450111c1"
+    },
+    {
+      "name": "kfg-v4-0451-critical-path-confidence",
+      "bytes": 7348,
+      "hexPrefix": "23206b66672d76342d303435312d6372",
+      "instructionHash": "6d57e85cca11d7c1e66a599dad2ad0ffd0f090d8cd3eb7ef3d7e28203e2e98aa"
+    },
+    {
+      "name": "kfg-v4-0452-earned-value-reconciliation",
+      "bytes": 7338,
+      "hexPrefix": "23206b66672d76342d303435322d6561",
+      "instructionHash": "980ffd04531619e0de942c0d57e5f5e27e5e7272c191a7fa21a4f3bad336519f"
+    },
+    {
+      "name": "kfg-v4-0453-project-baseline-change",
+      "bytes": 7333,
+      "hexPrefix": "23206b66672d76342d303435332d7072",
+      "instructionHash": "40cee70245dd4d8554dd43ac78768d97190dbb7e7b6a240c122c0fa3906f34b3"
+    },
+    {
+      "name": "kfg-v4-0454-portfolio-dependency-risk",
+      "bytes": 7345,
+      "hexPrefix": "23206b66672d76342d303435342d706f",
+      "instructionHash": "b5b806af71e9ecdc144e06ef99eb4489739214dd105e9aa9f19a81d30ca69715"
+    },
+    {
+      "name": "kfg-v4-0455-project-closeout-evidence",
+      "bytes": 7294,
+      "hexPrefix": "23206b66672d76342d303435352d7072",
+      "instructionHash": "65a07ade701fe140c6125a58431e1dddad7fc282b3fedcba6ea1d6aa7463e275"
+    },
+    {
+      "name": "kfg-v4-0456-rfisubmittal-traceability",
+      "bytes": 7391,
+      "hexPrefix": "23206b66672d76342d303435362d7266",
+      "instructionHash": "134885d82972f0c6e5f75b433d0b31edac96abc0c46612500e0d5911fdc6133c"
+    },
+    {
+      "name": "kfg-v4-0457-construction-progress-evidence",
+      "bytes": 7447,
+      "hexPrefix": "23206b66672d76342d303435372d636f",
+      "instructionHash": "f52619b8290de22ed57fbb23f031793ec1fafa52c56ef633151ffa1dac1a5596"
+    },
+    {
+      "name": "kfg-v4-0458-site-instruction-change",
+      "bytes": 7321,
+      "hexPrefix": "23206b66672d76342d303435382d7369",
+      "instructionHash": "1fd7b42f06987400fdcc94e424881456d02fe8634441179902f1ca87747fbbb3"
+    },
+    {
+      "name": "kfg-v4-0459-construction-safety-permit",
+      "bytes": 7353,
+      "hexPrefix": "23206b66672d76342d303435392d636f",
+      "instructionHash": "9987f40bc4548e7090b1c4a3117dfa35efc41549101e52d3f8b944e55ac8aea9"
+    },
+    {
+      "name": "kfg-v4-0460-asbuilt-document-control",
+      "bytes": 7338,
+      "hexPrefix": "23206b66672d76342d303436302d6173",
+      "instructionHash": "cf1823b9b52fc7c581b12cf4e48f4c16d5228577573ffb57aa2993c1a3ee2329"
+    },
+    {
+      "name": "kfg-v4-0461-twin-entity-identity",
+      "bytes": 7664,
+      "hexPrefix": "23206b66672d76342d303436312d7477",
+      "instructionHash": "3b613b24fbcca477c386d6fcf7150b143bc806ce915861841d5badf34b07a109"
+    },
+    {
+      "name": "kfg-v4-0462-twin-state-freshness",
+      "bytes": 7762,
+      "hexPrefix": "23206b66672d76342d303436322d7477",
+      "instructionHash": "d50d10034d68c4e45a0bc8bf13363714ddbd203f6b796be081d5002b7fdb435c"
+    },
+    {
+      "name": "kfg-v4-0463-simulation-to-reality-gap",
+      "bytes": 7338,
+      "hexPrefix": "23206b66672d76342d303436332d7369",
+      "instructionHash": "d3b26dd3858461a2e28a0f9a6846b83425ccbdae290ab0849353484428e17ce7"
+    },
+    {
+      "name": "kfg-v4-0464-twin-event-replay",
+      "bytes": 7632,
+      "hexPrefix": "23206b66672d76342d303436342d7477",
+      "instructionHash": "038984a9eaf145bb14746f17796bdefbc2a34476b466df6c933765a0a4ace1c1"
+    },
+    {
+      "name": "kfg-v4-0465-twin-access-boundary",
+      "bytes": 7410,
+      "hexPrefix": "23206b66672d76342d303436352d7477",
+      "instructionHash": "fb8bfacd4e303149005d5d96779341a9cb81734815982d8cbb2c828116ffe49a"
+    },
+    {
+      "name": "kfg-v4-0466-device-identity-provisioning",
+      "bytes": 7315,
+      "hexPrefix": "23206b66672d76342d303436362d6465",
+      "instructionHash": "b97441076ed8af48fd0ba179840b4e2d1a6650401d9e84b148454e6c2ebb3475"
+    },
+    {
+      "name": "kfg-v4-0467-telemetry-gap-detection",
+      "bytes": 7218,
+      "hexPrefix": "23206b66672d76342d303436372d7465",
+      "instructionHash": "6c3a3e59f8efe060900a6e0c96458381c6b58831784e348cc32245a6f3735e97"
+    },
+    {
+      "name": "kfg-v4-0468-firmware-rollout-safety",
+      "bytes": 7275,
+      "hexPrefix": "23206b66672d76342d303436382d6669",
+      "instructionHash": "c0dd550eef6825f40f845403dd3f86121c9de130082e3889ca65c67846691e2a"
+    },
+    {
+      "name": "kfg-v4-0469-device-command-idempotency",
+      "bytes": 7284,
+      "hexPrefix": "23206b66672d76342d303436392d6465",
+      "instructionHash": "7c0d3827ef815b59be30daef8bf774906eaa78aea0403c71b9d1caebac755fb3"
+    },
+    {
+      "name": "kfg-v4-0470-iot-battery-life-model",
+      "bytes": 7214,
+      "hexPrefix": "23206b66672d76342d303437302d696f",
+      "instructionHash": "b338c7b6340d0d243f96d4899610816486a986d14473b7a3e7b52d7ee8ff4336"
+    },
+    {
+      "name": "kfg-v4-0471-industrial-protocol-boundary",
+      "bytes": 7516,
+      "hexPrefix": "23206b66672d76342d303437312d696e",
+      "instructionHash": "63f4acfb993f94b6848f41a4973f3f004f6fc5e47f012967f9405138b3813b2e"
+    },
+    {
+      "name": "kfg-v4-0472-plc-change-evidence",
+      "bytes": 7212,
+      "hexPrefix": "23206b66672d76342d303437322d706c",
+      "instructionHash": "a8c4882270b015779b219916d5a330a5798200ac1426e2eace6fd7fbceb4a4a1"
+    },
+    {
+      "name": "kfg-v4-0473-industrial-alarm-rationalization",
+      "bytes": 7413,
+      "hexPrefix": "23206b66672d76342d303437332d696e",
+      "instructionHash": "bfefd6176ce1832ee5317a95405062c7751a4ea15128c35ef3339ecf6edf4b60"
+    },
+    {
+      "name": "kfg-v4-0474-ot-asset-inventory",
+      "bytes": 7186,
+      "hexPrefix": "23206b66672d76342d303437342d6f74",
+      "instructionHash": "a48d49469fc1133bcb30e4bf46f5191fecdc1ef9d30230fe0b7d3cf537af5375"
+    },
+    {
+      "name": "kfg-v4-0475-industrial-network-segmentation",
+      "bytes": 7397,
+      "hexPrefix": "23206b66672d76342d303437352d696e",
+      "instructionHash": "4f5dd2c40cf60afc880cb39eabcaccd48e85133a0234091f61f21d754f5ddfe8"
+    },
+    {
+      "name": "kfg-v4-0476-otit-data-diode-policy",
+      "bytes": 7116,
+      "hexPrefix": "23206b66672d76342d303437362d6f74",
+      "instructionHash": "4aa6bd8602c1571dc8c323fe1de74a2f1df3ceb920ed10082cbe016055bb142f"
+    },
+    {
+      "name": "kfg-v4-0477-historian-to-cloud-lineage",
+      "bytes": 7266,
+      "hexPrefix": "23206b66672d76342d303437372d6869",
+      "instructionHash": "5e1c6d1cd181cc0738c6db2302c0aaced70cd8db231b86fc30dda6ffa38b90bc"
+    },
+    {
+      "name": "kfg-v4-0478-otit-time-sync",
+      "bytes": 7090,
+      "hexPrefix": "23206b66672d76342d303437382d6f74",
+      "instructionHash": "db4d6f5e451f97e9ac0bdb801288aa371af62faa93daaee973c29fb55f9021b4"
+    },
+    {
+      "name": "kfg-v4-0479-industrial-api-gateway",
+      "bytes": 7220,
+      "hexPrefix": "23206b66672d76342d303437392d696e",
+      "instructionHash": "e19c4544c0a6f49f09c6d2e654034cbe14117e0cd3a0b6501963e07f6e37ce23"
+    },
+    {
+      "name": "kfg-v4-0480-otit-incident-coordination",
+      "bytes": 7346,
+      "hexPrefix": "23206b66672d76342d303438302d6f74",
+      "instructionHash": "9e76dc16f658bd8558a84bb69e7679af5b5fdaf1c3a6e2e7ad3a082c351467bf"
+    },
+    {
+      "name": "kfg-v4-0481-security-control-evidence",
+      "bytes": 7326,
+      "hexPrefix": "23206b66672d76342d303438312d7365",
+      "instructionHash": "b059f5d7b8a7f23bbafb418365c207f0a95cd26e98a2bb086e86bda5d4ca769a"
+    },
+    {
+      "name": "kfg-v4-0482-attack-path-prioritization",
+      "bytes": 7379,
+      "hexPrefix": "23206b66672d76342d303438322d6174",
+      "instructionHash": "276b7653a575ec9d499e9088677fbe72d2a44d3e441bd6198c5f2d0c92a5bd8b"
+    },
+    {
+      "name": "kfg-v4-0483-vulnerability-exception-governance",
+      "bytes": 7571,
+      "hexPrefix": "23206b66672d76342d303438332d7675",
+      "instructionHash": "0c288db8c0c5ec2010e7c80437a1f7b4a57904dfdb5d863a297cc6ea4e43753d"
+    },
+    {
+      "name": "kfg-v4-0484-security-incident-playbook",
+      "bytes": 7397,
+      "hexPrefix": "23206b66672d76342d303438342d7365",
+      "instructionHash": "ff522c9850b3c2623eabf20c7c56ff8e6abc264525c1e33487c68c1eccf1de34"
+    },
+    {
+      "name": "kfg-v4-0485-cyber-risk-quantification",
+      "bytes": 7366,
+      "hexPrefix": "23206b66672d76342d303438352d6379",
+      "instructionHash": "beae59fecf2549e2cc8003c0e032419a5fa4960eb88d8c410ce749928300be01"
+    },
+    {
+      "name": "kfg-v4-0486-decision-rights-matrix",
+      "bytes": 7343,
+      "hexPrefix": "23206b66672d76342d303438362d6465",
+      "instructionHash": "a473184f17148e5b0adfe345a5188eb539a776097c75f5faeb3fdd6c0ed099e6"
+    },
+    {
+      "name": "kfg-v4-0487-policy-exception-lifecycle",
+      "bytes": 7290,
+      "hexPrefix": "23206b66672d76342d303438372d706f",
+      "instructionHash": "795069aa39f5a4ef3142201d3e271a0087cac1355fb269c61cbe29acd434febb"
+    },
+    {
+      "name": "kfg-v4-0488-control-owner-reconciliation",
+      "bytes": 7400,
+      "hexPrefix": "23206b66672d76342d303438382d636f",
+      "instructionHash": "f37ebfae99f86db248b2da90b37df9985a6e7fd90f3b196e276c943a21f5e19b"
+    },
+    {
+      "name": "kfg-v4-0489-architecture-review-board",
+      "bytes": 7345,
+      "hexPrefix": "23206b66672d76342d303438392d6172",
+      "instructionHash": "da20614fbf93c5c2298adba504a1b69a2dbdd504ae4ee321548730b954b0077f"
+    },
+    {
+      "name": "kfg-v4-0490-governance-metric-pack",
+      "bytes": 7321,
+      "hexPrefix": "23206b66672d76342d303439302d676f",
+      "instructionHash": "d662c71ea8ad3b449f23f8372eb1afea7dd6843fd52d27ee9de3bc984641919a"
+    },
+    {
+      "name": "kfg-v4-0491-data-inventory-purpose",
+      "bytes": 7219,
+      "hexPrefix": "23206b66672d76342d303439312d6461",
+      "instructionHash": "34c65ee826a8a87c130d7e19b136bdc76f40706226b8f7058e57ff4cf4b81a4a"
+    },
+    {
+      "name": "kfg-v4-0492-consent-provenance",
+      "bytes": 7187,
+      "hexPrefix": "23206b66672d76342d303439322d636f",
+      "instructionHash": "b9359957e161efea57d4510f478655b83a695d02216ddab62190c753c00d891c"
+    },
+    {
+      "name": "kfg-v4-0493-data-subject-request",
+      "bytes": 7189,
+      "hexPrefix": "23206b66672d76342d303439332d6461",
+      "instructionHash": "2cce8f62f7f722b8a86b7be384f1ea37dbe85b961805468c8a68929ea3e37c98"
+    },
+    {
+      "name": "kfg-v4-0494-privacy-impact-assessment",
+      "bytes": 7274,
+      "hexPrefix": "23206b66672d76342d303439342d7072",
+      "instructionHash": "2ddb1f61604a72250dd9134e32850ba2d883b906a9db776eaf791f0f2daf699a"
+    },
+    {
+      "name": "kfg-v4-0495-retention-deletion-verifier",
+      "bytes": 7378,
+      "hexPrefix": "23206b66672d76342d303439352d7265",
+      "instructionHash": "288a3abb5498de779ebd4c97d48ab470a8f047f38663540adf781b5639fa7ac1"
+    },
+    {
+      "name": "kfg-v4-0496-rto-rpo-evidence",
+      "bytes": 7162,
+      "hexPrefix": "23206b66672d76342d303439362d7274",
+      "instructionHash": "cbeaade54e343874ff11f893ad158b8247b7d89fb98a09c7cce194b3c5439fcf"
+    },
+    {
+      "name": "kfg-v4-0497-backup-restore-integrity",
+      "bytes": 7254,
+      "hexPrefix": "23206b66672d76342d303439372d6261",
+      "instructionHash": "68406859b9b8388a9a84bb8cba4ed9fab14c78ca2386bb7e6b108c218d2007a7"
+    },
+    {
+      "name": "kfg-v4-0498-regional-failover-drill",
+      "bytes": 7340,
+      "hexPrefix": "23206b66672d76342d303439382d7265",
+      "instructionHash": "ac7bd8e8ceeac4993bfdc13c6d6926000713236ac789cecd61b6c78fb1c1fd5d"
+    },
+    {
+      "name": "kfg-v4-0499-recovery-dependency-map",
+      "bytes": 7344,
+      "hexPrefix": "23206b66672d76342d303439392d7265",
+      "instructionHash": "6da38e233d489d84f42c7ae2b16e5c32c9a8a635036d38844ca54babe1d957e8"
+    },
+    {
+      "name": "kfg-v4-0500-disaster-communications-runbook",
+      "bytes": 7421,
+      "hexPrefix": "23206b66672d76342d303530302d6469",
+      "instructionHash": "91d36ed76e2281226031f7c54cbc7f306b8e0467c9aa4129c5a5636ff8850ee6"
+    }
+  ]
+}

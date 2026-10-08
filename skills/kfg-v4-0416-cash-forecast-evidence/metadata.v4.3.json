@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0416-cash-forecast-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "f1af9935331b091252534eceeeadf87d4068c7a3c6024345258d106091537b7d",
+  "rawFileHash": "f1af9935331b091252534eceeeadf87d4068c7a3c6024345258d106091537b7d",
+  "legacyInstructionHash": "a3110a6820096df98da8ae607f75bcfacae9630fb90ef24fef5853bb793fc8c4",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7229
+}

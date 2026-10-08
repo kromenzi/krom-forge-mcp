@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0370-voice-consent-evidence",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "257d954816b42ef4df8426b10f6723c1d76bda5205f21046a767d531bd46de5f",
+  "rawFileHash": "257d954816b42ef4df8426b10f6723c1d76bda5205f21046a767d531bd46de5f",
+  "legacyInstructionHash": "878c5b43c12853ad2798cbdf7e65cd0b13fe4136433c88993a21c075466d2a6a",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7257
+}

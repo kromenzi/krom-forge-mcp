@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0444-preventive-maintenance-compliance",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e77251554e385a46b8055bcda61cecd02f835cc2cd122e6d85c313f87b81c692",
+  "rawFileHash": "e77251554e385a46b8055bcda61cecd02f835cc2cd122e6d85c313f87b81c692",
+  "legacyInstructionHash": "1ba651101ee5957f7ee70c2dc2151cc9a26adb32377c9bc74884562d64263a45",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7466
+}

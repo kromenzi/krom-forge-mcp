@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0376-bidi-isolation-auditor",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "074726befffe4ddf1b4c6cd9ac1d320371679e94183864e9e3bf5135714cea04",
+  "rawFileHash": "074726befffe4ddf1b4c6cd9ac1d320371679e94183864e9e3bf5135714cea04",
+  "legacyInstructionHash": "509e3ca7cc417f55789b4237c6bad5dbba6d4aafb7f2069be404848f8ef4b761",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7334
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0165-postincident-action-verifier",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "3533bbf40208b78479feac5fa1eb011d56c4b20bfde918473b4a339c44ef2934",
+  "rawFileHash": "3533bbf40208b78479feac5fa1eb011d56c4b20bfde918473b4a339c44ef2934",
+  "legacyInstructionHash": "36b1027a21f311bbcfb7e96ebc859a7987be5071cbdc5d1b6bae3f153134797b",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7497
+}

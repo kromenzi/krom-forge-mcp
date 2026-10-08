@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0343-file-type-content-sniffing",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e56317e7c84ff0fbb337d4a6ffe967211cd7416cc3f65575c57bacb8dba2a45a",
+  "rawFileHash": "e56317e7c84ff0fbb337d4a6ffe967211cd7416cc3f65575c57bacb8dba2a45a",
+  "legacyInstructionHash": "56708b4c2d3c77df0a0ca193c8881fcfc9916a3cc49795dd9536f7e173ea9506",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7192
+}

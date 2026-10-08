@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0231-shard-allocation-risk",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "a3aa2e7cef6dec1ddee02aa3541c15790b3fafbb1f1a76a4cf37a43109d4fd4e",
+  "rawFileHash": "a3aa2e7cef6dec1ddee02aa3541c15790b3fafbb1f1a76a4cf37a43109d4fd4e",
+  "legacyInstructionHash": "f9f4ce694b5a7c450081c2681f6d1e6da89302d2d7f7317fa80b4d7daa83a553",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7227
+}

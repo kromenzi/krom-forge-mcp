@@ -1,0 +1,32 @@
+{
+ "status":"PASS",
+ "scope":"Executor wait cancellation and schema binding in the local host path; not deployed MCP, not total loader-to-side-effect cancellation",
+ "executionClaim":false,
+ "sourceCommit":"e1774d5ef8eefc8063d60c4012e674d6083a95f0",
+ "repository":"kromenzi/krom-forge-mcp",
+ "branch":"feat/v43-codex-host-bridge",
+ "owner":"Codex / architect; independent security validator",
+ "environment":"local Node process with actual interactive host request",
+ "invariant":"An unresponsive execute callback must not produce a successful receipt and must stop blocking the runner within 30ms budget plus 1000ms scheduling overhead. Cancellation must stop waiting within 1000ms. Response binding schema remains required.",
+ "facts":["Actual request b7d9275c-ad94-49a7-bb87-7b3786e4e1ad read with exact skill instruction","Fresh negative timeout measurement 45.42ms with HOST_CASE_TIMEOUT; zero receipts","Fresh active cancellation measurement 12.35ms with HOST_EXECUTION_ABORTED; zero receipts","13 focused transport/loader tests passed; nonresponsive callbacks and altered contracts exercised","Outer runner and inner mailbox both enforce waiting deadlines; the outer budget wins when shorter","Abort listeners cleaned on completion by source fix and regression test"],
+ "assumptions":["Node event loop remains schedulable; synchronous CPU blockage is not bounded by timers","Mailbox directory is private to trusted local operators"],
+ "findings":[
+  {"priority":"P2","verdict":"not covered","boundary":"instruction loading","detail":"loadInstructionBundle/loadInstruction awaits precede the per-case race. A stuck loader is outside the proven deadline."},
+  {"priority":"P2","verdict":"not guaranteed","boundary":"third-party executor side effects","detail":"Promise.race stops waiting and aborts the signal but cannot forcibly terminate a callback that ignores cancellation."},
+  {"priority":"P3","verdict":"bounded","boundary":"retry and replay","detail":"Each invocation generates a unique nonce/directory; mismatched nonce/digest/commit/hash rejected. Late response files are not read after cancellation. No remote anti-replay attestation claimed."}
+ ],
+ "decisionTable":[
+  {"condition":"executor never resolves","result":"HOST_CASE_TIMEOUT; no receipt; witnessed"},
+  {"condition":"active external abort","result":"HOST_EXECUTION_ABORTED; no receipt; witnessed"},
+  {"condition":"stale request/commit/contract","result":"reject binding/contract before evidence acceptance; tests witnessed"},
+  {"condition":"conflicting inner/outer wait budgets","result":"earliest wait deadline rejects; no relaxation of schema"},
+  {"condition":"loader never resolves or event loop blocked","result":"UNVERIFIED; outside measured execution boundary"}
+ ],
+ "rejectedHypotheses":["Abort signal forcibly terminates third-party code","A timeout proves remote production MCP unhealthy","Integrity/fixture tests count as live 500-skill campaign"],
+ "evidenceReferences":["timeout-measurements.json","timeout-audit-tests.log","src/v80-host-benchmark-executor.ts","src/v80-codex-host-bridge.ts","tests/v80-v42-instruction-loader.test.ts"],
+ "verificationChecks":["No successful receipt for timeout/abort negatives","Schema rejection remains active","Independent security review required before submitting response"],
+ "rollback":"No production mutation. Revert additive bridge commit if necessary; mailbox output is disposable evidence, not catalog state.",
+ "openItems":["No full loader deadline guarantee","No forced termination guarantee","KROM external verification blocked by automatic approval review","Similarity metrics unmeasured; conservative placeholders must not support promotion"],
+ "exceptionOwner":"repository maintainer / backend",
+ "exceptionExpiry":"Before any untrusted remote host or production-wide timeout guarantee is claimed"
+}

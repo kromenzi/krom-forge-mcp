@@ -1,0 +1,156 @@
+
+> krom-forge-mcp@79.0.0 build
+> npm run verify:v75 && npm run verify:v76 && npm run verify:v77 && npm run verify:v78 && npm run verify:v79 && npm run verify:v80 && next build
+
+
+> krom-forge-mcp@79.0.0 verify:v75
+> tsx scripts/verify-v75-agent-capability-fabric.ts
+
+{"status":"PASS","release":"v75","agents":11,"skills":1465,"internalCapabilities":5333,"gatewayTools":["krom_search_capabilities","krom_dispatch_capability"]}
+
+> krom-forge-mcp@79.0.0 verify:v76
+> tsx scripts/verify-v76-semantic-skill-runtime.ts
+
+{"status":"PASS","release":"v76","agents":11,"skills":1465,"preservedInternalCapabilityBaseline":5333,"bilingualSearch":true,"fuzzyRanking":true,"ambiguityDetection":true,"validatedSkillMetadata":true,"skillDigestCoverage":1465,"skillDescriptionCoverage":1465,"skillInstructionCoverage":1465,"skillEvidenceCoverage":1465,"skillAwareAgentRouting":true,"hostAuthorizationBoundaryPreserved":true}
+
+> krom-forge-mcp@79.0.0 verify:v77
+> tsx scripts/verify-v77-native-skill-runtime.ts
+
+{"status":"PASS","release":"v77","skills":1465,"multiSkillRouting":true,"bilingualRouting":true,"directiveMerge":true,"conflictDetection":true,"mutationAuthorizationGate":true,"approvalGate":true,"schemaValidationGate":true,"highRiskAutoApproval":true,"routeConfidence":true,"deterministicContractDigest":true,"multiSkillExecutionGraph":true,"explainableRouting":true,"executionReceipt":true,"evidenceClosureGate":true,"missionClosure":true,"missionClaimVerification":true,"missionCheckpoint":true,"missionResume":true,"recoveryPlanning":true,"adaptiveRetry":true,"circuitBreaking":true,"safeReplan":true,"failureFingerprinting":true,"antiLoopHistory":true,"executionSupervisor":true,"directivePolicyResolution":true,"executionPolicyEnforcement":true,"directiveApplicability":true,"skillProvenancePacket":true,"forbidDirectiveBlocking":true,"nativeMissionPlanner":true,"skillTeamOrchestrator":true,"skillTeamRoles":true,"skillTeamOverlapControl":true,"nativeSkillDirectiveBundle":true,"sourceDerivedDirectiveCount":20476,"nativeSkillShaAudit":true,"missionDigest":true,"missionGateComposition":true,"skillConflictResolver":true,"secretHandlingRestriction":true,"unknownSkillBlocking":true,"preservedInternalCapabilityBaseline":5333,"executionClaim":false}
+
+> krom-forge-mcp@79.0.0 verify:v78
+> tsx scripts/verify-v78-autonomous-execution-governance.ts
+
+{
+  "release": "v78",
+  "status": "PASS",
+  "autonomousExecutionGovernance": true,
+  "budgetAwareExecution": true,
+  "confidenceGate": true,
+  "executionLease": true,
+  "ownershipConflictDetection": true,
+  "rollbackGate": true,
+  "importedSkillCatalog": 1465,
+  "functionAuditRepairSkill": true,
+  "design3dStudioSkill": true,
+  "dynamicAgentDelegation": true,
+  "multiAgentConsensus": true,
+  "vetoAndDeadlockHandling": true,
+  "executionLineage": true,
+  "consensusReceipts": true,
+  "leaseSafeOwnershipTransfer": true,
+  "lineageTamperDetection": true,
+  "decisionProvenance": true,
+  "evidenceFreshness": true,
+  "agentTrustScoring": true,
+  "executionClaim": false
+}
+
+> krom-forge-mcp@79.0.0 verify:v79
+> tsx scripts/verify-v79-capability-governance.ts
+
+{
+  "status": "PASS",
+  "version": "79.0.0",
+  "corePublicTools": 15,
+  "defaultProfile": "core",
+  "legacyProfile": "full-legacy",
+  "adminCoreDenied": true,
+  "internalCapabilityTarget": 5333
+}
+
+> krom-forge-mcp@79.0.0 verify:v80
+> tsx scripts/verify-v80-adaptive-skill-intelligence.ts
+
+{
+  "status": "PASS",
+  "release": "v80",
+  "packageVersion": "79.0.0",
+  "corePublicTools": 15,
+  "internalCapabilityTarget": 5333,
+  "controlPlaneCapabilitiesAdded": 1,
+  "currentSkillCatalogCount": 1465,
+  "agentCount": 11,
+  "engines": [
+    "skill-effectiveness",
+    "adaptive-router",
+    "skill-lifecycle",
+    "agent-performance-matrix",
+    "evidence-graph"
+  ],
+  "additionalControls": [
+    "multi-agent-review",
+    "benchmark-suite"
+  ],
+  "operationalLearning": true,
+  "portableObservationLedger": true,
+  "controlCenterSnapshot": true,
+  "shadowCanaryOnboarding": true,
+  "duplicateRetirementIntelligence": true,
+  "v42ShadowRegistry": true,
+  "v42ShadowCandidates": 500,
+  "v42StableCatalogPreserved": true,
+  "v42CanarySelectionGoverned": true,
+  "shadowBenchmarkRunner": true,
+  "suppliedBenchmarkResultsOnly": true,
+  "benchmarkCanaryRecommendationsGoverned": true,
+  "canaryPromotionController": true,
+  "evidenceFreshnessGate": true,
+  "rollbackContractGate": true,
+  "highRiskJudgeGate": true,
+  "stablePromotionRecommendationGoverned": true,
+  "authorizedPromotionExecutor": true,
+  "expectedStateDigestGate": true,
+  "atomicRollback": true,
+  "suppliedStateOnlyExecution": true,
+  "realStableCatalogPreservedAfterExecutor": true,
+  "realCatalogPromotionAdapter": true,
+  "promotedV42RegistryCount": 0,
+  "promotionAwareStableCatalog": true,
+  "catalogDigestGate": true,
+  "catalogPatchRollbackSource": true,
+  "realCatalogPatchApplied": false,
+  "realBenchmarkEvidencePipeline": true,
+  "deterministicBenchmarkManifest": true,
+  "hostReceiptDigestBinding": true,
+  "fixtureEvidenceRejected": true,
+  "verifiedHostEvidenceFeedsPhase5": true,
+  "externalExecutionNotFabricated": true,
+  "realBenchmarkCampaignOrchestrator": true,
+  "balancedCampaignPlanning": true,
+  "scenarioDiversityGate": true,
+  "sourceDiversityGate": true,
+  "promotionReviewQueue": true,
+  "campaignExecutionNotFabricated": true,
+  "automaticCatalogMutation": false
+}
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 40ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 284ms
+  Running TypeScript ...
+  Finished TypeScript in 2.9s ...
+  Collecting page data using 5 workers ...
+  Generating static pages using 5 workers (0/9) ...
+  Generating static pages using 5 workers (2/9) 
+  Generating static pages using 5 workers (4/9) 
+  Generating static pages using 5 workers (6/9) 
+✓ Generating static pages using 5 workers (9/9) in 180ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /health
+├ ƒ /mcp
+├ ƒ /mcp-v74
+├ ƒ /mcp-v75
+├ ƒ /mcp-v76
+├ ƒ /mcp-v77
+└ ƒ /mcp-v78
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

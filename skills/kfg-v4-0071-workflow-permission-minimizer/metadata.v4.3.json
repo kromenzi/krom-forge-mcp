@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0071-workflow-permission-minimizer",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "e5586c3b00c9428ff54ad55eceec72405a4d8c94585a9473bd486dd8dc4cf5e6",
+  "rawFileHash": "e5586c3b00c9428ff54ad55eceec72405a4d8c94585a9473bd486dd8dc4cf5e6",
+  "legacyInstructionHash": "6eb00a52561a42d5d5b4896cda03e8e2cad2d97610a51b8a8e97f23ee63daf0f",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7400
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0220-edge-origin-protection",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "c94d734e343545a237d1b5ea55e2d95ab8318736adba7b73e4e1d4c5e2fbf08f",
+  "rawFileHash": "c94d734e343545a237d1b5ea55e2d95ab8318736adba7b73e4e1d4c5e2fbf08f",
+  "legacyInstructionHash": "93eb56742892bb036dcee0495e56334232f78fe2bbe503283f1ee90327669226",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7248
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0318-retrieval-trace-completeness",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "83b12b6ead2cffeb6a886d8a48d018d344d0373bb7d580d13f1a6196347b1766",
+  "rawFileHash": "83b12b6ead2cffeb6a886d8a48d018d344d0373bb7d580d13f1a6196347b1766",
+  "legacyInstructionHash": "0133a769c65b27b68b252eec212482610c64b591a645474af6dc509287486b29",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7410
+}

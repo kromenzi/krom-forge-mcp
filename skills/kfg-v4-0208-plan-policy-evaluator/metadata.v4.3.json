@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0208-plan-policy-evaluator",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "0d12d11c7a01811a9c4841873a724fe486508544ed26903e7839057687743b31",
+  "rawFileHash": "0d12d11c7a01811a9c4841873a724fe486508544ed26903e7839057687743b31",
+  "legacyInstructionHash": "b649bf6c24c7b5e285907769c9afba63a235ebf7deda7c9b05ea0d86aa0aaeee",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7235
+}

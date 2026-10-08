@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0001-bounded-context-migration-map",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "beff31941a694ae3f15d98f1f9395586dfcca2413fc29f718188b58ba93b8bb9",
+  "rawFileHash": "beff31941a694ae3f15d98f1f9395586dfcca2413fc29f718188b58ba93b8bb9",
+  "legacyInstructionHash": "87cd63907d12a9d9bf22dcdb7c2df9b257f743af6e50e3d8ee4e53a093bc5523",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7401
+}

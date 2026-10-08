@@ -1,0 +1,11 @@
+{
+  "name": "kfg-v4-0005-sociotechnical-boundary-modeler",
+  "version": "4.3.0",
+  "hashContract": "krom-instruction-raw-utf8-v1",
+  "instructionHash": "fc6baf0d8467defbf0d3880c3cfce16a5cc6a314c1d0e99ccc92350aef774f3a",
+  "rawFileHash": "fc6baf0d8467defbf0d3880c3cfce16a5cc6a314c1d0e99ccc92350aef774f3a",
+  "legacyInstructionHash": "395c48f20b5704bd70a2b99adeb75a9e67a1c44a2463c2df65a464d67c7d2040",
+  "legacyInstructionHashStatus": "LEGACY_UNPROVEN",
+  "legacyInstructionHashSource": "KROM Forge v4.2 supplied manifest.json; retained without revalidation",
+  "bytes": 7517
+}
