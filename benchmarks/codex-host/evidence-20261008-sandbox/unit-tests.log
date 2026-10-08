@@ -1,0 +1,1725 @@
+
+> krom-forge-mcp@79.0.0 test
+> node scripts/run-tests.mjs
+
+Discovered 22 test file(s).
+TAP version 13
+# Subtest: AST manifest discovers every registered tool and capability
+ok 1 - AST manifest discovers every registered tool and capability
+  ---
+  duration_ms: 414.789861
+  ...
+# Subtest: AST manifest requires complete tool metadata
+ok 2 - AST manifest requires complete tool metadata
+  ---
+  duration_ms: 310.924975
+  ...
+# Subtest: AST manifest fingerprint is deterministic
+ok 3 - AST manifest fingerprint is deterministic
+  ---
+  duration_ms: 499.937601
+  ...
+# Subtest: AST manifest tracks source modules and source locations
+ok 4 - AST manifest tracks source modules and source locations
+  ---
+  duration_ms: 219.320093
+  ...
+# Subtest: release attestation passes only with verified commit-bound evidence
+ok 5 - release attestation passes only with verified commit-bound evidence
+  ---
+  duration_ms: 6.615075
+  ...
+# Subtest: provenance audit rejects evidence from another commit
+ok 6 - provenance audit rejects evidence from another commit
+  ---
+  duration_ms: 0.446739
+  ...
+# Subtest: adaptive plan escalates auth and irreversible changes
+ok 7 - adaptive plan escalates auth and irreversible changes
+  ---
+  duration_ms: 1.326002
+  ...
+# Subtest: adaptive coverage rejects a pass without verified evidence
+ok 8 - adaptive coverage rejects a pass without verified evidence
+  ---
+  duration_ms: 0.926167
+  ...
+# Subtest: tool contract compatibility catches required inputs and removed outputs
+ok 9 - tool contract compatibility catches required inputs and removed outputs
+  ---
+  duration_ms: 5.428694
+  ...
+# Subtest: tool contract results require the complete generated matrix
+ok 10 - tool contract results require the complete generated matrix
+  ---
+  duration_ms: 0.393753
+  ...
+# Subtest: CI run trust rejects a run for the wrong commit
+ok 11 - CI run trust rejects a run for the wrong commit
+  ---
+  duration_ms: 1.383498
+  ...
+# Subtest: CI run trust passes a fully evidenced run
+ok 12 - CI run trust passes a fully evidenced run
+  ---
+  duration_ms: 9.180535
+  ...
+# Subtest: recovery rehearsal requires verified recovery evidence
+ok 13 - recovery rehearsal requires verified recovery evidence
+  ---
+  duration_ms: 2.604508
+  ...
+# Subtest: failure injection matrix always carries production abort guards
+ok 14 - failure injection matrix always carries production abort guards
+  ---
+  duration_ms: 0.598802
+  ...
+# Subtest: merge policy blocks stale approvals and unsupported checks
+ok 15 - merge policy blocks stale approvals and unsupported checks
+  ---
+  duration_ms: 3.575433
+  ...
+# Subtest: merge policy allows exact checks and approvals with verified evidence
+ok 16 - merge policy allows exact checks and approvals with verified evidence
+  ---
+  duration_ms: 0.791461
+  ...
+# Subtest: production readiness preserves release policy fields for lossless composition
+ok 17 - production readiness preserves release policy fields for lossless composition
+  ---
+  duration_ms: 2.607497
+  ...
+# Subtest: evaluateProductionReadiness output can feed decideRelease without policy-state loss
+ok 18 - evaluateProductionReadiness output can feed decideRelease without policy-state loss
+  ---
+  duration_ms: 1.750431
+  ...
+# Subtest: policy engine blocks a matched deny rule
+ok 19 - policy engine blocks a matched deny rule
+  ---
+  duration_ms: 8.763466
+  ...
+# Subtest: policy exception needs approval, freshness and verified evidence
+ok 20 - policy exception needs approval, freshness and verified evidence
+  ---
+  duration_ms: 3.098446
+  ...
+# Subtest: evidence lineage rejects cycles
+ok 21 - evidence lineage rejects cycles
+  ---
+  duration_ms: 2.656826
+  ...
+# Subtest: evidence lineage rejects verified contradictions
+ok 22 - evidence lineage rejects verified contradictions
+  ---
+  duration_ms: 0.324939
+  ...
+# Subtest: verification optimizer keeps required gates and highest value coverage
+ok 23 - verification optimizer keeps required gates and highest value coverage
+  ---
+  duration_ms: 3.155136
+  ...
+# Subtest: verification result rejects unsupported passing gates
+ok 24 - verification result rejects unsupported passing gates
+  ---
+  duration_ms: 0.511602
+  ...
+# Subtest: confidence model discounts evidence-free passes to zero
+ok 25 - confidence model discounts evidence-free passes to zero
+  ---
+  duration_ms: 1.690224
+  ...
+# Subtest: confidence gate allows fully evidenced mandatory signals
+ok 26 - confidence gate allows fully evidenced mandatory signals
+  ---
+  duration_ms: 0.452683
+  ...
+# Subtest: incident severity uses only verified signals
+ok 27 - incident severity uses only verified signals
+  ---
+  duration_ms: 1.829991
+  ...
+# Subtest: incident closure requires owners and evidenced objectives
+ok 28 - incident closure requires owners and evidenced objectives
+  ---
+  duration_ms: 1.807708
+  ...
+# Subtest: compatibility lifecycle detects added required inputs
+ok 29 - compatibility lifecycle detects added required inputs
+  ---
+  duration_ms: 1.58981
+  ...
+# Subtest: sunset readiness requires all consumers migrated and evidence
+ok 30 - sunset readiness requires all consumers migrated and evidence
+  ---
+  duration_ms: 1.018452
+  ...
+# Subtest: agent reliability rejects unsupported claims
+ok 31 - agent reliability rejects unsupported claims
+  ---
+  duration_ms: 4.081715
+  ...
+# Subtest: agent routing selects the evidenced matching specialist
+ok 32 - agent routing selects the evidenced matching specialist
+  ---
+  duration_ms: 0.633483
+  ...
+# Subtest: continuous improvement detects recurring high-severity patterns
+ok 33 - continuous improvement detects recurring high-severity patterns
+  ---
+  duration_ms: 3.175769
+  ...
+# Subtest: continuous improvement prioritizes within capacity
+ok 34 - continuous improvement prioritizes within capacity
+  ---
+  duration_ms: 0.586104
+  ...
+# Subtest: mission runtime blocks approval without verified approval evidence
+ok 35 - mission runtime blocks approval without verified approval evidence
+  ---
+  duration_ms: 7.792915
+  ...
+# Subtest: mission runtime detects cyclic deadlock
+ok 36 - mission runtime detects cyclic deadlock
+  ---
+  duration_ms: 0.864659
+  ...
+# Subtest: decision scoring discounts options without evidence
+ok 37 - decision scoring discounts options without evidence
+  ---
+  duration_ms: 2.558879
+  ...
+# Subtest: decision assumption drift rejects evidence-free valid assumptions
+ok 38 - decision assumption drift rejects evidence-free valid assumptions
+  ---
+  duration_ms: 0.343017
+  ...
+# Subtest: scenario lab selects the best resilient worst case
+ok 39 - scenario lab selects the best resilient worst case
+  ---
+  duration_ms: 2.986472
+  ...
+# Subtest: scenario lab exposes missing capability fragility
+ok 40 - scenario lab exposes missing capability fragility
+  ---
+  duration_ms: 0.296354
+  ...
+# Subtest: scenario lab cannot select an unsupported strategy
+ok 41 - scenario lab cannot select an unsupported strategy
+  ---
+  duration_ms: 0.304136
+  ...
+# Subtest: risk capital allocates only evidenced changes within budget
+ok 42 - risk capital allocates only evidenced changes within budget
+  ---
+  duration_ms: 1.584613
+  ...
+# Subtest: risk capital detects domain concentration
+ok 43 - risk capital detects domain concentration
+  ---
+  duration_ms: 0.607897
+  ...
+# Subtest: capability market ignores unverified high reliability offers
+ok 44 - capability market ignores unverified high reliability offers
+  ---
+  duration_ms: 2.33525
+  ...
+# Subtest: delegation contracts require verified approval
+ok 45 - delegation contracts require verified approval
+  ---
+  duration_ms: 0.806343
+  ...
+# Subtest: capability matching enforces required evidence kinds
+ok 46 - capability matching enforces required evidence kinds
+  ---
+  duration_ms: 0.422214
+  ...
+# Subtest: knowledge freshness rejects expired knowledge
+ok 47 - knowledge freshness rejects expired knowledge
+  ---
+  duration_ms: 2.060618
+  ...
+# Subtest: knowledge memory detects active verified contradictions
+ok 48 - knowledge memory detects active verified contradictions
+  ---
+  duration_ms: 0.407532
+  ...
+# Subtest: safety case detects uncontrolled hazards
+ok 49 - safety case detects uncontrolled hazards
+  ---
+  duration_ms: 1.371797
+  ...
+# Subtest: release assurance allows a fully evidenced low residual risk case
+ok 50 - release assurance allows a fully evidenced low residual risk case
+  ---
+  duration_ms: 1.962512
+  ...
+# Subtest: release twin blocks transitions missing evidence
+ok 51 - release twin blocks transitions missing evidence
+  ---
+  duration_ms: 2.754904
+  ...
+# Subtest: release twin propagates injected failures
+ok 52 - release twin propagates injected failures
+  ---
+  duration_ms: 0.851771
+  ...
+# Subtest: tool ecosystem detects dependency cycles
+ok 53 - tool ecosystem detects dependency cycles
+  ---
+  duration_ms: 1.23774
+  ...
+# Subtest: tool optimizer includes transitive dependencies
+ok 54 - tool optimizer includes transitive dependencies
+  ---
+  duration_ms: 0.905097
+  ...
+# Subtest: tool resilience rejects a missing dependency
+ok 55 - tool resilience rejects a missing dependency
+  ---
+  duration_ms: 0.58276
+  ...
+# Subtest: drift forecast ignores unsupported points
+ok 56 - drift forecast ignores unsupported points
+  ---
+  duration_ms: 1.642958
+  ...
+# Subtest: drift thresholds report projected breaches
+ok 57 - drift thresholds report projected breaches
+  ---
+  duration_ms: 0.313013
+  ...
+# Subtest: oversight classifies irreversible actions for review
+ok 58 - oversight classifies irreversible actions for review
+  ---
+  duration_ms: 1.323584
+  ...
+# Subtest: oversight requires role-complete evidenced approvals
+ok 59 - oversight requires role-complete evidenced approvals
+  ---
+  duration_ms: 0.890236
+  ...
+# Subtest: oversight rejects reviewable actions without a reviewer role
+ok 60 - oversight rejects reviewable actions without a reviewer role
+  ---
+  duration_ms: 0.32507
+  ...
+# Subtest: outcome learning measures only verified outcomes
+ok 61 - outcome learning measures only verified outcomes
+  ---
+  duration_ms: 2.047651
+  ...
+# Subtest: outcome calibration exposes prediction error
+ok 62 - outcome calibration exposes prediction error
+  ---
+  duration_ms: 0.392093
+  ...
+# Subtest: constitution blocks explicit mandatory violations
+ok 63 - constitution blocks explicit mandatory violations
+  ---
+  duration_ms: 8.609701
+  ...
+# Subtest: constitution blocks unsupported mandatory principles
+ok 64 - constitution blocks unsupported mandatory principles
+  ---
+  duration_ms: 1.34196
+  ...
+# Subtest: constraint solver finds satisfiable assignment
+ok 65 - constraint solver finds satisfiable assignment
+  ---
+  duration_ms: 1.770737
+  ...
+# Subtest: constraint solver extracts unsat core
+ok 66 - constraint solver extracts unsat core
+  ---
+  duration_ms: 0.489486
+  ...
+# Subtest: trust graph propagates bounded trust
+ok 67 - trust graph propagates bounded trust
+  ---
+  duration_ms: 1.884713
+  ...
+# Subtest: trust graph exposes weak unsupported nodes
+ok 68 - trust graph exposes weak unsupported nodes
+  ---
+  duration_ms: 0.299318
+  ...
+# Subtest: change simulation propagates blast radius to dependents
+ok 69 - change simulation propagates blast radius to dependents
+  ---
+  duration_ms: 1.784151
+  ...
+# Subtest: change simulation identifies cascade-only components
+ok 70 - change simulation identifies cascade-only components
+  ---
+  duration_ms: 0.324705
+  ...
+# Subtest: recovery readiness requires dependencies and evidence
+ok 71 - recovery readiness requires dependencies and evidence
+  ---
+  duration_ms: 1.817185
+  ...
+# Subtest: recovery scoring penalizes unsupported strategies
+ok 72 - recovery scoring penalizes unsupported strategies
+  ---
+  duration_ms: 0.691836
+  ...
+# Subtest: verification economics always includes mandatory checks
+ok 73 - verification economics always includes mandatory checks
+  ---
+  duration_ms: 1.365738
+  ...
+# Subtest: verification economics detects critical underinvestment
+ok 74 - verification economics detects critical underinvestment
+  ---
+  duration_ms: 0.255922
+  ...
+# Subtest: program coordination detects shared release windows
+ok 75 - program coordination detects shared release windows
+  ---
+  duration_ms: 1.241167
+  ...
+# Subtest: program capacity favors higher-priority projects
+ok 76 - program capacity favors higher-priority projects
+  ---
+  duration_ms: 0.460781
+  ...
+# Subtest: operator cockpit blocks approval-required actions without approval
+ok 77 - operator cockpit blocks approval-required actions without approval
+  ---
+  duration_ms: 1.290853
+  ...
+# Subtest: operator cockpit selects evidenced ready action
+ok 78 - operator cockpit selects evidenced ready action
+  ---
+  duration_ms: 0.364349
+  ...
+# Subtest: v53 generates exactly 2000 MCP tools
+ok 79 - v53 generates exactly 2000 MCP tools
+  ---
+  duration_ms: 1.204028
+  ...
+# Subtest: v53 covers 40 domains and 50 operations
+ok 80 - v53 covers 40 domains and 50 operations
+  ---
+  duration_ms: 0.443681
+  ...
+# Subtest: every v53 tool has strong metadata and KROM prefix
+ok 81 - every v53 tool has strong metadata and KROM prefix
+  ---
+  duration_ms: 1.807234
+  ...
+# Subtest: evidence-strict v53 tools refuse unsupported verification
+ok 82 - evidence-strict v53 tools refuse unsupported verification
+  ---
+  duration_ms: 3.210618
+  ...
+# Subtest: planning v53 tools never claim host mutation
+ok 83 - planning v53 tools never claim host mutation
+  ---
+  duration_ms: 0.736049
+  ...
+# Subtest: model tools mark scenarios as hypotheses, not observations
+ok 84 - model tools mark scenarios as hypotheses, not observations
+  ---
+  duration_ms: 0.370816
+  ...
+# Subtest: verified evidence enables strict evaluation without fabricating coverage
+ok 85 - verified evidence enables strict evaluation without fabricating coverage
+  ---
+  duration_ms: 1.395227
+  ...
+# Subtest: v54 generates exactly 2485 tools and total reaches 5000
+ok 86 - v54 generates exactly 2485 tools and total reaches 5000
+  ---
+  duration_ms: 1.382008
+  ...
+# Subtest: v54 covers exactly 35 domains and 71 operations
+ok 87 - v54 covers exactly 35 domains and 71 operations
+  ---
+  duration_ms: 0.508105
+  ...
+# Subtest: v54 and v53 generated tool names never overlap
+ok 88 - v54 and v53 generated tool names never overlap
+  ---
+  duration_ms: 0.578677
+  ...
+# Subtest: all v54 metadata is complete
+ok 89 - all v54 metadata is complete
+  ---
+  duration_ms: 1.849168
+  ...
+# Subtest: strict verification refuses unsupported claims
+ok 90 - strict verification refuses unsupported claims
+  ---
+  duration_ms: 3.442205
+  ...
+# Subtest: automation tools expose deterministic safety controls
+ok 91 - automation tools expose deterministic safety controls
+  ---
+  duration_ms: 0.538094
+  ...
+# Subtest: approval-required actions are blocked in automation readiness
+ok 92 - approval-required actions are blocked in automation readiness
+  ---
+  duration_ms: 2.07266
+  ...
+# Subtest: resilience tools require fallback semantics
+ok 93 - resilience tools require fallback semantics
+  ---
+  duration_ms: 0.397075
+  ...
+# Subtest: model outputs remain hypotheses
+ok 94 - model outputs remain hypotheses
+  ---
+  duration_ms: 0.506315
+  ...
+# Subtest: all generated v54 names are deterministic
+ok 95 - all generated v54 names are deterministic
+  ---
+  duration_ms: 0.895474
+  ...
+# Subtest: adaptive router selects relevant security tools first
+ok 96 - adaptive router selects relevant security tools first
+  ---
+  duration_ms: 9.391868
+  ...
+# Subtest: skill packs load only relevant domains
+ok 97 - skill packs load only relevant domains
+  ---
+  duration_ms: 3.382673
+  ...
+# Subtest: quality ranker rewards strong tools
+ok 98 - quality ranker rewards strong tools
+  ---
+  duration_ms: 2.551093
+  ...
+# Subtest: capability compression groups tools by domain
+ok 99 - capability compression groups tools by domain
+  ---
+  duration_ms: 0.55818
+  ...
+# Subtest: task graph preserves dependencies
+ok 100 - task graph preserves dependencies
+  ---
+  duration_ms: 1.937137
+  ...
+# Subtest: parallel planner creates ordered waves
+ok 101 - parallel planner creates ordered waves
+  ---
+  duration_ms: 0.499408
+  ...
+# Subtest: agent contradiction engine detects opposing claims
+ok 102 - agent contradiction engine detects opposing claims
+  ---
+  duration_ms: 0.62261
+  ...
+# Subtest: evidence trust rewards verified fresh evidence
+ok 103 - evidence trust rewards verified fresh evidence
+  ---
+  duration_ms: 0.438374
+  ...
+# Subtest: reverification targets actions without usable evidence
+ok 104 - reverification targets actions without usable evidence
+  ---
+  duration_ms: 1.349596
+  ...
+# Subtest: dry run never executes and blocks unapproved deployment
+ok 105 - dry run never executes and blocks unapproved deployment
+  ---
+  duration_ms: 1.333656
+  ...
+# Subtest: mutation risk blocks unapproved risky action
+ok 106 - mutation risk blocks unapproved risky action
+  ---
+  duration_ms: 0.65228
+  ...
+# Subtest: checkpoint and resume preserve unfinished work
+ok 107 - checkpoint and resume preserve unfinished work
+  ---
+  duration_ms: 1.234749
+  ...
+# Subtest: release twin is explicitly non-observed
+ok 108 - release twin is explicitly non-observed
+  ---
+  duration_ms: 0.373109
+  ...
+# Subtest: incident commander uses verified severity
+ok 109 - incident commander uses verified severity
+  ---
+  duration_ms: 0.446933
+  ...
+# Subtest: cost governor stays within budget
+ok 110 - cost governor stays within budget
+  ---
+  duration_ms: 0.482756
+  ...
+# Subtest: adaptive depth escalates high-risk changes
+ok 111 - adaptive depth escalates high-risk changes
+  ---
+  duration_ms: 0.299041
+  ...
+# Subtest: decision contradiction requires repeated signal identity with conflicting states
+ok 112 - decision contradiction requires repeated signal identity with conflicting states
+  ---
+  duration_ms: 0.417924
+  ...
+# Subtest: provider selector chooses compatible provider
+ok 113 - provider selector chooses compatible provider
+  ---
+  duration_ms: 0.547079
+  ...
+# Subtest: plugin adapter plan requires normalized contract
+ok 114 - plugin adapter plan requires normalized contract
+  ---
+  duration_ms: 0.291408
+  ...
+# Subtest: mission console aggregates runtime decisions
+ok 115 - mission console aggregates runtime decisions
+  ---
+  duration_ms: 0.538147
+  ...
+# Subtest: outcome learning never mutates automatically
+ok 116 - outcome learning never mutates automatically
+  ---
+  duration_ms: 0.402015
+  ...
+# Subtest: on-demand loading reduces irrelevant tools
+ok 117 - on-demand loading reduces irrelevant tools
+  ---
+  duration_ms: 0.447108
+  ...
+# Subtest: routing efficiency reports compression
+ok 118 - routing efficiency reports compression
+  ---
+  duration_ms: 0.394136
+  ...
+# Subtest: semantic memory is ordered and portable
+ok 119 - semantic memory is ordered and portable
+  ---
+  duration_ms: 16.868683
+  ...
+# Subtest: memory compaction preserves counts
+ok 120 - memory compaction preserves counts
+  ---
+  duration_ms: 0.776729
+  ...
+# Subtest: mission replay is deterministic
+ok 121 - mission replay is deterministic
+  ---
+  duration_ms: 11.148299
+  ...
+# Subtest: failure classifier chooses failover or backoff for timeout
+ok 122 - failure classifier chooses failover or backoff for timeout
+  ---
+  duration_ms: 0.697536
+  ...
+# Subtest: self healing replan never claims mutation
+ok 123 - self healing replan never claims mutation
+  ---
+  duration_ms: 1.383863
+  ...
+# Subtest: retry budget stops before unlimited retries
+ok 124 - retry budget stops before unlimited retries
+  ---
+  duration_ms: 0.437218
+  ...
+# Subtest: retry loop detector catches repeated signature
+ok 125 - retry loop detector catches repeated signature
+  ---
+  duration_ms: 0.569681
+  ...
+# Subtest: circuit breaker opens unhealthy provider
+ok 126 - circuit breaker opens unhealthy provider
+  ---
+  duration_ms: 0.474623
+  ...
+# Subtest: failover skips open circuit provider
+ok 127 - failover skips open circuit provider
+  ---
+  duration_ms: 1.276105
+  ...
+# Subtest: semantic overlap detects closely related tools
+ok 128 - semantic overlap detects closely related tools
+  ---
+  duration_ms: 1.053122
+  ...
+# Subtest: deprecation remains advisory
+ok 129 - deprecation remains advisory
+  ---
+  duration_ms: 0.453233
+  ...
+# Subtest: agent quorum weights verified evidence
+ok 130 - agent quorum weights verified evidence
+  ---
+  duration_ms: 0.652682
+  ...
+# Subtest: policy compiler is deterministic
+ok 131 - policy compiler is deterministic
+  ---
+  duration_ms: 0.343762
+  ...
+# Subtest: policy diff detects changed rule
+ok 132 - policy diff detects changed rule
+  ---
+  duration_ms: 0.402426
+  ...
+# Subtest: evidence invalidation propagates transitively
+ok 133 - evidence invalidation propagates transitively
+  ---
+  duration_ms: 0.421324
+  ...
+# Subtest: causal trace includes action dependency
+ok 134 - causal trace includes action dependency
+  ---
+  duration_ms: 0.391333
+  ...
+# Subtest: recovery confidence requires verified fresh evidence
+ok 135 - recovery confidence requires verified fresh evidence
+  ---
+  duration_ms: 0.517919
+  ...
+# Subtest: observability snapshot reports threshold breach
+ok 136 - observability snapshot reports threshold breach
+  ---
+  duration_ms: 0.37664
+  ...
+# Subtest: runtime anomalies include retry loop and metric breach
+ok 137 - runtime anomalies include retry loop and metric breach
+  ---
+  duration_ms: 0.406284
+  ...
+# Subtest: self-healing command snapshot never claims execution
+ok 138 - self-healing command snapshot never claims execution
+  ---
+  duration_ms: 0.535368
+  ...
+# Subtest: memory index counts project records
+ok 139 - memory index counts project records
+  ---
+  duration_ms: 10.530476
+  ...
+# Subtest: memory retrieval favors verified relevant record
+ok 140 - memory retrieval favors verified relevant record
+  ---
+  duration_ms: 0.726297
+  ...
+# Subtest: memory compaction never claims persistence
+ok 141 - memory compaction never claims persistence
+  ---
+  duration_ms: 3.271537
+  ...
+# Subtest: freshness scores verified fresh knowledge highest
+ok 142 - freshness scores verified fresh knowledge highest
+  ---
+  duration_ms: 0.557556
+  ...
+# Subtest: cross-project graph preserves dependency
+ok 143 - cross-project graph preserves dependency
+  ---
+  duration_ms: 2.271701
+  ...
+# Subtest: cross-project conflicts are visible
+ok 144 - cross-project conflicts are visible
+  ---
+  duration_ms: 0.457263
+  ...
+# Subtest: mission scheduler honors dependencies and approvals
+ok 145 - mission scheduler honors dependencies and approvals
+  ---
+  duration_ms: 0.578707
+  ...
+# Subtest: continuation plan is non-executing
+ok 146 - continuation plan is non-executing
+  ---
+  duration_ms: 0.355776
+  ...
+# Subtest: tool learning uses verified evals
+ok 147 - tool learning uses verified evals
+  ---
+  duration_ms: 1.118521
+  ...
+# Subtest: adaptive portfolio stays under budget
+ok 148 - adaptive portfolio stays under budget
+  ---
+  duration_ms: 1.054423
+  ...
+# Subtest: learning plan never mutates weights automatically
+ok 149 - learning plan never mutates weights automatically
+  ---
+  duration_ms: 0.43762
+  ...
+# Subtest: skill synthesis remains advisory
+ok 150 - skill synthesis remains advisory
+  ---
+  duration_ms: 0.347729
+  ...
+# Subtest: skill validation requires human review and eval
+ok 151 - skill validation requires human review and eval
+  ---
+  duration_ms: 0.405608
+  ...
+# Subtest: policy-aware orchestration recognizes approved mission
+ok 152 - policy-aware orchestration recognizes approved mission
+  ---
+  duration_ms: 0.35185
+  ...
+# Subtest: context pack respects bounded retrieval
+ok 153 - context pack respects bounded retrieval
+  ---
+  duration_ms: 0.508183
+  ...
+# Subtest: multi-project reasoning surfaces attention projects
+ok 154 - multi-project reasoning surfaces attention projects
+  ---
+  duration_ms: 0.393268
+  ...
+# Subtest: knowledge refresh identifies stale or unverified records
+ok 155 - knowledge refresh identifies stale or unverified records
+  ---
+  duration_ms: 0.376913
+  ...
+# Subtest: control center aggregates brain state
+ok 156 - control center aggregates brain state
+  ---
+  duration_ms: 0.430516
+  ...
+# Subtest: brain consistency passes valid graph
+ok 157 - brain consistency passes valid graph
+  ---
+  duration_ms: 0.47956
+  ...
+# Subtest: brain snapshot is ready and non-executing
+ok 158 - brain snapshot is ready and non-executing
+  ---
+  duration_ms: 0.60957
+  ...
+# Subtest: expired/no lease is acquirable
+ok 159 - expired/no lease is acquirable
+  ---
+  duration_ms: 9.917763
+  ...
+# Subtest: idempotent schedule selects only eligible missions
+ok 160 - idempotent schedule selects only eligible missions
+  ---
+  duration_ms: 2.099385
+  ...
+# Subtest: no duplicate idempotency conflicts in baseline
+ok 161 - no duplicate idempotency conflicts in baseline
+  ---
+  duration_ms: 0.710656
+  ...
+# Subtest: knowledge graph includes project dependency edge
+ok 162 - knowledge graph includes project dependency edge
+  ---
+  duration_ms: 0.627441
+  ...
+# Subtest: baseline has no verified fresh knowledge contradiction
+ok 163 - baseline has no verified fresh knowledge contradiction
+  ---
+  duration_ms: 3.902802
+  ...
+# Subtest: dynamic agent teams are formed
+ok 164 - dynamic agent teams are formed
+  ---
+  duration_ms: 0.594994
+  ...
+# Subtest: tool marketplace matches demand
+ok 165 - tool marketplace matches demand
+  ---
+  duration_ms: 0.51402
+  ...
+# Subtest: market coverage is complete
+ok 166 - market coverage is complete
+  ---
+  duration_ms: 0.382401
+  ...
+# Subtest: premortem never claims prediction
+ok 167 - premortem never claims prediction
+  ---
+  duration_ms: 1.103933
+  ...
+# Subtest: failure prevention queue surfaces risky project
+ok 168 - failure prevention queue surfaces risky project
+  ---
+  duration_ms: 1.031222
+  ...
+# Subtest: execution economy respects budget
+ok 169 - execution economy respects budget
+  ---
+  duration_ms: 0.388782
+  ...
+# Subtest: budget allocation returns projects
+ok 170 - budget allocation returns projects
+  ---
+  duration_ms: 0.319312
+  ...
+# Subtest: portfolio schedule preserves project dependency
+ok 171 - portfolio schedule preserves project dependency
+  ---
+  duration_ms: 0.383431
+  ...
+# Subtest: baseline has no project dependency cycle
+ok 172 - baseline has no project dependency cycle
+  ---
+  duration_ms: 0.359924
+  ...
+# Subtest: OS policy baseline ready
+ok 173 - OS policy baseline ready
+  ---
+  duration_ms: 0.293594
+  ...
+# Subtest: control center is non-executing/non-persistent
+ok 174 - control center is non-executing/non-persistent
+  ---
+  duration_ms: 0.497056
+  ...
+# Subtest: lease renewal plan never persists automatically
+ok 175 - lease renewal plan never persists automatically
+  ---
+  duration_ms: 0.324286
+  ...
+# Subtest: continuation valid without lease conflicts
+ok 176 - continuation valid without lease conflicts
+  ---
+  duration_ms: 0.303458
+  ...
+# Subtest: supply demand map contains matches
+ok 177 - supply demand map contains matches
+  ---
+  duration_ms: 0.284015
+  ...
+# Subtest: OS consistency baseline clean
+ok 178 - OS consistency baseline clean
+  ---
+  duration_ms: 0.530454
+  ...
+# Subtest: OS snapshot ready and bounded
+ok 179 - OS snapshot ready and bounded
+  ---
+  duration_ms: 0.715759
+  ...
+# Subtest: event bus orders events
+ok 180 - event bus orders events
+  ---
+  duration_ms: 15.991533
+  ...
+# Subtest: baseline has no duplicate events
+ok 181 - baseline has no duplicate events
+  ---
+  duration_ms: 0.774702
+  ...
+# Subtest: idempotent event plan schedules unprocessed event
+ok 182 - idempotent event plan schedules unprocessed event
+  ---
+  duration_ms: 0.521646
+  ...
+# Subtest: state adapter contract never claims persistence
+ok 183 - state adapter contract never claims persistence
+  ---
+  duration_ms: 0.756608
+  ...
+# Subtest: baseline has no state conflict
+ok 184 - baseline has no state conflict
+  ---
+  duration_ms: 1.365047
+  ...
+# Subtest: distributed mission coordinator finds ready mission
+ok 185 - distributed mission coordinator finds ready mission
+  ---
+  duration_ms: 0.530222
+  ...
+# Subtest: agent handoff protocol is explicit
+ok 186 - agent handoff protocol is explicit
+  ---
+  duration_ms: 0.774402
+  ...
+# Subtest: tool reputation ranks healthy tool
+ok 187 - tool reputation ranks healthy tool
+  ---
+  duration_ms: 0.461017
+  ...
+# Subtest: tool health marks baseline healthy
+ok 188 - tool health marks baseline healthy
+  ---
+  duration_ms: 1.333344
+  ...
+# Subtest: semantic cache accepts fresh high-confidence entry
+ok 189 - semantic cache accepts fresh high-confidence entry
+  ---
+  duration_ms: 0.922584
+  ...
+# Subtest: workflow compiler preserves steps
+ok 190 - workflow compiler preserves steps
+  ---
+  duration_ms: 0.372331
+  ...
+# Subtest: saga plan includes compensation
+ok 191 - saga plan includes compensation
+  ---
+  duration_ms: 0.377461
+  ...
+# Subtest: rollback orchestration never auto executes
+ok 192 - rollback orchestration never auto executes
+  ---
+  duration_ms: 0.309039
+  ...
+# Subtest: backpressure admits baseline work
+ok 193 - backpressure admits baseline work
+  ---
+  duration_ms: 0.320296
+  ...
+# Subtest: checkpoint journal never claims persistence
+ok 194 - checkpoint journal never claims persistence
+  ---
+  duration_ms: 0.26336
+  ...
+# Subtest: resilient provider selects best observed candidate
+ok 195 - resilient provider selects best observed candidate
+  ---
+  duration_ms: 0.35409
+  ...
+# Subtest: failover chain starts with best provider
+ok 196 - failover chain starts with best provider
+  ---
+  duration_ms: 0.285515
+  ...
+# Subtest: command contract does not execute mutation
+ok 197 - command contract does not execute mutation
+  ---
+  duration_ms: 0.27875
+  ...
+# Subtest: event contract requires sequence/idempotency
+ok 198 - event contract requires sequence/idempotency
+  ---
+  duration_ms: 0.260995
+  ...
+# Subtest: runtime SLO baseline passes
+ok 199 - runtime SLO baseline passes
+  ---
+  duration_ms: 0.270313
+  ...
+# Subtest: control fabric consistency baseline clean
+ok 200 - control fabric consistency baseline clean
+  ---
+  duration_ms: 0.41062
+  ...
+# Subtest: control fabric snapshot is ready and bounded
+ok 201 - control fabric snapshot is ready and bounded
+  ---
+  duration_ms: 1.981392
+  ...
+# Subtest: event source keeps stream
+ok 202 - event source keeps stream
+  ---
+  duration_ms: 21.123911
+  ...
+# Subtest: baseline has no sequence gaps
+ok 203 - baseline has no sequence gaps
+  ---
+  duration_ms: 0.724501
+  ...
+# Subtest: replay protection baseline safe
+ok 204 - replay protection baseline safe
+  ---
+  duration_ms: 0.641304
+  ...
+# Subtest: approved command envelope authorized
+ok 205 - approved command envelope authorized
+  ---
+  duration_ms: 2.97512
+  ...
+# Subtest: execution envelope allows approved command
+ok 206 - execution envelope allows approved command
+  ---
+  duration_ms: 1.889558
+  ...
+# Subtest: scheduler admits dependency-ready work
+ok 207 - scheduler admits dependency-ready work
+  ---
+  duration_ms: 0.531042
+  ...
+# Subtest: agent consensus approves
+ok 208 - agent consensus approves
+  ---
+  duration_ms: 0.488644
+  ...
+# Subtest: recovery quorum still requires host execution
+ok 209 - recovery quorum still requires host execution
+  ---
+  duration_ms: 0.347529
+  ...
+# Subtest: tool feedback is advisory
+ok 210 - tool feedback is advisory
+  ---
+  duration_ms: 1.214948
+  ...
+# Subtest: cache invalidates changed dependency
+ok 211 - cache invalidates changed dependency
+  ---
+  duration_ms: 1.017321
+  ...
+# Subtest: saga advances when done
+ok 212 - saga advances when done
+  ---
+  duration_ms: 0.392178
+  ...
+# Subtest: saga recovery never auto executes
+ok 213 - saga recovery never auto executes
+  ---
+  duration_ms: 0.322117
+  ...
+# Subtest: checkpoint lineage emits node
+ok 214 - checkpoint lineage emits node
+  ---
+  duration_ms: 0.287679
+  ...
+# Subtest: telemetry baseline passes
+ok 215 - telemetry baseline passes
+  ---
+  duration_ms: 0.281719
+  ...
+# Subtest: error budget healthy
+ok 216 - error budget healthy
+  ---
+  duration_ms: 0.252968
+  ...
+# Subtest: dead letter poison quarantined
+ok 217 - dead letter poison quarantined
+  ---
+  duration_ms: 0.275342
+  ...
+# Subtest: workload admission accepts safe work
+ok 218 - workload admission accepts safe work
+  ---
+  duration_ms: 0.325307
+  ...
+# Subtest: mesh health replay safe
+ok 219 - mesh health replay safe
+  ---
+  duration_ms: 0.274205
+  ...
+# Subtest: mesh consistency baseline clean
+ok 220 - mesh consistency baseline clean
+  ---
+  duration_ms: 0.434438
+  ...
+# Subtest: control plane never claims execution
+ok 221 - control plane never claims execution
+  ---
+  duration_ms: 0.34511
+  ...
+# Subtest: mesh snapshot ready
+ok 222 - mesh snapshot ready
+  ---
+  duration_ms: 0.581551
+  ...
+# Subtest: operator brief has evidence boundary
+ok 223 - operator brief has evidence boundary
+  ---
+  duration_ms: 0.598232
+  ...
+# Subtest: dependency intelligence ranks connected project
+ok 224 - dependency intelligence ranks connected project
+  ---
+  duration_ms: 10.08048
+  ...
+# Subtest: critical path includes dependency chain
+ok 225 - critical path includes dependency chain
+  ---
+  duration_ms: 2.087032
+  ...
+# Subtest: mission prioritization puts core first
+ok 226 - mission prioritization puts core first
+  ---
+  duration_ms: 0.881165
+  ...
+# Subtest: evidence provenance graph emits node
+ok 227 - evidence provenance graph emits node
+  ---
+  duration_ms: 0.469967
+  ...
+# Subtest: verified fresh evidence scores high
+ok 228 - verified fresh evidence scores high
+  ---
+  duration_ms: 0.711166
+  ...
+# Subtest: policy simulation never executes
+ok 229 - policy simulation never executes
+  ---
+  duration_ms: 2.056826
+  ...
+# Subtest: release arbitration scores readiness minus risk
+ok 230 - release arbitration scores readiness minus risk
+  ---
+  duration_ms: 0.558163
+  ...
+# Subtest: anomaly correlation groups supplied anomaly
+ok 231 - anomaly correlation groups supplied anomaly
+  ---
+  duration_ms: 0.494302
+  ...
+# Subtest: agent specialization assigns available agent
+ok 232 - agent specialization assigns available agent
+  ---
+  duration_ms: 1.286061
+  ...
+# Subtest: tool portfolio respects budget
+ok 233 - tool portfolio respects budget
+  ---
+  duration_ms: 0.906413
+  ...
+# Subtest: change clusters group missions by project
+ok 234 - change clusters group missions by project
+  ---
+  duration_ms: 0.410827
+  ...
+# Subtest: risk propagation inherits dependency risk
+ok 235 - risk propagation inherits dependency risk
+  ---
+  duration_ms: 0.441948
+  ...
+# Subtest: verification plan selects forensic for high impact-risk
+ok 236 - verification plan selects forensic for high impact-risk
+  ---
+  duration_ms: 0.331705
+  ...
+# Subtest: capacity balancing marks baseline OK
+ok 237 - capacity balancing marks baseline OK
+  ---
+  duration_ms: 0.353628
+  ...
+# Subtest: decision ledger does not claim persistence
+ok 238 - decision ledger does not claim persistence
+  ---
+  duration_ms: 0.298091
+  ...
+# Subtest: decision evidence marks supported
+ok 239 - decision evidence marks supported
+  ---
+  duration_ms: 0.360865
+  ...
+# Subtest: executive snapshot aggregates core intelligence
+ok 240 - executive snapshot aggregates core intelligence
+  ---
+  duration_ms: 0.340723
+  ...
+# Subtest: consistency baseline clean
+ok 241 - consistency baseline clean
+  ---
+  duration_ms: 0.373633
+  ...
+# Subtest: grid snapshot ready and non-executing
+ok 242 - grid snapshot ready and non-executing
+  ---
+  duration_ms: 0.436466
+  ...
+# Subtest: operator brief exposes evidence boundary
+ok 243 - operator brief exposes evidence boundary
+  ---
+  duration_ms: 0.533811
+  ...
+# Subtest: evidence fusion positive
+ok 244 - evidence fusion positive
+  ---
+  duration_ms: 9.543802
+  ...
+# Subtest: uncertainty is bounded
+ok 245 - uncertainty is bounded
+  ---
+  duration_ms: 0.773493
+  ...
+# Subtest: decision confidence ready
+ok 246 - decision confidence ready
+  ---
+  duration_ms: 0.699521
+  ...
+# Subtest: no evidence conflict in baseline
+ok 247 - no evidence conflict in baseline
+  ---
+  duration_ms: 0.539269
+  ...
+# Subtest: conflict resolution requires human review
+ok 248 - conflict resolution requires human review
+  ---
+  duration_ms: 0.792937
+  ...
+# Subtest: tool calibration advisory
+ok 249 - tool calibration advisory
+  ---
+  duration_ms: 0.41298
+  ...
+# Subtest: confidence decay keeps baseline confidence
+ok 250 - confidence decay keeps baseline confidence
+  ---
+  duration_ms: 3.252116
+  ...
+# Subtest: evidence sufficiency true
+ok 251 - evidence sufficiency true
+  ---
+  duration_ms: 0.584767
+  ...
+# Subtest: verification routing selects decision
+ok 252 - verification routing selects decision
+  ---
+  duration_ms: 1.286955
+  ...
+# Subtest: verification escalation returns array
+ok 253 - verification escalation returns array
+  ---
+  duration_ms: 1.183569
+  ...
+# Subtest: agent adjudication approves
+ok 254 - agent adjudication approves
+  ---
+  duration_ms: 0.37574
+  ...
+# Subtest: counterfactual scenario is simulation only
+ok 255 - counterfactual scenario is simulation only
+  ---
+  duration_ms: 0.354282
+  ...
+# Subtest: scenario comparison never executes
+ok 256 - scenario comparison never executes
+  ---
+  duration_ms: 0.236073
+  ...
+# Subtest: dependency risk compression returns nodes
+ok 257 - dependency risk compression returns nodes
+  ---
+  duration_ms: 0.377112
+  ...
+# Subtest: rollback analysis never auto executes
+ok 258 - rollback analysis never auto executes
+  ---
+  duration_ms: 0.336018
+  ...
+# Subtest: release packet evidence ready
+ok 259 - release packet evidence ready
+  ---
+  duration_ms: 0.300523
+  ...
+# Subtest: decision threshold passes
+ok 260 - decision threshold passes
+  ---
+  duration_ms: 0.457139
+  ...
+# Subtest: decision core health reports consensus
+ok 261 - decision core health reports consensus
+  ---
+  duration_ms: 0.334063
+  ...
+# Subtest: decision core consistency clean
+ok 262 - decision core consistency clean
+  ---
+  duration_ms: 0.385991
+  ...
+# Subtest: decision core snapshot ready and non-executing
+ok 263 - decision core snapshot ready and non-executing
+  ---
+  duration_ms: 0.577769
+  ...
+# Subtest: attestation chain does not claim signature
+ok 264 - attestation chain does not claim signature
+  ---
+  duration_ms: 12.166382
+  ...
+# Subtest: provenance trust high
+ok 265 - provenance trust high
+  ---
+  duration_ms: 0.900435
+  ...
+# Subtest: policy simulation non-executing
+ok 266 - policy simulation non-executing
+  ---
+  duration_ms: 0.599308
+  ...
+# Subtest: authorization envelope has evidence and SoD
+ok 267 - authorization envelope has evidence and SoD
+  ---
+  duration_ms: 0.475421
+  ...
+# Subtest: SoD baseline clean
+ok 268 - SoD baseline clean
+  ---
+  duration_ms: 0.552575
+  ...
+# Subtest: approval quorum met
+ok 269 - approval quorum met
+  ---
+  duration_ms: 0.412706
+  ...
+# Subtest: control mapping covered
+ok 270 - control mapping covered
+  ---
+  duration_ms: 0.488306
+  ...
+# Subtest: no active waivers baseline
+ok 271 - no active waivers baseline
+  ---
+  duration_ms: 0.352031
+  ...
+# Subtest: freshness baseline clean
+ok 272 - freshness baseline clean
+  ---
+  duration_ms: 1.306973
+  ...
+# Subtest: artifact integrity verified
+ok 273 - artifact integrity verified
+  ---
+  duration_ms: 0.866637
+  ...
+# Subtest: audit trail non-persistent
+ok 274 - audit trail non-persistent
+  ---
+  duration_ms: 8.593775
+  ...
+# Subtest: runtime trust positive
+ok 275 - runtime trust positive
+  ---
+  duration_ms: 0.390092
+  ...
+# Subtest: deployment authorization true from supplied approvals
+ok 276 - deployment authorization true from supplied approvals
+  ---
+  duration_ms: 0.387856
+  ...
+# Subtest: release packet reflects authorization
+ok 277 - release packet reflects authorization
+  ---
+  duration_ms: 0.366437
+  ...
+# Subtest: attestation complete
+ok 278 - attestation complete
+  ---
+  duration_ms: 1.39929
+  ...
+# Subtest: control evidence sufficient
+ok 279 - control evidence sufficient
+  ---
+  duration_ms: 0.376066
+  ...
+# Subtest: governance health trust
+ok 280 - governance health trust
+  ---
+  duration_ms: 0.337562
+  ...
+# Subtest: consistency clean
+ok 281 - consistency clean
+  ---
+  duration_ms: 0.335881
+  ...
+# Subtest: snapshot ready and bounded
+ok 282 - snapshot ready and bounded
+  ---
+  duration_ms: 0.401359
+  ...
+# Subtest: adaptive trust rises with verified results
+ok 283 - adaptive trust rises with verified results
+  ---
+  duration_ms: 9.861178
+  ...
+# Subtest: baseline has no significant drift
+ok 284 - baseline has no significant drift
+  ---
+  duration_ms: 0.679533
+  ...
+# Subtest: session stays non-stale
+ok 285 - session stays non-stale
+  ---
+  duration_ms: 0.628969
+  ...
+# Subtest: capability matrix includes PATCH
+ok 286 - capability matrix includes PATCH
+  ---
+  duration_ms: 0.43561
+  ...
+# Subtest: baseline has no revocations
+ok 287 - baseline has no revocations
+  ---
+  duration_ms: 0.512113
+  ...
+# Subtest: baseline has no privilege escalation
+ok 288 - baseline has no privilege escalation
+  ---
+  duration_ms: 0.46525
+  ...
+# Subtest: baseline has no anomalies
+ok 289 - baseline has no anomalies
+  ---
+  duration_ms: 0.494524
+  ...
+# Subtest: trust budget positive
+ok 290 - trust budget positive
+  ---
+  duration_ms: 0.391816
+  ...
+# Subtest: trust budget not exhausted
+ok 291 - trust budget not exhausted
+  ---
+  duration_ms: 1.385085
+  ...
+# Subtest: no policy conflicts
+ok 292 - no policy conflicts
+  ---
+  duration_ms: 0.90986
+  ...
+# Subtest: evidence coverage complete
+ok 293 - evidence coverage complete
+  ---
+  duration_ms: 0.408976
+  ...
+# Subtest: action continuously authorized
+ok 294 - action continuously authorized
+  ---
+  duration_ms: 0.55438
+  ...
+# Subtest: low risk action auto eligible
+ok 295 - low risk action auto eligible
+  ---
+  duration_ms: 1.787614
+  ...
+# Subtest: no quarantine baseline
+ok 296 - no quarantine baseline
+  ---
+  duration_ms: 0.412309
+  ...
+# Subtest: rehabilitation eligibility evidence bounded
+ok 297 - rehabilitation eligibility evidence bounded
+  ---
+  duration_ms: 0.330083
+  ...
+# Subtest: ledger does not claim persistence
+ok 298 - ledger does not claim persistence
+  ---
+  duration_ms: 0.281099
+  ...
+# Subtest: decision packet does not claim execution
+ok 299 - decision packet does not claim execution
+  ---
+  duration_ms: 0.345943
+  ...
+# Subtest: consistency clean
+ok 300 - consistency clean
+  ---
+  duration_ms: 0.414298
+  ...
+# Subtest: runtime health is healthy enough
+ok 301 - runtime health is healthy enough
+  ---
+  duration_ms: 0.348985
+  ...
+# Subtest: snapshot ready and bounded
+ok 302 - snapshot ready and bounded
+  ---
+  duration_ms: 0.529202
+  ...
+# Subtest: identity graph clean
+ok 303 - identity graph clean
+  ---
+  duration_ms: 8.991673
+  ...
+# Subtest: identity assurance positive
+ok 304 - identity assurance positive
+  ---
+  duration_ms: 1.177387
+  ...
+# Subtest: no impersonation baseline
+ok 305 - no impersonation baseline
+  ---
+  duration_ms: 0.466268
+  ...
+# Subtest: delegation graph acyclic
+ok 306 - delegation graph acyclic
+  ---
+  duration_ms: 5.750208
+  ...
+# Subtest: delegation active
+ok 307 - delegation active
+  ---
+  duration_ms: 0.704744
+  ...
+# Subtest: delegation depth bounded
+ok 308 - delegation depth bounded
+  ---
+  duration_ms: 0.522719
+  ...
+# Subtest: subdelegation clean
+ok 309 - subdelegation clean
+  ---
+  duration_ms: 0.494534
+  ...
+# Subtest: authority envelope active
+ok 310 - authority envelope active
+  ---
+  duration_ms: 0.479858
+  ...
+# Subtest: no authority escalation
+ok 311 - no authority escalation
+  ---
+  duration_ms: 1.245212
+  ...
+# Subtest: delegated capability present
+ok 312 - delegated capability present
+  ---
+  duration_ms: 0.896061
+  ...
+# Subtest: no revocation baseline
+ok 313 - no revocation baseline
+  ---
+  duration_ms: 0.349601
+  ...
+# Subtest: delegated action authorized
+ok 314 - delegated action authorized
+  ---
+  duration_ms: 0.42288
+  ...
+# Subtest: no authority conflicts
+ok 315 - no authority conflicts
+  ---
+  duration_ms: 0.264605
+  ...
+# Subtest: risk budget exists
+ok 316 - risk budget exists
+  ---
+  duration_ms: 0.308798
+  ...
+# Subtest: no break glass baseline
+ok 317 - no break glass baseline
+  ---
+  duration_ms: 0.229611
+  ...
+# Subtest: identity evidence covered
+ok 318 - identity evidence covered
+  ---
+  duration_ms: 0.304175
+  ...
+# Subtest: authority lineage present
+ok 319 - authority lineage present
+  ---
+  duration_ms: 1.280536
+  ...
+# Subtest: consistency clean
+ok 320 - consistency clean
+  ---
+  duration_ms: 0.487805
+  ...
+# Subtest: health clean
+ok 321 - health clean
+  ---
+  duration_ms: 0.267311
+  ...
+# Subtest: snapshot ready and bounded
+ok 322 - snapshot ready and bounded
+  ---
+  duration_ms: 0.538382
+  ...
+# Subtest: bridge binds response: valid
+ok 323 - bridge binds response: valid
+  ---
+  duration_ms: 72.019208
+  ...
+# Subtest: bridge binds response: requestId
+ok 324 - bridge binds response: requestId
+  ---
+  duration_ms: 70.10698
+  ...
+# Subtest: bridge binds response: requestDigest
+ok 325 - bridge binds response: requestDigest
+  ---
+  duration_ms: 55.586608
+  ...
+# Subtest: bridge binds response: sourceCommit
+ok 326 - bridge binds response: sourceCommit
+  ---
+  duration_ms: 54.447072
+  ...
+# Subtest: bridge binds response: instructionHash
+ok 327 - bridge binds response: instructionHash
+  ---
+  duration_ms: 58.898203
+  ...
+# Subtest: bridge times out without a host
+ok 328 - bridge times out without a host
+  ---
+  duration_ms: 53.767612
+  ...
+# Subtest: bridge cancellation prevents late evidence
+ok 329 - bridge cancellation prevents late evidence
+  ---
+  duration_ms: 13.681473
+  ...
+# Subtest: host execution blocks when adapter is absent
+ok 330 - host execution blocks when adapter is absent
+  ---
+  duration_ms: 9.095795
+  ...
+# Subtest: metadata alone cannot execute a skill with incorrect instruction bytes
+ok 331 - metadata alone cannot execute a skill with incorrect instruction bytes
+  ---
+  duration_ms: 1.468461
+  ...
+# Subtest: tampered manifest blocks before calling the host
+ok 332 - tampered manifest blocks before calling the host
+  ---
+  duration_ms: 0.894942
+  ...
+# Subtest: aborted host execution produces no receipt
+ok 333 - aborted host execution produces no receipt
+  ---
+  duration_ms: 0.71296
+  ...
+# Subtest: host receipts bind artifact bytes and fixtures stay ineligible
+ok 334 - host receipts bind artifact bytes and fixtures stay ineligible
+  ---
+  duration_ms: 12.823161
+  ...
+# Subtest: runner removes abort listeners after a completed case
+ok 335 - runner removes abort listeners after a completed case
+  ---
+  duration_ms: 12.630142
+  ...
+# Subtest: instruction loading is bounded by the case latency budget
+ok 336 - instruction loading is bounded by the case latency budget
+  ---
+  duration_ms: 101.326501
+  ...
+# Subtest: v4.3 loader preserves exact bytes, new hash, and legacy unproven value
+ok 337 - v4.3 loader preserves exact bytes, new hash, and legacy unproven value
+  ---
+  duration_ms: 9.493064
+  ...
+# Subtest: v4.3 rejects invalid UTF-8 and preserves newline bytes
+ok 338 - v4.3 rejects invalid UTF-8 and preserves newline bytes
+  ---
+  duration_ms: 0.721548
+  ...
+# Subtest: v4.3 preserves a UTF-8 BOM as content and hashes it
+ok 339 - v4.3 preserves a UTF-8 BOM as content and hashes it
+  ---
+  duration_ms: 0.277467
+  ...
+# Subtest: runner rejects modified text even when adapter reports trusted hashes
+ok 340 - runner rejects modified text even when adapter reports trusted hashes
+  ---
+  duration_ms: 12.362537
+  ...
+# Subtest: runner rejects version or contract mismatch before execution
+ok 341 - runner rejects version or contract mismatch before execution
+  ---
+  duration_ms: 7.339251
+  ...
+# Subtest: timeout and cancellation stop an executor that ignores AbortSignal
+ok 342 - timeout and cancellation stop an executor that ignores AbortSignal
+  ---
+  duration_ms: 36.230514
+  ...
+1..342
+# tests 342
+# suites 0
+# pass 342
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3718.16538
