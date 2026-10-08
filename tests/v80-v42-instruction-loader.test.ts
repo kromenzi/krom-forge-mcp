@@ -11,7 +11,7 @@ const result={outcome:'PASS' as const,validatorPass:true,securityPass:true,unsup
 
 test('v4.3 loader preserves exact bytes, new hash, and legacy unproven value',async()=>{
  const name=V80_V42_SHADOW_SEEDS[0].n; const entry=getV43InstructionManifestEntryV80(name); const bundle=await loadV43InstructionBundleV80(name);
- assert.equal(bundle.hashContract,V80_V43_HASH_CONTRACT); assert.equal(bundle.instructionHash,entry.instructionHash); assert.equal(bundle.rawFileHash,entry.rawFileHash); assert.equal(bundle.legacyInstructionHash,entry.legacyInstructionHash); assert.equal(bundle.legacyInstructionHashStatus,'LEGACY_UNPROVEN'); assert.deepEqual(Buffer.from(bundle.instruction,'utf8'),bundle.instructionBytes); assert.equal(hashOriginalInstructionBytes(bundle.instructionBytes,name),entry.instructionHash);
+ assert.equal(bundle.hashContract,V80_V43_HASH_CONTRACT); assert.equal(bundle.instructionHash,bundle.rawFileHash); assert.equal(bundle.trustedRawFileHash,entry.rawFileHash); assert.equal(bundle.trustedInstructionHash,entry.instructionHash); assert.equal(bundle.legacyInstructionHash,entry.legacyInstructionHash); assert.equal(bundle.legacyInstructionHashStatus,'LEGACY_UNPROVEN'); assert.deepEqual(Buffer.from(bundle.instruction,'utf8'),bundle.instructionBytes); assert.equal(hashOriginalInstructionBytes(bundle.instructionBytes,name),entry.instructionHash);
 });
 
 test('v4.3 rejects invalid UTF-8 and preserves newline bytes',async()=>{
