@@ -1,0 +1,3 @@
+# Keep v4.3 hash-bound instruction files byte-identical on Windows and Unix.
+# SHA-256 contracts are over exact SKILL.md bytes; CRLF checkout conversion breaks integrity.
+skills/**/SKILL.md text eol=lf
