@@ -88,12 +88,15 @@ test('host receipts bind artifact bytes and fixtures stay ineligible',async()=>{
 
 test('runner removes abort listeners after a completed case',async()=>{
   const {default:EventEmitter}=await import('node:events');
-  const {loadV43InstructionV80}=await import('../src/v80-v43-instruction-loader');
-  const controller=new AbortController();
-  const output=await executeV42HostBenchmarkV80({manifest:manifest(),sourceCommit:commit,signal:controller.signal,
-    adapter:{evidenceOrigin:'FIXTURE',loadInstruction:loadV43InstructionV80,execute:async()=>result}});
-  assert.equal(output.receipts.length,1);
-  assert.equal(EventEmitter.getEventListeners(controller.signal,'abort').length,0);
+  const seed=V80_V42_SHADOW_SEEDS[0]; const original=seed.h;
+  Object.defineProperty(seed,'h',{value:createHash('sha256').update(instruction).digest('hex'),writable:true});
+  try {
+    const controller=new AbortController();
+    const output=await executeV42HostBenchmarkV80({manifest:manifest(),sourceCommit:commit,signal:controller.signal,
+      adapter:{evidenceOrigin:'FIXTURE',loadInstruction:async()=>instruction,execute:async()=>result}});
+    assert.equal(output.receipts.length,1);
+    assert.equal(EventEmitter.getEventListeners(controller.signal,'abort').length,0);
+  } finally {Object.defineProperty(seed,'h',{value:original,writable:true});}
 });
 
 
@@ -103,15 +106,17 @@ test('instruction loading is bounded by the case latency budget',async()=>{
   try {
     const started=Date.now();
     const output=await executeV42HostBenchmarkV80({manifest:{
-      ...manifest(),
-      cases:manifest().cases.map(item=>({...item,latencyBudgetMs:100})),
+      ...buildV42RealBenchmarkManifestV80({benchmarkId:'host-timeout-test',cases:[{
+        caseId:'one',skillName:seed.n,scenarioId:'negative-case',scenarioRef:'fixture:negative-case',
+        expectedEvidenceKinds:['result','validator','security'],latencyBudgetMs:100
+      }]}),
     },sourceCommit:commit,adapter:{
       evidenceOrigin:'FIXTURE',
       loadInstruction:async()=>new Promise<string>(()=>{}),
       execute:async()=>result
     }});
     assert.equal(output.receipts.length,0);
-    assert.ok(output.blockers.includes('V43_HASH_CONTRACT_OR_MANIFEST_MISMATCH') || output.failures.length===1);
+    assert.equal(output.failures[0]?.reason,'HOST_ADAPTER_OR_RESULT_FAILURE');
     assert.ok(Date.now()-started<1000);
   } finally {Object.defineProperty(seed,'h',{value:original,writable:true});}
 });
