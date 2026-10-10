@@ -131,6 +131,7 @@ import * as v80exec from '../../src/v80-authorized-promotion-executor';
 import * as v80catalog from '../../src/v80-real-catalog-promotion-adapter';
 import * as v80realbench from '../../src/v80-real-benchmark-evidence-pipeline';
 import * as v80campaign from '../../src/v80-real-benchmark-campaign-orchestrator';
+import { auditSkillRegistryIntegrityV81, v81SkillRegistryAuditSchema } from '../../src/v81-skill-registry-integrity';
 import { V53_TOOL_SPECS, V53_TOOL_NAMES, v53UniversalSchema, executeV53Tool } from '../../src/v53-registry';
 import { routeRequest, researchDimensions, researchSourceHierarchy, acceptanceDimensions } from '../../src/knowledge';
 import { auditProject, buildTaskGraph, createRunState, resumeRun, selectTools, verifyEvidence } from '../../src/orchestrator';
@@ -2894,6 +2895,16 @@ const handler = createMcpHandler((server) => {
       if(operation==='AUDIT_V42_REAL_BENCHMARK_CAMPAIGN_ORCHESTRATOR') return result(v80campaign.auditV42RealBenchmarkCampaignOrchestratorV80());
       return result(v80.auditAdaptiveSkillIntelligenceV80());
     }
+  );
+
+  registerControlTool(
+    'krom_v81_audit_catalog_integrity',
+    {
+      title: 'Audit v81 catalog integrity',
+      description: 'Reconcile the active skill catalog, v4.3 shadow instruction pack, agent mapping, hash contract and supplied document-audit receipt. It never promotes, merges, deletes or executes skills.',
+      inputSchema: v81SkillRegistryAuditSchema
+    },
+    async (input) => result(auditSkillRegistryIntegrityV81(input))
   );
 
   registerControlTool(
