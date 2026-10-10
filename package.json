@@ -41,6 +41,7 @@
     "verify:v80": "tsx scripts/verify-v80-adaptive-skill-intelligence.ts",
     "verify:v81": "tsx scripts/verify-v81-skill-registry-integrity.ts",
     "audit:skills": "tsx scripts/audit-krom-skills.ts --check",
+    "audit:v43:readiness": "tsx scripts/audit-v43-promotion-readiness.ts",
     "reports:skills": "tsx scripts/audit-krom-skills.ts --write-reports",
     "generate:v80:v43": "tsx scripts/generate-v80-v43-instruction-pack.ts",
     "verify:v80:v43": "tsx scripts/verify-v80-v43-instruction-pack.ts",
