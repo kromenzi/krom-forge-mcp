@@ -40,5 +40,5 @@ This report inventories the repository's active runtime catalog, its v4.3 source
 
 ## Follow-up
 
-- Pull request: PENDING_PULL_REQUEST
-- Vercel Preview: NOT_DEPLOYED_YET — PENDING_VERCEL_PREVIEW
+- Pull request: https://github.com/kromenzi/krom-forge-mcp/pull/56
+- Vercel Preview: READY; external health access is protected (HTTP 401) — https://krom-forge-o0oquk5si-kromenzis-projects.vercel.app

@@ -15,9 +15,9 @@ The new control-plane operation is `krom_v81_audit_catalog_integrity`. It is not
 
 ## Deployment status
 
-- Pull request: PENDING_PULL_REQUEST
-- Vercel Preview: NOT_DEPLOYED_YET
-- Preview URL: PENDING_VERCEL_PREVIEW
+- Pull request: https://github.com/kromenzi/krom-forge-mcp/pull/56
+- Vercel Preview: READY; external health access is protected (HTTP 401)
+- Preview URL: https://krom-forge-o0oquk5si-kromenzis-projects.vercel.app
 - Local HTTP smoke: PASS
 
 > A READY Preview validates the new branch build only. It does not modify the current Production deployment.
