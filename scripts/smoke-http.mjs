@@ -143,13 +143,20 @@ async function main() {
     ['krom_get_capabilities', {}],
     ['krom_search_capabilities', { query: 'project snapshot', limit: 3 }],
     ['krom_describe_capability', { tool: 'krom_inspect_project' }],
-    ['krom_dispatch_capability', { tool: 'krom_get_capabilities', input: {} }]
+    ['krom_dispatch_capability', { tool: 'krom_get_capabilities', input: {} }],
+    ['krom_dispatch_capability', { tool: 'krom_v81_audit_catalog_integrity', input: {} }]
   ];
   for (const [index, [name, args]] of toolCalls.entries()) {
     const response = await postMcp({ jsonrpc: '2.0', id: 10 + index, method: 'tools/call', params: { name, arguments: args } }, sessionId);
     const body = await readJson(response);
     if (!response.ok || body?.error || body?.result?.isError) {
       throw new Error(`MCP tools/call failed for ${name}: HTTP ${response.status} ${JSON.stringify(body)}`);
+    }
+    if (index === 4) {
+      const audit = body?.result?.structuredContent;
+      if (audit?.status !== 'PASS_WITH_DOCUMENT_AUDIT_REQUIRED' || audit?.catalog?.active?.count !== 1465 || audit?.catalog?.shadow?.count !== 500) {
+        throw new Error(`V81 skill registry audit returned an unexpected contract: ${JSON.stringify(audit)}`);
+      }
     }
   }
 
