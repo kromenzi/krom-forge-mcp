@@ -35,6 +35,7 @@ on:
       - v70-autonomous-delivery-verification-mesh
       - v71-continuous-assurance-learning-plane
       - feat/v76-semantic-skill-runtime
+      - feat/v77-native-skill-runtime
 
 jobs:
   contract:
@@ -131,6 +132,9 @@ jobs:
       - name: Verify v76 semantic skill runtime
         run: npm run verify:v76
 
+      - name: Verify v77 native skill runtime
+        run: npm run verify:v77
+
       - name: Unit tests
         run: npm test
 
@@ -225,6 +229,9 @@ jobs:
       - name: Verify v76 semantic skill runtime
         run: npm run verify:v76
 
+      - name: Verify v77 native skill runtime
+        run: npm run verify:v77
+
       - name: Type check
         run: npm run typecheck
 
@@ -263,7 +270,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: krom-v76-verification-${{ github.sha }}
+          name: krom-v77-verification-${{ github.sha }}
           path: .artifacts/
           include-hidden-files: true
           if-no-files-found: warn

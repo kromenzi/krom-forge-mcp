@@ -126,39 +126,34 @@ if (manifest.counts.capabilities !== 5333) fail(`Expected exactly 5333 capabilit
 if (!route.includes('for (const spec of V54_TOOL_SPECS)')) fail('v54 runtime generated registration loop is missing.');
 if (!route.includes('...V54_TOOL_NAMES')) fail('v54 capability expansion is missing.');
 
-if (!route.includes('KROM_PUBLIC_TOOL_NAMES')) fail('Compact MCP public tool surface is missing.');
+if (!route.includes('KROM_CORE_PUBLIC_TOOL_NAMES')) fail('v79 core MCP public tool surface is missing.');
+if (!route.includes('KROM_LEGACY_PUBLIC_TOOL_NAMES')) fail('v79 legacy compatibility surface is missing.');
 if (!route.includes("'krom_search_capabilities'")) fail('Capability search gateway is missing.');
+if (!route.includes("'krom_describe_capability'")) fail('Capability describe gateway is missing.');
 if (!route.includes("'krom_dispatch_capability'")) fail('Capability dispatch gateway is missing.');
-if (manifest.counts.publicDirect < 40 || manifest.counts.publicDirect > 120) {
-  fail(`Compact public tool surface must stay between 40 and 120 tools; found ${manifest.counts.publicDirect}`);
+if (manifest.counts.publicDirect < 10 || manifest.counts.publicDirect > 15) {
+  fail(`v79 core public tool surface must stay between 10 and 15 tools; found ${manifest.counts.publicDirect}`);
 }
 const publicNames = new Set(manifest.publicTools.map((tool) => tool.name));
 const requiredPublicLatest = [
-  'krom_v72_audit_skill_tool_coverage',
-  'krom_v72_assess_skill_execution_safety',
-  'krom_v72_build_skill_tool_chain',
-  'krom_v72_compare_skill_contracts',
-  'krom_v72_audit_skill_catalog',
-  'krom_v72_build_skill_assurance_snapshot',
-  'krom_v73_build_patch_bundle',
-  'krom_v73_verify_patch_bundle',
-  'krom_v73_build_patch_execution_contract',
-  'krom_v74_audit_skill_registry',
-  'krom_v74_validate_skill_package',
-  'krom_v74_review_skill_supply_chain',
-  'krom_v74_draft_skill_package',
-  'krom_v74_analyze_skill_capability_gaps',
-  'krom_v74_evaluate_skill_behavioral_suite',
-  'krom_v74_compare_skill_lifecycle',
-  'krom_v74_normalize_audit_outcome',
-  'krom_v74_build_dependency_sbom',
-  'krom_v74_scan_redacted_secrets',
+  'krom_route_workflow',
+  'krom_inspect_project',
+  'krom_plan_code_change',
+  'krom_verify_evidence',
+  'krom_audit_ui',
+  'krom_evaluate_security_assessment',
+  'krom_evaluate_production_readiness',
+  'krom_decide_release',
+  'krom_v77_build_native_mission_plan',
+  'krom_v77_mission_control',
+  'krom_v78_autonomous_governance',
   'krom_get_capabilities',
   'krom_search_capabilities',
+  'krom_describe_capability',
   'krom_dispatch_capability'
 ];
 const missingPublicLatest = requiredPublicLatest.filter((tool) => !publicNames.has(tool));
-if (missingPublicLatest.length) fail(`Latest skill/gateway tools missing from compact public surface: ${missingPublicLatest.join(', ')}`);
+if (missingPublicLatest.length) fail(`v79 canonical tools missing from core public surface: ${missingPublicLatest.join(', ')}`);
 
 
 const report = {
@@ -167,6 +162,7 @@ const report = {
   registeredTools: manifest.counts.registered,
   capabilityTools: manifest.counts.capabilities,
   publicDirectTools: manifest.counts.publicDirect,
+  controlPlaneTools: manifest.counts.controlPlane ?? 0,
   sourceModules: manifest.counts.sourceModules,
   duplicates: manifest.integrity.duplicateRegistrations.length + manifest.integrity.duplicateCapabilities.length,
   missingCapabilities: manifest.integrity.missingCapabilities.length,
