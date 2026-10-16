@@ -1,0 +1,60 @@
+{
+  "skill": "ems-migration-rls-testing",
+  "integration": "krom-forge",
+  "version": "1.0.0",
+  "mode": "evidence-first-read-only-by-default",
+  "domains": ["database", "postgres", "supabase", "migration", "rls", "rest", "e2e", "ems-1a", "ems-1b", "tenant-isolation"],
+  "required_artifacts": [
+    "migration-lineage-inventory",
+    "production-manifest",
+    "reconstructed-manifest",
+    "schema-parity-result",
+    "provenance-metadata",
+    "supabase-execution-receipt",
+    "signed-execution-receipt",
+    "signed-test-results",
+    "independent-approval-receipt",
+    "trusted-approver-registry",
+    "staging-ci-workflow",
+    "signed-ci-execution-attestation",
+    "ci-command-shape-validation",
+    "known-test-file-manifests",
+    "raw-per-area-test-results",
+    "rls-policy-snapshot",
+    "rest-results",
+    "e2e-smoke-results",
+    "tenant-isolation-evidence"
+  ],
+  "hard_stops": [
+    "cross-tenant-read-or-write",
+    "missing-or-unverified-rls-policy",
+    "unexplained-production-reconstructed-diff",
+    "failed-critical-e2e-smoke",
+    "unrecoverable-migration",
+    "unverified-go-claim",
+    "untrusted-or-unbound-evidence",
+    "missing-33-migration-lineage",
+    "duplicate-production-reconstructed-evidence",
+    "unauthorized-merge-or-deploy-approval"
+  ],
+  "decision_states": ["READY", "CONDITIONAL", "BLOCKED", "NO-GO"],
+  "krom_tools": {
+    "route": "krom_route_workflow",
+    "plan": "krom_v77_build_native_mission_plan",
+    "verify": "krom_verify_evidence",
+    "inspect": "krom_inspect_project",
+    "production_readiness": "krom_evaluate_production_readiness",
+    "release": "krom_decide_release"
+  },
+  "never_claim_without_evidence": [
+    "historical migration order",
+    "Production access or inspection",
+    "test execution",
+    "schema parity",
+    "RLS isolation",
+    "release readiness",
+    "Supabase test execution from agent-supplied JSON",
+    "authenticity of an execution receipt without host/KROM attestation",
+    "Phase 7.4 release readiness while migration_lineage.missing_count is greater than zero"
+  ]
+}

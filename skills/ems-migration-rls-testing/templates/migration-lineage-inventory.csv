@@ -1,0 +1,3 @@
+migration_id,status,confidence,known_objects,depends_on,evidence,verification_test,owner,decision
+MIG-001,missing,unknown,,,,,,HOLD
+MIG-002,missing,unknown,,,,,,HOLD

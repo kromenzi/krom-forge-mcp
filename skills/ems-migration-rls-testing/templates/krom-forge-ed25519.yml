@@ -1,0 +1,223 @@
+# Copy to .github/workflows/krom-forge-ed25519.yml and adapt only the repository-specific CI commands.
+# The PR job never receives signing or Supabase production secrets.
+name: Phase 7.4 — RLS and Migration Evidence
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: phase-7-4-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    name: RLS / REST / Storage / Migration tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install evidence tooling
+        run: python -m pip install --upgrade cryptography
+
+      - name: Enable repository CI adapters
+        run: chmod +x ci/run_rls_tests.sh ci/run_rest_tests.sh ci/run_storage_tests.sh ci/run_migration_tests.sh
+
+      - name: Reject placeholder or domainless test commands
+        env:
+          CI_RLS_COMMAND: ${{ vars.CI_RLS_COMMAND }}
+          CI_REST_COMMAND: ${{ vars.CI_REST_COMMAND }}
+          CI_STORAGE_COMMAND: ${{ vars.CI_STORAGE_COMMAND }}
+          CI_MIGRATION_COMMAND: ${{ vars.CI_MIGRATION_COMMAND }}
+        run: |
+          python scripts/validate_ci_commands.py \
+            --rls "$CI_RLS_COMMAND" \
+            --rest "$CI_REST_COMMAND" \
+            --storage "$CI_STORAGE_COMMAND" \
+            --migration "$CI_MIGRATION_COMMAND"
+
+      # These scripts must use an ephemeral/staging Supabase project, never Production.
+      # They must emit evidence/production.json, evidence/reconstructed.json, and raw artifacts.
+      - name: Run RLS tests
+        run: ./ci/run_rls_tests.sh
+        env:
+          CI_RLS_COMMAND: ${{ vars.CI_RLS_COMMAND }}
+          CI_RLS_TEST_PATHS: ${{ vars.CI_RLS_TEST_PATHS }}
+          CI_RLS_RAW_RESULTS: ${{ vars.CI_RLS_RAW_RESULTS }}
+          CI_RLS_MIN_COUNT: ${{ vars.CI_RLS_MIN_COUNT }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_STAGING_PROJECT_REF }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_STAGING_ACCESS_TOKEN }}
+
+      - name: Run REST tests
+        run: ./ci/run_rest_tests.sh
+        env:
+          CI_REST_COMMAND: ${{ vars.CI_REST_COMMAND }}
+          CI_REST_TEST_PATHS: ${{ vars.CI_REST_TEST_PATHS }}
+          CI_REST_RAW_RESULTS: ${{ vars.CI_REST_RAW_RESULTS }}
+          CI_REST_MIN_COUNT: ${{ vars.CI_REST_MIN_COUNT }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_STAGING_PROJECT_REF }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_STAGING_ACCESS_TOKEN }}
+
+      - name: Run Storage tests
+        run: ./ci/run_storage_tests.sh
+        env:
+          CI_STORAGE_COMMAND: ${{ vars.CI_STORAGE_COMMAND }}
+          CI_STORAGE_TEST_PATHS: ${{ vars.CI_STORAGE_TEST_PATHS }}
+          CI_STORAGE_RAW_RESULTS: ${{ vars.CI_STORAGE_RAW_RESULTS }}
+          CI_STORAGE_MIN_COUNT: ${{ vars.CI_STORAGE_MIN_COUNT }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_STAGING_PROJECT_REF }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_STAGING_ACCESS_TOKEN }}
+
+      - name: Run Migration and parity tests
+        run: ./ci/run_migration_tests.sh
+        env:
+          CI_MIGRATION_COMMAND: ${{ vars.CI_MIGRATION_COMMAND }}
+          CI_MIGRATION_TEST_PATHS: ${{ vars.CI_MIGRATION_TEST_PATHS }}
+          CI_MIGRATION_RAW_RESULTS: ${{ vars.CI_MIGRATION_RAW_RESULTS }}
+          CI_MIGRATION_MIN_COUNT: ${{ vars.CI_MIGRATION_MIN_COUNT }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_STAGING_PROJECT_REF }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_STAGING_ACCESS_TOKEN }}
+
+      - name: Require repository test integration evidence
+        run: |
+          for suite in rls rest storage migration; do test -s "evidence/ci-command-receipts/${suite}.json"; done
+          test -s evidence/production.json
+          test -s evidence/reconstructed.json
+          test -s evidence/test-results.json
+
+      - name: Validate evidence structure (unsigned is expected on PRs)
+        run: |
+          python scripts/verify_evidence_provenance.py evidence/production.json || test $? -eq 2
+          python scripts/verify_evidence_provenance.py evidence/reconstructed.json || test $? -eq 2
+
+      - name: Upload raw evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-7-4-evidence-${{ github.sha }}
+          if-no-files-found: error
+          path: evidence/
+          retention-days: 14
+
+  signed_gate:
+    name: Signed evidence and KROM Forge gate
+    needs: tests
+    # Protected environment must require reviewers and must be configured only for staging.
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    environment: phase-7-4-staging
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install signing and evidence tooling
+        run: python -m pip install --upgrade cryptography
+
+      - name: Download test evidence
+        uses: actions/download-artifact@v4
+        with:
+          pattern: phase-7-4-evidence-${{ github.sha }}
+          path: evidence
+          merge-multiple: true
+
+      - name: Materialize protected signing keys
+        env:
+          ED25519_PRIVATE_KEY: ${{ secrets.PHASE_7_4_ED25519_PRIVATE_KEY }}
+          ED25519_PUBLIC_KEY: ${{ secrets.PHASE_7_4_ED25519_PUBLIC_KEY }}
+          APPROVAL_PUBLIC_KEY: ${{ secrets.PHASE_7_4_APPROVAL_PUBLIC_KEY }}
+          APPROVAL_RECEIPT_JSON: ${{ secrets.PHASE_7_4_APPROVAL_RECEIPT_JSON }}
+          APPROVER_REGISTRY_JSON: ${{ secrets.PHASE_7_4_APPROVER_REGISTRY_JSON }}
+        run: |
+          test -n "$ED25519_PRIVATE_KEY"
+          test -n "$ED25519_PUBLIC_KEY"
+          umask 077
+          printf '%s\n' "$ED25519_PRIVATE_KEY" > "$RUNNER_TEMP/ci-ed25519-private.pem"
+          printf '%s\n' "$ED25519_PUBLIC_KEY" > "$RUNNER_TEMP/ci-ed25519-public.pem"
+          test -n "$APPROVAL_PUBLIC_KEY"
+          test -n "$APPROVAL_RECEIPT_JSON"
+          test -n "$APPROVER_REGISTRY_JSON"
+          printf '%s\n' "$APPROVAL_PUBLIC_KEY" > "$RUNNER_TEMP/approval-ed25519-public.pem"
+          printf '%s\n' "$APPROVAL_RECEIPT_JSON" > "$RUNNER_TEMP/approval-receipt.json"
+          printf '%s\n' "$APPROVER_REGISTRY_JSON" > "$RUNNER_TEMP/approver-registry.json"
+
+      - name: Sign Supabase execution receipts
+        run: |
+          python scripts/sign_execution_receipt.py evidence/production.json \
+            --private-key "$RUNNER_TEMP/ci-ed25519-private.pem" \
+            --key-id "${{ vars.PHASE_7_4_SIGNING_KEY_ID }}"
+          python scripts/sign_execution_receipt.py evidence/reconstructed.json \
+            --private-key "$RUNNER_TEMP/ci-ed25519-private.pem" \
+            --key-id "${{ vars.PHASE_7_4_SIGNING_KEY_ID }}"
+
+      - name: Sign GitHub Actions execution attestation
+        run: |
+          python scripts/sign_ci_attestation.py \
+            --private-key "$RUNNER_TEMP/ci-ed25519-private.pem" \
+            --out evidence/ci-attestation.json \
+            --workflow-template .github/workflows/krom-forge-ed25519.yml \
+            --project-ref "${{ vars.SUPABASE_STAGING_PROJECT_REF }}" \
+            --environment "phase-7-4-staging" \
+            --key-id "${{ vars.PHASE_7_4_SIGNING_KEY_ID }}"
+          python scripts/verify_ci_attestation.py evidence/ci-attestation.json \
+            --trusted-key "$RUNNER_TEMP/ci-ed25519-public.pem" \
+            --project-ref "${{ vars.SUPABASE_STAGING_PROJECT_REF }}" \
+            --environment "phase-7-4-staging" \
+            --template-hash "$(sha256sum .github/workflows/krom-forge-ed25519.yml | cut -d' ' -f1)"
+
+      - name: Verify signatures and strict parity gates
+        run: |
+          python scripts/verify_signed_receipt.py evidence/production.json --trusted-key "$RUNNER_TEMP/ci-ed25519-public.pem"
+          python scripts/verify_signed_receipt.py evidence/reconstructed.json --trusted-key "$RUNNER_TEMP/ci-ed25519-public.pem"
+          python scripts/compare_schema_manifests.py evidence/production.json evidence/reconstructed.json \
+            --trusted-key "$RUNNER_TEMP/ci-ed25519-public.pem" \
+            --approval-receipt "$RUNNER_TEMP/approval-receipt.json" \
+            --approval-key "$RUNNER_TEMP/approval-ed25519-public.pem" \
+            --approver-registry "$RUNNER_TEMP/approver-registry.json" \
+            --target-revision "${{ github.sha }}" \
+            --out evidence/schema-parity.json
+
+      - name: Submit signed evidence to KROM Forge
+        env:
+          KROM_FORGE_GATE_COMMAND: ${{ vars.KROM_FORGE_GATE_COMMAND }}
+          KROM_FORGE_TOKEN: ${{ secrets.KROM_FORGE_TOKEN }}
+        run: |
+          test -n "$KROM_FORGE_GATE_COMMAND"
+          test -n "$KROM_FORGE_TOKEN"
+          # The repository adapter must call the KROM Forge MCP/API contract.
+          # It must fail closed and must not print tokens or raw Production data.
+          "$KROM_FORGE_GATE_COMMAND" evidence/schema-parity.json evidence/production.json evidence/reconstructed.json
+
+      - name: Upload signed evidence and decision
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-7-4-signed-evidence-${{ github.sha }}
+          if-no-files-found: error
+          path: evidence/
+          retention-days: 30
+
+      - name: Remove private key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/ci-ed25519-private.pem" "$RUNNER_TEMP/ci-ed25519-public.pem" "$RUNNER_TEMP/approval-ed25519-public.pem" "$RUNNER_TEMP/approval-receipt.json" "$RUNNER_TEMP/approver-registry.json"
