@@ -6,6 +6,7 @@ export const V75_AGENT_IDS = [
 
 export const V75_SKILL_NAMES = [
   'elite-product-uiux-designer','enterprise-hse-platform-engineer','excel-playbooks','find-skills','github-gem-seeker','internet-skill-finder',
+  'ems-migration-rls-testing',
   'krom-appsec-threat-model-engineer','krom-autonomous-repair-engineer','krom-mcp-contract-security-engineer','krom-observability-reliability-engineer',
   'krom-prompt-skill-evaluation-engineer','krom-sast-dast-dependency-security-engineer','krom-secrets-credential-guardian','krom-secure-code-auditor',
   'krom-self-evolution-engineer','krom-skill-discovery-curation-engineer','krom-skill-factory-meta-engineer','krom-skill-supply-chain-security-auditor',

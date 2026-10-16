@@ -33,6 +33,9 @@ const BASE_EVIDENCE = [
 
 function profile(name: string) {
   const n = name.toLowerCase();
+  if (n.includes('ems-migration-rls-testing')) {
+    return { domains:['ems','database','postgres','supabase','migration','rls','rest','e2e','tenant-isolation','provenance','release'], preferredAgents:['database','security','qa','researcher','release-auditor'] };
+  }
   if (n.includes('uiux') || n.includes('accessibility') || n.includes('rtl') || n.includes('vision-command-center')) {
     return { domains:['ui','ux','responsive','accessibility','rtl','frontend'], preferredAgents:['uiux','frontend','qa'] };
   }

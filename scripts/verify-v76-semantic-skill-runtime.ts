@@ -3,12 +3,17 @@ import { selectAgentV76, rankSkillsV76, rankCapabilitiesV76, buildExecutionPlanV
 import { auditSkillIndexV76, getSkillMetadataV76 } from '../src/v76-skill-index';
 
 if (V75_AGENT_IDS.length !== 11) throw new Error(`Expected 11 agents, got ${V75_AGENT_IDS.length}`);
-if (V75_SKILL_NAMES.length !== 51) throw new Error(`Expected 50 skills, got ${V75_SKILL_NAMES.length}`);
+if (V75_SKILL_NAMES.length !== 52) throw new Error(`Expected 52 skills, got ${V75_SKILL_NAMES.length}`);
 
 const skillIndexAudit = auditSkillIndexV76();
 if (skillIndexAudit.status !== 'PASS') throw new Error(`Skill index audit failed: ${JSON.stringify(skillIndexAudit)}`);
-if (skillIndexAudit.actualCount !== 51) throw new Error(`Expected 50 indexed skills, got ${skillIndexAudit.actualCount}`);
-if (skillIndexAudit.digestCoverage !== 51) throw new Error(`Expected SHA-256 coverage for all skills, got ${skillIndexAudit.digestCoverage}`);
+if (skillIndexAudit.actualCount !== 52) throw new Error(`Expected 52 indexed skills, got ${skillIndexAudit.actualCount}`);
+if (skillIndexAudit.digestCoverage !== 52) throw new Error(`Expected SHA-256 coverage for all skills, got ${skillIndexAudit.digestCoverage}`);
+const emsSkill = getSkillMetadataV76('ems-migration-rls-testing');
+if (!emsSkill || !emsSkill.description.includes('33 database migrations') ||
+    !['database','security','qa','researcher','release-auditor'].every(agent => emsSkill.preferredAgents.includes(agent))) {
+  throw new Error('EMS skill metadata or required agent bindings were not loaded');
+}
 const hseSkill = getSkillMetadataV76('enterprise-hse-platform-engineer');
 if (!hseSkill?.description.includes('HSE')) throw new Error('Validated HSE skill metadata was not loaded');
 
@@ -59,7 +64,7 @@ console.log(JSON.stringify({
   status:'PASS',
   release:'v76',
   agents:11,
-  skills:51,
+  skills:52,
   preservedInternalCapabilityBaseline:5333,
   bilingualSearch:true,
   fuzzyRanking:true,
